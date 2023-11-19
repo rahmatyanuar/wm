@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">searchFieldValueFromDoc</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">Ly8gcGlwZWxpbmUKSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJz
+b3IoKTsKCgkvLyBkb2MKCUlEYXRhCWRvYyA9IElEYXRhVXRpbC5nZXRJRGF0YSggcGlwZWxpbmVD
+dXJzb3IsICJkb2MiICk7CglJRGF0YUN1cnNvciBzZWFyY2hEb2NJZGMgPSBkb2MuZ2V0Q3Vyc29y
+KCk7CglpZiAoIGRvYyA9PSBudWxsKQoJewoJCXRocm93IG5ldyBTZXJ2aWNlRXhjZXB0aW9uKCJJ
+bnZhbGlkIElucHV0IERvY3VtZW50Iik7Cgl9CglTdHJpbmcJc2VhcmNoRmllbGROYW1lID0gSURh
+dGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVDdXJzb3IsICJzZWFyY2hGaWVsZE5hbWUiKTsKCVN0
+cmluZyAgZmllbGRWYWx1ZSA9IElEYXRhVXRpbC5nZXRTdHJpbmcgKHNlYXJjaERvY0lkYyAsIHNl
+YXJjaEZpZWxkTmFtZSk7CgkKcGlwZWxpbmVDdXJzb3IuZGVzdHJveSgpOwoKLy8gcGlwZWxpbmUK
+SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3JfMSA9IHBpcGVsaW5lLmdldEN1cnNvcigpOwpJRGF0
+YVV0aWwucHV0KCBwaXBlbGluZUN1cnNvcl8xLCAiZmllbGRWYWx1ZSIsIGZpZWxkVmFsdWUgKTsK
+cGlwZWxpbmVDdXJzb3JfMS5kZXN0cm95KCk7Cg==</value>
+</Values>

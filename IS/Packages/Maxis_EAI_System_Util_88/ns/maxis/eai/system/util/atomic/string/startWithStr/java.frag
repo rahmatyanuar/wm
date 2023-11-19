@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">startWithStr</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">Ly8gcGlwZWxpbmUKSURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJz
+b3IoKTsKU3RyaW5nIGlucHV0ID0gSURhdGFVdGlsLmdldFN0cmluZyhwaXBlbGluZUN1cnNvciwg
+ImlucHV0VmFsdWUiKTsKU3RyaW5nIG1hdGNoID0gSURhdGFVdGlsLmdldFN0cmluZyhwaXBlbGlu
+ZUN1cnNvciwgIm1hdGNoIik7CnBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsKCmJvb2xlYW4gYiA9
+IGlucHV0LnN0YXJ0c1dpdGgobWF0Y2gpOwpTdHJpbmcgcmVzdWx0ID0gU3RyaW5nLnZhbHVlT2Yo
+Yik7CgovLyBwaXBlbGluZQpJRGF0YUN1cnNvciBwaXBlbGluZUN1cnNvcl8xID0gcGlwZWxpbmUu
+Z2V0Q3Vyc29yKCk7CklEYXRhVXRpbC5wdXQocGlwZWxpbmVDdXJzb3JfMSwgInJlc3VsdCIscmVz
+dWx0KTsKcGlwZWxpbmVDdXJzb3JfMS5kZXN0cm95KCk7Cg==</value>
+</Values>

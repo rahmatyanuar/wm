@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">maxis.eai.system.util.atomic.str</value>
+  <value name="is_public">false</value>
+  <value name="shared">c3RhdGljIFNlY3VyZVJhbmRvbSByYW5kb20gPSBuZXcgU2VjdXJlUmFuZG9tKCk7</value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>java.security.SecureRandom</value>
+    <value>java.io.*</value>
+  </array>
+</Values>

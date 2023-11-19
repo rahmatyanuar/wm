@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">removeEmptyTag</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsNCklEYXRh
+IGlucHV0RG9jID0gSURhdGFVdGlsLmdldElEYXRhKCBwaXBlbGluZUN1cnNvciwgImlucHV0RG9j
+IiApOw0KaWYoaW5wdXREb2MgIT0gbnVsbCl7DQoJSURhdGFDdXJzb3IgaW5wdXRDdXIgPSBpbnB1
+dERvYy5nZXRDdXJzb3IoKTsNCglJRGF0YSBvdXRwdXREb2MgPSBJRGF0YUZhY3RvcnkuY3JlYXRl
+KCk7DQoJSURhdGFDdXJzb3Igb3V0cHV0Q3VyID0gb3V0cHV0RG9jLmdldEN1cnNvcigpOw0KCXJl
+bW92ZUVtcHR5U3RyaW5nKGlucHV0Q3VyLCBvdXRwdXRDdXIpOw0KCWlucHV0Q3VyLmRlc3Ryb3ko
+KTsNCglJRGF0YVV0aWwucHV0KCBwaXBlbGluZUN1cnNvciwgIm91dHB1dERvYyIsIG91dHB1dERv
+YyApOw0KDQp9DQpwaXBlbGluZUN1cnNvci5kZXN0cm95KCk7CQkJ</value>
+</Values>

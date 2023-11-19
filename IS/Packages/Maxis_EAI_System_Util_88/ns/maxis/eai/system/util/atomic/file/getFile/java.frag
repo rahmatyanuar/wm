@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">getFile</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgcGlwZWxpbmVDdXJzb3IgPSBwaXBlbGluZS5nZXRDdXJzb3IoKTsKU3RyaW5n
+CWZpbGVuYW1lID0gSURhdGFVdGlsLmdldFN0cmluZyggcGlwZWxpbmVDdXJzb3IsICJmaWxlbmFt
+ZSIgKTsKRmlsZUlucHV0U3RyZWFtIGZpbiA9IG51bGw7Cgp0cnl7CglGaWxlIGYgPSBuZXcgRmls
+ZShmaWxlbmFtZSk7CglmaW4gPSBuZXcgRmlsZUlucHV0U3RyZWFtKGYpOwoJYnl0ZVtdIGJ5dGVz
+ID0gdG9CeXRlQXJyYXkoZmluKTsgCglJRGF0YVV0aWwucHV0KCBwaXBlbGluZUN1cnNvciwgImJ5
+dGVzIiwgYnl0ZXMgKTsKfWNhdGNoKEV4Y2VwdGlvbiBlKXsKCXRocm93IG5ldyBTZXJ2aWNlRXhj
+ZXB0aW9uKGUpOwp9ZmluYWxseXsKCXBpcGVsaW5lQ3Vyc29yLmRlc3Ryb3koKTsJCglpZihmaW4g
+IT0gbnVsbCl7CgkJdHJ5ewoJCQlmaW4uY2xvc2UoKTsKCQl9Y2F0Y2goRXhjZXB0aW9uIGUpe30K
+CX0KfQ==</value>
+</Values>

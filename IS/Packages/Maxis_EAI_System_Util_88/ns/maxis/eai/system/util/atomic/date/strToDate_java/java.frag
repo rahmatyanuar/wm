@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">strToDate_java</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgaWRjID0gcGlwZWxpbmUuZ2V0Q3Vyc29yKCk7Cgp0cnkgewoJU3RyaW5nIHN0
+ckRhdGUgPSBJRGF0YVV0aWwuZ2V0U3RyaW5nKGlkYywgInN0ckRhdGUiKTsKCVN0cmluZyBkYXRl
+VGltZUZvcm1hdCA9IElEYXRhVXRpbC5nZXRTdHJpbmcoaWRjLCAiZGF0ZVRpbWVGb3JtYXQiKTsK
+CVNpbXBsZURhdGVGb3JtYXQgc2RmID0gbmV3IFNpbXBsZURhdGVGb3JtYXQoZGF0ZVRpbWVGb3Jt
+YXQpOwoJRGF0ZSBvdXRKYXZhID0gc2RmLnBhcnNlKHN0ckRhdGUpOwoJSURhdGFVdGlsLnB1dChp
+ZGMsICJqYXZhRGF0ZSIsIG91dEphdmEpOwp9IGNhdGNoIChFeGNlcHRpb24gZXhjKSB7CglTZXJ2
+ZXJBUEkubG9nRXJyb3IoZXhjKTsKCXRocm93IG5ldyBTZXJ2aWNlRXhjZXB0aW9uKGV4Yy50b1N0
+cmluZygpKTsKfQoKaWRjLmRlc3Ryb3koKTs=</value>
+</Values>

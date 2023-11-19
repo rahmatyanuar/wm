@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="name">strToDateArray_java</value>
+  <value name="encodeutf8">true</value>
+  <value name="body">SURhdGFDdXJzb3IgaWRjID0gcGlwZWxpbmUuZ2V0Q3Vyc29yKCk7Cgp0cnkgewoJU3RyaW5nW10g
+c3RyRGF0ZSA9IElEYXRhVXRpbC5nZXRTdHJpbmdBcnJheShpZGMsICJzdHJEYXRlIik7CglTdHJp
+bmcgZGF0ZVRpbWVGb3JtYXQgPSBJRGF0YVV0aWwuZ2V0U3RyaW5nKGlkYywgImRhdGVUaW1lRm9y
+bWF0Iik7CglTaW1wbGVEYXRlRm9ybWF0IHNkZiA9IG5ldyBTaW1wbGVEYXRlRm9ybWF0KGRhdGVU
+aW1lRm9ybWF0KTsKCURhdGVbXSBvdXRKYXZhID0gbmV3IERhdGVbc3RyRGF0ZS5sZW5ndGhdOwoK
+CWZvciAoaW50IGk9MDsgaSA8IHN0ckRhdGUubGVuZ3RoOyBpKyspIHsKCQlvdXRKYXZhW2ldID0g
+bmV3IERhdGUoKTsKCQlvdXRKYXZhW2ldID0gc2RmLnBhcnNlKHN0ckRhdGVbaV0pOwoJfQoKCUlE
+YXRhVXRpbC5wdXQoaWRjLCAiamF2YURhdGUiLCBvdXRKYXZhKTsKfSBjYXRjaCAoRXhjZXB0aW9u
+IGV4YykgewoJU2VydmVyQVBJLmxvZ0Vycm9yKGV4Yyk7Cgl0aHJvdyBuZXcgU2VydmljZUV4Y2Vw
+dGlvbihleGMudG9TdHJpbmcoKSk7Cn0KCmlkYy5kZXN0cm95KCk7</value>
+</Values>
