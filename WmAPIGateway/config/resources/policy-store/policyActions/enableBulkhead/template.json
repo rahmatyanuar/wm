@@ -1,0 +1,23 @@
+{
+  "templateKey" : "enableBulkhead",
+  "names" : [
+    {
+      "value" : "Enable Bulkhead",
+      "locale" : "en"
+    }
+
+  ],
+  "descriptions" : [
+    {
+      "value" : "Limits the number of concurrent requests to an API",
+      "locale" : "en"
+    }
+  ],
+  "parameterTemplatesReference" :  [  "maxConcurrentRequest.json", "maxConcurrentCallbacks.json", "retryAfter.json" ],
+  "occurence" : "once",
+  "order" :  {
+    "sequence" : ["insequence"],
+    "orderPosition" : "first"
+  },
+  "applicableServiceTypes" : ["REST","SOAP","ODATA","GRAPHQL"]
+}

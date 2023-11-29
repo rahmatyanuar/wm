@@ -1,0 +1,215 @@
+<#ftl ns_prefixes={
+"xsl": "http://www.w3.org/1999/XSL/Transform",
+"D": "http://ws.apache.org/ns/synapse"
+}/>
+<#assign logInvocationRootArray=doc.service.definition.monitorPolicies.logInvocation/>
+
+[
+<#list logInvocationRootArray as logInvocationRoot>
+<#assign destinations=logInvocationRoot.destinations/>
+{
+"names": [
+{
+"value": "Log Invocation",
+"locale": "en"
+}
+],
+"templateKey": "logInvocation",
+"parameters": [
+{
+"templateKey": "storeRequestPayload",
+"values": [
+<#assign node=logInvocationRoot["D:destinations/*[1]"]/>
+<#if node.@includeRequest[0]??>
+<#if logInvocationRoot.@frequency == "always">
+"true"
+<#elseif logInvocationRoot.@frequency == "onError">
+"true"
+<#elseif logInvocationRoot.@frequency == "onSuccess">
+"true"
+</#if>
+<#else>
+"false"
+</#if>
+]
+}, {
+"templateKey": "storeResponsePayload",
+"values": [
+<#assign node=logInvocationRoot["D:destinations/*[1]"]/>
+<#if node.@includeResponse[0]??>
+<#if logInvocationRoot.@frequency == "always">
+"true"
+<#elseif logInvocationRoot.@frequency == "onError">
+"true"
+<#elseif logInvocationRoot.@frequency == "onSuccess">
+"true"
+</#if>
+<#else>
+"false"
+</#if>
+]
+}, {
+"templateKey": "storeAsZip",
+"values": [
+"false"
+]
+},
+{
+"templateKey": "logGenerationFrequency",
+"values": [
+<#if logInvocationRoot.@frequency == "always">
+"Always"
+<#elseif logInvocationRoot.@frequency == "onError">
+"OnFailure"
+<#elseif logInvocationRoot.@frequency == "onSuccess">
+"OnSuccess"
+</#if>
+]
+},
+{
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"GATEWAY"
+]
+}
+]
+}
+<#if destinations.localLog[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"localLog"
+]
+},
+{
+"templateKey": "logLevel",
+"values": [
+"${destinations.localLog.@level?cap_first}"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.apiPortal[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"APIPORTAL"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.smtp[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"SMTP"
+]
+},
+{
+"templateKey": "emailTo",
+"values": [
+<#list destinations.smtp.emailAddresses.emailAddress as emailAddress>
+"${emailAddress}"
+<#sep>, </#sep>
+</#list>
+]
+}
+]
+}
+</#if>
+
+<#if destinations.snmp[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"SNMP"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.eda[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"JDBC"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.eda[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"DES"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.centrasite[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"CENTRASITE"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.localAudit[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"AUDITLOG"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.elasticsearch[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"ELASTICSEARCH"
+]
+}
+]
+}
+</#if>
+]
+}
+<#sep>,</#sep>
+</#list>
+]

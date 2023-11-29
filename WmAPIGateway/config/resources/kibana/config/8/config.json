@@ -1,0 +1,27 @@
+{
+	"key": [
+		{
+			"_id": "config:8.2.3",
+			"_source": {
+				"config": {
+					"buildNum": 52239,
+					"isDefaultIndexMigrated": true,
+					"defaultIndex": "gateway_{0}_analytics",
+					"discover:sampleSize": 1000,
+					"doc_table:highlight": false,
+					"visualize:enableLabs": false,
+					"sort:options": "{\"unmapped_type\":\"keyword\"}",
+					"discover:searchFieldsFromSource": true,
+					"doc_table:legacy" : true
+				},
+				"type": "config",
+				"references": [],
+				"migrationVersion": {
+					"config": "8.1.0"
+				},
+				"coreMigrationVersion": "8.2.3",
+				"updated_at": "2022-07-05T11:18:32.067Z"
+			}
+		}
+	]
+}

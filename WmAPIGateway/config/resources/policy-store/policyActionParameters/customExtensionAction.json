@@ -1,0 +1,42 @@
+{
+  "templateKey" : "customExtensionAction",
+  "names" : [
+    {
+      "value" : "Action",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Custom Extension Action",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "defaultValues" : [
+    "customAction"
+  ],
+  "possibleValues" :[
+    {
+      "names" : [
+        {
+          "value" : "Custom Action",
+          "locale" : "en"
+        }
+      ],
+      "value" :  "customAction"
+    },
+    {
+      "names" : [
+        {
+          "value" : "Custom Variable",
+          "locale" : "en"
+        }
+      ],
+      "value" :  "customVariable"
+    }
+  ],
+  "applicableServiceTypes" : ["REST","SOAP","ODATA"]
+}

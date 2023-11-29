@@ -1,0 +1,18 @@
+{
+	"templateKey": "connectionUrl",
+	"names": [
+		{
+			"value": "Connection URL",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "Connection URL for connecting to the JMS provider",
+			"locale": "en_US"
+		}
+	],
+	"type": "STRING",
+	"isArray": "false",
+	"isRequired": "true"
+}

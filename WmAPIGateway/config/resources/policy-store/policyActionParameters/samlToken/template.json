@@ -1,0 +1,27 @@
+{
+	"templateKey" : "samlToken",
+	"names" : [
+		   {
+			 "value" : "Require SAML Token",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "Security Token assertions",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"parameterTemplatesReference" : [ "samlVersion.json", 
+		"samlSubjectConfirmation.json", 
+		"wsTrustVersion.json", 
+		"encryptSignature.json", 
+		"issuerAddress.json", 
+		"metadataReferenceAddress.json",
+		"algorithmSuite.json",
+		"securityTokenParameters"
+	]
+}

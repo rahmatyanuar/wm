@@ -1,0 +1,76 @@
+{
+  <#if doc.id??>
+  "id": "${doc.id}",
+  </#if>
+  "names": [{
+    "value": "Content-based Routing",
+    "locale": "en"
+  }],
+  "templateKey": "contentBasedRouting",
+  "parameters" : [
+    <#assign addCbrComma="false"/>
+    <#list doc.parameters as cbrParam>
+      <#if cbrParam.templateKey != "contentRules">
+        <#if addCbrComma == "true">,</#if>
+        ${printJsonPayload(cbrParam)}
+        <#assign addCbrComma="true"/>
+      <#else>
+        <#assign isXpathAvailable="false"/>
+        <#list cbrParam.parameters as contentRuleParam>
+            <#if contentRuleParam.templateKey == "payloadIdentifier">
+              <#list contentRuleParam.parameters as xpathParam>
+                    <#if xpathParam.templateKey == "expressionType">
+                        <#if xpathParam.values[0] == "xpath">
+                            <#assign isXpathAvailable="true"/>
+                            <#assign xpathPayloadIdentifier=contentRuleParam/>
+                        </#if>
+                        <#break>
+                    </#if>
+              </#list>
+              <#break>
+            </#if>
+        </#list>
+        <#if isXpathAvailable=="true">
+              <#if addCbrComma == "true">,</#if>
+    {
+      "templateKey" : "contentRules",
+      "parameters" : [
+              <#assign addCbrComma="true"/>
+              <#assign addPIPComma="false"/>
+              <#list cbrParam.parameters as contentRuleParam>
+                    <#if contentRuleParam.templateKey != "payloadIdentifier">
+                    <#if addPIPComma=="true">,</#if>
+                    <#assign addPIPComma="true"/>
+                          ${printJsonPayload(contentRuleParam)}
+                    </#if>
+              </#list>
+                        ,{
+                          "templateKey": "xpathCriteriaRule",
+                          "parameters": [
+                            <#assign addPIPComma="false"/>
+                            <#list xpathPayloadIdentifier.parameters as payloadIdentifierParam>
+                                <#if payloadIdentifierParam.templateKey == "expression">
+                                    <#if addPIPComma =="true">,</#if>
+                                    <#assign addPIPComma = "true"/>
+                                    {
+                                        "templateKey" : "expression",
+                                        "values" : [ "${payloadIdentifierParam.values[0]}"]
+                                    }
+                                <#elseif payloadIdentifierParam.templateKey == "namespace">
+                                    <#if addPIPComma == "true">,
+                                    </#if>
+                                    <#assign addPIPComma = "true"/>
+                                    ${printJsonPayload(payloadIdentifierParam)}
+                                </#if>
+                            </#list>
+                          ]
+                        }
+
+      ]
+    }
+        </#if>
+    </#if>
+    </#list>
+    ],
+  "active":  ${doc.active?c}
+}

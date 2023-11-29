@@ -1,0 +1,46 @@
+{
+  "templateKey": "payloadIdentifier",
+  "parameters": [
+    {
+      "templateKey": "expressionType",
+      "values": [
+        "xpath"
+      ]
+    },
+    <#assign addComma="false"/>
+    <#list payloadIdentifier.parameters as xpathParameter>
+    <#if xpathParameter.templateKey == "expression" || xpathParameter.templateKey == "xpathExpression" || xpathParameter.templateKey == "queryExpression">
+    <#if addComma == "true" >
+  ,
+    </#if>
+    {
+      "templateKey": "expression",
+      "values": [
+        "${xpathParameter.values[0]?j_string}"
+      ]
+    }
+    <#assign addComma="true"/>
+    <#elseif xpathParameter.templateKey == "value">
+    <#if addComma == "true" >
+  ,
+    </#if>
+    {
+      "templateKey": "value",
+      "values": [
+        "${xpathParameter.values[0]?j_string}"
+      ]
+    }
+    <#assign addComma="true"/>
+    <#elseif xpathParameter.templateKey == "namespace">
+    <#if addComma == "true" >
+  ,
+    </#if>
+    {
+      "templateKey": "namespace",
+      "parameters" : ${printJsonPayload(xpathParameter.parameters)}
+  }
+    <#assign addComma="true"/>
+    </#if>
+    </#list>
+  ]
+}

@@ -1,0 +1,6 @@
+# The template which contains the list of files to backup for the upgrade of API Gateway
+./InternalDataStore/config/elasticsearch.yml
+./IntegrationServer/instances/{instance_name}/packages/WmAPIGateway/config/resources/beans/gateway-datastore.xml
+./IntegrationServer/instances/{instance_name}/packages/WmAPIGateway/config/resources/elasticsearch/config.properties
+./profiles/IS_{instance_name}/apigateway/config
+./profiles/IS_{instance_name}/apigateway/dashboard/config/kibana.yml

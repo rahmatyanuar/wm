@@ -1,0 +1,19 @@
+{
+ "templateKey" : "externalEndpoint",
+ "names" : [
+   {
+     "value" : "External Endpoint",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["endpointUri.json","externalEndpointMethod.json","endpointSSLConfig","connectTimeout.json","readTimeout.json","mashupPathParamTransformation"]
+}

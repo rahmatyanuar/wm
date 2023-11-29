@@ -1,0 +1,21 @@
+  {
+		"templateKey" : "serviceRegistryParameters",
+		"names" : [
+		   {
+			 "value" : "Service Registry Configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Service Registry Configurations are used in forming the native service endpoint",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA","GRAPHQL"],
+		"parameterTemplatesReference" : ["discoveryEndpointParameter"]
+
+   }

@@ -1,0 +1,15 @@
+# Add the list of files / folders (relative path from installation directory ) to ignore them during restore process.
+# Lines starting with # are comments and will not be considered for skipping.
+
+./IntegrationServer/instances/{instance_name}/config/server.cnf
+./IntegrationServer/instances/{instance_name}/config/security/saml/trusted_saml_issuers.cnf
+./IntegrationServer/instances/{instance_name}/config/jdbc
+./IntegrationServer/instances/{instance_name}/config/jndi
+./IntegrationServer/instances/{instance_name}/config/jms.cnf
+./IntegrationServer/instances/{instance_name}/config/endpoints/providerJMS.cnf
+./IntegrationServer/instances/{instance_name}/config/endpoints/consumerJMS.cnf
+./IntegrationServer/instances/{instance_name}/config/endpoints/messageAddressingJMS.cnf
+./IntegrationServer/instances/{instance_name}/config/ldap.cnf
+./profiles/IS_{instance_name}/configuration/com.softwareag.platform.config.propsloader/com.softwareag.catalina.connector.https.pid-apigateway.properties
+./IntegrationServer/instances/{instance_name}/config/security/csrf
+./profiles/IS_{instance_name}/configuration/jaas.config

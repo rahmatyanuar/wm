@@ -1,0 +1,60 @@
+{
+	"templateKey" : "customExtensionType",
+	"names" : [
+	   {
+		 "value" : "Type",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Custom extension runtime type",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : [
+		  "externalCallout"
+	],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "External endpoint",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "externalCallout"
+		},
+		{
+			"names" : [
+				{
+					"value" : "webMethods IS service",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "invokeESB"
+		},
+		{
+			"names" : [
+				{
+					"value" : "AWS Lambda",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "awsLambda"
+		},
+		{
+			"names" : [
+				{
+					"value" : "Messaging",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "messaging"
+		}
+	],
+	"applicableServiceTypes" : ["REST","SOAP","ODATA"]
+}

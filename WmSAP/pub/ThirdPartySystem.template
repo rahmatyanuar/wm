@@ -1,0 +1,266 @@
+<?xml version="1.0" ?> 
+<sldinfo supplier_name="ThirdPartySystem" 
+	 supplier_vendor="sap.com" 
+	 supplier_version="1.0" 
+	 model_version="1.4.30">
+
+<group name="SystemHost" group_type="GENERIC">
+	<rootclass 
+  	name="SAP_ApplicationSystem"
+  	sync="TRUE" 
+  	merge_properties="TRUE" 
+  	merge_roots="TRUE" 
+  	clean="NONE">
+  	<instance>
+    	<!--  key properties   -->
+    	<property name="CreationClassName">
+    	  <value>SAP_ApplicationSystem</value>
+    	</property>
+    	<property name="Name">
+      	<value>${LocalSystemName}.SystemHome.${ComputerName}</value>
+    	</property>
+    	<!-- normal properties -->
+    	<property name="Caption">
+    	  <value>${LocalSystemName} on ${ComputerName}</value>
+    	</property>
+  	</instance>
+	</rootclass>
+	<memberclass
+	  name="SAP_ComputerSystem"  
+	  association_name="SAP_ApplicationSystemHost" 
+	  root_role="Dependent"
+	  member_role="Antecedent"
+	  sync="TRUE"
+	  merge_properties="TRUE"
+	  merge_members="FALSE"
+	  clean="LONE">
+  	<instance>
+    	<!--  key properties  --> 
+    	<property name="CreationClassName">
+      	<value>SAP_ComputerSystem</value> 
+    	</property>
+    	<property name="Name">
+    	  <value>${ComputerName}</value> 
+    	</property>
+    	<!-- normal properties -->
+    	<property name="Caption">
+    	  <value>${ComputerName}</value>
+    	</property>
+  	</instance>
+	</memberclass>
+</group>
+
+<group name="InstalledSoftwareComponentsOnApplicationSystem" group_type="GENERIC">
+  <rootclass 
+    name="SAP_ApplicationSystem"
+    sync="FALSE" 
+    merge_properties="TRUE" 
+    merge_roots="FALSE" 
+    clean="NONE">
+    <instance>
+      <!--  key properties   --> 
+      <property name="CreationClassName">
+        <value>SAP_ApplicationSystem</value> 
+      </property>
+      <property name="Name">
+       <value>${LocalSystemName}.SystemHome.${ComputerName}</value>
+      </property>
+    </instance>
+  </rootclass>
+  <memberclass
+    name="SAP_InstalledSoftwareComponent"
+    association_name="SAP_InstalledSWComponentOnApplicationSystem"
+    root_role="System" 
+    member_role="Software" 
+    sync="TRUE" 
+    merge_properties="TRUE" 
+    merge_members="FALSE"
+    clean="ALL">
+    <instance>
+      <!-- key properties -->
+      <!-- key SoftwareElementID is generated automatically -->
+      <property name="Name">
+        <value>${SoftwareComponentName}</value>
+      </property>
+      <property name="SoftwareElementState">
+        <value>3</value>
+      </property>
+      <property name="TargetOperatingSystem">
+       <value>0</value>
+      </property>
+      <property name="Version">
+       <value>${SoftwareComponentVersion}</value>
+      </property>
+      <!-- normal properties -->
+      <property name="Caption">
+        <value>${SoftwareComponentName} ${SoftwareComponentVersion}, ${LocalSystemName} on ${ComputerName}</value>
+      </property>
+    </instance>
+  </memberclass>
+</group>
+
+<group name="InstalledProductExampleCollectedISCs" group_type="GENERIC">
+  <rootclass 
+    name="SAP_InstalledProduct" 
+    sync="TRUE"
+    merge_properties="TRUE" 
+    merge_roots="FALSE" 
+    clean="NONE">
+    <instance>
+    <!-- key properties -->
+    <!-- key CollectionID is generated automatically -->
+      <property name="ProductIdentifyingNumber">
+        <value>${ProductID}</value>
+      </property>
+      <property name="ProductName">
+       <value>${ProductName}</value>
+      </property>
+      <property name="ProductVendor">
+        <value>${ProductVendor}</value>
+      </property>
+      <property name="ProductVersion">
+       <value>${ProductVersion}</value>
+      </property>
+      <property name="SystemID">
+       <value>${LocalSystemName}.SystemHome.${ComputerName}</value>
+      </property>
+      <!-- normal properties -->
+      <property name="Caption">
+        <value>${ProductName}, Version ${ProductVersion}</value>
+      </property>
+    </instance>
+  </rootclass>
+  <memberclass 
+    name="SAP_InstalledSoftwareComponent"
+    association_name="SAP_CollectedSoftwareComponents" 
+    root_role="Collection"  
+    member_role="Member"
+    sync="FALSE" 
+    merge_properties="TRUE" 
+    merge_members="FALSE"
+    clean="NONE">
+    <instance>
+    <!-- key properties -->
+    <!-- key SoftwareElementID is generated automatically -->
+      <property name="Name">
+        <value>${SoftwareComponentName}</value>
+      </property>
+      <property name="SoftwareElementState">
+        <value>3</value>
+      </property>
+      <property name="TargetOperatingSystem">
+        <value>0</value>
+      </property>
+      <property name="Version">
+        <value>${SoftwareComponentVersion}</value>
+      </property>
+    </instance>
+  </memberclass> 
+</group>
+
+<group name="InstalledSoftwareComponentType" group_type="GENERIC">
+  <rootclass 
+    name="SAP_InstalledSoftwareComponent"
+    sync="FALSE" 
+    merge_properties="TRUE" 
+    merge_roots="TRUE"
+    clean="NONE">
+    <instance>
+    <!-- key properties -->
+    <!-- key SoftwareElementID is generated automatically -->
+      <property name="Name">
+        <value>${SoftwareComponentName}</value>
+      </property>
+      <property name="SoftwareElementState">
+        <value>3</value>
+      </property>
+      <property name="TargetOperatingSystem">
+        <value>0</value>
+      </property>
+      <property name="Version">
+        <value>${SoftwareComponentVersion}</value>
+      </property>
+    </instance>
+  </rootclass>
+  <memberclass
+    name="SAP_SoftwareComponent" 
+    association_name="SAP_SoftwareComponentType" 
+    root_role="Dependent" 
+    member_role="Antecedent" 
+    sync="FALSE" 
+    merge_properties="TRUE" 
+    merge_members="FALSE" 
+    clean="NONE">
+    <instance>
+      <property name="Name">
+        <value>${SoftwareComponentName}</value>
+      </property>
+      <property name="Version">
+        <value>${SoftwareComponentVersion}</value>
+      </property>
+      <property name="Vendor">
+        <value>${SoftwareComponentVendor}</value>
+      </property>
+      <property name="ElementTypeID">
+      <value>${SoftwareComponentID}</value>
+      </property>
+    </instance>
+  </memberclass>
+</group>
+
+<group name="InstalledProductExample" group_type="GENERIC">
+  <rootclass 
+    name="SAP_InstalledProduct" 
+    sync="FALSE" 
+    merge_properties="TRUE" 
+    merge_roots="TRUE" 
+    clean="NONE">
+    <instance>
+    <!-- key properties -->
+    <!-- key CollectionID is generated automatically -->
+      <property name="ProductIdentifyingNumber">
+        <value>${ProductID}</value>
+      </property>
+      <property name="ProductName">
+        <value>${ProductName}</value>
+      </property>
+      <property name="ProductVendor">
+        <value>${ProductVendor}</value>
+      </property>
+      <property name="ProductVersion">
+        <value>${ProductVersion}</value>
+      </property>
+      <property name="SystemID">
+        <value>${LocalSystemName}.SystemHome.${ComputerName}
+      </value>
+      </property>
+    </instance>
+  </rootclass>
+  <memberclass 
+    name="SAP_Product"
+    association_name="SAP_InstalledProductImage" 
+    root_role="Collection" 
+    member_role="Product" 
+    sync="FALSE" 
+    merge_properties="TRUE"
+    merge_members="FALSE"	 
+    clean="NONE">
+    <instance>
+    <!-- key properties -->
+      <property name="IdentifyingNumber">
+        <value>${ProductID}</value>
+      </property>
+      <property name="Name">
+        <value>${ProductName}</value>
+      </property>
+      <property name="Vendor">
+        <value>${ProductVendor}</value>
+      </property>
+      <property name="Version">
+        <value>${ProductVersion}</value>
+      </property>
+    </instance>
+  </memberclass>
+</group>
+
+</sldinfo>

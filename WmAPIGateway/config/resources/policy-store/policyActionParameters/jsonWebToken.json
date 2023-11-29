@@ -1,0 +1,18 @@
+{
+  "templateKey" : "jsonWebToken",
+  "names" : [
+    {
+      "value" : "JWT",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Json web token",
+      "locale" : "en"
+    }
+  ],
+  "type" : "SECURESTRING",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

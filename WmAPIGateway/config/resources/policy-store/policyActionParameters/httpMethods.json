@@ -1,0 +1,60 @@
+{
+	"templateKey" : "httpMethods",
+	"names" : [
+	   {
+		 "value" : "HTTP Method",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Indicates the HTTP Methods",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : [
+		  "GET"
+	],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "GET",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "GET"
+		},
+		{
+			"names" : [
+				{
+					"value" : "POST",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "POST"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "PUT",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "PUT"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "DELETE",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "DELETE"
+		}
+	],
+	"applicableServiceTypes" : ["REST","ODATA","GRAPHQL"]
+}

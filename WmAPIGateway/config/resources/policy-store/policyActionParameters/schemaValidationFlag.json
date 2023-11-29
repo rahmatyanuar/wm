@@ -1,0 +1,18 @@
+{
+		"templateKey" : "schemaValidationFlag",
+		"names" : [
+		   {
+			 "value" : "Schema",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Flag for Schema validation",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

@@ -1,0 +1,48 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign dynamic=doc.service.definition.inSequence.dynamic/>
+{
+    "names": [
+      {
+        "value": "Dynamic Routing",
+        "locale": "en"
+      }
+    ],
+	
+    "templateKey": "dynamicRouting",
+    "parameters": [
+		<#assign routingTemplateKey="routeTo"/>
+		<#assign endpoint=dynamic.send.endpoint/>
+		<#include "DefaultRouting.json">
+	  ,
+      {
+        "templateKey": "dynamicRule",
+        "parameters": [
+          {
+            "templateKey": "routingConditionKey",
+            "values": [
+              <#if dynamic.rule.and.condition.@variable == "header">
+			  "header"
+			  </#if>
+			  <#if dynamic.rule.and.condition.@variable == "context">
+			  "context"
+			  </#if>
+            ]
+          },
+		   <#if dynamic.rule.and.condition.@variable == "header">
+          {
+            "templateKey": "routingConditionValue",
+            "values": [
+              "${dynamic.rule.and.condition.property}"
+            ]
+          },
+		  </#if>
+		   <#assign routingTemplateKey="dynRouteTo"/>
+		<#assign endpoint=dynamic.rule.send.endpoint/>
+		<#include "DefaultRouting.json">
+         
+        ]
+      }
+	 
+    ]
+}

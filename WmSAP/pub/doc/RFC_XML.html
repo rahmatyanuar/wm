@@ -1,0 +1,681 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+
+<head>
+
+<title>XRFC Overview</title>
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+
+
+</head>
+
+<body bgcolor="#ffffff">
+
+
+<div class="head">
+
+<h1>XRFC Overview</h1>
+</div>
+
+<h2>Abstract</h2>
+<p>
+This document introduces XRFC, which is SAP's XML based Remote Function 
+Calls.  It describes both the transfer protocol and data container format 
+for XRFC.  XRFC enables simple XML based program-to-program
+communication among applications of the R/3 systems and external systems.
+</p>
+
+<h2>1. Introduction</h2>
+
+<p>
+In XRFC, an XML message representing a Remote Function Calls (RFCs)
+can be transported to a remote system for execution. Upon successful
+execution, an XML message representing the return value will be
+returned to the local system. If an exception is raised at the remote
+system, an XML message representing the exception will be returned to
+the local system.
+</p>
+
+<p>
+More precisely, a function call is represented by an XML element that
+identifies the function. This element contains elements, each
+representing a parameter of the function.  An XML document
+representing the function call can then be transported in an XML envelope
+document.  One such envelope document is described in this document.
+However, XRFC may use other envelopes such as the one defined by SOAP. In
+fact, some implementations of XRFC already support XRFC transported in
+the SOAP envelope.  It is expected that XRFC will use the SOAP
+envelope when SOAP becomes stable.
+</p>
+
+<p>
+In the following, Section 2 describes how function calls and responses are 
+represented in XRFC.  Section 3 describes the envelope to be used for
+XRFC.  Finally, Section 4 describes the transport mechanism for XRFC.
+</p>
+
+<h2>2. Functions</h2>
+
+<h3>2.1. Call and Response</h3>
+<p>
+The element name for the call element is the qualified function name. This 
+element can contain child elements that encode each input parameter.  
+The element name for the return element is the qualified function name
+concatnated with the suffix string ".Response".  This element can
+similarly contain a sequence of child elements that encode the output
+parameters.  The namespace for the call and return elements is 
+<code>urn:sap-com:document:sap:rfc:functions</code>.
+In contrast to the call and return message, 
+the exception message is handled differently by using the designated
+Fault element.
+</p>
+<p>
+It is noted that the name for the call element is important but 
+the names for the return and exception messages are not. 
+The reason is that these return messages are synchronously returned 
+in the same connection as the response to some call message.  
+Thus, the caller knows the name of the function. In XRFC, 
+somewhat recognizable names are used for the return elements
+to organize the definitions for the functions.  On the other hand, the 
+exception or fault element can be described independently from the 
+functions. Therefore, they are not identified by the function name.
+</p>
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>    &lt;-- Function: call --&gt;
+    &lt;rfc:<em>function_name</em>&gt;
+      &lt;-- Content: (<em>param</em>*) --&gt;
+    &lt;/rfc:<em>function_name</em>&gt;</pre></td></tr></table><br />
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>    &lt;-- Function: return --&gt;
+    &lt;rfc:<em>function_name</em>.Response&gt;
+      &lt;-- Content: (<em>param</em>*) --&gt;
+    &lt;/rfc:<em>function_name</em>.Response&gt;</pre></td></tr></table><br />
+
+<p>
+The namespace prefix <code>rfc</code> is bound to namespace 
+<code>urn:sap-com:document:sap:rfc:functions</code>.
+The content of both the call and return message is a sequence of 
+parameters, whose values are serialized according to the rules described 
+later in this document.
+</p>
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>    &lt;-- Fault: fault body --&gt;
+    &lt;rfcprop:Fault&gt;
+      &lt;-- Content: (faultcode, faultstring, detail?) --&gt;
+    &lt;/rfcprop:Fault&gt;
+  
+      &lt;-- Fault: faultcode --&gt;
+      &lt;faultcode&gt;
+        &lt;-- Content: <em>string</em> --&gt;
+      &lt;/faultcode&gt;
+  
+      &lt;-- Fault: faultstring --&gt;
+      &lt;faultstring&gt;
+        &lt;-- Content: <em>string</em> --&gt;
+      &lt;/faultstring&gt;
+  
+      &lt;-- Fault: detail --&gt;
+      &lt;detail&gt;
+        &lt;-- Content: (name, message?) --&gt;
+      &lt;/detail&gt;
+
+        &lt;-- Fault/detail: name --&gt;
+        &lt;name&gt;
+          &lt;-- Content: <em>string</em> --&gt;
+        &lt;/name&gt;
+
+        &lt;-- Fault/detail: message --&gt;
+        &lt;message&gt;
+          &lt;-- Content: (<em>any</em>*) --&gt;
+        &lt;/message&gt;</pre></td></tr></table><br />
+
+
+<p>
+The Fault element contains two mandatory elements faultcode and faultstring 
+and an optional element detail.  The detail element, if present, provides 
+information for an application specific fault.  The name element must 
+contain the name of the exception or fault.
+</p>
+
+<p>
+The specific values for the detail element is summarized in the following 
+table.
+</p>
+<a name="table-faults"> </a>
+<table border="1" cellspacing="1" cellpadding="4">
+<tr>
+    <td></td><td>faultcode</td><td>faultstring</td>
+    <td>detail/name</td><td>detail/message</td>
+</tr>
+<tr>
+    <td>Exception</td><td>Server.Application</td><td>Server Application 
+    Exception</td>
+    <td>exception name</td><td>exception text</td>
+</tr>
+<tr>
+    <td>Error Type-A</td><td>Server.Runtime</td><td>Server Runtime 
+    Exception</td>
+    <td>ABAP @SYETEXT</td><td>ABAP @MESSAGE</td>
+</tr>
+<tr>
+    <td>Error Type-E</td><td>Server.Runtime</td><td>Server Runtime 
+    Exception</td>
+    <td>ABAP @SYETEXT</td><td>ABAP @MESSAGE</td>
+</tr>
+<tr>
+    <td>Error Type-X</td><td>Server.Runtime</td><td>Server Runtime 
+    Exception</td>
+    <td>ABAP @SYETEXT</td><td>ABAP @MESSAGE</td>
+</tr>
+</table>
+<strong>Table 1:</strong> <em>Fault details for XRFC</em>
+<br />
+
+
+<h3>2.2. Parameters</h3>
+
+<p>This section describes a set of representation rules that are used to 
+represent various kinds of ABAP data as an XML document.  Each parameter 
+can be considered as such ABAP data.
+</p>
+
+<ol>
+<li><a name="rule-tag">
+<strong>Name:</strong></a>
+Every data is represented by an element whose XML tag name is the name 
+associated with that data.
+The content of the data is represented differently depending of the 
+kind of that data. There are four kinds of data: elementary, structure, table, 
+and reference.
+</li>
+
+<li><a name="rule-pcdata">
+<strong>Elementary type:</strong></a>
+The content of an elementary data is represented by a character string that
+corresponds to the character representation of that data. Depending of its ABAP 
+type, a different rule is used for character conversion. (See <a
+href="#table-elems">Table 2</a> for the summary)</li>
+
+<li><a name="rule-struct">
+<strong>Structured type:</strong></a>
+The content of a structured data is represented by a sequence of elements
+that correspond to the fields of that structure. Each component has a 
+unique name that corresponds to the corresponding field and its content is
+represented by the rules described here.</li>
+
+<li><a name="rule-table">
+<strong>Table:</strong></a>
+An internal table data is represented by an element whose tag name is its name 
+and whose content is a sequence of elements that correspond to the rows 
+of that table.  Each element has the same tag name 'item' and its content is 
+represented by the rules described here.</li>
+
+<li><a name="rule-ref">
+<strong>Reference type:</strong></a>
+A reference data is currently not represented; it is represented by an 
+empty element.  Parameters used in XRFC have no references.</li>
+
+<li><a name="rule-whitespace">
+<strong>Whitespace:</strong></a>
+For better readability, whitespace characters may be inserted to indent the 
+multiple levels of structures.  Thus, any whitespace characters that 
+appear outside of the elementary contents should be ignored.
+</li>
+</ol>
+
+<h3><a name="rules-elem">3.1. Representation for Elementary Types</a></h3>
+
+<p>
+The following table summarizes how each of the ABAP elementary types and their 
+XML representation.
+</p>
+<a name="table-elems"> </a>
+<table border="1" cellspacing="1" cellpadding="4">
+<tr>
+    <td>ABAP Type</td><td>Description</td><td>Dictionary 
+    Types</td><td>Representation</td><td>Example</td>
+</tr>
+<tr>
+    <td>C</td><td>character[s]</td><td>CHAR, CLNT, CUKY, LANG, LCHR, 
+    UNIT</td><td>string</td><td>SAP AG</td>
+</tr>
+<tr>
+    <td>D</td><td>Calendar date</td><td>DATS</td><td>string in 
+    form CCYY-MM-DD</td><td>2000-03-26</td>
+</tr>
+<tr>
+    <td>F</td><td>IEEE double-precision 64-bit floating 
+    point</td><td>FLOAT</td><td>string for float</td><td>3.14e-2</td>
+</tr>
+<tr>
+    <td>I</td><td>4-byte signed integer</td><td>INT4</td><td>string for 
+    integer</td><td>4126</td>
+</tr>
+<tr>
+    <td>N</td><td>numeric character[s]</td><td>NUMC, ACCP</td><td>string 
+    with numeric characters</td><td>0016</td>
+</tr>
+<tr>
+    <td>P</td><td>decimal number</td><td>CURR, DEC, QUAN</td><td>string for 
+    decimal</td><td>2.71828</td>
+</tr>
+<tr>
+    <td>T</td><td>time</td><td>TIMS</td><td>string in 
+    form hh:mm:ss</td><td>20:15:00</td>
+</tr>
+<tr>
+    <td>X</td><td>binary octets</td><td>RAW</td><td>base64 
+    string</td><td>23rFK9gHGk0g1..</td>
+</tr>
+<tr>
+    <td>b</td><td>1-byte unsigned integer</td><td>INT1</td><td>string for 
+    integer</td><td>125</td>
+</tr>
+<tr>
+    <td>s</td><td>2-byte signed integer</td><td>INT2</td><td>string for 
+    integer</td><td>4192</td>
+</tr>
+<tr>
+    <td>STRING</td><td>variable length string</td><td>STRING</td><td>string</td><td>SAP AG</td>
+</tr>
+<tr>
+    <td>XSTRING</td><td>variable length binary 
+    octets</td><td>RAWSTRING</td><td>base64 string</td><td>23rFK9gHGk0g1..</td>
+</tr>
+</table>
+<strong>Table 2:</strong> <em>Representation of ABAP Elementary Types</em>
+<br />
+
+
+<p>
+In XML, legal characters are the graphic characters defined in Unicode, 
+tab, carriage return, and line feed.  Character contents (i.e., character 
+data appearing between a pair of start and end tags), however, must follow 
+an additional encoding rule to disambiguate the character contents from the 
+markup delimiters. Specifically, character contents may appear as either 
+CharData or within a CDATA section. In CharData, the left angle bracket '&lt;' 
+and the ampersand character '&amp;' must be escaped using either numeric 
+character references CharRef ('&amp;#60;' and  '&amp;#38;') or the strings '&amp;amp;' 
+and '&amp;lt;', respectively.  Furthermore, the right angle bracket '&gt;' 
+must also be escaped similarly if it appears in the string ']]&gt;'. 
+On the other hand, any legal XML characters may appear in a CDATA section, 
+which starts with the string '&amp;![CDATA[' and ends with the string 
+']]&gt;'.
+</p>
+<p>
+Characters such as various control characters are illegal and not allowed in 
+XML either directly or indirectly using CharRef. 
+However, they may appear in ABAP C and other character based ABAP elementary 
+types. In order to achieve the maximum interoperability among various applications, 
+a character content that contains at least one illegal character must be encoded by 
+the following rule:
+</p>
+<ol>
+    <li>each illegal character must be replaced with the hash character 
+    '#'.</li>
+    <li>the entire content may be encoded in the MIME
+    base64 encoding and given in the value of attribute
+    <code>abap:data</code>.
+    (The namespace for prefix <code>abap</code> is bound to 
+    <code>urn:sap-com:document:sap:core:instances</code>.)
+    It is the application's responsibility to negotiate the use of
+    this attribute.</li>
+    <li>Note that each character unit of type C is interpreted in that 
+    particular code page being used.  The resulting sequence of characters 
+    represented in Unicode using UTF8 is transformed by the base64 encoding. 
+    The result, interpreted as a sequence of US-ASCII characters, 
+    appears as a sequence of Unicode characters in the value of the 
+    <code>abap:data</code> attribute in that element.</li>
+</ol>
+
+<h3>2.4. Representation of Names</h3>
+<p>
+In representing ABAP data, accessor names such as parameter and field
+names are used as XML element names.  However, there are some special
+characters that are allowed in ABAP but prohibited to appear in an XML
+element name. 
+Specifically, ABAP uses a slash '/' to delimit an ABAP namespace identifier. 
+ABAP namespaces are used frequently by customers to add additional
+components to the standard SAP package.  There are also other
+infrequently used characters that appear as part of the name. These
+characters must be mapped to some other legal XML characters. The
+rules for this mapping are described in the following:
+</p>
+
+<ul>
+    <li>character from A-Z, a-z, or '_' needs no mapping.</li>
+    <li>character from 0-9 or '.' needs no mapping 
+    if it is not the first character of the name.</li>
+    <li>'/' is mapped to '_-'.</li>
+    <li>any other ASCII character c is mapped to '_--hex(c)', where hex(c) is the 
+    2-character hexadecimal representation of ASCII code c. (e.g., &amp; is 
+    represented as _--26)</li>
+</ul><br />
+
+<p>
+Note that XML 1.0 states that names beginning with the string "xml" in any 
+combination of cases are reserved for standardization.  Therefore, it
+is noted that no component names should begin with this string.
+</p>
+
+<h3>2.5. Examples</h3>
+
+<p>
+To illustrate the concrete format of the function call and return
+messages, assume the following RFC function:
+</p>
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#80ffff'><td><pre>function name: GET_BOOKING_INFO
+  importing:  AGENT    # type C
+  importing:  BOOKING  # type BTYPE which has components DATE and TYPE, where
+                       # DATE is of type D and TYPE is of type TTYPE which has 
+                       # components CATEGORY and ID, each of which of type C.
+  exporting:  STATUS   # type C
+  tables:     CONTACTS # table with row type CTYPE which has components NAME and 
+                       # PHONE, each of which of type C.
+  exceptions: ERROR    # exception name</pre></td></tr></table><br />
+
+<p>
+The following XML fragments show the call, return, and exception 
+messages of this function.
+</p>
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>  &lt;!-- call element --&gt;
+  &lt;rfc:GET_BOOKING_INFO
+       xmlns:rfc="urn:sap-com:document:sap:rfc:functions"&gt;
+    &lt;AGENT&gt;eTravel&lt;/AGENT&gt;
+    &lt;BOOKING&gt;
+      &lt;DATE&gt;2000-05-12&lt;/DATE&gt;
+      &lt;TYPE&gt;Vacation&lt;/TYPE&gt;
+    &lt;/BOOKING&gt;
+  &lt;/rfc:GET_BOOKING_INFO&gt;</pre></td></tr></table><br />
+
+<p>
+In the above XML document, the call message is represented by 
+the <code>rfc:GET_BOOKING_INFO</code> element.  The parameters of this
+function, named <code>AGENT</code> and <code>BOOKING</code>, are
+represented as its child elements with the same name (by <a
+href="#rule-tag">Name</a>).  Parameter <code>AGENT</code> is of ABAP
+type C and its content is represented by its string value
+(by <a href="#rule-pcdata">Elementary type</a>).  Parameter
+<code>BOOKING</code> is a structured type and its content is
+represented by its components <code>DATE</code> and
+<code>TYPE</code> (by <a href="#rule-struct">Structured type</a>).
+Both components <code>DATE</code> and <code>TYPE</code> are of ABAP
+types D and C, respectively and their contents are
+represented accordingly (by <a href="#rule-pcdata">Elementary type</a>).
+</p>
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>  &lt;!-- return element --&gt;
+  &lt;rfc:GET_BOOKING_INFO.Response
+       xmlns:rfc="urn:sap-com:document:sap:rfc:functions"&gt;
+    &lt;STATUS&gt;OK&lt;/STATUS&gt;
+    &lt;CONTACTS&gt;
+      &lt;item&gt;
+        &lt;NAME&gt;Super Hotel&lt;/NAME&gt;
+        &lt;PHONE&gt;06227-761234&lt;/PHONE&gt;
+      &lt;/item&gt;
+      &lt;item&gt;
+        &lt;NAME&gt;GoodDealAuto&lt;/NAME&gt;
+        &lt;PHONE&gt;06227-74134&lt;/PHONE&gt;
+      &lt;/item&gt;
+    &lt;/CONTACTS&gt;
+  &lt;/rfc:GET_BOOKING_INFO.Response&gt;</pre></td></tr></table><br />
+
+<p>
+In the above XML document, the return message is represented by 
+the <code>rfc:GET_BOOKING_INFO.Response</code> element.  As for the
+call message, the parameters of this function, named
+<code>STATUS</code> and <code>CONTACTS</code>, are represented as its
+child elements (by <a href="#rule-tag">Name</a>).  
+Parameter <code>STATUS</code> is of ABAP
+type C and its content is a string value 
+(by <a href="#rule-pcdata">Elementary type</a>).  Parameter
+<code>CONTACTS</code> is a table and its content is a sequence of
+'item' elements (by <a href="#rule-table">Table</a>). Each 'item'
+element represents a row of the table and its type is a structure that
+contains two components <code>NAME</code> and <code>PHONE</code> 
+(by <a href="#rule-struct">Structured type</a>).
+Both components are of ABAP type C and their contents are
+represented accordingly (by <a href="#rule-pcdata">Elementary type</a>).
+</p>
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>  &lt;!-- exception element --&gt;
+  &lt;rfcprop:Fault
+       xmlns:rfcprop="urn:sap-com:document:sap:rfc:properties"&gt;
+    &lt;faultcode&gt;Server.Application&lt;/faultcode&gt;
+    &lt;faultstring&gt;Server Application Exception&lt;/faultstring&gt;
+    &lt;detail&gt;
+      &lt;name&gt;ERROR&lt;/name&gt;
+      &lt;message&gt;Can't find the contact&lt;/message&gt;
+    &lt;/detail&gt;
+  &lt;/rfcprop:Fault&gt;</pre></td></tr></table><br />
+
+<p>
+Finally, the above XML document represents an exception message with
+element <code>rfcprop:Fault</code>. This illustrates an application
+specific exception (<a href="#table-faults">Faults</a>). 
+</p>
+
+<h2>3. Envelope</h2>
+
+<h3>3.1. Generic Envelope</h3>
+<p>
+Currently, XRFC uses a generic envelope for transporting function 
+calls.  This envelope is intentionally designed after the envelope being
+proposed for the Simple Object Application Protocol (SOAP).
+SOAP is a protocol for exchanging information in distributed 
+environments.  When SOAP becomes a standard, XRFC will replace the current 
+envelope with the SOAP envelope.  It is expected that the similarity
+of the two envelopes will make this transition simple. This will
+allow R/3 applications to communicate over SOAP with COM-based,
+CORBA-based, Java-based, and other various SOAP compliant applications.
+</p>
+<p>
+The envelope used by XRFC consists of two parts: Header and Body. The
+Header part is used for encoding some additional information attached
+to the message.  The Body part is used for encoding some functions or
+errors.
+</p>
+
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>&lt;sap:Envelope
+  <strong>version = <em>number</em></strong>&gt;
+  &lt;-- Content: (sap:Header?, sap:Body) --&gt;
+&lt;/sap:Envelope&gt;</pre></td></tr></table><br />
+
+<p>
+The namespace for prefix sap is bound to "urn:sap-com:document:sap". The 
+version attribute is mandatory and its value must be "1.0".  The content of
+the Envelope element contains the optional Header element and the mandatory 
+Body element.  The Header element may contain any number of namespace qualified 
+elements.
+</p>
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>  &lt;sap:Header&gt;
+    &lt;-- Content: (<em>qname</em>*) --&gt;
+  &lt;/sap:Header&gt;</pre></td></tr></table><br />
+
+<p>
+XRFC specifies the following Header entry elements in namespace 
+"urn:sap-com:document:sap:rfc:properties". In the following assume that 
+prefix rfcprop is bound to this namespace.
+</p>
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>    &lt;-- Header entry: transaction ID --&gt;
+    &lt;rfcprop:Transaction&gt;
+      &lt;-- Content: (<em>string</em>) --&gt;
+    &lt;/rfcprop:Transaction&gt;
+
+    &lt;-- Header entry: quene name --&gt;
+    &lt;rfcprop:Queue&gt;
+      &lt;-- Content: (<em>string</em>) --&gt;
+    &lt;/rfcprop:Queue&gt;
+
+    &lt;-- Header entry: confirm signal for transaction --&gt;
+    &lt;rfcprop:Confirm/&gt;</pre></td></tr></table><br />
+
+<p>
+As mentioned earlier, other qualified elements may appear in the Header 
+element. For example, in namespace "urn:sap-com:document:sap:transport", the 
+following Header elements are defined.  (Assume saptr is bound to this 
+namespace string.)
+</p>
+
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>    &lt;-- Header: additional elements --&gt;
+    &lt;saptr:From&gt;
+      &lt;-- Content: <em>uriReference</em> --&gt;
+    &lt;/saptr:From&gt;
+
+    &lt;saptr:To&gt;
+      &lt;-- Content: <em>uriReference</em> --&gt;
+    &lt;/saptr:To&gt;
+
+    &lt;saptr:ReplyTo&gt;
+      &lt;-- Content: <em>uriReference</em> --&gt;
+    &lt;/saptr:ReplyTo&gt;
+
+    &lt;saptr:MessageID&gt;
+      &lt;-- Content: <em>guid</em> --&gt;
+    &lt;/saptr:MessageID&gt;</pre></td></tr></table><br />
+
+
+<p>
+The following illustrates a message fragment for a transactional XRFC call.
+</p>
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>&lt;!-- transactional call --&gt;
+&lt;sap:Envelope version="1.0"
+     xmlns:sap="urn:sap-com:document:sap"&gt;
+  &lt;sap:Header
+       xmlns:rfcprop="urn:sap-com:document:sap:rfc:properties"&gt;
+    &lt;rfcprop:Transaction&gt;4412356&lt;/rfcprop:Transaction&gt;
+  &lt;/sap:Header&gt;
+  &lt;sap:Body&gt;
+    ...
+  &lt;/sap:Body&gt;
+&lt;/sap:Envelope&gt;</pre></td></tr></table><br />
+
+<p>
+The Body element can contain a single element that is namespace qualified.
+</p>
+<table cellpadding='5' border='1' bgcolor='#A0A0FF' width='80%'>
+  <tr><td><pre>  &lt;sap:Body&gt;
+    &lt;-- Content: (<em>qname</em>) --&gt;
+  &lt;/sap:Body&gt;</pre></td></tr></table><br />
+
+<p>
+The element contained in the Body element can represent a function
+call, a return, or a fault or exception.
+</p>
+
+<h3>3.2. Examples</h3>
+
+<p>
+The complete messages might look like:
+</p>
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>&lt;!-- message call --&gt;
+&lt;sap:Envelope version="1.0"
+     xmlns:sap="urn:sap-com:document:sap"&gt;
+  &lt;sap:Body&gt;
+    &lt;rfc:GET_BOOKING_INFO
+         xmlns:rfc="urn:sap-com:document:sap:rfc:functions"&gt;
+      &lt;AGENT&gt;eTravel&lt;/AGENT&gt;
+      &lt;BOOKING&gt;
+        &lt;DATE&gt;2000-05-12&lt;/DATE&gt;
+        &lt;TYPE&gt;Vacation&lt;/TYPE&gt;
+      &lt;/BOOKING&gt;
+    &lt;/rfc:GET_BOOKING_INFO&gt;
+  &lt;/sap:Body&gt;
+&lt;/sap:Envelope&gt;</pre></td></tr></table><br />
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>&lt;!-- return message --&gt;
+&lt;sap:Envelope version="1.0"
+     xmlns:sap="urn:sap-com:document:sap"&gt;
+  &lt;sap:Body&gt;
+    &lt;rfc:GET_BOOKING_INFO.Response
+         xmlns:rfc="urn:sap-com:document:sap:rfc:functions"&gt;
+      &lt;STATUS&gt;OK&lt;/STATUS&gt;
+      &lt;CONTACTS&gt;
+        &lt;item&gt;
+          &lt;NAME&gt;Super Hotel&lt;/NAME&gt;
+          &lt;PHONE&gt;06227-761234&lt;/PHONE&gt;
+        &lt;/item&gt;
+        &lt;item&gt;
+          &lt;NAME&gt;GoodDealAuto&lt;/NAME&gt;
+          &lt;PHONE&gt;06227-74134&lt;/PHONE&gt;
+        &lt;/item&gt;
+      &lt;/CONTACTS&gt;
+    &lt;/rfc:GET_BOOKING_INFO.Response&gt;
+  &lt;/sap:Body&gt;
+&lt;/sap:Envelope&gt;</pre></td></tr></table><br />
+
+<table cellpadding='5' border='1'  width='80%'>
+  <tr bgcolor='#ffff80'><td><pre>&lt;!-- exception message --&gt;
+&lt;sap:Envelope version="1.0"
+     xmlns:sap="urn:sap-com:document:sap"&gt;
+  &lt;sap:Body&gt;
+    &lt;rfcprop:Fault
+         xmlns:rfcprop="urn:sap-com:document:sap:rfc:properties"&gt;
+      &lt;faultcode&gt;Server.Application&lt;/faultcode&gt;
+      &lt;faultstring&gt;Server Application Exception&lt;/faultstring&gt;
+      &lt;detail&gt;
+        &lt;name&gt;ERROR&lt;/name&gt;
+        &lt;message&gt;Can't find the contact&lt;/message&gt;
+      &lt;/detail&gt;
+    &lt;/rfcprop:Fault&gt;
+  &lt;/sap:Body&gt;
+&lt;/sap:Envelope&gt;</pre></td></tr></table><br />
+
+
+<h2>4. Transport</h2>
+<p>
+The standard protocol for transporting the XRFC documents is the HTTP 
+protocol. However, this does not forbid the use of XRFC documents in 
+applications that use other transport protocols.
+</p>
+
+<p>
+The HTTP protocol offers a universal access interface for 
+calling remote functions. Any application that has a HTTP client capability 
+can call functions on a remote R/3 system. Furthermore, various Internet 
+based services can be used along with this service.
+</p>
+
+<p>
+The client can send a call message using the HTTP POST request format.  The 
+body of the message contains an XRFC document. The MIME media type for 
+this protocol is <code>text/xml</code>. However, it may use 
+<code>application/x-sap.rfc</code> for older systems for compatibility.
+</p>
+
+<p>The user authentication uses the Basic Authentication protocol of HTTP. 
+It is important to note that this protocol transmits the user name and
+password unencrypted. Therefore, this transmission should be made on a secure 
+communication protocol such as SSL.  
+</p>
+
+<hr>
+
+<!-- #lastmodified text="Last modified" form="long,time" -->
+Last modified May 9, 2000 6:54 PM
+<!-- /#lastmodified -->
+
+
+</body>
+
+</html>

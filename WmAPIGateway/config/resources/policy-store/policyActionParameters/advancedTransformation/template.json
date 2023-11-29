@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "advancedTransformation",
+		"names" : [
+		   {
+			 "value" : "Advanced Transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Transformation using Invoke IS Service",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"invokeISService", "esbAlias.json"
+		]	
+
+   }

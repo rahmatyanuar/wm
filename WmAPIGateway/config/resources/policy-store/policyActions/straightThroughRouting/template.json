@@ -1,0 +1,24 @@
+{
+ "templateKey" : "straightThroughRouting",
+ "names" : [
+   {
+     "value" : "Straight Through Routing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"endpointUri.json","method.json","soapOptimize.json","connectTimeout.json","readTimeout.json","passSecurityHeaders.json","sslConfig","serviceRegistry"
+ ],
+ "occurence" : "once",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ },
+ "mutuallyExclusiveActions" : ["contextBasedRouting","dynamicRouting","contentBasedRouting","loadBalancerRouting","jmsRouting"]
+}

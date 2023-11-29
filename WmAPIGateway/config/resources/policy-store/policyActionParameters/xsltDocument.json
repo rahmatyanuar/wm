@@ -1,0 +1,17 @@
+{
+		"templateKey" : "document",
+		"names" : [
+		   {
+			 "value" : "XSLT File",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This is the logical condition based on which all the Identification policies are combined.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "FILE",
+		"isArray" : "false"
+}

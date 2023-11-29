@@ -1,0 +1,19 @@
+{
+	"templateKey" : "dynEndpointUri",
+	"names" : [
+	   {
+		 "value" : "Endpoint URI",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Routes to this default service.",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"true",
+	"isArray" : "false",
+	"defaultValues" : ["${sys:dyn-Endpoint}"]
+}

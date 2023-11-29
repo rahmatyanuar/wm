@@ -1,0 +1,19 @@
+{
+ "templateKey" : "failureMessage",
+ "names" : [
+   {
+     "value" : "Failure Messages",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Individual Failure Message Configuration based on accept header",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : [ "contentType.json","errorTemplate.json","useAsDefault.json"]
+}

@@ -1,0 +1,17 @@
+  {
+		"templateKey" : "xsltAlias",
+		"names" : [
+		   {
+			 "value" : "XSLT Transformation alias",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Use Transformation alias in policy gateway.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isArray" : "false"
+  }

@@ -1,0 +1,175 @@
+{
+  <#if doc.id??>
+  "id": "${doc.id}",
+  </#if>
+  "names": [
+    {
+      "value": "Conditional Error Processing",
+      "locale": "en"
+    }
+  ],
+  "templateKey": "conditionalErrorProcessing",
+  "parameters": [
+    <#list doc.parameters as parameter>
+    <#if parameter.templateKey == "customFailureMessages">
+    ${printJsonPayload(parameter)}
+    <#elseif parameter.templateKey == "faultCriteria">
+    {
+      "templateKey" : "faultCriteria",
+      "parameters" : [
+        <#if parameter.parameters[0].templateKey == "statusCodeCriteria">
+        {
+          "templateKey": "statusCodeCriteria",
+          "parameters": [
+            {
+              "templateKey": "statusCode",
+              "values": [
+                "${parameter.parameters[0].parameters[0].values[0]?j_string}"
+              ]
+            }
+          ]
+        }
+        <#elseif parameter.parameters[0].templateKey == "headerCriteria">
+        {
+          "templateKey": "headerCriteria",
+          "parameters": [
+            <#list parameter.parameters[0].parameters as headerParam>
+            <#if headerParam.templateKey == "headerName">
+            {
+              "templateKey": "headerName",
+              "values": [
+                "${headerParam.values[0]?j_string}"
+              ]
+            }
+            <#else>
+            {
+              "templateKey": "headerValue",
+              "values": [
+                "${headerParam.values[0]?j_string}"
+              ]
+            }
+            </#if>
+            <#sep>,</#sep>
+            </#list>
+          ]
+
+        }
+        <#elseif parameter.parameters[0].templateKey == "xpathCriteria">
+        {
+          "templateKey": "xpathCriteria",
+          "parameters": [
+            <#assign payloadIdentifier=parameter.parameters[0]/>
+            <#include "102_payloadIdentifier_request.json"/>
+          ]
+        }
+        </#if>
+      ]
+    }
+    <#elseif  parameter.templateKey == "preProcessingSteps">
+    {
+      "templateKey" : "preProcessingSteps",
+      "parameters" : [
+        <#list parameter.parameters as preProcessingParameter>
+        <#if preProcessingParameter.templateKey == "invokeESB">
+        {
+          "templateKey" : "invokeESBParam",
+          "parameters" : [
+            <#list preProcessingParameter.parameters[0].values as invokeESBServiceName>
+            {
+              "templateKey": "invokeISService",
+              "parameters": [{
+                "templateKey": "serviceName",
+                "values": ["${invokeESBServiceName}"]
+              },
+                {
+                  "templateKey": "complyToISSpec",
+                  "values": ["false"]
+                }]
+            }
+            <#sep>,</#sep>
+            </#list>
+          ]
+        }
+        <#elseif preProcessingParameter.templateKey == "xsltTransformation">
+        ${printJsonPayload(preProcessingParameter)}
+        </#if>
+        <#sep>,</#sep>
+        </#list>
+      ]
+    }
+    <#elseif  parameter.templateKey == "postProcessingSteps">
+    {
+      "templateKey" : "postProcessingSteps",
+      "parameters" : [
+        <#list parameter.parameters as postProcessingParameter>
+        <#if postProcessingParameter.templateKey == "invokeESB">
+        {
+          "templateKey" : "invokeESBParam",
+          "parameters" : [
+            <#list postProcessingParameter.parameters[0].values as invokeESBServiceName>
+            {
+              "templateKey": "invokeISService",
+              "parameters": [{
+                "templateKey": "serviceName",
+                "values": ["${invokeESBServiceName}"]
+              },
+                {
+                  "templateKey": "complyToISSpec",
+                  "values": ["false"]
+                }]
+            }
+            <#sep>,</#sep>
+            </#list>
+          ]
+        }
+        <#elseif postProcessingParameter.templateKey == "xsltTransformation">
+        ${printJsonPayload(postProcessingParameter)}
+        </#if>
+        <#sep>,</#sep>
+        </#list>
+      ]
+    }
+    <#elseif parameter.templateKey == "customErrorVariable">
+    {
+      "templateKey": "customErrorVariable",
+      "parameters": [
+        <#assign addComma="false"/>
+        <#list parameter.parameters as customErrorVariableParameter>
+        <#if customErrorVariableParameter.templateKey == "payloadType">
+        <#if addComma == "true" >
+      ,
+        </#if>
+        {
+          "templateKey": "payloadType",
+          "values": ["${customErrorVariableParameter.values[0]}"]
+        }
+        <#assign addComma="true"/>
+        <#elseif customErrorVariableParameter.templateKey == "name">
+        <#if addComma == "true" >
+      ,
+        </#if>
+        {
+          "templateKey": "name",
+          "values": ["${customErrorVariableParameter.values[0]}"]
+        }
+        <#assign addComma="true"/>
+        <#elseif customErrorVariableParameter.templateKey == "xpathExpression">
+        <#if addComma == "true" >
+      ,
+        </#if>
+        <#assign payloadIdentifier=parameter/>
+        <#include "102_payloadIdentifier_request.json"/>
+        <#assign addComma="true"/>
+        </#if>
+        </#list>
+
+      ]
+    }
+    </#if>
+    <#sep>,</#sep>
+    </#list>
+  ]<#if doc.active??>
+,
+  "active":  ${doc.active?c}
+</#if>
+}

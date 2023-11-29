@@ -1,0 +1,19 @@
+{
+ "templateKey" : "mashupQueryParamsTransformation",
+ "names" : [
+   {
+     "value" : "Query Parameters",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["mashupQueryParams"]
+}

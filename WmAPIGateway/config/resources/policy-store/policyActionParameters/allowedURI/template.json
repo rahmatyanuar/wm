@@ -1,0 +1,19 @@
+{
+		"templateKey" : "allowedURI",
+		"names" : [
+		   {
+			 "value" : "Allowed URIs",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Allowed URIs",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["uri-src.json","matchCriteria.json"]		
+}

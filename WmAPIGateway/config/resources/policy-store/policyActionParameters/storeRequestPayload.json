@@ -1,0 +1,20 @@
+{
+    "templateKey": "storeRequestPayload",
+    "names": [
+      {
+        "value": "Store Request Payload",
+        "locale": "en_US"
+      }
+    ],
+    "descriptions": [
+      {
+        "value": "Stores the request payload ",
+        "locale": "en"
+      }
+    ],
+    "type": "BOOLEAN",
+    "isArray": false,
+    "isRequired": false,
+	"applicableServiceTypes" : ["REST","SOAP","ODATA","GRAPHQL"],
+    "defaultValues": ["false"]
+}

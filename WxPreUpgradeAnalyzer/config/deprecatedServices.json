@@ -1,0 +1,2714 @@
+{
+	"deprecatedAssets": [
+		{
+			"nodeName": "pub.client:soapHTTP",
+			"nodeType": "service",
+			"svcType": "flow",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.client:soapClient"
+		},
+		{
+			"nodeName": "pub.client:soapRPC",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.client:soapClient"
+		},
+		{
+			"nodeName": "pub.date:currentDate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.date:getCurrentDate"
+		},
+		{
+			"nodeName": "pub.date:dateBuild",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.5",
+			"replacement": "pub.datetime:build"
+		},
+		{
+			"nodeName": "pub.date:dateTimeBuild",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.5",
+			"replacement": "pub.datetime:build"
+		},
+		{
+			"nodeName": "pub.date:incrementDate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.5",
+			"replacement": "pub.datetime:increment"
+		},
+		{
+			"nodeName": "pub.event.audit:logToFile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.eda:eventToDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "9.7",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.exception:logToFile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.sessionEnd:logToFile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.sessionExpire:logToFile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.sessionStart:logToFile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.stats:logToFile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.flow:setResponse",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "9.6",
+			"replacement": "pub.flow:setResponse2"
+		},
+		{
+			"nodeName": "pub.jms.wmjms:receiveStream",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.jms.wmjms:sendStream",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.json:validate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.4",
+			"replacement": "pub.json.schema:validate"
+		},
+		{
+			"nodeName": "pub.list:appendToRecordList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.list:appendToDocumentList"
+		},
+		{
+			"nodeName": "pub.list:copyListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:getListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:getRecordListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:getStringListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:setListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:setRecordListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:setStringListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:stringListToRecordList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.list:stringListToDocumentList"
+		},
+		{
+			"nodeName": "pub.oauth:getAccessToken",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.2",
+			"replacement": "pub.oauth:getToken"
+		},
+		{
+			"nodeName": "pub.oauth:refreshAccessToken",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.2",
+			"replacement": "pub.oauth:getToken"
+		},
+		{
+			"nodeName": "pub.publish:syncToBroker",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "9.7",
+			"replacement": "pub.publish:syncToProvider"
+		},
+		{
+			"nodeName": "pub.record:XMLValuesToRecord",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.document:XMLValuesToDocument"
+		},
+		{
+			"nodeName": "pub.record:length",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.record:recordListToRecord",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.document:documentListToDocument"
+		},
+		{
+			"nodeName": "pub.record:recordToRecordList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.document:documentToDocumentList"
+		},
+		{
+			"nodeName": "pub.record:recordToXMLValues",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.document:documentToXMLValues"
+		},
+		{
+			"nodeName": "pub.security.pkcs7:sign",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.security.keystore.pkcs7:sign"
+		},
+		{
+			"nodeName": "pub.security:setKeyAndChain",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.security.keystore:setKeyAndChain"
+		},
+		{
+			"nodeName": "pub.smime:createSignedAndEncryptedData",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.smime.keystore:createSignedAndEncryptedData"
+		},
+		{
+			"nodeName": "pub.smime:createSignedData",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.smime.keystore:createSignedData"
+		},
+		{
+			"nodeName": "pub.smime:processEncryptedData",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.smime.keystore:processEncryptedData"
+		},
+		{
+			"nodeName": "pub.soap.handler:addHeaderElement",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.soap.handler:addHeaderBlock"
+		},
+		{
+			"nodeName": "pub.soap.handler:getHeaderElement",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.soap.handler:getHeaderBlock"
+		},
+		{
+			"nodeName": "pub.soap.handler:registerConsumer",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.soap.handler:registerWmConsumer"
+		},
+		{
+			"nodeName": "pub.soap.handler:registerProvider",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.soap.handler:registerWmProvider"
+		},
+		{
+			"nodeName": "pub.soap.handler:removeHeaderElement",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "pub.soap.handler:removeHeaderBlock"
+		},
+		{
+			"nodeName": "pub.soap.processor:list",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.soap.processor:processMessage",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.soap.processor:processRPCMessage",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.soap.processor:registerProcessor",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.soap.processor:unregisterProcessor",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.soap.utils:resetWSDEffectivePolicy",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.4",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.soap.utils:setWSDEffectivePolicy",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.4",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.string:documentArrayToStringTable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.string:isNullOrBlank",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.4",
+			"replacement": "pub.string:isNullEmptyOrWhitespace"
+		},
+		{
+			"nodeName": "pub.string:stringTableToDocumentArray",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.table:recordListToTable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.table:stringTableToTable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.table:tableToRecordList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.table:tableToStringTable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.web:createRegions",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.web:documentToRecord",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:xmlNodeToDocument"
+		},
+		{
+			"nodeName": "pub.web:freeDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:freeXMLNode"
+		},
+		{
+			"nodeName": "pub.web:getDocumentType",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:getXMLNodeType"
+		},
+		{
+			"nodeName": "pub.web:getNextNode",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:getNextXMLNode"
+		},
+		{
+			"nodeName": "pub.web:getNodeIterator",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:getXMLNodeIterator"
+		},
+		{
+			"nodeName": "pub.web:loadDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:loadXMLNode"
+		},
+		{
+			"nodeName": "pub.web:makeArrays",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.web:queryDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:queryXMLNode"
+		},
+		{
+			"nodeName": "pub.web:recordToDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:documentToXMLString, pub.xml:xmlStringToXMLNode"
+		},
+		{
+			"nodeName": "pub.web:stringToDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.0",
+			"replacement": "pub.xml:xmlStringToXMLNode"
+		},
+		{
+			"nodeName": "pub.event.eda:event",
+			"nodeType": "document type",
+			"svcType": "",
+			"package": "WmPublic",
+			"version": "10.11",
+			"replacement": "There is no replacement document type."
+		},
+		{
+			"nodeName": "pub.event.eda:schema_event",
+			"nodeType": "schema",
+			"svcType": "",
+			"package": "WmPublic",
+			"version": "10.11",
+			"replacement": "There is no replacement schema."
+		},
+		{
+			"nodeName": "pub.event.routing:eventAcknowledgement",
+			"nodeType": "document type",
+			"svcType": "",
+			"package": "WmPublic",
+			"version": "10.11",
+			"replacement": "There is no replacement document type."
+		},
+		{
+			"nodeName": "pub.event.routing:send",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.11",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "pub.event.routing:subscribe",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.11",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "pub.event.routing:unsubscribe",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "10.11",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "wm.tn.access:getPartner",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmTN",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.access:getPartnerCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmTN",
+			"version": "6.5",
+			"replacement": "wm.tn.security:getVerifyingChain"
+		},
+		{
+			"nodeName": "wm.tn.access:getSigningKeys",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.security:getSigningKeyAndChain"
+		},
+		{
+			"nodeName": "wm.tn.access:removePartnerCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.access:setPartnerCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "Use wm.tn.security:addCertificateData or wm.tn.security:updateCertificateData."
+		},
+		{
+			"nodeName": "wm.tn.access:setSigningKeys",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "Use wm.tn.security:addCertificateData or wm.tn.security:updateCertificateData."
+		},
+		{
+			"nodeName": "wm.tn.delivery:getAnyDelivery",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.task:getAnyTask"
+		},
+		{
+			"nodeName": "wm.tn.delivery:getDelivery",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.task:getTask"
+		},
+		{
+			"nodeName": "wm.tn.delivery:getDeliveryOutput",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.task:getTaskOutput"
+		},
+		{
+			"nodeName": "wm.tn.delivery:getDeliveryStatus",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.task:getTaskStatus"
+		},
+		{
+			"nodeName": "wm.tn.delivery:removeDelivery",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.task:removeTask"
+		},
+		{
+			"nodeName": "wm.tn.delivery:restartDelivery",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.task:restartTask"
+		},
+		{
+			"nodeName": "wm.tn.profile:getContactTypes",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.dictionary:getContactTypes"
+		},
+		{
+			"nodeName": "wm.tn.profile:getExtendedFieldTemplate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.profile.create:newExtendedFields"
+		},
+		{
+			"nodeName": "wm.tn.profile:getIDTypes",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "wm.tn.dictionary:getIDTypes"
+		},
+		{
+			"nodeName": "wm.tn.security:getDecryptCACertificates",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getDecryptCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getDecryptKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getEncryptCACertificates",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getEncryptCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getEncryptKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getSignCACertificates",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getSignCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getSignKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getVerifyCACertificates",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:getVerifyCertificate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:setDecryptCertificateSet",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:setEncryptCertificateSet",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:setSignCertificateSet",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.security:setVerifyCertificateSet",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.profile:getUserProfile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.profile:getUserProfileSummary",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:expToProperty",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:expToVariable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:literalObjectToProperty",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:literalStringToProperty",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:literalStringToVariable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:literalToPartner",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:partnerToPartner",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:partnerToVariable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:propertyToProperty",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:propertyToVariable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:setPartnerAuthentication",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:variableToPartner",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:variableToProperty",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.assign:variableToVariable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.globalData:lockGlobalData",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.cluster:disableServiceRedir",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.cluster:disableSessionRedir",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.cluster:getClusterHosts",
+			"nodeType": "service",
+			"svcType": "java",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:bind",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "pub.client.ldap:bind"
+		},
+		{
+			"nodeName": "pub.ldap:connect",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:delete",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "pub.client.ldap:delete"
+		},
+		{
+			"nodeName": "pub.ldap:disconnect",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:getAttributeDef",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:list",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:lookup",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:search",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "pub.client.ldap:search"
+		},
+		{
+			"nodeName": "pub.ldap:update",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "pub.client.ldap:modify"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:deleteAllConnections",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:deleteConnection",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:disableListeners",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:getNumConnections",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:getServerType",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:keepAliveConnections",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:listProxyListeners",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:listRegisteredConnections",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:listRegistrationListeners",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:registerReverseConnections",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:listRegistrationListeners",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:listRegistrationListeners",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.reverseInvoke:listRegistrationListeners",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:accessPoint",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:address",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:addressLine",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:assertionStatusItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:assertionStatusReport",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:authToken",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:bindingDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:bindingKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:bindingTemplate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:bindingTemplates",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessDetailExt",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessEntity",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessEntityExt",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessInfos",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessKey ",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessService",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:businessServices",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:categoryBag",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:contact",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:contacts",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:discoveryURL",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:discoveryURLs",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:dispositionReport",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:docType_categoryBag",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:docType_description",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:docType_keyedReference",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:docType_name",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:email",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:errInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:findQualifier",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:findQualifiers",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:fromKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:hostingRedirector",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:identifierBag",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:instanceDetails",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:instanceParms",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:keyedReference",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:keysOwned",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:overviewDoc",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:phone",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:publisherAssertion",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:publisherAssertions",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:registeredInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:relatedBusinessInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:relatedBusinessInfos",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:relatedBusinessesList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:result",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:schema_uddiv2",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:serviceDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:serviceInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:serviceInfos",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:serviceKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:serviceList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:sharedRelationships",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:SOAPFault",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModel",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelBag",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelInfos",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelInstanceDetails",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelInstanceInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelKey ",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:tModelList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:toKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.doc:uploadRegister",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_binding",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_business",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_businessByCategory",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_businessByDiscURLs",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_businessByIdentity",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_businessByName",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_businessBytModel",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_relatedBusinesses",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_service",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_serviceByBusKey",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_serviceByCategory",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_serviceByName",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_serviceBytModel",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_tModel",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_tModelByCategory",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_tModelByIdentity",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:find_tModelByName",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:get_bindingDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:get_businessDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:get_businessDetailExt",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:get_serviceDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.inquiry:get_tModelDetail",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:add_publisherAssertions",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:delete_binding",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:delete_business",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:delete_publisherAssertions",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:delete_service",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:delete_tModel",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:discard_authToken",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:get_assertionstatusReport",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:get_authToken",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:get_publisherAssertions",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:get_registeredInfo",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:save_binding",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:save_business",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:save_service",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:save_tModel",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.uddi.client.publish:set_publisherAssertions",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmUDDI",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.vcs:getUsers",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmVCS",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.vcs:removeCurrentUser",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmVCS",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.vcs:removeMultipleUsers",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmVCS",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.vcs:setCurrentUser",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmVCS",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.vcs:setMultipleUsers",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmVCS",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.list:appendToRecordListItem",
+			"nodeType": "service",
+			"svcType": "java",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:init",
+			"nodeType": "service",
+			"svcType": "java",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.ldap:shutdown",
+			"nodeType": "service",
+			"svcType": "java",
+			"version": "6.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.access:userList",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"package": "WmTN",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.access:getUserListByGroup",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"package": "WmTN",
+			"version": "6.5",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.tn.doc:isRoutable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmTN",
+			"version": "6.5",
+			"replacement": "empower.softwareag,com"
+		},
+		{
+			"nodeName": "wm.tn.profile:getBinaryTypes",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmTN",
+			"version": "6.5",
+			"replacement": "empower.softwareag,com"
+		},
+		{
+			"nodeName": "pub.event.WinException:eventLog",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.COM.dispatch:createObject",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.COM.dispatch:invoke",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.COM.dispatch:release",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.COM:invoke",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.COM:invokeLate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.COM:shutdown",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.ntlm:reg",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "win32.ntlm:unreg",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmWin32",
+			"version": "7.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt:ErrorService",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.prt.globalData:getGlobalData",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPRT",
+			"version": "7.1.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.b2b.edi:createTemplateFromSEF",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmEDI",
+			"version": "7.1.2",
+			"replacement": "wm.b2b.edi:SEFPars"
+		},
+		{
+			"nodeName": "wm.b2b.edi:createW3CXMLSchema",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmEDI",
+			"version": "7.1.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.b2b.edi.templateMgr:getTemplate",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmEDI",
+			"version": "7.1.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.utils:toObjectArray",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmPublic",
+			"version": "7.1.2",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "omi.wm.is",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmOmiIs",
+			"version": "8.0",
+			"replacement": "Software AG R&D documentation"
+		},
+		{
+			"nodeName": "omi.wm.tn",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmOmiTN",
+			"version": "8.0",
+			"replacement": "Software AG R&D documentation"
+		},
+		{
+			"nodeName": "sample.uddi",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.administrator",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.administratorResource",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.broker.admin",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.comauth",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.FtpToJes",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.InitialValidityTest",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.archive",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.cm",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.papinet",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.papinet:V1",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.papinet:V2",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.papinet.sample",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.profile",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.rec",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.trp",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.tspace",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ip.util",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.ism.agent",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.Mainframe",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.MainframeSampleServices",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.modeler",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "wm.tnweb",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "WmxCBL",
+			"nodeType": "package",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "Software AG R&D"
+		},
+		{
+			"nodeName": "pub.prt.assign:literalObjectToVariable",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.estd.common.cm:waitStepInit",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.estd.common.cm.handlers:processNOF",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.estd.common.cm.handlers:sendReceiptAck",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.0",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.monitor.process.instance:getInstanceListByQueryName",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "8.2.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.security.mobileGateway:alertSpec",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.0.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "wm.monitor.pmControl:logActivationStatus",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.0.1",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.event.eda:send",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.0.1",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "pub.pki.pkcs7:verify",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.7",
+			"replacement": "pub.security.pkcs7:verify"
+		},
+		{
+			"nodeName": "pub.pki.smime.createSignedAndEncryptedData ",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.7",
+			"replacement": "pub.smime.keystore:createSignedAndEncryptedData"
+		},
+		{
+			"nodeName": "pub.pki.smime.createSignedData ",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.7",
+			"replacement": "pub.smime.keystore:createSignedData"
+		},
+		{
+			"nodeName": "pub.pki.smime:processEncryptedData",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.7",
+			"replacement": "pub.smime.keystore:processEncryptedData"
+		},
+		{
+			"nodeName": "pub.pki.smime:processSignedData ",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.7",
+			"replacement": "pub.smime:processSignedData"
+		},
+		{
+			"nodeName": "wm.mft.admin:property",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "None"
+		},
+		{
+			"nodeName": "pub.pki.pkcs7:sign",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.7",
+			"replacement": "pub.security.keystore.pkcs7:sign"
+		},
+		{
+			"nodeName": "com.softwareag.eda.jndi",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.jms",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.jms.util",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.nonosgi",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.nonosgi.util",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.route.builder",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.route.conf",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.route.endpoint",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.subscription",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.util",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "com.softwareag.eda.nerv.error.handling",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.8",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "WmTNPKI",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": "WmTNPKI",
+			"version": "9.7",
+			"replacement": "TradingNetworks_readme_9-8.pdf"
+		},
+		{
+			"nodeName": "pub.event.nerv:eventToDocument",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.9",
+			"replacement": "pub.event.eda:eventToDocument"
+		},
+		{
+			"nodeName": "pub.event.nerv:send",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.9",
+			"replacement": "Use Digital Event Services."
+		},
+		{
+			"nodeName": "pub.event.nerv:subscribe",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.9",
+			"replacement": "pub.event.routing:subscribe"
+		},
+		{
+			"nodeName": "pub.event.nerv:unsubscribe",
+			"nodeType": "service",
+			"svcType": "java",
+			"package": " ",
+			"version": "9.9",
+			"replacement": "pub.event.routing:unsubscribe"
+		}
+	]
+}

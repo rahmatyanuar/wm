@@ -1,0 +1,40 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse",
+"wsp":"http://schemas.xmlsoap.org/ws/2004/09/policy",
+"sp":"http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702",
+"wst1":"http://schemas.xmlsoap.org/ws/2005/02/trust",
+"wst2":"http://docs.oasis-open.org/ws-sx/ws-trust/200512",
+"sprst":"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy",
+"address":"http://www.w3.org/2005/08/addressing",
+"wsx":"http://schemas.xmlsoap.org/ws/2004/09/mex"}/>
+<#assign policy=doc.service.resources.policy/>
+<#assign expressions=doc.service.definition.inSequence.enforcement\-actions.expressions/>
+<#assign all=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All/>
+{
+    "names": [
+      {
+        "value": "Inbound Authentication - Message",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "webServiceSecurityPolicy",
+    "parameters": [	
+		<#assign isKerberosExists = false/>
+		<#assign samlFound = false/>
+      <#include "InboundTokenAssertion.json"/>,
+	  {
+        "templateKey": "requireTimestamps",
+        "values": [
+		  <#if isKerberosExists>
+			"true"
+		  <#else>
+			<#if all.sp\:AsymmetricBinding.wsp\:Policy.sp\:IncludeTimestamp[0]??>"true"<#else>"false"</#if>
+		  </#if>
+        ]
+      }
+      <#include "IAMRequireEncryption.json"/>
+      <#include "IAMRequireSigning.json"/>
+	  <#include "IAMValidateSamlAudienceURI.json"/>
+    ],
+    "active": false
+}

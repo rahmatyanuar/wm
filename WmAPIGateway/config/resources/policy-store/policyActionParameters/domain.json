@@ -1,0 +1,19 @@
+{
+				"templateKey" : "domain",
+				"names" : [
+				   {
+					 "value" : "Domain Name",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Domain Name for the Basic Authentication",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}
+

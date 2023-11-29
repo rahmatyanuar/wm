@@ -1,0 +1,51 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign expressions=doc.service.definition.inSequence.enforcement\-actions.expressions/>
+<#assign EvalException='com.softwareag.apigateway.core.migration.EvaluatePolicyMigrationEx'?new()/>
+[
+<#if expressions[0]??>
+	<#assign expression=expressions.expression/>
+	<#if expression[0]??>
+		<#assign allowAnon=doc.service.definition.inSequence.enforcement\-actions.@allow\-anon>
+		
+		<#assign isEvaluatePolicyExists = false/>
+		<#assign isKerberosPolicyExists = false/>
+		<#assign isHttpBasicAuthExists = false/>
+		<#assign isValidateHttpHeaderCreation = false/>
+		<#list expression as expressionElement>
+		  <#list expressionElement.params as param>
+			<#if param.@identify == "donotidentify" && param.@type == "xpathAddress">  
+				${EvalException(param.@type)}
+			</#if>
+			
+			<#if param.@type == "httpBasicAuth" && param.@validate == "true">
+				<#assign isHttpBasicAuthExists = true/>
+			<#elseif param.@type == "kerberosAuth" && param.kerberosConfig.@mode == "transport">
+				<#assign isKerberosPolicyExists = true/>
+				<#assign servicePrincipalNameform = param.kerberosConfig.servicePrincipalNameform/>
+				<#assign principalName = param.kerberosConfig.principalName/>
+				<#assign principalPassword = param.kerberosConfig.principalPassword/>
+			</#if>
+			
+			<#if param.@identify == "relax" || param.@identify == "strict" || param.@type == "oAuth2Token">
+			  <#assign isEvaluatePolicyExists=true>
+			</#if>
+			<#if param.@identify == "donotidentify" && param.@type == "httpBasicAuth" && param.@validate == "false">
+			  <#assign isValidateHttpHeaderCreation=true>
+			</#if>
+		  </#list>
+		</#list>
+		<#assign isTransportPolicyExists = isHttpBasicAuthExists || isKerberosPolicyExists/>
+		
+		<#include "evaluate.json"/>
+		<#if isEvaluatePolicyExists && (isTransportPolicyExists || isValidateHttpHeaderCreation)>
+		  ,
+		</#if>
+		<#include "inboundAuthTransport.json"/>
+		<#if isTransportPolicyExists && isValidateHttpHeaderCreation>
+		  ,
+		</#if>
+		<#include "validateHttpHeader.json"/>
+	</#if>
+</#if>
+]

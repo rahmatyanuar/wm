@@ -1,0 +1,30 @@
+{
+        <#if doc.id??>
+        "id": "${doc.id}",
+        </#if>
+        "names": [{
+        "value": "XSLT Transformation",
+        "locale": "en"
+        }],
+        "templateKey": "${doc.templateKey}",
+        "parameters" :
+          <#assign payloadTransformationFound = "false"/>
+          <#list doc.parameters as params>
+                <#if params.templateKey == "responseTransformationConfiguration" || params.templateKey=="requestTransformationConfiguration">
+                      <#list params.parameters as payloadTransformationParameter>
+                          <#if payloadTransformationParameter.templateKey == "payloadTransformation">
+                                <#assign payloadTransformationFound = "true"/>
+                                ${printJsonPayload(payloadTransformationParameter.parameters)}
+                                <#break>
+                          </#if>
+                      </#list>
+                      <#break>
+                </#if>
+          </#list>
+          <#if payloadTransformationFound != "true">
+              <#assign message="XSLT transformation is not found.The policy action does not belong to 10.1 API Gateway version. Please use latest endpoint version."/>
+              ${assetTransformException(message)}
+          </#if>
+        ,
+        "active":  ${doc.active?c}
+}

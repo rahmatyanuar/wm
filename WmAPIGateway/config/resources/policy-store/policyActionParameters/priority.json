@@ -1,0 +1,21 @@
+{
+	"templateKey": "priority",
+	"names": [
+		{
+			"value": "Priority",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "Priority of this JMS message with respect to other messages. Pssible values are from 0 to 10",
+			"locale": "en_US"
+		}
+	],
+	"type": "INT",
+	"isArray": "false",
+	"isRequired": "true",
+	"defaultValues": [
+		0
+	]
+}

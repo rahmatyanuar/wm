@@ -1,0 +1,38 @@
+{
+		"templateKey" : "servicePrincipalNameForm",
+		"names" : [
+		   {
+			 "value" : "Service Principal Name Form",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Select a value for Service Principal Name Form",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"possibleValues" :[
+			{
+				"names" : [
+				{
+					"value" : "Username",
+					"locale" : "en"
+				} 
+				],
+				"value" :  "username"
+			},
+			{
+				"names" : [
+				{
+					"value" : "Hostbased",
+					"locale" : "en"
+				} 
+				],
+				"value" :  "hostbased"
+			}
+		]
+}

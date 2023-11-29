@@ -1,0 +1,100 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#if doc.policyScope == "GLOBAL">
+  <#assign isRestAPIApplicable=false/>
+  <#list doc.scope.applicableAPITypes as apiType>
+          <#if apiType == "REST">
+            <#assign isRestAPIApplicable = true/>
+          </#if>
+  </#list>
+   <#if isRestAPIApplicable == false>
+        ${printJsonPayload(doc)}
+   <#else>
+        <#assign isHttpMethodFilterAvailable = false />
+        <#list doc.scope.scopeConditions as scopeCondition>
+            <#if scopeCondition.filterType == "HTTP_METHOD">
+                <#assign isHttpMethodFilterAvailable = true />
+            </#if>
+        </#list>
+        <#if isHttpMethodFilterAvailable == true>
+            ${printJsonPayload(doc)}
+        <#else>
+        {
+            <#if doc.id??>
+            "id" : "${doc.id}",
+            </#if>
+            <#if  doc.names??>
+            "names" : ${printJsonPayload(doc.names)},
+            </#if>
+            <#if doc.descriptions??>
+            "descriptions" : ${printJsonPayload(doc.descriptions)},
+             </#if>
+            <#if doc.policyScope??>
+            "policyScope" : "${doc.policyScope}",
+            </#if>
+             <#if doc.policyEnforcements??>
+            "policyEnforcements" : ${printJsonPayload(doc.policyEnforcements)},
+            </#if>
+            <#if doc.active??>
+            "active" : ${doc.active?c},
+            </#if>
+            <#if doc.global??>
+            "global" : ${doc.global?c},
+            </#if>
+            <#if doc.systemPolicy??>
+            "systemPolicy" : ${doc.systemPolicy?c},
+            </#if>
+            <#if doc.scope??>
+            "scope" : {
+              "applicableAPITypes" : ${printJsonPayload(doc.scope.applicableAPITypes)},
+              "logicalConnector" : "${doc.scope.logicalConnector}",
+              "scopeConditions" : [
+              <#list doc.scope.scopeConditions as scopeCondition>
+                <#if scopeCondition.filterType != "HTTP_METHOD">
+                ${printJsonPayload(scopeCondition)},
+                <#else>
+                <#assign HTTP_METHOD_FILTER=scopeCondition/>
+                </#if>
+              </#list>
+              <#if HTTP_METHOD_FILTER??>
+                ${printJsonPayload(HTTP_METHOD_FILTER)}
+
+               <#else>
+                {
+                "filterType" : "HTTP_METHOD",
+                  "attributes" : [
+                      {
+                        "attributeName": "GET",
+                        "value": "true"
+                      },
+                      {
+                        "attributeName": "POST",
+                        "value": "true"
+                      },
+                      {
+                        "attributeName": "PUT",
+                        "value": "true"
+                      },
+                      {
+                        "attributeName": "DELETE",
+                        "value": "true"
+                      },
+                      {
+                        "attributeName": "PATCH",
+                        "value": "true"
+                      },
+                      {
+                        "attributeName": "HEAD",
+                        "value": "true"
+                      }
+                  ]
+                }
+               </#if>
+              ]
+             }
+             </#if>
+        }
+        </#if>
+   </#if>
+<#else>
+  ${printJsonPayload(doc)}
+</#if>

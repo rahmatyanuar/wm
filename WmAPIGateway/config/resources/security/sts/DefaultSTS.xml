@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII" standalone="yes"?>
+<ns2:STSConfig xmlns:ns2="http://com.softwareag.mediator.security.saml.sts">
+    <name>DefaultSTS</name>
+    <endpoint>http://localhost:5555/ws/DefaultSTS</endpoint>
+    <isSignReq>false</isSignReq>
+    <isEncReq>false</isEncReq>
+    <ksHandle></ksHandle>
+    <tokenType>SAML_20</tokenType>
+    <wstVersion>VERSION_05_02</wstVersion>
+    <ttl>300</ttl>
+</ns2:STSConfig>

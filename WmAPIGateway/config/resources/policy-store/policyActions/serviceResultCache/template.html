@@ -1,0 +1,9 @@
+<br>
+     Result caching is enabled for the API. 
+    <#if ttl??>
+		<br>Results may be cached for ${ttl}.
+	</#if>
+	<#if maxpayload??>
+		The elements smaller than ${maxpayload}KB are cached.      
+	</#if>
+<br> 

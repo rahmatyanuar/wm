@@ -1,0 +1,48 @@
+{
+  "templateKey": "logGenerationFrequency",
+  "names": [
+    {
+      "value": "Log Generation Frequency",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "LOG Generation Frequency",
+      "locale": "en_US"
+    }
+  ],
+  "type": "STRING",
+  "isArray": false,
+  "isRequired": true,
+  "defaultValues": ["Always"],
+  "possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Always",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Always"
+					},
+					{
+						"names" : [
+						{
+							"value" : "OnFailure",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "OnFailure"
+					},
+					{
+						"names" : [
+						{
+							"value" : "OnSuccess",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "OnSuccess"
+					}
+		]
+}

@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "connectionAlias",
+		"names" : [
+		   {
+			 "value" : "Connection Alias Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Connection Alias Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

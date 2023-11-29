@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "addHeaderParams",
+		"names" : [
+		   {
+			 "value" : "Add/Modify Header",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Add/Modify Header",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"addTransformationParamsValue"
+		]	
+
+   }

@@ -1,0 +1,48 @@
+{
+  "properties": {
+    "name" : {
+      "type" : "text",
+      "analyzer" : "not_analyzed_ignorecase",
+      "fielddata" : true
+    },
+    "description" : {
+      "type" : "text",
+      "analyzer" : "not_analyzed_ignorecase",
+      "fielddata" : true
+    },
+    "apiScope" : {
+      "properties" : {
+        "desc" : {
+          "type" : "text",
+          "analyzer": "not_analyzed_ignorecase",
+          "fielddata": true
+        },
+        "name" : {
+          "type" : "text",
+          "analyzer": "not_analyzed_ignorecase",
+          "fielddata": true
+        },
+        "oAuth2ScopeName" : {
+          "type" : "text",
+          "analyzer": "not_analyzed_ignorecase",
+          "fielddata": true
+        },
+        "values" : {
+          "type" : "text",
+          "analyzer": "not_analyzed_ignorecase",
+          "fielddata": true
+        }
+      }
+    }
+  },
+  "dynamic_templates": [
+    {
+      "strings": {
+        "match_mapping_type": "string",
+        "mapping": {
+          "type": "text"
+        }
+      }
+    }
+  ]
+}

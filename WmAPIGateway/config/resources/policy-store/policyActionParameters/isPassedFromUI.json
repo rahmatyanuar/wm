@@ -1,0 +1,40 @@
+{
+		"templateKey" : "isPassedFromUI",
+		"names" : [
+		   {
+			 "value" : "Value passed from UI",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Indicator of the value that it is passed from UI.",
+			 "locale" : "en"
+		   }
+		 ],
+		"canRender" : "false",
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["false"],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "false",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "false"
+					},
+					{
+						"names" : [
+						{
+							"value" : "true",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "true"
+					}
+		]
+}

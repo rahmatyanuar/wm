@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "xsltAliasSelector",
+		"names" : [
+		   {
+			 "value" : "XSLT Transformation alias",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "XSLT Alias",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  [  "xsltAlias.json", "feature" ]
+  }

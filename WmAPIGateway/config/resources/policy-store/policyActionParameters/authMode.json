@@ -1,0 +1,41 @@
+{
+				"templateKey" : "authMode",
+				"names" : [
+				   {
+					 "value" : "Authentication Mode",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes the mode of authentication to be used - custom credentials etc ",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "INCOMING"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Custom Credentials",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "NEW"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Pass existing credentials",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "INCOMING"
+					}
+				]
+}

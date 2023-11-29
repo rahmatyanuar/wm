@@ -1,0 +1,18 @@
+{
+		"templateKey" : "customErrorMessage",
+		"names" : [
+		   {
+			 "value" : "Error Message",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Error Message",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

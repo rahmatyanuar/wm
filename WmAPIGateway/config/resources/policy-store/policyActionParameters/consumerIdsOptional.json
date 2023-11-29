@@ -1,0 +1,18 @@
+{
+		"templateKey" : "consumerIdsOptional",
+		"names" : [
+		   {
+			 "value" : "Consumer Applications",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Consumer Applications to identify",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+}

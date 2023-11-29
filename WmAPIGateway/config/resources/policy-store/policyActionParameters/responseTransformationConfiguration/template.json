@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "responseTransformationConfiguration",
+		"names" : [
+		   {
+			 "value" : "Transformation Configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Configuration to transform Header parameters, status and payload",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+				"restHeaderTransformation", "soapHeaderTransformation", "statusTransformation", "payloadTransformation", "advancedTransformation"
+		]	
+
+   }

@@ -1,0 +1,48 @@
+{
+    "templateKey": "logLevel",
+    "names": [
+    {
+            "value": "Log Level",
+            "locale": "en_US"
+    }
+    ],
+    "descriptions": [
+    {
+            "value": "Log Level",
+            "locale": "en_US"
+    }
+    ],
+    "type": "STRING",
+    "isArray": false,
+    "isRequired": false,
+    "defaultValues": [],
+	"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Error",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Error"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Info",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Info"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Warn",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Warn"
+					}
+		]
+}

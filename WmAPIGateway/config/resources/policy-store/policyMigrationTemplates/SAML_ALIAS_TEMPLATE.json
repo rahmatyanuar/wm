@@ -1,0 +1,112 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+{
+	"name": "SAMLIssuer",
+	"type": "samlIssuerAlias",
+	
+	<#assign sts\-config=doc.sts\-config/>
+	<#if sts\-config.@using[0]??>
+	<#assign messageConfig=sts\-config.sts\-issuer\-policy.message\-config />
+		<#if sts\-config.@using[0] == "KerberosOverTransport">
+			<#assign kerberos=messageConfig.kerberos.authentication/>
+			"issuerAuthScheme": "KERBEROS",
+			<#if kerberos.@mode[0] == "delegation">
+				"issuerAuthMode": "DELEGATE_INCOMING",
+			<#else>
+				"issuerAuthMode": "NEW",
+			</#if>
+			"kerberosCredentials": {
+				"servicePrincipal": "${kerberos.service\-principal\-name?json_string}",
+				"servicePrincipalNameForm": "${kerberos.service\-principal\-name\-form}",
+				"clientPrincipal": "${kerberos.client\-principal?json_string}",
+				"clientPassword": "${kerberos.client\-password}"
+			},
+		<#elseif sts\-config.@using[0] == "UsernameToken">
+			"issuerAuthScheme": "WSS_USERNAME",
+			"issuerAuthMode": "NEW",
+			<#assign username=messageConfig.username\-token/>
+			"wssCredentials": {
+				"userName": "${username.username?json_string}",
+				"password": "${username.password}"
+			},
+		</#if>
+		"signAndEncryptConfig": {
+			"keyStoreAlias": "",
+			"keyAlias": <#if messageConfig.sign\-key\-alias[0]??> "${messageConfig.sign\-key\-alias}"<#else> null </#if>,
+			"certificateAlias": <#if messageConfig.encryption\-key\-alias[0]??>"${messageConfig.encryption\-key\-alias}"<#else> null </#if>,
+			"truststoreAlias": ""
+		},
+		<#assign stsRequest=sts\-config.sts\-issuer\-request/>
+		<#if stsRequest.@action[0]??>
+			<#if stsRequest.@action[0] == "Act As Delegation">
+				"issuerCommunicationMode": "ACT_AS_DELEGATION",
+			<#else>
+				"issuerCommunicationMode": "NORMAL_CLIENT",
+			</#if>
+			"endpoint": "${stsRequest.url}",
+			<#if stsRequest.saml\-version == "SAML 1.1">
+				"samlVersion": "SAML1_1",
+			<#else>
+				"samlVersion": "SAML_2_0",
+			</#if>
+			<#if stsRequest.trust\-version == "VERSION_05_02">
+				"wsTrustVersion": "WS_TRUST_1_0",
+			<#else>
+				"wsTrustVersion": "WS_TRUST_1_3",
+			</#if>
+			<#if stsRequest.appliesto[0]??>
+				"appliesTo": "${stsRequest.appliesto}",
+			</#if>
+			"extendedParameters": {
+			<#if stsRequest.extended\-params[0]??>
+				<#assign extendedParms=stsRequest.extended\-params/>
+				<#assign isComma=false/>
+				<#if extendedParms.key\-type[0]??>
+					<#include "comma.json"/>
+					"KeyType": "${extendedParms.key\-type}"
+				</#if>
+				<#if extendedParms.key\-size[0]??>
+					<#include "comma.json"/>
+					"KeySize": "${extendedParms.key\-size}"
+				</#if>
+				<#if extendedParms.signature\-algorithm[0]??>
+					<#include "comma.json"/>
+					"SignatureAlgorithm": "${extendedParms.signature\-algorithm}"
+				</#if>
+				<#if extendedParms.encryption\-algorithm[0]??>
+					<#include "comma.json"/>
+					"EncryptionAlgorithm": "${extendedParms.encryption\-algorithm}"
+				</#if>
+				<#if extendedParms.canonicalization\-algorithm[0]??>
+					<#include "comma.json"/>
+					"CanonicalizationAlgorithm": "${extendedParms.canonicalization\-algorithm}"
+				</#if>
+				<#if extendedParms.computedKey\-algorithm[0]??>
+					<#include "comma.json"/>
+					"ComputedKeyAlgorithm": "${extendedParms.computedKey\-algorithm}"
+				</#if>
+				<#if extendedParms.encryption[0]??>
+					<#include "comma.json"/>
+					"Encryption": "${extendedParms.encryption}"
+				</#if>
+				<#if extendedParms.proof\-encryption[0]??>
+					<#include "comma.json"/>
+					"ProofEncryption": "${extendedParms.proof\-encryption}"
+				</#if>
+				<#if extendedParms.keywrap\-algorithm[0]??>
+					<#include "comma.json"/>
+					"KeyWrapAlgorithm": "${extendedParms.keywrap\-algorithm}"
+				</#if>
+				<#if extendedParms.sign\-with[0]??>
+					<#include "comma.json"/>
+					"SignWith": "${extendedParms.sign\-with}"
+				</#if>
+				<#if extendedParms.encrypt\-with[0]??>
+					<#include "comma.json"/>
+					"EncryptWith": "${extendedParms.encrypt\-with}"
+				</#if>
+			</#if>
+			}
+		</#if>
+	</#if>
+}

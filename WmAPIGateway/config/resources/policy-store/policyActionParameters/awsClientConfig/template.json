@@ -1,0 +1,20 @@
+{
+  "templateKey" : "awsClientConfig",
+  "names" : [
+    {
+      "value" : "Client Configuration",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "AWS Client Configuration properties which will be used for endpoint specific connection settings",
+      "locale" : "en"
+    }
+  ],
+  "type" : "OBJECT",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+  "parameterTemplatesReference" : ["clientConfiguration"]
+}

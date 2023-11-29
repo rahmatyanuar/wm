@@ -1,0 +1,20 @@
+{
+  "subscriptions": {
+    "properties": {
+      "appIds": {
+        "type": "keyword"
+      },
+      "id": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "packageId": {
+        "type": "keyword"
+      },
+      "planId": {
+        "type": "keyword"
+      }
+    }
+  }
+}

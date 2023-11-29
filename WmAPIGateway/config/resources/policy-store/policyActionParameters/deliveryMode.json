@@ -1,0 +1,41 @@
+{
+	"templateKey": "deliveryMode",
+	"names": [
+		{
+			"value": "Delivery Mode",
+			"locale": "en"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "The type of message delivery to the endpoint",
+			"locale": "en"
+		}
+	],
+	"type": "STRING",
+	"isRequired": "true",
+	"isArray": "false",
+	"defaultValues": [
+		"NON_PERSISTENT"
+	],
+	"possibleValues": [
+		{
+			"names": [
+				{
+					"value": "Non Persistent",
+					"locale": "en"
+				}
+			],
+			"value": "NON_PERSISTENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Persistent",
+					"locale": "en"
+				}
+			],
+			"value": "PERSISTENT"
+		}		
+	]
+}

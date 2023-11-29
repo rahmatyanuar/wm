@@ -1,0 +1,18 @@
+{
+	"templateKey": "replyToName",
+	"names": [
+		{
+			"value": "Reply To Destination",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "JMS Queue name where a reply to a message should be sent",
+			"locale": "en_US"
+		}
+	],
+	"type": "STRING",
+	"isArray": "false",
+	"isRequired": "false"
+}

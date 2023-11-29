@@ -1,0 +1,18 @@
+{
+		"templateKey" : "emailTo",
+		"names" : [
+		   {
+			 "value" : "Email Address",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Email Addresses. Separate email addresses with semicolons (;).",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+}

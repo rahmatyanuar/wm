@@ -1,0 +1,19 @@
+{
+		"templateKey" : "kerberosTokenAssertion",
+		"names" : [
+		   {
+			 "value" : "Kerberos Token Authentication",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Evaluate that the request has a valid Kerberos Token",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" : "false",
+		"isArray" : "false", 
+		"parameterTemplatesReference" : [ "servicePrincipalName.json", "servicePrincipalPassword.json" ]
+}

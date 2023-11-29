@@ -1,0 +1,19 @@
+{
+		"templateKey" : "jmsOrAmqpSourceDetails",
+		"names" : [
+		   {
+			 "value" : "JMS/AMQP source details",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["sourceName.json","sourceType.json","jmsSelector.json","httpResource.json","httpMethods.json","content-type.json"]
+}

@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "max-payload-size",
+		"names" : [
+		   {
+			 "value" : "Maximum Response Payload Size (in KB)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Maximum Response Payload Size allowed in cache",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

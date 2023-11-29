@@ -1,0 +1,32 @@
+{
+		"templateKey" : "wsProtocol",
+		"names" : [
+		   {
+			 "value" : "Protocol",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Access protocol for bridging between the client and API-Gateway.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"defaultValues" : [
+		  "wss"
+		],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "WSS",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "wss"
+					}
+		]
+}

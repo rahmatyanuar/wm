@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "mashupResponseCustomPayload",
+		"names" : [
+		   {
+			 "value" : "Payload",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "TEXT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

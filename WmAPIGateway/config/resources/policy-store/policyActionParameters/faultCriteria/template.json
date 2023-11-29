@@ -1,0 +1,19 @@
+{
+ "templateKey" : "faultCriteria",
+ "names" : [
+   {
+     "value" : "Error Conditions",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Conditions based on which error handling will happen in Mediator.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : [ "statusCodeCriteria","headerCriteria","xpathCriteria"]
+}

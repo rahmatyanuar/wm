@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">WxPreUpgradeAnalyzer.excel.pub.data</value>
+  <value name="is_public">false</value>
+  <value name="shared">cHVibGljIHN0YXRpYyBpbnQgZ2V0SW50ZWdlckZyb21TdHJpbmcoU3RyaW5nIHZhbHVlLCBpbnQg
+ZGVmYXVsdFZhbHVlKXsNCglpbnQgaSA9IGRlZmF1bHRWYWx1ZTsNCgkNCgl0cnkgew0KCQlpID0g
+SW50ZWdlci5wYXJzZUludCh2YWx1ZSk7DQoJfSBjYXRjaCAoTnVtYmVyRm9ybWF0RXhjZXB0aW9u
+IGUpIHsNCgkJLy8gVE9ETyBBdXRvLWdlbmVyYXRlZCBjYXRjaCBibG9jaw0KCQkNCgl9DQoJDQoJ
+cmV0dXJuIGk7DQp9DQpwdWJsaWMgc3RhdGljIFN0cmluZyBnZXRDZWxsVmFsdWVBc1N0cmluZyAo
+Q2VsbCBjZWxsLCBTdHJpbmcgcGF0dGVybikNCnsNCglTdHJpbmcgdmFsdWUgPSAiIjsNCglEYXRl
+IGRhdGUgPSBudWxsOw0KCQ0KDQoNCglzd2l0Y2ggKGNlbGwuZ2V0Q2VsbFR5cGUoKSkgew0KICAg
+ICAgICBjYXNlIENlbGwuQ0VMTF9UWVBFX1NUUklORzoNCiAgICAgICAgCXZhbHVlID0gY2VsbC5n
+ZXRSaWNoU3RyaW5nQ2VsbFZhbHVlKCkuZ2V0U3RyaW5nKCk7DQogICAgICAgICAgICBicmVhazsN
+CiAgICAgICAgY2FzZSBDZWxsLkNFTExfVFlQRV9OVU1FUklDOg0KICAgICAgICAgICAgaWYgKERh
+dGVVdGlsLmlzQ2VsbERhdGVGb3JtYXR0ZWQoY2VsbCkpIHsNCiAgICAgICAgICAgIAlkYXRlID0g
+Y2VsbC5nZXREYXRlQ2VsbFZhbHVlKCk7DQoJCQkJRGF0ZUZvcm1hdCBmb3JtYXR0ZXIgPSBuZXcg
+U2ltcGxlRGF0ZUZvcm1hdChwYXR0ZXJuKTsNCgkJCQl2YWx1ZSA9IGZvcm1hdHRlci5mb3JtYXQo
+ZGF0ZSk7DQogICAgICAgICAgICB9IGVsc2Ugew0KICAgICAgICAgICAgCURhdGFGb3JtYXR0ZXIg
+ZGYgPSBuZXcgRGF0YUZvcm1hdHRlcigpOw0KICAgICAgICAgICAgCWRmLmdldERlZmF1bHRGb3Jt
+YXQoY2VsbCk7DQogICAgICAgICAgICAJdmFsdWUgPSBkZi5mb3JtYXRDZWxsVmFsdWUoY2VsbCku
+dG9TdHJpbmcoKTsNCiAgICAgICAgICAgIAkNCiAgICAgICAgICAgIAkvL3ZhbHVlID0gRG91Ymxl
+LnRvU3RyaW5nKGNlbGwuZ2V0TnVtZXJpY0NlbGxWYWx1ZSgpKTsNCiAgICAgICAgICAgIH0NCiAg
+ICAgICAgICAgIGJyZWFrOw0KICAgICAgICBjYXNlIENlbGwuQ0VMTF9UWVBFX0JPT0xFQU46DQog
+ICAgICAgIAl2YWx1ZSA9IEJvb2xlYW4udG9TdHJpbmcoY2VsbC5nZXRCb29sZWFuQ2VsbFZhbHVl
+KCkpOw0KICAgICAgICAgICAgYnJlYWs7DQoJICAgIGNhc2UgQ2VsbC5DRUxMX1RZUEVfRk9STVVM
+QToNCgkgICAgCQ0KCSAgICB0cnkgew0KCQkJRm9ybXVsYUV2YWx1YXRvciBldmFsdWF0b3IgPSBj
+ZWxsLmdldFNoZWV0KCkuZ2V0V29ya2Jvb2soKS5nZXRDcmVhdGlvbkhlbHBlcigpLmNyZWF0ZUZv
+cm11bGFFdmFsdWF0b3IoKTsNCgkJCURhdGFGb3JtYXR0ZXIgZGYgPSBuZXcgRGF0YUZvcm1hdHRl
+cigpOw0KCQkJdmFsdWUgPSBkZi5mb3JtYXRDZWxsVmFsdWUoY2VsbCwgZXZhbHVhdG9yKS50b1N0
+cmluZygpOw0KCQl9IGNhdGNoIChFeGNlcHRpb24gZSkgew0KCQkJdHJ5IHsNCgkJCQlpZiAoRGF0
+ZVV0aWwuaXNDZWxsRGF0ZUZvcm1hdHRlZChjZWxsKSkgew0KCQkJCQkJZGF0ZSA9IGNlbGwuZ2V0
+RGF0ZUNlbGxWYWx1ZSgpOw0KCQkJCQkJRGF0ZUZvcm1hdCBmb3JtYXR0ZXIgPSBuZXcgU2ltcGxl
+RGF0ZUZvcm1hdChwYXR0ZXJuKTsNCgkJCQkJCXZhbHVlID0gZm9ybWF0dGVyLmZvcm1hdChkYXRl
+KTsNCgkJCQl9DQoJCQl9IGNhdGNoIChFeGNlcHRpb24gZTEpIHsNCg0KCQkJfSANCgkJDQoJCX0N
+Cg0KCQkgICAgYnJlYWs7DQogICAgICAgIA0KICAgICAgICBkZWZhdWx0Og0KICAgICAgICAJdmFs
+dWUgPSAiIjsNCgl9DQoJDQoJcmV0dXJuIHZhbHVlOw0KfQ0KDQpwdWJsaWMgc3RhdGljIG9yZy5h
+cGFjaGUucG9pLnNzLnVzZXJtb2RlbC5Sb3cgZ2V0VmFsaWRSb3coU2hlZXQgbVNoZWV0LCBpbnQg
+bVJvdyl7DQoJUm93IG1aZWlsZTsJCQ0KCW1aZWlsZSA9IG1TaGVldC5nZXRSb3cobVJvdyk7DQoJ
+DQoJdHJ5IHsNCgkJQ2VsbCBjZWxsID0gbVplaWxlLmdldENlbGwoMCk7DQoJfSBjYXRjaCAoRXhj
+ZXB0aW9uIGUpIHsNCgkJbVplaWxlID0gbVNoZWV0LmNyZWF0ZVJvdyhtUm93KTsNCgl9DQoNCgly
+ZXR1cm4gbVplaWxlOw0KfQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0K
+CQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0KCQ0K</value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>java.text.DateFormat</value>
+    <value>java.text.SimpleDateFormat</value>
+    <value>java.util.Date</value>
+    <value>org.apache.poi.ss.usermodel.Cell</value>
+    <value>org.apache.poi.ss.usermodel.CellStyle</value>
+    <value>org.apache.poi.ss.usermodel.DataFormatter</value>
+    <value>org.apache.poi.ss.usermodel.DateUtil</value>
+    <value>org.apache.poi.ss.usermodel.FormulaEvaluator</value>
+    <value>org.apache.poi.ss.usermodel.Row</value>
+    <value>org.apache.poi.ss.usermodel.Sheet</value>
+    <value>org.apache.poi.ss.util.CellReference</value>
+  </array>
+</Values>

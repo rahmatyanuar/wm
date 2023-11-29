@@ -1,0 +1,23 @@
+  {
+		"templateKey" : "methodTransformation",
+		"names" : [
+		   {
+			 "value" : "Method Transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Do you want to modify the HTTP method?",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+	  	"applicableServiceTypes" : ["REST","ODATA"],
+		"parameterTemplatesReference" : [ 
+			"method.json"
+		]	
+
+   }

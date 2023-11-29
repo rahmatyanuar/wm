@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "throttleRule",
+		"names" : [
+		   {
+			 "value" : "Limit Configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Access Limit configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"throttleRuleName.json","monitorRuleOperator.json","value.json"
+		]	
+
+   }

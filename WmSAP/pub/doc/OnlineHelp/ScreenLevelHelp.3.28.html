@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>BAPI-XML Template Screen</title>
+    <link rel="StyleSheet" href="" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body class="" style="margin-left: 25px; margin-right: 25px;" onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <table align="left" summary="">
+      <tr>
+        <td class="WebWorks_Company_Logo_Top">
+          <img src="logo.gif" alt="" />
+        </td>
+      </tr>
+    </table>
+    <br clear="all" />
+    <hr align="left" />
+    <blockquote>
+      <div class="OH_Heading2NewPage"><a name="1132704">BAPI-XML Template Screen</a></div>
+      <div class="Paragraph1"><a name="1126979">The BAPI-XML Template screen displays the bXML template for a given BAPI.</a></div>
+      <div class="Paragraph1"><a name="1132893">The page displays the XML message needed to call the BAPI which is wrapped in the </a>BizTalk XML envelope. You can edit the XML shown and enter your specific data into the pre-generated XML elements for parameters and key fields.</div>
+      <div class="Paragraph1"><a name="1132894">You can also adjust the pre-generated information in the BizTalk XML header fields that </a>are filled with default data.</div>
+      <div class="Paragraph1"><a name="1132895">There are three ways of calling the BAPI, which can be selected through the list at the </a>bottom of the screen:</div>
+      <div class="Bullet1_outer" style="margin-left: 0px;">
+        <table border="0" cellspacing="0" cellpadding="0" summary="">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bullet1_inner" style="width: 24px; white-space: nowrap;">
+                <span style="color: #7f7f7f; font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 11.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-right: 13px; text-transform: none; vertical-align: baseline;">
+                  <img src="bullet.gif" alt="*" border="0" width="10" height="10" />
+                </span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bullet1_inner"><a name="1132899">Synchronously calling the BAPI in an SAP system.</a></div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bullet1_outer" style="margin-left: 0px;">
+        <table border="0" cellspacing="0" cellpadding="0" summary="">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bullet1_inner" style="width: 24px; white-space: nowrap;">
+                <span style="color: #7f7f7f; font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 11.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-right: 13px; text-transform: none; vertical-align: baseline;">
+                  <img src="bullet.gif" alt="*" border="0" width="10" height="10" />
+                </span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bullet1_inner"><a name="1132903">Asynchronously calling the BAPI in an SAP system. This only works for BAPIs that </a>are mapped to an ALE interface. To see whether the BAPI is mapped to an ALE interface, check the <a href="javascript:WWHClickedPopup('Help', 'ScreenLevelHelp.3.25.html#1124568', '');" title="BAPI Screen">BAPI Screen</a> detail page. If an ALE message type is specified, the BAPI is asynchronously callable. </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bullet1_outer" style="margin-left: 0px;">
+        <table border="0" cellspacing="0" cellpadding="0" summary="">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bullet1_inner" style="width: 24px; white-space: nowrap;">
+                <span style="color: #7f7f7f; font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 11.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-right: 13px; text-transform: none; vertical-align: baseline;">
+                  <img src="bullet.gif" alt="*" border="0" width="10" height="10" />
+                </span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bullet1_inner"><a name="1132907">Applying routing notification. The call will be sent to the BAPI inbound process of </a>the routing listener that will check if a routing notification for this BAPI call exists and will forward the call to the specified service. This will only work if a correct routing notification has been set up; otherwise, you will receive an XML error-message.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Paragraph1"><a name="1132914">After clicking </a><span class="ScreenElement">Invoke</span>, the result of your XML call is displayed. </div>
+      <div class="Bullet1_outer" style="margin-left: 0px;">
+        <table border="0" cellspacing="0" cellpadding="0" summary="">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bullet1_inner" style="width: 24px; white-space: nowrap;">
+                <span style="color: #7f7f7f; font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 11.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-right: 13px; text-transform: none; vertical-align: baseline;">
+                  <img src="bullet.gif" alt="*" border="0" width="10" height="10" />
+                </span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bullet1_inner"><a name="1132942">In case of synchronous processing, this will be a BizTalk message with either the </a>exporting parameters of the BAPI or with an error message.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="Bullet1_outer" style="margin-left: 0px;">
+        <table border="0" cellspacing="0" cellpadding="0" summary="">
+          <tr style="vertical-align: baseline;">
+            <td>
+              <div class="Bullet1_inner" style="width: 24px; white-space: nowrap;">
+                <span style="color: #7f7f7f; font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 11.0pt; font-style: normal; font-variant: normal; font-weight: normal; margin-right: 13px; text-transform: none; vertical-align: baseline;">
+                  <img src="bullet.gif" alt="*" border="0" width="10" height="10" />
+                </span>
+              </div>
+            </td>
+            <td width="100%">
+              <div class="Bullet1_inner"><a name="1132915">For asynchronous calls, this will be a BizTalk message with an empty body in the case </a>of success or with an error message, if the message could not be delivered to an SAP system. Application specific errors are not returned in the case of asynchronous calls, but you can use the ALE monitoring tools in the target SAP system to check these errors.</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

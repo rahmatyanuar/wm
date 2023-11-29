@@ -1,0 +1,18 @@
+{
+	"templateKey" : "xpath",
+	"names" : [
+	   {
+		 "value" : "XPath",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "XPath to match content.",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"true",
+	"isArray" : "false"
+}

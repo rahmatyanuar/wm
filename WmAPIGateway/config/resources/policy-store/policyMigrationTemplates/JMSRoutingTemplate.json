@@ -1,0 +1,65 @@
+<#assign uri=send.endpoint.address.@uri/>
+<#assign parameters = uri?split("&")/>
+<#list parameters as parameter>
+<#assign parameterList = parameter?split("=")>
+
+<#if parameterList[0]=="replyToName">
+<#assign replyToValue=parameterList[1]>
+<#elseif parameterList[0]=="deliveryMode">
+<#assign deliveryModeValue=parameterList[1]>
+<#elseif parameterList[0]=="priority">
+<#assign priorityValue=parameterList[1]>
+<#elseif parameterList[0]=="timeToLive">
+<#assign timeToLiveValue=parameterList[1]>
+</#if>
+</#list>
+<#assign urlName = uri?split("&replyToName")/>
+<#assign connectionUrlValue=urlName[0]>
+
+{
+"names": [
+{
+"value": "JMS Routing",
+"locale": "en"
+}
+],
+"templateKey": "jmsRouting",
+"parameters": [
+{
+"templateKey": "connectionUrl",
+"values": [
+"${connectionUrlValue}"
+]
+},
+<#if replyToValue?has_content>
+{
+"templateKey": "replyToName",
+"values": [
+"${replyToValue}"
+]
+},
+ </#if>
+{
+"templateKey": "priority",
+"values": [
+"${priorityValue}"
+]
+},
+{
+"templateKey": "timeToLive",
+"values": [
+"${timeToLiveValue}"
+]
+},
+{
+"templateKey": "deliveryMode",
+"values": [
+<#if deliveryModeValue=="NON-PERSISTENT">
+    "NON_PERSISTENT"
+<#else>
+"${deliveryModeValue}"
+</#if>
+]
+}
+]
+}

@@ -1,0 +1,21 @@
+{
+ "templateKey" : "validateHTTPHeaders",
+ "names" : [
+   {
+     "value" : "HTTP Headers",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Use this policy to validate the presence of HTTP header with configured header-names and values in the incoming request",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" : "false",
+ "isArray" : "false", 
+ "parameterTemplatesReference" : ["logicalConnector.json", "httpHeaderNonReqValue"],
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"]
+}

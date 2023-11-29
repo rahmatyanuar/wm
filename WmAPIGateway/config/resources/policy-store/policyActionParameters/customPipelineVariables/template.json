@@ -1,0 +1,19 @@
+{
+  "templateKey" : "customPipelineVariables",
+  "names" : [
+    {
+      "value" : "",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Holder for custom pipeline variables",
+      "locale" : "en"
+    }
+  ],
+  "type" : "OBJECT",
+  "isRequired" :"false",
+  "isArray" : "true",
+  "parameterTemplatesReference" :  ["name.json","value.json"]
+}

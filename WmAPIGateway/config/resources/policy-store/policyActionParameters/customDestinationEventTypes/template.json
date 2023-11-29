@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "customDestinationEventTypes",
+		"names" : [
+		   {
+			 "value" : "Event types",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Configure the event types to publish to the destination",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"eventTypes.json"
+		]	
+
+   }

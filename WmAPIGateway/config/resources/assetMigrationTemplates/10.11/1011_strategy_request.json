@@ -1,0 +1,2 @@
+<#assign strategyTransformationHandler='com.softwareag.apigateway.core.migration.transformation.strategy.Strategy107to1011Transformation'?new()/>
+${strategyTransformationHandler(doc, transformationMode)}

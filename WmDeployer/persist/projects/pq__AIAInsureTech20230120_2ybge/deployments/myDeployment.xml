@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.16.1" class="java.beans.XMLDecoder">
+ <object class="com.wm.deployer.deploy.Deployment" id="Deployment0">
+  <void property="auditReports">
+   <void method="add">
+    <string>packages\WmDeployer\pub\projects\pq__AIAInsureTech20230120_2ybge\targets\myDeploymentMap\reports\myDeploymentMap_auditReport_1690807172570.xml</string>
+   </void>
+  </void>
+  <void property="beginTimestamp">
+   <string>2023-07-31 19:39:32 ICT</string>
+  </void>
+  <void property="buildName">
+   <string>myBuild.zip</string>
+  </void>
+  <void property="checkpointReports">
+   <void method="add">
+    <string>C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is5555\packages\WmDeployer\pub\projects\pq__AIAInsureTech20230120_2ybge\checkpoints\myDeployment\pq__AIAInsureTech20230120Checkpoint_7qcge\reports\CheckpointReport_1690807096426.xml</string>
+   </void>
+  </void>
+  <void property="checkpointed">
+   <boolean>true</boolean>
+  </void>
+  <void property="deployed">
+   <boolean>true</boolean>
+  </void>
+  <void property="deploymentId">
+   <string>2f94566e-7e26-4f9e-9963-a8da4a8dbfd3</string>
+  </void>
+  <void property="deploymentMapName">
+   <string>myDeploymentMap</string>
+  </void>
+  <void property="description">
+   <string></string>
+  </void>
+  <void property="dummyReports">
+   <void method="add">
+    <string>packages\WmDeployer\pub\projects\pq__AIAInsureTech20230120_2ybge\targets\myDeploymentMap\reports\deploySimulateRollback.xsl</string>
+   </void>
+   <void method="add">
+    <string>packages\WmDeployer\pub\projects\pq__AIAInsureTech20230120_2ybge\targets\myDeploymentMap\reports\myDeploymentMap_previewReport_1690807099918.html</string>
+   </void>
+   <void method="add">
+    <string>packages\WmDeployer\pub\projects\pq__AIAInsureTech20230120_2ybge\targets\myDeploymentMap\reports\myDeploymentMap_auditReport_1690807172570.html</string>
+   </void>
+  </void>
+  <void property="name">
+   <string>myDeployment</string>
+  </void>
+  <void property="preDeployReports">
+   <void method="add">
+    <string>packages\WmDeployer\pub\projects\pq__AIAInsureTech20230120_2ybge\targets\myDeploymentMap\reports\myDeploymentMap_previewReport_1690807099918.xml</string>
+   </void>
+  </void>
+  <void property="projectName">
+   <string>AIA_Insure_Tech_20230120</string>
+  </void>
+  <void property="user">
+   <string>Administrator</string>
+  </void>
+  <void property="version">
+   <string>1.0</string>
+  </void>
+ </object>
+</java>

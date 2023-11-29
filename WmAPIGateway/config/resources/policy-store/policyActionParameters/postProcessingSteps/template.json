@@ -1,0 +1,19 @@
+{
+ "templateKey" : "postProcessingSteps",
+ "names" : [
+   {
+     "value" : "Post-Processing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Configure this step if you want to invoke webMethods IS service to manipulate the response message or transform the response message using XSLT after the Error Messaging step is completed.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : [ "invokeESBParam","xsltTransformation"]
+}

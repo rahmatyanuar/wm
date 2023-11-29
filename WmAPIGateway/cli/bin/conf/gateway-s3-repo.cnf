@@ -1,0 +1,6 @@
+type=s3
+bucket=<s3-bucket-name>
+region=<s3-region>
+base_path=<s3-base-path>
+apigw_config_backup_path=<s3-config-path>
+apigw_packages_backup_path=<s3-packages-path>

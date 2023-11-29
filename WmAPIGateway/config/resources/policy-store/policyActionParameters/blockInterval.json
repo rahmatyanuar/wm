@@ -1,0 +1,18 @@
+{
+		"templateKey" : "blockInterval",
+		"names" : [
+		   {
+			 "value" : "Block Interval",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Interval to block Requests",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

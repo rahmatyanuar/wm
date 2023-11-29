@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "customVariableName",
+		"names" : [
+		   {
+			 "value" : "Variable",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Name of the custom variable",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

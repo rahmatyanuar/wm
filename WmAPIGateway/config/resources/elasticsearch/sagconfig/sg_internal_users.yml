@@ -1,0 +1,20 @@
+---
+# This is the internal user database
+# The hash value is a bcrypt hash and can be generated with plugin/tools/hash.sh
+
+_sg_meta:
+  type: "internalusers"
+  config_version: 2
+  
+# Define your internal users here
+# See https://docs.search-guard.com/latest/internal-users-database
+
+## Demo users
+
+
+Administrator:
+  hash: "$2y$12$HB22p3wVTMnVfd0/b1Q33ecUihNs.SAeqBlYPmHOSQuAWTGC06ybq"
+  reserved: true
+  backend_roles:
+  - "admin"
+  description: "Administrator user"  

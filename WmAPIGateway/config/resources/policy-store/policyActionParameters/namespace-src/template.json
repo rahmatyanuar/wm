@@ -1,0 +1,19 @@
+{
+		"templateKey" : "namespace-src",
+		"names" : [
+		   {
+			 "value" : "Namespace",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Namespaces that should be used to uniquely identify elements and attributes in the document",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["prefix-src.json","uri-src.json"]
+}

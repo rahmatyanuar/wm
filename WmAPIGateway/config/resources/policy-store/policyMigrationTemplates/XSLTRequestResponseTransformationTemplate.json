@@ -1,0 +1,62 @@
+{
+  "names": [
+	{
+	  "value": "${policyActionName}",
+	  "locale": "en"
+	}
+  ],
+  "templateKey": "${policyTemplateKey}",
+  "parameters": [
+	{
+	  "templateKey": "transformationConditions",
+	  "parameters": [
+		{
+		  "templateKey": "logicalConnector",
+		  "values": [
+			"OR"
+		  ]
+		}
+	  ]
+	},
+	{
+	  "templateKey": "${configParamTemplateKey}",
+	  "parameters": [
+		{
+		  "templateKey": "payloadTransformation",
+		  "parameters": [
+			{
+			<#if xsltElement["self::node()[@isAlias = 'true']"][0]??> 
+			  "templateKey": "xsltAliasSelector",
+			  "parameters": [
+				{
+				  "templateKey": "xsltAlias",
+				  "values": [
+					"${xsltElement.@key?keep_after('${')?keep_before('}')}"
+				  ]
+				}
+			  ]	
+			<#else>
+			  "templateKey": "xsltDocument",
+			  "parameters": [
+				{
+				  "templateKey": "document",
+				  "values": [
+					<#assign key=xsltElement.@key/>
+					"${base64Encode(resources["D:xslt[@id=$key]/xsl:stylesheet"])}"
+				  ],
+				  "extendedProperties": [
+					{
+					  "key": "document",
+					  "value": "${xsltDocumentName}"
+					}
+				  ]
+				}
+			  ]
+			</#if>
+			}
+		  ]
+		}
+	  ]
+	}
+  ]
+}

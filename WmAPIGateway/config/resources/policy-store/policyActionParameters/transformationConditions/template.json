@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "transformationConditions",
+		"names" : [
+		   {
+			 "value" : "Conditions",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Condition to match request context",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+				"logicalConnector.json", "transformationCondition"
+		]	
+
+   }

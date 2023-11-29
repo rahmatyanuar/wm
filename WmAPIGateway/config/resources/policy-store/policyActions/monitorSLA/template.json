@@ -1,0 +1,24 @@
+{
+ "templateKey" : "monitorSLA",
+ "names" : [
+   {
+     "value" : "Monitor SLA",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "The API provides performance monitoring to verify that service is within the tolerated performance boundaries.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"monitorRules","destination", "alertInterval.json","unit.json","alertFrequency.json","alertMessage.json", "consumerIds.json"
+ ],
+ "occurence" : "multiple",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "order" :  {
+   "sequence" : ["insequence"]
+ },
+ "dependentActions":["evaluatePolicy"]
+}

@@ -1,0 +1,17 @@
+{
+ "templateKey" : "egviolationalert",
+ "names" : [
+   {
+     "value" : "Gateway Rule Violation Alerts",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Alert options for Enterprisegateway Rule Violation Alerts",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "alertInterval.json", "alertOnEvery.json", "alertType.json", "emailTo.json", "flowServiceName.json", "runAsUser.json"]
+}

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <meta name="Creator" content="stat17_update_1516_0241" />
+    <title>wm.tn.security:deleteCertificateData</title>
+    <link rel="StyleSheet" href="css/_trading_networks_bis_reference_diba2.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <div class="Heading_2"><a name="ID0EEKOR">wm.tn.security:deleteCertificateData</a></div>
+    <div class="Body"><a name="ID0EOLOR">Deletes a signing, decryption, or SSL client certificate from the </a><span class="ph">Trading Networks</span> database.</div>
+    <div class="Section_Title"><a name="ID0ECMOR">Input Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 22.7%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ENNOR">certID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 77.2%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EZNOR">String</a></span> (optional) The internal ID that uniquely identifies the certificate data to be deleted.</div>
+          <div class="Table_Cell"><a name="ID0EEOOR">See the Usage Notes at the end of this service’s description for information about the relationship between the </a><span class="varname">certID</span>, <span class="varname">ownerID</span>, <span class="varname">partnerID</span>, and <span class="varname">usage</span> parameters.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EEPOR">ownerID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EQPOR">String</a></span> (optional) The internal partner ID of the owner of the certificates.</div>
+          <div class="Table_Cell"><a name="ID0E2POR">See the Usage Notes at the end of this service’s description for information about the relationship between the </a><span class="varname">certID</span>, <span class="varname">ownerID</span>, <span class="varname">partnerID</span>, and <span class="varname">usage</span> parameters.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E2QOR">partnerID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EHROR">String</a></span> (optional) The internal partner ID of the certificate owner’s partner.</div>
+          <div class="Table_Cell"><a name="ID0ESROR">If </a><span class="varname">partnerID</span> is not specified, the default certificate set is deleted.</div>
+          <div class="Table_Cell"><a name="ID0E4ROR">See the Usage Notes at the end of this service’s description for information about the relationship between the </a><span class="varname">certID</span>, <span class="varname">ownerID</span>, <span class="varname">partnerID</span>, and <span class="varname">usage</span> parameters.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E4SOR">usage</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EJTOR">String</a></span> Specify how the certificate is used:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0E1TOR">sign</a></span> - A signing certificate for the owner to send digitally signed documents to the partner.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0ERUOR">decrypt</a></span> - An encrypt certificate for the owner to send encrypted documents to the partner.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0EIVOR">ssl</a></span> - A client SSL certificate for the owner to establish an SSL connection to the partner’s secure server.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0ENWOR">Output Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 25%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EYXOR">deleteCount</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 75%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EEYOR">String</a></span> Whether the certificate data is successfully deleted from the <span class="ph">Trading Networks</span> database. The value <span class="codeph">1</span> indicates success. A null value indicates failure.</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0EEZOR">Usage Notes</a></div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EPZOR">Be aware that the certificate data you delete might be a default certificate set, depending on how the certificate data was defined by </a><span class="apiname-only"><a href="wm_tn_security_addCertificateData.html#ID0E4TNR" title="wm.tn.security:addCertificateData">wm.tn.security:addCertificateData</a></span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EL1OR">If </a><span class="varname">certID</span> is specified, <span class="varname">ownerID</span>, <span class="varname">partnerID</span>, and <span class="varname">usage</span> are ignored. If <span class="varname">certID</span> is not specified, you must specify <span class="varname">ownerID</span>, <span class="varname">partnerID</span>, and <span class="varname">usage</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- SQ/SAG: insert custom footer -->
+    <br />
+    <hr style="border:1px solid; border-color: #1776BF; " />
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 10px; margin-top: 6px; margin-bottom: 6px; text-align: center;">
+      Copyright © 2007-2022 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors</div>
+    <!-- SQ old code:
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 12px; color: #0899cc; margin-top: 12px; padding-bottom: 6px; text-align: left; text-decoration: underline;">
+	Copyright &#169; <span wwpage:content="wwvars:versionfirst">First cpyr from map</span><span wwpage:content="wwvars:versionlast">Last cpyr from map</span><span wwpage:content="copyright-first-b">First cpyr from book</span><span wwpage:content="copyright-last-b">Last cpyr from book</span>
+		</div>
+    -->
+    <!-- SQ Variablen ausgeblendet
+    <!-\- Copyright Test -\->
+    <div style="text-decoration: underline">Copyright Import Test:</div>
+    <wwpage:Import wwpage:content-from-file="Copyright/copyright_en.asp" />
+    <br></br>
+    
+    <!-\- SQ Variables - Information from xresources-\->
+    <div style="text-decoration: underline">From xresources:</div>
+    <div>sag:organization-id == <span wwpage:content="sag:organization-id"></span></div>
+    <div>sag:organization-name == <span wwpage:content="sag:organization-name"></span></div>
+    <div>sag:organization-copyrholder == <span wwpage:content="sag:organization-copyrholder"></span></div>
+    <div>sag:organization-url == <span wwpage:content="sag:organization-url"></span></div>
+    
+    <div>sag:family-id == <span wwpage:content="sag:family-id"></span></div>
+    <div>sag:family-name == <span wwpage:content="sag:family-name"></span></div>
+    <div>sag:family-organization == <span wwpage:content="sag:family-organization"></span></div>
+    
+    <div>sag:product-id == <span wwpage:content="sag:product-id"></span></div>
+    <div>sag:product-name == <span wwpage:content="sag:product-name"></span></div>
+    <div>sag:product-copyrfirst == <span wwpage:content="sag:product-copyrfirst"></span></div>
+    <div>sag:product-family == <span wwpage:content="sag:product-family"></span></div>
+    
+    <!-\- SQ Variables - Values from DITA-Map-\->
+    <br></br>
+    <div style="text-decoration: underline">From DITA/Book-Map:</div>
+    <div>ProdInfo Prodname == <span wwpage:replace="wwvars:ProdInfoProdName"></span></div>
+    <div>ProdInfo Mod First == <span wwpage:replace="wwvars:ProdInfoModFirst"></span></div>
+    <div>ProdInfo Mod Last == <span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>ProdInfo Rel First == <span wwpage:replace="wwvars:ProdInfoRelFirst"></span></div>
+    <div>ProdInfo Rel Last == <span wwpage:replace="wwvars:ProdInfoRelLast"></span></div>
+    <div>ProdInfo Vers First == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span></div>
+    <div>ProdInfo Vers Last == <span wwpage:replace="wwvars:ProdInfoVersLast"></span></div>
+    <div>ProdInfo vrm vers.rel.mod == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span>.<span wwpage:replace="wwvars:ProdInfoRelLast"></span>.<span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>BookID PartNo == <span wwpage:replace="wwvars:BookPartNo"></span></div>
+    <div>othermeta release-version == <span wwpage:replace="wwvars:ReleaseVersion"></span></div>
+    <div>othermeta release-date == <span wwpage:replace="wwvars:ReleaseDate"></span></div>
+    <div>othermeta release-edition == <span wwpage:replace="wwvars:ReleaseEdition"></span></div>
+    <div>othermeta product == <span wwpage:replace="wwvars:Product"></span></div>
+    <br></br>
+    <div style="text-decoration: underline">Reserve:</div>
+    <div>organization == <span wwpage:content="organization"></span></div>
+    <div>product-name == <span wwpage:content="product-name"></span></div>
+    <div>copyright-first == <span wwpage:content="copyright-first"></span></div>
+    <div>copyright-last == <span wwpage:content="copyright-last"></span></div>
+    <div>copyright-first-b == <span wwpage:content="wwvars:copyright-first-b"></span></div>
+    <div>copyright-last-b == <span wwpage:content="copyright-last-b"></span></div>
+    <div>doc-id-one == <span wwpage:content="doc-id-one"></span></div>
+    <div>doc-id-two == <span wwpage:content="doc-id-two"></span></div>-->
+  </body>
+</html>

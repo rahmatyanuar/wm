@@ -1,0 +1,40 @@
+{
+		"templateKey" : "alertFrequency",
+		"names" : [
+		   {
+			 "value" : "Alert Frequency",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Alert Frequency",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["once"],
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "Only Once",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "once"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Every Time",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "always"
+			}			
+	]
+}

@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "conditionKey",
+		"names" : [
+		   {
+			 "value" : "Variable Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Value",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

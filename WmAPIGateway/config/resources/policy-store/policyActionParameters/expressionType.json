@@ -1,0 +1,49 @@
+{
+		"templateKey" : "expressionType",
+		"names" : [
+		   {
+			 "value" : "Expression type",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Expression type for the payload",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["xpath"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "XPath",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "xpath"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "JSONPath",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "jsonPath"
+			},
+			{
+				"names" : [
+					{
+						"value" : "Text",
+						"locale" : "en"
+					}
+				],
+				"value" :  "regex"
+			}
+
+		]
+}

@@ -1,0 +1,18 @@
+{
+	"templateKey" : "maxConcurrentRequest",
+	"names" : [
+		{
+			"value" : "Maximum Concurrent Calls",
+			"locale" : "en"
+		}
+	],
+	"descriptions" : [
+		{
+			"value" : "The maximum number of open Concurrent connections.",
+			"locale" : "en"
+		}
+	],
+	"type": "LONG",
+	"isRequired" :"false",
+	"isArray" : "false"
+}

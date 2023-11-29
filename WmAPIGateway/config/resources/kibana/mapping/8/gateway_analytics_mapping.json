@@ -1,0 +1,705 @@
+{
+	"key": [
+		{
+			"_source": {
+				"mappings": {
+					"errorEvents": {
+						"dynamic" : false,
+						"properties": {
+							"apiName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiId": {
+								"type": "keyword"
+							},
+							"apiVersion": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationId": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationIp": {
+								"type": "keyword"
+							},
+							"applicationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"creationDate": {
+								"type": "date"
+							},
+							"errorDesc": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"operationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sessionId": {
+								"type": "keyword"
+							},
+							"userAgent": {
+								"type": "keyword"
+							},
+							"responseCode": {
+								"type": "keyword"
+							},
+							"eventSource": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"httpMethod": {
+								"type": "keyword"
+							},
+							"sourceGatewayNode": {
+								"type": "keyword"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							},
+							"correlationID": {
+								"type": "keyword"
+							}
+						}
+					},
+					"policyViolationEvents": {
+						"dynamic" : false,
+						"properties": {
+							"alertDesc": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"alertSource": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"alertType": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiId": {
+								"type": "keyword"
+							},
+							"apiVersion": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationId": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationIp": {
+								"type": "keyword"
+							},
+							"applicationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"creationDate": {
+								"type": "date"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"operationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sessionId": {
+								"type": "keyword"
+							},
+							"userAgent": {
+								"type": "keyword"
+							},
+							"responseCode": {
+								"type": "keyword"
+							},
+							"eventSource": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"httpMethod": {
+								"type": "keyword"
+							},
+							"sourceGatewayNode": {
+								"type": "keyword"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							}
+						}
+					},
+					"monitorEvents": {
+						"dynamic" : false,
+						"properties": {
+							"alertDesc": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"alertType": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiId": {
+								"type": "keyword"
+							},
+							"apiVersion": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationId": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationIp": {
+								"type": "keyword"
+							},
+							"applicationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"creationDate": {
+								"type": "date"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"operationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sessionId": {
+								"type": "keyword"
+							},
+							"userAgent": {
+								"type": "keyword"
+							},
+							"responseCode": {
+								"type": "keyword"
+							},
+							"eventSource": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"httpMethod": {
+								"type": "keyword"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							},
+							"monitorAttr": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"alertSource": {
+								"type": "keyword"
+							}
+						}
+					},
+					"performanceMetrics": {
+						"dynamic" : false,
+						"properties": {
+							"apiName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiId": {
+								"type": "keyword"
+							},
+							"apiVersion": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"availability": {
+								"type": "long"
+							},
+							"avgResponseTime": {
+								"type": "long"
+							},
+							"creationDate": {
+								"type": "date"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"faultCount": {
+								"type": "long"
+							},
+							"includeFaults": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"intervalStart": {
+								"type": "long"
+							},
+							"intervalStop": {
+								"type": "long"
+							},
+							"maxResponseTime": {
+								"type": "long"
+							},
+							"minResponseTime": {
+								"type": "long"
+							},
+							"operationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"successCount": {
+								"type": "long"
+							},
+							"totalCount": {
+								"type": "long"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							}
+						}
+					},
+					"lifecycleEvents": {
+						"dynamic" : false,
+						"properties": {
+							"creationDate": {
+								"type": "date"
+							},
+							"eventStatus": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"eventSource": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							}
+						}
+					},
+					"transactionalEvents": {
+						"dynamic" : false,
+						"properties": {
+							"apiId": {
+								"type": "keyword"
+							},
+							"apiName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"apiVersion": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"applicationId": {
+								"type": "keyword"
+							},
+							"applicationIp": {
+								"type": "keyword"
+							},
+							"applicationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"creationDate": {
+								"type": "date"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"operationName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"providerTime": {
+								"type": "long"
+							},
+							"gatewayTime": {
+								"type": "long"
+							},
+							"request": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"response": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sessionId": {
+								"type": "keyword"
+							},
+							"status": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"totalDataSize": {
+								"type": "long"
+							},
+							"totalTime": {
+								"type": "long"
+							},
+							"userAgent": {
+								"type": "keyword"
+							},
+							"responseCode": {
+								"type": "keyword"
+							},
+							"eventSource": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"cachedResponse": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"packageName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"planName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"packageId": {
+								"type": "keyword"
+							},
+							"planId": {
+								"type": "keyword"
+							},
+							"httpMethod": {
+								"type": "keyword"
+							},
+							"origin": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"messageType": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"errorOrigin": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"correlationID": {
+								"type": "keyword"
+							},
+							"callbackRequest": {
+								"type": "keyword"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							},
+							"nativeRequestHeaders": {
+								"type": "object"
+							},
+							"nativeReqPayload": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							},
+							"nativeResponseHeaders": {
+								"type": "object"
+							},
+							"nativeResPayload": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							},
+							"nativeHttpMethod": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"nativeURL": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"externalCalls": {
+								"type": "nested",
+								"properties": {
+									"callDuration": {
+										"type": "long"
+									},
+									"callEndTime": {
+										"type": "long"
+									},
+									"callStartTime": {
+										"type": "long"
+									},
+									"externalCallType": {
+										"type": "text",
+										"fields": {
+											"keyword": {
+												"type": "keyword",
+												"ignore_above": 256
+											}
+										}
+									},
+									"externalURL": {
+										"type": "text",
+										"fields": {
+											"keyword": {
+												"type": "keyword",
+												"ignore_above": 256
+											}
+										}
+									},
+									"responseCode": {
+										"type": "text",
+										"fields": {
+											"keyword": {
+												"type": "keyword",
+												"ignore_above": 256
+											}
+										}
+									}
+								}
+							},
+							"sourceGatewayNode": {
+								"type": "keyword"
+							}
+						}
+					},
+					"threatProtectionEvents": {
+						"dynamic" : false,
+						"properties": {
+							"alertAction": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"creationDate": {
+								"type": "date"
+							},
+							"eventType": {
+								"type": "keyword"
+							},
+							"filterName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"message": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"requestHost": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"requestTime": {
+								"type": "keyword"
+							},
+							"requestType": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"requestUser": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"resourcePath": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"responseCode": {
+								"type": "keyword"
+							},
+							"ruleName": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"serverHost": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"serverPort": {
+								"type": "keyword"
+							},
+							"userAgent": {
+								"type": "keyword"
+							},
+							"sourceGateway": {
+								"type": "text",
+								"fielddata": true,
+								"analyzer": "not_analyzed_ignorecase"
+							},
+							"sourceGatewayDetails": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"type": "keyword",
+										"ignore_above": 256
+									}
+								}
+							}
+						}
+					}
+				},
+				"settings": {
+					"analysis": {
+						"filter": {
+							"truncate_max": {
+								"length": "32766",
+								"type": "truncate"
+							}
+						},
+						"analyzer": {
+							"not_analyzed_ignorecase": {
+								"filter": [
+									"lowercase","truncate_max"
+								],
+								"type": "custom",
+								"tokenizer": "keyword"
+							}
+						}
+					}
+				}
+			}
+		}
+	]
+}

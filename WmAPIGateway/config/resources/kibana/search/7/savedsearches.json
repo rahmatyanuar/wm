@@ -1,0 +1,170 @@
+{
+	"key": [
+		{
+			"_id": "search:Runtime-events",
+			"_type": "doc",
+			"_source": {
+				"search": {
+					"columns": [
+						"apiName",
+						"applicationName",
+						"eventType",
+						"alertType",
+						"status",
+						"eventSource",
+						"alertDesc"
+					],
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+					},
+					"sort": [
+						[
+							"creationDate",
+							"desc"
+						]
+					],
+					"title": "Runtime events"
+				},
+				"id": "Runtime-events",
+				"migrationVersion": {
+					"search": "7.4.0"
+				},
+				"references": [
+					{
+						"id": "gateway_{0}_analytics",
+						"name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+						"type": "index-pattern"
+					}
+				],
+				"type": "search",
+				"version": "WzEyNCwxXQ=="
+			}
+		},
+		{
+			"_id": "search:Threat-protection-events",
+			"_type": "doc",
+			"_source": {
+				"search": {
+					"columns": [
+						"filterName",
+						"ruleName",
+						"resourcePath",
+						"serverHost",
+						"requestTime"
+					],
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+					},
+					"sort": [
+						[
+							"creationDate",
+							"desc"
+						]
+					],
+					"title": "Threat protection events"
+				},
+				"id": "Threat-protection-events",
+				"migrationVersion": {
+					"search": "7.4.0"
+				},
+				"references": [
+					{
+						"id": "gateway_{0}_analytics",
+						"name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+						"type": "index-pattern"
+					}
+				],
+				"type": "search",
+				"version": "WzEyNSwxXQ=="
+			}
+		},
+		{
+			"_index": "gateway_{0}_dashboard",
+			"_type": "doc",
+			"_id": "search:gatewayAuditlogs",
+			"_score": 1,
+			"_source": {
+				"search": {
+					"columns": [
+						"action",
+						"clientIPAddress",
+						"message",
+						"object",
+						"objectType",
+						"payload",
+						"sourceMachine",
+						"status",
+						"user",
+						"creationDate"
+					],
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+					},
+					"sort": [
+						[
+							"creationDate",
+							"desc"
+						]
+					],
+					"title": "gatewayAuditlogs"
+				},
+				"id": "gatewayAuditlogs",
+				"migrationVersion": {
+					"search": "7.4.0"
+				},
+				"references": [
+					{
+						"id": "gateway_{0}_audit_auditlogs",
+						"name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+						"type": "index-pattern"
+					}
+				],
+				"type": "search",
+				"version": "WzEyOCwxXQ=="
+			}
+		},
+		{
+			"_index": "gateway_{0}_dashboard",
+			"_id": "search:AWTQGEQ5q_ZIBgFc-XU5",
+			"_type": "doc",
+			"_source": {
+				"search": {
+					"columns": [
+						"node",
+						"fileType",
+						"logLevel",
+						"message",
+						"correlationId"
+					],
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"highlightAll\":true,\"version\":true,\"query\":{\"match_all\":{}},\"filter\":[],\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+					},
+					"sort": [
+						[
+							"timestamp",
+							"desc"
+						]
+					],
+					"title": "ApplicationLogsSavedSearch"
+				},
+				"id": "AWTQGEQ5q_ZIBgFc-XU5",
+				"migrationVersion": {
+					"search": "7.4.0"
+				},
+				"references": [
+					{
+						"id": "gateway_{0}_log",
+						"name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+						"type": "index-pattern"
+					}
+				],
+				"type": "search",
+				"version": "WzEyOSwxXQ=="
+			}
+		}
+	]
+}

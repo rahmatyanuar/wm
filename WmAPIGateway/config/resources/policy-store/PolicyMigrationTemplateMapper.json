@@ -1,0 +1,178 @@
+{
+  "/service/definition/inSequence/send" : {
+	"name" : "Straight Through and Load Balancer Routing",
+	"xpath" : "/service/definition/inSequence/send",
+	"responseArrayOfJSON" : false,
+	"templateName" : "RoutingTemplate.json",
+	"templateKeys" : ["straightThroughRouting","loadBalancerRouting","jmsRouting"]
+  },
+  "/service/definition/inSequence/dynamic" : {
+	"name" : "Dynamic Routing",
+	"xpath" : "/service/definition/inSequence/send",
+	"responseArrayOfJSON" : false,
+	"templateName" : "DynamicRoutingTemplate.json",
+	"templateKeys" : ["dynamicRouting"]
+
+  },
+  "/service/definition/monitorPolicies/sla" :{
+	"name" : "monitorSLA",
+	"xpath" : "/service/definition/monitorPolicies/sla",
+	"responseArrayOfJSON" : true,
+	"templateName" : "SLATemplate.json",
+	"templateKeys" : ["monitorSLA","throttle"]
+  },
+  "/service/definition/monitorPolicies/logInvocation" :{
+	"name" : "Log Invocation",
+	"xpath" : "/service/definition/monitorPolicies/logInvocation",
+	"responseArrayOfJSON" : true,
+	"templateName" : "LogInvocation_Template.json",
+	"templateKeys" : ["logInvocation"]
+  },
+  "/service/definition/monitorPolicies/monitor" :{
+	"name" : "Monitor Service Performance",
+	"xpath" : "/service/definition/monitorPolicies/monitor",
+	"responseArrayOfJSON" : true,
+	"templateName" : "SPTemplate.json",
+	"templateKeys" : ["monitorServicePerformance","throttle"]
+  },
+  "/service/definition/faultSequence/fault-criteria-any" :{
+	"name" : "Custom Error Processing",
+	"xpath" : "/service/definition/faultSequence/fault-criteria-any",
+	"responseArrayOfJSON" : true,
+	"templateName" : "ErrorProcessingMigrationTemplate.json",
+	"templateKeys" : ["conditionalErrorProcessing"]
+  },
+  "/service/definition/inSequence/cache-service-result":{
+	"name" : "Service Result Cache",
+	"xpath" : "/service/definition/inSequence/cache-service-result",
+	"responseArrayOfJSON" : false,
+	"templateName" : "SRC_Template.json",
+	"templateKeys" : ["serviceResultCache"]
+  },
+  "/service/definition/inSequence/content":{
+	"name" : "Content-based Routing",
+	"xpath" : "/service/definition/inSequence/content",
+	"responseArrayOfJSON" : false,
+	"templateName" : "ContentBasedRoutingTemplate.json",
+	"templateKeys" : ["contentBasedRouting"]
+  },
+  "/service/definition/inSequence/context":{
+	"name" : "Context-based Routing",
+	"xpath" : "/service/definition/inSequence/context",
+	"responseArrayOfJSON" : false,
+	"templateName" : "ContextBasedRoutingTemplate.json",
+	"templateKeys" : ["contextBasedRouting"]
+  },
+   "/service/definition/inSequence/jms-config" :{
+	"name" : "JMS Properties",
+	"xpath" : "/service/definition/inSequence/jms-config",
+	"responseArrayOfJSON" : false,
+	"templateName" : "JmsPropertiesTemplate.json",
+	"templateKeys" : ["jmsProperties"]
+  },
+  "/service/definition/inSequence/outbound-security" :{
+	"name" : "Outbound Message SAML Authentication",
+	"xpath" : "/service/definition/inSequence/outbound-security",
+	"responseArrayOfJSON" : false,
+	"templateName" : "OutboundMessageSAMLTemplate.json",
+	"templateKeys" : ["outboundMessageAuthentication"]
+  },
+  "/service/definition/inSequence/http-config" :{
+	"name" : "Outbound Transport Authentication & Custom HTTP Headers",
+	"xpath" : "/service/definition/inSequence/http-config",
+	"responseArrayOfJSON" : true,
+	"templateName" : "HttpConfigTemplate.json",
+	"templateKeys" : ["outboundTransportAuthentication","customHttpHeaders"]
+  },
+  "/service/definition/inSequence/validate" :{
+	"name" : "Validate Request schema",
+	"xpath" : "/service/definition/inSequence/validate",
+	"responseArrayOfJSON" : false,
+	"templateName" : "ValidateSchemaTemplate.json",
+	"templateKeys" : ["validateSchema"]
+  },
+  "/service/definition/outSequence/validate" :{
+	"name" : "Validate Response schema",
+	"xpath" : "/service/definition/outSequence/validate",
+	"responseArrayOfJSON" : false,
+	"templateName" : "ValidateSchemaTemplate.json",
+	"templateKeys" : ["validateSchema"]
+  },
+  "/service/definition/inSequence/message-config" :{
+	"name" : "Outbound Message Authentication",
+	"xpath" : "/service/definition/inSequence/message-config",
+	"responseArrayOfJSON" : false,
+	"templateName" : "OutboundMessageTemplate.json",
+	"templateKeys" : ["outboundMessageAuthentication"]
+  },
+  "/service/resources/policy/wsp:Policy" :{
+	"name" : "Inbound Message Authentication",
+	"xpath" : "/service/resources/policy/wsp:Policy",
+	"responseArrayOfJSON" : false,
+	"templateName" : "InboundAuthenticationMessageTemplate.json",
+	"templateKeys" : ["webServiceSecurityPolicy"]
+  },
+  "/service/definition/inSequence/enforcement-actions" : {
+	"name" : "Identify & Authorize Applications and Inbound Authentication - Transport",
+	"xpath" : "/service/definition/inSequence/enforcement-actions",
+	"responseArrayOfJSON" : true,
+	"templateName" : "evaluateAndInboundAuthTransport.json",
+	"templateKeys" : ["evaluatePolicy", "inboundAuthTransport"]
+  },
+  "/service/definition/inSequence/id-consumer" : {
+	"name" : "Identify & Authorize Applications",
+	"xpath" : "/service/definition/inSequence/id-consumer",
+	"responseArrayOfJSON" : false,
+	"templateName" : "IDConsumerTemplate.json",
+	"templateKeys" : ["evaluatePolicy"]
+  },
+  "/service/definition/inSequence/requireHTTPAuthToken" : {
+	"name" : "Identify & Authorize Applications",
+	"xpath" : "/service/definition/inSequence/requireHTTPAuthToken",
+	"responseArrayOfJSON" : false,
+	"templateName" : "requireHTTPAuthToken.json",
+	"templateKeys" : ["inboundAuthTransport"]
+  },
+  "/service/definition/inSequence/saml" :{
+	"name" : "Inbound Message Authentication",
+	"xpath" : "/service/definition/inSequence/saml",
+	"responseArrayOfJSON" : false,
+	"templateName" : "InboundAuthenticationMessageTemplate2.json",
+	"templateKeys" : ["webServiceSecurityPolicy"]
+  },
+  "/service/definition/inSequence/request-message-type" :{
+	"name" : "Request Transformation",
+	"xpath" : "/service/definition/inSequence/request-message-type",
+	"responseArrayOfJSON" : false,
+	"templateName" : "SetMediaTypeTransformationTemplate.json",
+	"templateKeys" : ["setMediaType"]
+  },
+  "/service/definition/inSequence/authorization" :{
+    "name" : "Authorize User",
+    "xpath" : "/service/definition/inSequence/authorization",
+    "responseArrayOfJSON" : false,
+    "templateName" : "AuthorizeUserTemplate.json",
+    "templateKeys" : ["authorizeUser"]
+  },
+  "/service/definition/outSequence/response-message-type" :{
+	"name" : "Response Transformation",
+	"xpath" : "/service/definition/outSequence/response-message-type",
+	"responseArrayOfJSON" : false,
+	"templateName" : "SetMediaTypeResponseTransformationTemplate.json",
+	"templateKeys" : ["setMediaType"]
+  },
+  "/service/definition/inSequence" : {
+	"name" : "requestProcessing",
+	"xpath" : "/service/definition/inSequence",
+	"responseArrayOfJSON" : true,
+	"templateName" : "RequestSequencerTransformationTemplate.json",
+	"templateKeys" : ["entryProtocolPolicy", "requireJMS", "xsltTransformation", "invokeESB"]
+  },
+  "/service/definition/outSequence" : {
+	"name" : "responseProcessing",
+	"xpath" : "/service/definition/outSequence",
+	"responseArrayOfJSON" : true,
+	"templateName" : "ResponseSequencerTransformationTemplate.json",
+	"templateKeys" : ["xsltTransformation", "invokeESB"]
+  }
+}

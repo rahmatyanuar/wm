@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <meta name="Creator" content="stat17_update_1516_0241" />
+    <title>wm.tn.mime:verify</title>
+    <link rel="StyleSheet" href="css/_trading_networks_bis_reference_diba2.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <div class="Heading_2"><a name="ID0EIYAQ">wm.tn.mime:verify</a></div>
+    <div class="Body"><a name="ID0ESZAQ">Processes a digital signature to make sure that the specified data has not been changed.</a></div>
+    <div class="Body"><a name="ID0EZZAQ">The signature input is the DER encoding of the PKCS#7 SignedData object. This service also allows for the creation of an explicit message digest.</a></div>
+    <div class="Section_Title"><a name="ID0EG1AQ">Input Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 23%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ER2AQ">signature</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 76.9%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E42AQ">InputStream</a></span> The signature to use for verifying that the data is unchanged. This stream will be fully read during the execution of this service.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EO3AQ">data</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E13AQ">InputStream</a></span> (optional) The data to verify for a detached signature. This service only uses <span class="varname">data</span> if <span class="varname">detachedSignature</span> is <span class="codeph">true</span>. If present, this stream will be fully read during the execution of this service.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EZ4AQ">detachedSignature</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EF5AQ">String</a></span> Whether the <span class="varname">signature</span> contains a detached signature. Valid values are:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0E25AQ">true</a></span> - The signature is detached.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0ES6AQ">false</a></span> - Default. The signature is <span class="emphasis">not</span> detached.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EVABQ">createDigest</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EBBBQ">String</a></span> (optional) Whether to compute the message digest for the message that was signed. Valid values are:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0ESBBQ">yes</a></span> - Compute a message digest.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0EJCBQ">no</a></span> - Default. Do <span class="emphasis">not</span> compute a message digest.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EMDBQ">digestAlgorithm</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EYDBQ">String</a></span> (optional) The algorithm to use to compute the digest if you specified <span class="codeph">yes</span> for <span class="varname">createDigest</span>. You can specify one of the following values for <span class="varname">digestAlgorithm</span>: <span class="codeph">SHA-1</span> or <span class="codeph">MD5</span>.<span class="codeph">SHA-1</span> is the default.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EDFBQ">outputStream</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EPFBQ">OutputStream</a></span> (optional) OutputStream where you want the contents of the signed message to be written. Specify if you want the contents written to an OutputStream.</div>
+          <div class="Table_Cell"><a name="ID0E1FBQ">If </a><span class="varname">signature</span> contains a detached signature, the value this service writes to the stream matches the contents of <span class="varname">data</span>. If <span class="varname">signature</span> does not contain a detached signature, this service writes the bytes that it signed to the stream.</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0E3GBQ">Output Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 22.7%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EHIBQ">messageDigest</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 77.2%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0ETIBQ">String</a></span> (optional) If <span class="varname">createDigest</span> is <span class="codeph">yes</span> and you specified a valid value for <span class="varname">digestAlgorithm</span>, <span class="varname">messageDigest</span> contains a Base64 encoded message digest of the specified data.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EXJBQ">signerInfo</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EDKBQ">Document List</a></span> Each element in this array contains information about a single signer of the signed data object.</div>
+          <div class="Table_Cell"><a name="ID0EOKBQ">The keys in each document are as follows:</a></div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0EZKBQ">certChain</a></span> <span class="bisdatatype">Object [ ]</span> A X509 certificate chain of a signer in Certificate[] format.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0EWLBQ">timeStamp</a></span> <span class="bisdatatype">Object</span> The time when the signer digitally signed the data; <span class="varname">timeStamp</span> is an instance of Java.util.Date.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0EYMBQ">trusted</a></span> <span class="bisdatatype">String</span> Whether the <span class="ph">Integration Server</span> trusts the certificate chain of the signer. Valid values are:</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_2_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_2_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_2_inner"><span class="codeph"><a name="ID0E6NBQ">true</a></span> - The certificate chain is trusted.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_2_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_2_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_2_inner"><span class="codeph"><a name="ID0EWOBQ">false</a></span> - The certificate chain is trusted.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_2_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_2_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_2_inner"><span class="codeph"><a name="ID0ENPBQ">unknown</a></span> - The certificate chain could not be reconstructed.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0EGQBQ">status</a></span> <span class="bisdatatype">String</span> Whether the signatures are intact within the signed data object.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_Continued"><a name="ID0EDRBQ">If the signature is intact, </a><span class="varname">status</span> is <span class="codeph">verified</span>. Otherwise, the service returns an error message in <span class="varname">status</span> to indicate the problem.</div>
+        </td>
+      </tr>
+    </table>
+    <!-- SQ/SAG: insert custom footer -->
+    <br />
+    <hr style="border:1px solid; border-color: #1776BF; " />
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 10px; margin-top: 6px; margin-bottom: 6px; text-align: center;">
+      Copyright © 2007-2022 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors</div>
+    <!-- SQ old code:
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 12px; color: #0899cc; margin-top: 12px; padding-bottom: 6px; text-align: left; text-decoration: underline;">
+	Copyright &#169; <span wwpage:content="wwvars:versionfirst">First cpyr from map</span><span wwpage:content="wwvars:versionlast">Last cpyr from map</span><span wwpage:content="copyright-first-b">First cpyr from book</span><span wwpage:content="copyright-last-b">Last cpyr from book</span>
+		</div>
+    -->
+    <!-- SQ Variablen ausgeblendet
+    <!-\- Copyright Test -\->
+    <div style="text-decoration: underline">Copyright Import Test:</div>
+    <wwpage:Import wwpage:content-from-file="Copyright/copyright_en.asp" />
+    <br></br>
+    
+    <!-\- SQ Variables - Information from xresources-\->
+    <div style="text-decoration: underline">From xresources:</div>
+    <div>sag:organization-id == <span wwpage:content="sag:organization-id"></span></div>
+    <div>sag:organization-name == <span wwpage:content="sag:organization-name"></span></div>
+    <div>sag:organization-copyrholder == <span wwpage:content="sag:organization-copyrholder"></span></div>
+    <div>sag:organization-url == <span wwpage:content="sag:organization-url"></span></div>
+    
+    <div>sag:family-id == <span wwpage:content="sag:family-id"></span></div>
+    <div>sag:family-name == <span wwpage:content="sag:family-name"></span></div>
+    <div>sag:family-organization == <span wwpage:content="sag:family-organization"></span></div>
+    
+    <div>sag:product-id == <span wwpage:content="sag:product-id"></span></div>
+    <div>sag:product-name == <span wwpage:content="sag:product-name"></span></div>
+    <div>sag:product-copyrfirst == <span wwpage:content="sag:product-copyrfirst"></span></div>
+    <div>sag:product-family == <span wwpage:content="sag:product-family"></span></div>
+    
+    <!-\- SQ Variables - Values from DITA-Map-\->
+    <br></br>
+    <div style="text-decoration: underline">From DITA/Book-Map:</div>
+    <div>ProdInfo Prodname == <span wwpage:replace="wwvars:ProdInfoProdName"></span></div>
+    <div>ProdInfo Mod First == <span wwpage:replace="wwvars:ProdInfoModFirst"></span></div>
+    <div>ProdInfo Mod Last == <span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>ProdInfo Rel First == <span wwpage:replace="wwvars:ProdInfoRelFirst"></span></div>
+    <div>ProdInfo Rel Last == <span wwpage:replace="wwvars:ProdInfoRelLast"></span></div>
+    <div>ProdInfo Vers First == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span></div>
+    <div>ProdInfo Vers Last == <span wwpage:replace="wwvars:ProdInfoVersLast"></span></div>
+    <div>ProdInfo vrm vers.rel.mod == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span>.<span wwpage:replace="wwvars:ProdInfoRelLast"></span>.<span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>BookID PartNo == <span wwpage:replace="wwvars:BookPartNo"></span></div>
+    <div>othermeta release-version == <span wwpage:replace="wwvars:ReleaseVersion"></span></div>
+    <div>othermeta release-date == <span wwpage:replace="wwvars:ReleaseDate"></span></div>
+    <div>othermeta release-edition == <span wwpage:replace="wwvars:ReleaseEdition"></span></div>
+    <div>othermeta product == <span wwpage:replace="wwvars:Product"></span></div>
+    <br></br>
+    <div style="text-decoration: underline">Reserve:</div>
+    <div>organization == <span wwpage:content="organization"></span></div>
+    <div>product-name == <span wwpage:content="product-name"></span></div>
+    <div>copyright-first == <span wwpage:content="copyright-first"></span></div>
+    <div>copyright-last == <span wwpage:content="copyright-last"></span></div>
+    <div>copyright-first-b == <span wwpage:content="wwvars:copyright-first-b"></span></div>
+    <div>copyright-last-b == <span wwpage:content="copyright-last-b"></span></div>
+    <div>doc-id-one == <span wwpage:content="doc-id-one"></span></div>
+    <div>doc-id-two == <span wwpage:content="doc-id-two"></span></div>-->
+  </body>
+</html>

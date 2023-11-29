@@ -1,0 +1,19 @@
+  {
+		"templateKey" : "features",
+		"names" : [
+		   {
+			 "value" : "Validate Schema Features",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Sets the feature properties for the schema factory",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  [  "featureNames.json","featureValues.json"]
+  }

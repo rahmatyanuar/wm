@@ -1,0 +1,19 @@
+{
+	"templateKey" : "securityTokenTemplateParameters",
+	"names" : [
+		   {
+			 "value" : "Require Security Token Template Parameters",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "Require Security Token Template Parameters",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "true",
+	"parameterTemplatesReference" : [ "key.json", "rstValue.json"]
+}

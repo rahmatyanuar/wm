@@ -1,0 +1,256 @@
+<#if all.sp\:SupportingTokens.wsp\:Policy.sp\:IssuedToken[0]??>
+  <#assign issuedToken=all.sp\:SupportingTokens.wsp\:Policy.sp\:IssuedToken/>
+  <#assign samlFound=true/>
+<#elseif all.sp\:EndorsingSupportingTokens.wsp\:Policy.sp\:IssuedToken[0]??>
+  <#assign issuedToken=all.sp\:EndorsingSupportingTokens.wsp\:Policy.sp\:IssuedToken/>
+  <#assign samlFound = true/>
+</#if>
+<#if samlFound == true>
+,  
+  <#if issuedToken.sprst\:RequestSecurityTokenTemplate.wst1\:TokenType[0]??>
+{
+		"templateKey": "samlToken",
+		"parameters": [
+			{
+				"templateKey": "samlVersion",
+				"values": [
+				<#if issuedToken.sprst\:RequestSecurityTokenTemplate.wst1\:TokenType[0] == "http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1">
+                      "SAML_1.0"
+					  <#else>
+					  "SAML_2.0"
+					  </#if>
+				]
+			},
+			{
+				"templateKey": "samlSubjectConfirmation",
+				"values": [
+				<#if issuedToken.sprst\:RequestSecurityTokenTemplate.wst1\:KeyType[0] == "http://schemas.xmlsoap.org/ws/2005/02/trust/Bearer">
+					<#assign keyType ="bearerOfToken"/>
+					"bearerOfToken"
+					<#elseif issuedToken.sprst\:RequestSecurityTokenTemplate.wst1\:KeyType[0] == "http://schemas.xmlsoap.org/ws/2005/02/trust/SymmetricKey">
+					<#assign keyType ="holderOfKeySymmetric"/>
+					"holderOfKeySymmetric"
+					<#else>
+					<#assign keyType ="holderOfKeyPublic"/>
+					"holderOfKeyPublic"
+					</#if>
+				]
+			},
+			{
+				"templateKey": "wsTrustVersion",
+				"values": [
+					"WS-Trust_1.0"
+				]
+			},
+			{
+				"templateKey": "encryptSignature",
+				"values": [
+					<#if keyType == "holderOfKeySymmetric">
+						<#if all.sp\:SymmetricBinding.wsp\:Policy.sp\:EncryptSignature[0]??>
+							"true"
+						<#else>	
+							"false"
+						</#if>
+					<#elseif keyType == "holderOfKeyPublic">
+						<#if all.sp\:AsymmetricBinding.wsp\:Policy.sp\:EncryptSignature[0]??>
+							"true"
+						<#else>
+							"false"
+						</#if>
+					<#else>
+						"false"
+					</#if>
+				]
+			},
+			<#assign issuer=issuedToken.sp\:Issuer/>
+			{
+				"templateKey": "issuerAddress",
+				"values": [
+					<#if issuer.address\:Address[0]??>
+						"${issuer.address\:Address}"
+					<#else>
+						""
+					</#if>
+				]
+			},
+			{
+				"templateKey": "metadataReferenceAddress",
+				"values": [
+					<#if issuer.address\:Metadata.address\:Metadata.wsx\:MetadataSection.wsx\:MetadataReference.address\:Address[0]??>
+						"${issuer.address\:Metadata.address\:Metadata.wsx\:MetadataSection.wsx\:MetadataReference.address\:Address}"
+					<#else>
+						""
+					</#if>
+				]
+			},
+			{
+				"templateKey": "algorithmSuite",
+				"values": [
+				<#if keyType == "holderOfKeySymmetric">
+					<#list all.sp\:SymmetricBinding.wsp\:Policy.sp\:AlgorithmSuite.wsp\:Policy?children as algo>
+						<#if algo?node_type=='element'>
+							"${algo?node_name}"
+						</#if>
+					</#list>
+				<#elseif keyType == "holderOfKeyPublic">
+					<#list all.sp\:AsymmetricBinding.wsp\:Policy.sp\:AlgorithmSuite.wsp\:Policy?children as algo>
+						<#if algo?node_type=='element'>
+							"${algo?node_name}"
+						</#if>
+					</#list>
+				<#else>
+						"Basic128"
+				</#if>
+				]
+			}
+			<#list issuedToken.sprst\:RequestSecurityTokenTemplate?children as child>
+				<#if child?node_type=='element'>
+					<#if child?node_name!= 'TokenType' && child?node_name!= 'KeyType' && child?node_name!= 'KeyAlgo'>
+					,
+					{
+						"templateKey": "securityTokenTemplateParameters",
+						"parameters": [
+							{
+								"templateKey": "key",
+								"values": [
+									"${child?node_name}"
+								]
+							},
+							{
+								"templateKey": "value",
+								"values": [
+									"${child}"
+								]
+							}
+						]
+					}
+					</#if>
+				</#if>
+			</#list>
+		]
+	}
+	
+	<#else>
+	{
+		"templateKey": "samlToken",
+		"parameters": [
+			{
+				"templateKey": "samlVersion",
+				"values": [
+				<#if issuedToken.sp\:RequestSecurityTokenTemplate.wst2\:TokenType[0] == "http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV1.1">
+                      "SAML_1.0"
+					  <#else>
+					  "SAML_2.0"
+					  </#if>
+				]
+			},
+			{
+				"templateKey": "samlSubjectConfirmation",
+				"values": [
+				<#if issuedToken.sp\:RequestSecurityTokenTemplate.wst2\:KeyType[0] == "http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer">
+					<#assign keyType ="bearerOfToken"/>
+					"bearerOfToken"
+				<#elseif issuedToken.sp\:RequestSecurityTokenTemplate.wst2\:KeyType[0] == "http://docs.oasis-open.org/ws-sx/ws-trust/200512/SymmetricKey">
+					<#assign keyType ="holderOfKeySymmetric"/>
+					"holderOfKeySymmetric"
+				<#else>
+					<#assign keyType ="holderOfKeyPublic"/>
+					"holderOfKeyPublic"
+					</#if>
+				]
+			},
+			{
+				"templateKey": "wsTrustVersion",
+				"values": [
+					"WS-Trust_1.3"
+				]
+			},
+			{
+				"templateKey": "encryptSignature",
+				"values": [
+					<#if keyType == "holderOfKeySymmetric">
+						<#if all.sp\:SymmetricBinding.wsp\:Policy.sp\:EncryptSignature[0]??>
+							"true"
+						<#else>	
+							"false"
+						</#if>
+					<#elseif keyType == "holderOfKeyPublic">
+						<#if all.sp\:AsymmetricBinding.wsp\:Policy.sp\:EncryptSignature[0]??>
+							"true"
+						<#else>
+							"false"
+						</#if>
+					<#else>
+						"false"
+					</#if>
+				]
+			},
+			<#assign issuer=issuedToken.sp\:Issuer/>
+			{
+				"templateKey": "issuerAddress",
+				"values": [
+					<#if issuer.address\:Address[0]??>
+						"${issuer.address\:Address}"
+					<#else>
+						""
+					</#if>
+				]
+			},
+			{
+				"templateKey": "metadataReferenceAddress",
+				"values": [
+					<#if issuer.address\:Metadata.address\:Metadata.wsx\:MetadataSection.wsx\:MetadataReference.address\:Address[0]??>
+						"${issuer.address\:Metadata.address\:Metadata.wsx\:MetadataSection.wsx\:MetadataReference.address\:Address}"
+					<#else>
+						""
+					</#if>
+				]
+			},
+			{
+				"templateKey": "algorithmSuite",
+				"values": [
+					<#if keyType == "holderOfKeySymmetric">
+						<#list all.sp\:SymmetricBinding.wsp\:Policy.sp\:AlgorithmSuite.wsp\:Policy?children as algo>
+							<#if algo?node_type=='element'>
+								"${algo?node_name}"
+							</#if>
+						</#list>
+					<#elseif keyType == "holderOfKeyPublic">
+						<#list all.sp\:AsymmetricBinding.wsp\:Policy.sp\:AlgorithmSuite.wsp\:Policy?children as algo>
+							<#if algo?node_type=='element'>
+								"${algo?node_name}"
+							</#if>
+						</#list>
+					<#else>
+							"Basic128"
+					</#if>
+				]
+			}
+			<#list issuedToken.sp\:RequestSecurityTokenTemplate?children as child>
+				<#if child?node_type=='element'>
+					<#if child?node_name!= 'TokenType' && child?node_name!= 'KeyType' && child?node_name!= 'KeyAlgo'>
+					,
+					{
+						"templateKey": "securityTokenTemplateParameters",
+						"parameters": [
+							{
+								"templateKey": "key",
+								"values": [
+									"${child?node_name}"
+								]
+							},
+							{
+								"templateKey": "value",
+								"values": [
+									"${child}"
+								]
+							}
+						]
+					}
+					</#if>
+				</#if>
+			</#list>
+		]
+	}
+	</#if>
+</#if>

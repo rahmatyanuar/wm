@@ -1,0 +1,59 @@
+{
+				"templateKey" : "authScheme",
+				"names" : [
+				   {
+					 "value" : "Authentication Scheme",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes the authentication scheme required by the native service.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"true",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "NONE"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Basic Authentication",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "BASICAUTH"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Alias",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "ALIAS"
+					},	
+					{
+						"names" : [
+						{
+							"value" : "OAuth2 Token",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "OAUTH_2"
+					},
+					{
+						"names" : [
+						{
+							"value" : "None",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "NONE"
+					}
+				]
+}

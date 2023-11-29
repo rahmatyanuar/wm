@@ -1,0 +1,19 @@
+{
+ "templateKey" : "mashupPathParamTransformation",
+ "names" : [
+   {
+     "value" : "Path Parameters",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["mashupPathParams"]
+}

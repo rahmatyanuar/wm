@@ -1,0 +1,19 @@
+{
+		"templateKey" : "transportSecurity",
+		"names" : [
+		   {
+			 "value" : "HTTP Transport Security",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Specify the authentication credentials or the values for the selected authentication scheme and mode.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  [  "transportAuthScheme.json","authUsing.json","httpAuthCredentials","kerberosCredentials","oauth2Token.json", "jsonWebToken.json", "alias.json"]
+}

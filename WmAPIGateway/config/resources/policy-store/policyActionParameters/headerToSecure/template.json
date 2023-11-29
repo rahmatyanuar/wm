@@ -1,0 +1,19 @@
+{
+		"templateKey" : "headerToSecure",
+		"names" : [
+		   {
+			 "value" : "SOAP Header",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "SOAP header",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["headerName.json","headerNamespace.json"]		
+}

@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "socketSendBufferSizeHint",
+		"names" : [
+		   {
+			 "value" : "Socket Send Buffer Size Hint",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Size hint (in bytes) for the low level TCP send buffer. This is an advanced option for advanced users who want to tune low level TCP parameters to try and squeeze out more performance.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

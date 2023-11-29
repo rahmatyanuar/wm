@@ -1,0 +1,19 @@
+{
+	"templateKey" : "statusCodeCriteria",
+	"names" : [
+		   {
+			 "value" : "Status Code Error Criteria",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "Status Code Error Criteria",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"parameterTemplatesReference" : [ "statusCode.json"]
+}

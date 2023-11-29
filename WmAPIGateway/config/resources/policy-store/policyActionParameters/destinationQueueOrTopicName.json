@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "destinationQueueOrTopicName",
+		"names" : [
+		   {
+			 "value" : "Destination Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Destination Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

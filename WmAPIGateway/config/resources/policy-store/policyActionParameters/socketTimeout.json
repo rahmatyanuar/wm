@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "socketTimeout",
+		"names" : [
+		   {
+			 "value" : "Socket Timeout (milliseconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The amount of time to wait (in milliseconds) for data to be transfered over an established, open connection before the connection is timed out. A value of 0 means infinity, and is not recommended.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

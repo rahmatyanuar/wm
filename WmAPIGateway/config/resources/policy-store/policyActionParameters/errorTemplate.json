@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "errortemplate",
+		"names" : [
+		   {
+			 "value" : "Error Template",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Template for the Failure Message configured by user.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "TEXT",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

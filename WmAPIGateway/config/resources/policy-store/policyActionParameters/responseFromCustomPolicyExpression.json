@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "responseFromCustomPolicyExpression",
+		"names" : [
+		   {
+			 "value" : "Variable",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Payload Expression to be evaluated on request or response to evaluate error condition.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

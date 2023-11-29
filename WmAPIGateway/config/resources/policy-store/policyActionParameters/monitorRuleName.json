@@ -1,0 +1,85 @@
+{
+	"templateKey" : "monitorRuleName",
+	"names" : [
+		{
+			"value" : "Name",
+			"locale" : "en"
+  	    }
+	],
+	"descriptions" : [
+		{
+			"value" : "Name",
+			"locale" : "en"
+		}
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : ["faultCount"],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "Availability",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "availability"
+		},
+		{
+			"names" : [
+				{
+					"value" : "Average Response Time",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "avgResponseTime"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Fault Count",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "faultCount"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Maximum Response Time",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "maxResponseTime"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Minimum Response Time",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "minResponseTime"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Success Count",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "successCount"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Total Request Count",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "requestCount"
+		}
+		
+	]
+}

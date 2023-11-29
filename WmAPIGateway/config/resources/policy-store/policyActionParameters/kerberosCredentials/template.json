@@ -1,0 +1,19 @@
+{
+		"templateKey" : "kerberosCredentials",
+		"names" : [
+		   {
+			 "value" : "Kerberos Credentials",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Specify the Kerberos credentials.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  [  "clientPrincipal.json","clientPassword.json","servicePrincipal.json","servicePrincipalNameForm.json"]
+}

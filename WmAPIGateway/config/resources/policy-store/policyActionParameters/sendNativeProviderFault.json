@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "sendNativeProviderFault",
+		"names" : [
+		   {
+			 "value" : "Send Native Provider Fault Message",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Identifies if the failure message from the native service must be sent to the caller.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

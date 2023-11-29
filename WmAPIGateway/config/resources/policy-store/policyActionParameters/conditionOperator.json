@@ -1,0 +1,57 @@
+{
+	"templateKey" : "conditionOperator",
+	"names" : [
+	   {
+		 "value" : "Operator",
+		 "locale" : "en"
+	   }
+	 ],
+	 "descriptions" : [
+	   {
+		 "value" : "Operator",
+		 "locale" : "en"
+	   }
+	 ],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : ["EQ"],
+	"possibleValues" :[
+		{
+			"names" : [
+			   {
+				"value" : "Equal To",
+				"locale" : "en"
+			   } 
+			],
+			"value" :  "EQ"
+		},
+		{
+			"names" : [
+			   {
+				"value" : "Not Equal To",
+				"locale" : "en"
+			   } 
+			],
+			"value" :  "NE"
+		},
+		{
+			"names" : [
+			   {
+				"value" : "After",
+				"locale" : "en"
+			   } 
+			],
+			"value" :  "GT"
+		},
+		{
+			"names" : [
+			   {
+				"value" : "Before",
+				"locale" : "en"
+			   } 
+			],
+			"value" :  "LT"
+		}
+	]
+}

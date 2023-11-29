@@ -1,0 +1,39 @@
+# The template which contains the list of files to backup for disaster recovery management in API Gateway
+# Lines starting with # are comments and will not be considered for backup.
+
+# Extended Settings
+./IntegrationServer/instances/{instance_name}/config/server.cnf
+
+# SAML Configurations
+./IntegrationServer/instances/{instance_name}/config/security/saml/trusted_saml_issuers.cnf
+
+# JDBC Pools
+./IntegrationServer/instances/{instance_name}/config/jdbc
+
+# JNDI (for Messaging)
+./IntegrationServer/instances/{instance_name}/config/jndi
+
+# JMS Settings
+./IntegrationServer/instances/{instance_name}/config/jms.cnf
+
+# JMS Provider Endpoints
+./IntegrationServer/instances/{instance_name}/config/endpoints/providerJMS.cnf
+
+# JMS Consumer Endpoints
+./IntegrationServer/instances/{instance_name}/config/endpoints/consumerJMS.cnf
+
+# JMS Message Addressing
+./IntegrationServer/instances/{instance_name}/config/endpoints/messageAddressingJMS.cnf
+
+# LDAP Configuration
+./IntegrationServer/instances/{instance_name}/config/ldap.cnf
+
+# HTTPS Configuration
+./profiles/IS_{instance_name}/configuration/com.softwareag.platform.config.propsloader/com.softwareag.catalina.connector.https.pid-apigateway.properties
+
+# CSRF Guard Settings - Uncomment if and only if you have configured it
+#./IntegrationServer/instances/{instance_name}/config/security/csrf
+
+# JAAS Configuration - Uncomment if and only if you have enabled custom LoginModules
+#./profiles/IS_{instance_name}/configuration/jaas.config
+

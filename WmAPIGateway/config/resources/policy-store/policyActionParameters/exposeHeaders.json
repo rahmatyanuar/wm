@@ -1,0 +1,18 @@
+{
+  "templateKey" : "exposeHeaders",
+  "names" : [
+    {
+      "value" : "Expose Headers",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Expose Header response headers",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "true"
+}

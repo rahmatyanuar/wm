@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "statusMessage",
+		"names" : [
+		   {
+			 "value" : "Message",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "HTTP Status message",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

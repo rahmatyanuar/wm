@@ -1,0 +1,41 @@
+{
+		"templateKey" : "featureValues",
+		"names" : [
+		   {
+			 "value" : "Feature value",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This is the logical condition based on which all the Identification policies are combined.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+		  "True"
+		],
+		"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "True",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "True"
+		},
+		{
+			"names" : [
+				{
+					"value" : "False",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "False"
+		}
+		]
+}

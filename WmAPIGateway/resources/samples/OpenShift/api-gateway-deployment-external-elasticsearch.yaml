@@ -1,0 +1,156 @@
+# Configuration for deploying an API Gateway without elasticsearch to an OpenShift cluster.
+# An external elasticsearch needs to be up and running.
+# The cluster should provide at least 4 GB of main memory.
+#
+# The full documentation is available from the Software AG Documentation website: 
+# http://techcommunity.softwareag.com/ecosystem/documentation/webmethods/api_gateway/yai10-7/index.htm
+#
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: api-gateway-deployment-external-es
+  labels:
+    app: api-gateway-deployment-external-es
+spec:
+  replicas: 1
+  selector:
+    deploymentconfig: api-gateway-deployment-external-es
+  template:
+    metadata:
+      labels:
+        deploymentconfig: api-gateway-deployment-external-es
+    spec:
+      containers:
+      - name: api-gateway-deployment-external-es
+        # The default pull policy is IfNotPresent which causes the Kubelet to skip pulling an image if it already exists.
+        # If you would like to always force a pull use "Always"        
+        imagePullPolicy: IfNotPresent
+        env:
+        # Please fill in your data to access your external elasticsearch.
+        # Url pointing to your running elasticsearch for example: 127.0.0.1:9200
+        - name: apigw_elasticsearch_hosts
+          value: "<UrlToYourExternalElasticsearch>:<elasticsearchPort>"
+        # Use true if your elasticsearch has https enabled, false if not.
+        - name: "apigw_elasticsearch_https_enabled"
+          value: <"false" or "true">
+        # Fill in your elasticsearch username for example: elastic
+        - name: "apigw_elasticsearch_http_username"
+          value: <elasticsearchUsername>
+        # Fill in your elasticsearch password for example: changeme
+        - name: "apigw_elasticsearch_http_password"
+          value: <elasticsearchPassword>
+        # Ports used in the docker image, the default ports are 5555 and 9072
+        ports:
+        - containerPort: 5555
+          name: 5555tcp01
+          protocol: TCP
+        - containerPort: 9072
+          name: 9072tcp01
+          protocol: TCP
+        resources:
+          requests:
+            memory: 1500M
+            cpu: 100m
+        livenessProbe:
+          failureThreshold: 4
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 5555
+          timeoutSeconds: 2
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /rest/apigateway/health
+            port: 5555
+            scheme: HTTP
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 2
+          timeoutSeconds: 2
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: default
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - api-gateway-deployment-external-es
+      from:
+        kind: ImageStreamTag
+        name: api-gateway-deployment-external-es:10.7
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: api-gateway-deployment-external-es
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - from:
+      kind: DockerImage
+      # Please fill in the path to your api gateway image stored in a docker registry.
+      name: <yourDockerRegistry>:<RegistryPort>/<PathToApiGateway>:10.7
+    importPolicy: {}
+    name: "10.7"
+    referencePolicy:
+      type: Source
+---
+# An example service for the deployment above.
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway-service
+  labels:
+    app.kubernetes.io/name: api-gateway-deployment
+spec:
+  type: NodePort
+  ports:
+    - name: 5555-tcp
+      port: 5555
+      targetPort: 5555
+      protocol: TCP
+    - name: 9072-tcp
+      port: 9072
+      targetPort: 9072
+      protocol: TCP 
+  selector:
+    deploymentconfig: api-gateway-deployment-external-es
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: api-gateway-ui
+spec:
+  # Provide a URL that will be visible outside of the OpenShift cluster
+  host: api-gateway-ui.apps.<yourClusterBaseUrl>
+  port:
+    targetPort: 9072-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: api-gateway-service
+    weight: 100
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: api-gateway-rest
+spec:
+  host: api-gateway-rest.apps.<yourClusterBaseUrl>
+  port:
+    targetPort: 5555-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: api-gateway-service
+    weight: 100
+  wildcardPolicy: None

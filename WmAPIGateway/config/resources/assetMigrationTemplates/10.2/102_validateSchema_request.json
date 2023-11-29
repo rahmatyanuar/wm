@@ -1,0 +1,39 @@
+{
+    <#if doc.id??>
+    "id": "${doc.id}",
+    </#if>
+    "names": [
+      {
+        "value": "Validate API Specification",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "validateAPISpec",
+    "parameters": [
+      {
+        "templateKey": "schemaValidationFlag",
+        "values": [
+          "true"
+        ]
+      },
+      {
+        "templateKey": "validateContentTypes",
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "templateKey": "headersValidationFlag",
+        "values": [
+          "false"
+        ]
+      }<#if doc.parameters[0]??>,
+      {
+        "templateKey": "validateSchema",
+        "parameters": ${printJsonPayload(doc.parameters)}
+      }</#if>
+    ]<#if doc.active??>
+,
+  "active":  ${doc.active?c}
+</#if>
+}

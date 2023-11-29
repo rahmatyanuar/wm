@@ -1,0 +1,17 @@
+{
+ "templateKey" : "antiVirusFilter",
+ "names" : [
+   {
+     "value" : "Anti Virus Filter",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Filter for blocking Virus requests",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [ "isAntiVirusScanEnabled.json", "icapEngineName.json", "icapHost.json", "icapPort.json", "icapService.json", "isPassedFromUI.json"]
+}                                                       

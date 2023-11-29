@@ -1,0 +1,378 @@
+Mediator-COMMON-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+   enterprises
+      FROM RFC1155-SMI
+   DisplayString
+      FROM RFC1213-MIB
+   URLString
+      FROM NETWORK-SERVICES-MIB
+   OBJECT-TYPE
+      FROM RFC-1212
+   TRAP-TYPE
+      FROM RFC-1215;
+
+--
+-- using the webMethods enterprise ID (1783)
+-- SAG eid (1028)
+-- see: http://www.iana.org/assignments/enterprise-numbers
+--
+SoftwareAG OBJECT IDENTIFIER ::= { enterprises 1783 }
+MediatorRuntimeNotifications OBJECT IDENTIFIER ::= { SoftwareAG 201 }
+
+MediatorRuntimeNotificationsGroup   OBJECT IDENTIFIER   ::=   { MediatorRuntimeNotifications 1 }
+
+MediatorRuntimeNotificationParameters OBJECT IDENTIFIER ::= { MediatorRuntimeNotificationsGroup 1 }
+
+MediatorContractName OBJECT-TYPE
+    SYNTAX  DisplayString
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION
+           "The MediatorContractName object is used to provide the
+            name of the contract."
+
+    ::= { MediatorRuntimeNotificationParameters 1 }
+
+MediatorTargetName OBJECT-TYPE
+    SYNTAX  DisplayString
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION
+           "The MediatorTargetName object is used to provide the
+            Target Name ."
+
+    ::= { MediatorRuntimeNotificationParameters 2 }
+
+MediatorTransactionDate OBJECT-TYPE
+    SYNTAX  DisplayString
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION
+           "The MediatorTransactionDate object is used to provide the
+            date of transaction ."
+
+    ::= { MediatorRuntimeNotificationParameters 3 }
+
+MediatorConsumer OBJECT-TYPE
+    SYNTAX  DisplayString
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION
+           "The MediatorConsumer object is used to provide the
+            Consumer Name."
+
+    ::= { MediatorRuntimeNotificationParameters 4 }
+
+MediatorRequestStatus OBJECT-TYPE
+    SYNTAX  DisplayString
+    ACCESS  read-only
+    STATUS  mandatory
+    DESCRIPTION
+           "The MediatorRequestStatus object is used to provide the
+            request status of the transaction (Failed/Passed)."
+
+    ::= { MediatorRuntimeNotificationParameters 5 }
+
+MediatorResponsePayload OBJECT-TYPE
+	SYNTAX	DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The MediatorResponsePayload object is used to provide the
+                 response payload."
+
+	::= { MediatorRuntimeNotificationParameters 6 }
+
+MediatorRequestPayload OBJECT-TYPE
+	SYNTAX	DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The MediatorRequestPayload object is used to provide the
+                 request payload."
+
+	::= { MediatorRuntimeNotificationParameters 7 }
+
+MediatorProviderRoundTripTime OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The MediatorProviderRoundTripTime object is used to provide the
+                 round-trip time of the provider service."
+
+	::= { MediatorRuntimeNotificationParameters 8 }
+
+MediatorTotalRoundTripTime OBJECT-TYPE
+	SYNTAX	INTEGER
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The MediatorTotalRoundTripTime object is used to provide the
+                 total round-trip time."
+
+	::= { MediatorRuntimeNotificationParameters 9 }
+
+MediatorContractURL OBJECT-TYPE
+	SYNTAX  URLString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The MediatorContractURL object is used to provide the
+                 URL of the target."
+
+	::= { MediatorRuntimeNotificationParameters 10 }
+
+MediatorLifecycleAlertDescription OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "Start/Stop event description of Mediator."
+
+	::= { MediatorRuntimeNotificationParameters 11 }
+
+MediatorRuntimeAlertSource OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "Source of the alert."
+
+	::= { MediatorRuntimeNotificationParameters 12 }
+
+MediatorLifecycleStatus OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "Status of Mediator."
+
+	::= { MediatorRuntimeNotificationParameters 13 }
+
+MediatorRuntimeAlertType OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The type of the alerts> TRANSACTION,START,STOP,INTEGRATION-ERROR,NEGOTIATOR-ERROR,OTHERS"
+
+	::= { MediatorRuntimeNotificationParameters 14 }
+
+MediatorRuntimeAlertDescription OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The description for various alert types"
+
+	::= { MediatorRuntimeNotificationParameters 15 }
+
+MediatorRuntimeSession OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The session attribute to relate transactions and business alert events"
+
+	::= { MediatorRuntimeNotificationParameters 16 }
+	
+MediatorConsumerIP OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The Client IP attribute for transactions"
+
+	::= { MediatorRuntimeNotificationParameters 17 }
+	
+
+MediatorMonitoredAttribute OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The breached attribute for a monitor policy"
+
+	::= { MediatorRuntimeNotificationParameters 18 }
+
+MediatorRuntimeErrorSource OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "Source of the error."
+
+	::= { MediatorRuntimeNotificationParameters 19 }
+
+MediatorRuntimeErrorDescription OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The description for error."
+
+	::= { MediatorRuntimeNotificationParameters 20 }
+		
+MediatorOperationName OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The Operation or Resource Name."
+
+	::= { MediatorRuntimeNotificationParameters 21 }
+
+MediatorNativeEndpoint OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The Routed native endpoint."
+
+	::= { MediatorRuntimeNotificationParameters 22 }
+	
+MediatorConsumerId OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "The UUID of Consumer"
+
+	::= { MediatorRuntimeNotificationParameters 23 }
+    
+MediatorPartnerId OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "Partner Id associated in consumer"
+
+	::= { MediatorRuntimeNotificationParameters 24 }    
+	
+MediatorAPIVersion OBJECT-TYPE
+	SYNTAX  DisplayString
+	ACCESS	read-only
+	STATUS	mandatory
+	DESCRIPTION
+                "Virtual API Version"
+
+	::= { MediatorRuntimeNotificationParameters 25 }    
+		
+MediatorNotificationPrefix OBJECT IDENTIFIER ::= { MediatorRuntimeNotificationsGroup 2 }
+
+MediatorTransactionAlert TRAP-TYPE
+    ENTERPRISE MediatorNotificationPrefix
+    VARIABLES
+    {
+    
+	MediatorRuntimeSession,
+	MediatorContractName,
+	MediatorOperationName,
+	MediatorNativeEndpoint,
+	MediatorTargetName, 
+	MediatorTransactionDate, 
+	MediatorConsumer, 
+	MediatorConsumerIP,
+	MediatorConsumerId,
+    MediatorPartnerId,
+	MediatorAPIVersion,
+	MediatorRequestStatus, 
+	MediatorResponsePayload, 
+	MediatorRequestPayload,
+	MediatorProviderRoundTripTime, 
+	MediatorTotalRoundTripTime
+    }
+    DESCRIPTION
+           "This object is used to report the occurrence of a transaction in Mediator."
+
+    ::= 1
+
+MediatorLifecycleAlert TRAP-TYPE
+    ENTERPRISE MediatorNotificationPrefix
+    VARIABLES
+    {
+	MediatorTargetName,
+	MediatorTransactionDate,
+	MediatorLifecycleStatus,
+	MediatorLifecycleAlertDescription
+    }
+    DESCRIPTION
+           "This object is used to report that Mediator has started"
+
+    ::= 2
+
+MediatorPolicyEnforcementAlert TRAP-TYPE
+    ENTERPRISE MediatorNotificationPrefix
+    VARIABLES
+    {
+	MediatorRuntimeSession,
+	MediatorTargetName,
+	MediatorContractName,
+	MediatorOperationName,
+	MediatorNativeEndpoint,
+	MediatorConsumer,
+	MediatorConsumerIP,
+	MediatorConsumerId,
+	MediatorAPIVersion,
+	MediatorTransactionDate,
+	MediatorRuntimeAlertSource,
+	MediatorRuntimeAlertType,
+	MediatorRuntimeAlertDescription 
+    }
+    DESCRIPTION
+           "This object is used to report that Mediator generated a transaction related business error"
+
+    ::= 3
+
+MediatorMonitoringAlert TRAP-TYPE
+    ENTERPRISE MediatorNotificationPrefix
+    VARIABLES
+    {
+        MediatorRuntimeSession,
+	MediatorTargetName,
+	MediatorContractName,
+	MediatorOperationName,
+	MediatorNativeEndpoint,
+    MediatorConsumer,
+	MediatorConsumerIP,
+	MediatorConsumerId,
+	MediatorAPIVersion,
+	MediatorTransactionDate,
+    MediatorMonitoredAttribute,
+	MediatorRuntimeAlertSource,
+	MediatorRuntimeAlertType,
+	MediatorRuntimeAlertDescription 
+    }
+    DESCRIPTION
+           "This object is used to report that Mediator generated a business alert"
+
+    ::= 4
+		
+
+MediatorErrorAlert TRAP-TYPE
+    ENTERPRISE MediatorNotificationPrefix
+    VARIABLES
+    {
+	MediatorRuntimeSession,
+	MediatorTargetName,
+    MediatorContractName,
+	MediatorOperationName,
+	MediatorNativeEndpoint,
+    MediatorConsumer,
+	MediatorConsumerIP,
+	MediatorConsumerId,
+	MediatorAPIVersion,
+	MediatorContractName,
+	MediatorTransactionDate,
+	MediatorRuntimeErrorSource,
+	MediatorRuntimeErrorDescription 
+    }
+    DESCRIPTION
+           "This object is used to report that Mediator generated a business alert"
+
+    ::= 5
+
+	
+END

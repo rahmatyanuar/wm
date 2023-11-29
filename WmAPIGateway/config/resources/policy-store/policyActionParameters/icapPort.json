@@ -1,0 +1,18 @@
+{
+		"templateKey" : "icapPort",
+		"names" : [
+		   {
+			 "value" : "Antivirus ICAP Engine Port",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Antivirus ICAP Engine Port",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

@@ -1,0 +1,24 @@
+{
+ "templateKey" : "mashupAggregator",
+ "names" : [
+   {
+     "value" : "Mashup Aggregator",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Holder for Mashup composition",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [ "mashupHeaderTransformation","mashupQueryParamsTransformation","mashupPathParamTransformation","mashupPayloadTransformation","advancedTransformation","namespaceHolder","mashupCustomPipelineVariables","mashupResponseTransformation"],
+ "occurence" : "multiple",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "isCustomOrderSupported": true
+ },
+ "applicableServiceTypes" : ["REST","ODATA"],
+ "mutuallyExclusiveActions" : ["contextBasedRouting","dynamicRouting","contentBasedRouting","straightThroughRouting","jmsRouting","loadBalancerRouting"]
+}                                                       

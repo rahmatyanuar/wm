@@ -1,0 +1,115 @@
+{
+  "removedAssets" : [ {
+    "nodeName" : "pub.asset:publish",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "8.0",
+    "replacement" : "None"
+  }, {
+    "nodeName" : "pub.event.eda:send",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.7",
+    "replacement" : "pub.event.routing:send"
+  }, {
+    "nodeName" : "pub.event.nerv:eventToDocument",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "10.0",
+    "replacement" : "None"
+  }, {
+    "nodeName" : "pub.event.nerv:send",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "10.0",
+    "replacement" : "pub.event.routing:send"
+  }, {
+    "nodeName" : "pub.event.nerv:subscribe",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "10.0",
+    "replacement" : "pub.event.routing:subscribe"
+  },  {
+    "nodeName" : "pub.event.nerv:unsubscribe",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "10.0",
+    "replacement" : "pub.event.routing:unsubscribe"
+  }, {
+    "nodeName" : "pub.ldap",
+    "nodeType" : "folder",
+    "svcType" : "",
+    "package" : "WmPublic",
+    "version" : "8.0",
+    "replacement" : "pub.client.ldap"
+  }, {
+    "nodeName" : "pub.pki.pkcs7:sign",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.8",
+    "replacement" : "pub.security.keystore.pkcs7:sign"
+  },  {
+    "nodeName" : "pub.pki.pkcs7:verify",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.8",
+    "replacement" : "pub.security.pkcs7:verify"
+  }, {
+    "nodeName" : "pub.pki.smime:createSignedAndEncryptedData",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.8",
+    "replacement" : "pub.smime.keystore:createSignedAndEncryptedData"
+  },  {
+    "nodeName" : "pub.pki.smime:createSignedData",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.8",
+    "replacement" : "pub.smime.keystore:createSignedData"
+  }, {
+    "nodeName" : "pub.pki:smime:processEncryptedData",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.8",
+    "replacement" : "pub.smime.keystore:processEncryptedData"
+  }, {
+    "nodeName" : "pub.pki.smime:processSignedData",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "9.8",
+    "replacement" : "pub.smime:processSignedData"
+  }, {
+    "nodeName" : "pub.restV2:listAllRESTResources",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "version" : "10.1",
+    "replacement" : "None"
+  }, {
+    "nodeName" : "pub.security.mobileGateway:alertSpec",
+    "nodeType" : "specification",
+    "svcType" : "",
+    "package" : "WmPublic",
+    "version" : "9.0",
+    "replacement" : "pub.security.enterpriseGateway:alertSpec"
+  }, {
+    "nodeName" : "pub.vcs",
+    "nodeType" : "folder",
+    "svcType" : "",
+    "package" : "WmVCS",
+    "version" : "10.4",
+    "replacement" : "None"
+  } ]
+}

@@ -1,0 +1,644 @@
+{
+	"key": [
+		{
+			"_id": "dashboard:gatewayAuditlogs",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"*\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":15,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"columns\":[\"user\",\"status\",\"sourceMachine\",\"objectType\",\"object\",\"message\",\"clientIPAddress\",\"action\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_1\"}]",
+					"timeRestore": false,
+					"title": "gatewayAuditlogs"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "gatewayAuditlogs",
+						"name": "1:panel_1",
+						"type": "search"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:API-specific-dashboard",
+			"_source": {
+				"dashboard": {
+					"title": "API specific dashboard",
+					"hits": 0,
+					"description": "",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":32,\"w\":24,\"h\":16,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"panelRefName\":\"panel_0\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":16,\"i\":\"9\"},\"panelIndex\":\"9\",\"embeddableConfig\":{},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":48,\"w\":24,\"h\":16,\"i\":\"10\"},\"panelIndex\":\"10\",\"embeddableConfig\":{},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":80,\"w\":48,\"h\":16,\"i\":\"12\"},\"panelIndex\":\"12\",\"embeddableConfig\":{\"columns\":[\"apiName\",\"applicationName\",\"eventType\",\"alertDesc\",\"eventSource\"],\"sort\":[[\"creationDate\",\"desc\"]]},\"panelRefName\":\"panel_3\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":24,\"y\":64,\"w\":24,\"h\":16,\"i\":\"13\"},\"panelIndex\":\"13\",\"embeddableConfig\":{},\"panelRefName\":\"panel_4\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":64,\"w\":24,\"h\":16,\"i\":\"14\"},\"panelIndex\":\"14\",\"embeddableConfig\":{},\"panelRefName\":\"panel_5\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":16,\"i\":\"16\"},\"panelIndex\":\"16\",\"embeddableConfig\":{},\"panelRefName\":\"panel_6\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":24,\"y\":48,\"w\":24,\"h\":16,\"i\":\"17\"},\"panelIndex\":\"17\",\"embeddableConfig\":{},\"panelRefName\":\"panel_7\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":24,\"y\":96,\"w\":24,\"h\":16,\"i\":\"18\"},\"panelIndex\":\"18\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"panelRefName\":\"panel_8\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":0,\"y\":96,\"w\":24,\"h\":16,\"i\":\"19\"},\"panelIndex\":\"19\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"panelRefName\":\"panel_9\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":24,\"y\":16,\"w\":24,\"h\":16,\"i\":\"32a37717-e467-49e0-a39d-631f30b642ba\"},\"panelIndex\":\"32a37717-e467-49e0-a39d-631f30b642ba\",\"embeddableConfig\":{},\"panelRefName\":\"panel_10\"},{\"version\":\"7.7.1\",\"gridData\":{\"x\":24,\"y\":32,\"w\":24,\"h\":16,\"i\":\"276b17b6-9afb-44a1-a92d-1e63ab23005a\"},\"panelIndex\":\"276b17b6-9afb-44a1-a92d-1e63ab23005a\",\"embeddableConfig\":{},\"panelRefName\":\"panel_11\"}]",
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"version": 1,
+					"timeRestore": false,
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"apiId=\\\"9b9a1a5f-e11c-414f-a77f-bb0364d54ea3\\\"\",\"language\":\"lucene\"}}"
+					}
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"name": "panel_0",
+						"type": "visualization",
+						"id": "Native-service-performance"
+					},
+					{
+						"name": "panel_1",
+						"type": "visualization",
+						"id": "Events-over-time"
+					},
+					{
+						"name": "panel_2",
+						"type": "visualization",
+						"id": "API-trend-by-response"
+					},
+					{
+						"name": "panel_3",
+						"type": "search",
+						"id": "Runtime-events"
+					},
+					{
+						"name": "panel_4",
+						"type": "visualization",
+						"id": "Response-code-trend"
+					},
+					{
+						"name": "panel_5",
+						"type": "visualization",
+						"id": "Success-vs-Failure"
+					},
+					{
+						"name": "panel_6",
+						"type": "visualization",
+						"id": "API-Invocations"
+					},
+					{
+						"name": "panel_7",
+						"type": "visualization",
+						"id": "API-invocation-pattern"
+					},
+					{
+						"name": "panel_8",
+						"type": "visualization",
+						"id": "Method-level-invocations"
+					},
+					{
+						"name": "panel_9",
+						"type": "visualization",
+						"id": "Service-result-cache"
+					},
+					{
+						"name": "panel_10",
+						"type": "visualization",
+						"id": "API-invocations-Status-wise"
+					},
+					{
+						"name": "panel_11",
+						"type": "visualization",
+						"id": "Gateway-vs-Provider-time"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "7.3.0"
+				}
+			}
+		},
+		{
+			"_id": "dashboard:AWGS0dT8RYi15YTcJ5g1",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"*\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":15,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":15,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}},\"enhancements\":{}},\"panelRefName\":\"panel_2\"}]",
+					"timeRestore": false,
+					"title": "Cache statistics"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "AWGSzfETRYi15YTcJ5gz",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "AWGSyl4zRYi15YTcJ5gu",
+						"name": "2:panel_2",
+						"type": "visualization"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:AWTQIXl-q_ZIBgFc-XYI",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"highlightAll\":true,\"version\":true,\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"columns\":[\"node\",\"fileType\",\"logLevel\",\"message\",\"correlationId\"],\"sort\":[[\"timestamp\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":16,\"w\":23,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":16,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"}]",
+					"timeRestore": false,
+					"title": "ApplicationLogsDashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "AWTQGEQ5q_ZIBgFc-XU5",
+						"name": "1:panel_1",
+						"type": "search"
+					},
+					{
+						"id": "AWTRZQmHXoq0CCGQ1e6A",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "AWTRZEW6Xoq0CCGQ1e5_",
+						"name": "3:panel_3",
+						"type": "visualization"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:AWiDdJef1Si8cYC_ZJWW",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[{\"meta\":{\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"sourceGatewayDetails\",\"value\":\"{\\\"id\\\":\\\"localhost\\\"}\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"query\":{\"match\":{\"sourceGatewayDetails\":{\"query\":\"{\\\"id\\\":\\\"localhost\\\"}\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"highlightAll\":true,\"version\":true,\"query\":{\"query\":\"(sourceGateway: MicroGateway)\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":32,\"w\":48,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":16,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_6\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":16,\"w\":48,\"h\":16,\"i\":\"7\"},\"panelIndex\":\"7\",\"embeddableConfig\":{\"columns\":[\"apiName\",\"applicationName\",\"eventType\",\"alertType\",\"status\",\"eventSource\",\"alertDesc\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_7\"}]",
+					"timeRestore": false,
+					"title": "Microgateway Overall summary dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "gateway_{0}_analytics",
+						"name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+						"type": "index-pattern"
+					},
+					{
+						"id": "Application-activity",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Payload-size",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "Overall-events",
+						"name": "6:panel_6",
+						"type": "visualization"
+					},
+					{
+						"id": "Runtime-events",
+						"name": "7:panel_7",
+						"type": "search"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Microgateway-group-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"hits": 0,
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[{\"meta\":{\"negate\":false,\"disabled\":false,\"alias\":null,\"type\":\"phrase\",\"key\":\"sourceGatewayDetails\",\"value\":\"{\\\"MicrogatewayPool\\\":\\\"testPool\\\"}\",\"indexRefName\":\"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\"},\"query\":{\"match\":{\"sourceGatewayDetails\":{\"query\":\"{\\\"MicrogatewayPool\\\":\\\"testPool\\\"}\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"highlightAll\":true,\"version\":true,\"query\":{\"query\":{\"query_string\":{\"query\":\"(sourceGateway: MicroGateway)\",\"analyze_wildcard\":true,\"time_zone\":\"Asia/Calcutta\"}},\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":48,\"w\":48,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":16,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":16,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_6\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":32,\"w\":48,\"h\":16,\"i\":\"7\"},\"panelIndex\":\"7\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_7\"}]",
+					"timeRestore": false,
+					"title": "Microgateway Group Overall summary dashboard",
+					"version": 1
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "gateway_{0}_analytics",
+						"name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+						"type": "index-pattern"
+					},
+					{
+						"id": "Application-activity",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Payload-size",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "API-Invocations-Microgateway-Group",
+						"name": "4:panel_4",
+						"type": "visualization"
+					},
+					{
+						"id": "Overall-events",
+						"name": "6:panel_6",
+						"type": "visualization"
+					},
+					{
+						"id": "Runtime-events",
+						"name": "7:panel_7",
+						"type": "search"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Overall-application-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"applicationId:\\\"Unknown\\\"\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":16,\"w\":24,\"h\":16,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":16,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false},\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":32,\"w\":48,\"h\":16,\"i\":\"5\"},\"panelIndex\":\"5\",\"embeddableConfig\":{\"columns\":[\"apiName\",\"applicationName\",\"eventType\",\"alertType\",\"status\",\"eventSource\",\"alertDesc\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_5\"}]",
+					"timeRestore": false,
+					"title": "Overall application dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "Events-per-application",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Violations-per-application",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "Activity-rate-for-consumed-apis",
+						"name": "3:panel_3",
+						"type": "visualization"
+					},
+					{
+						"id": "Activity-rate-of-consumed-packages",
+						"name": "4:panel_4",
+						"type": "visualization"
+					},
+					{
+						"id": "Runtime-events",
+						"name": "5:panel_5",
+						"type": "search"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Overall-summary-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"*\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":32,\"w\":48,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":16,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_6\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":16,\"w\":48,\"h\":16,\"i\":\"7\"},\"panelIndex\":\"7\",\"embeddableConfig\":{\"columns\":[\"apiName\",\"applicationName\",\"eventType\",\"alertType\",\"status\",\"eventSource\",\"alertDesc\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_7\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":48,\"w\":24,\"h\":16,\"i\":\"8\"},\"panelIndex\":\"8\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_8\"}]",
+					"timeRestore": false,
+					"title": "Overall summary dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "Application-activity",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Payload-size",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "Overall-events",
+						"name": "6:panel_6",
+						"type": "visualization"
+					},
+					{
+						"id": "Runtime-events",
+						"name": "7:panel_7",
+						"type": "search"
+					},
+					{
+						"id": "Package-performance",
+						"name": "8:panel_8",
+						"type": "visualization"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Overall-trends-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"*\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":17,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false},\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":16,\"w\":24,\"h\":17,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false},\"enhancements\":{}},\"panelRefName\":\"panel_3\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":16,\"i\":\"6\"},\"panelIndex\":\"6\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_6\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":33,\"w\":48,\"h\":16,\"i\":\"7\"},\"panelIndex\":\"7\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_7\"}]",
+					"timeRestore": false,
+					"title": "Overall trends dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "API-trend-by-success",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "API-trend-by-failure",
+						"name": "3:panel_3",
+						"type": "visualization"
+					},
+					{
+						"id": "Events-over-time",
+						"name": "6:panel_6",
+						"type": "visualization"
+					},
+					{
+						"id": "Overall-error-trends",
+						"name": "7:panel_7",
+						"type": "visualization"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Package-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"packageName:\\\"Package1\\\"\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":17,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":17,\"w\":24,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":17,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_3\"}]",
+					"timeRestore": false,
+					"title": "Package dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "Package-invocations",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Trending-API's-in-package",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "Trending-subscription-for-package",
+						"name": "3:panel_3",
+						"type": "visualization"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Threat-protection-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"eventType:\\\"threatProtectionEvent\\\"\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}},\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":16,\"w\":48,\"h\":16,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"columns\":[\"filterName\",\"ruleName\",\"resourcePath\",\"serverHost\",\"requestTime\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_3\"}]",
+					"timeRestore": false,
+					"title": "Threat protection dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "Threat-protection-filters",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Threat-protection-rules",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "Threat-protection-events",
+						"name": "3:panel_3",
+						"type": "search"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:Websocket-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"apiId:\\\"b89175fa-df8a-497f-9907-d09e6952bc62\\\"\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":24,\"h\":16,\"i\":\"1\"},\"panelIndex\":\"1\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_1\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":0,\"w\":24,\"h\":16,\"i\":\"2\"},\"panelIndex\":\"2\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_2\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":16,\"w\":48,\"h\":16,\"i\":\"3\"},\"panelIndex\":\"3\",\"embeddableConfig\":{\"columns\":[\"apiName\",\"applicationName\",\"eventType\",\"alertType\",\"status\",\"eventSource\",\"alertDesc\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_3\"}]",
+					"timeRestore": false,
+					"title": "Websocket dashboard"
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "Server-invocations",
+						"name": "1:panel_1",
+						"type": "visualization"
+					},
+					{
+						"id": "Client-invocations",
+						"name": "2:panel_2",
+						"type": "visualization"
+					},
+					{
+						"id": "Runtime-events",
+						"name": "3:panel_3",
+						"type": "search"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		},
+		{
+			"_id": "dashboard:GraphQL-API-specific-dashboard",
+			"_source": {
+				"dashboard": {
+					"description": "",
+					"hits": 0,
+					"kibanaSavedObjectMeta": {
+						"searchSourceJSON": "{\"filter\":[],\"query\":{\"query\":\"apiId=\\\"9b9a1a5f-e11c-414f-a77f-bb0364d54ea3\\\"\",\"language\":\"lucene\"}}"
+					},
+					"optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+					"panelsJSON": "[{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":32,\"w\":24,\"h\":16,\"i\":\"4\"},\"panelIndex\":\"4\",\"embeddableConfig\":{\"vis\":{\"legendOpen\":false},\"enhancements\":{}},\"panelRefName\":\"panel_4\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":16,\"i\":\"9\"},\"panelIndex\":\"9\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_9\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":48,\"w\":24,\"h\":16,\"i\":\"10\"},\"panelIndex\":\"10\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_10\"},{\"version\":\"7.7.1\",\"type\":\"search\",\"gridData\":{\"x\":0,\"y\":80,\"w\":48,\"h\":16,\"i\":\"12\"},\"panelIndex\":\"12\",\"embeddableConfig\":{\"columns\":[\"apiName\",\"applicationName\",\"eventType\",\"alertDesc\",\"eventSource\"],\"sort\":[[\"creationDate\",\"desc\"]],\"enhancements\":{}},\"panelRefName\":\"panel_12\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":64,\"w\":24,\"h\":16,\"i\":\"13\"},\"panelIndex\":\"13\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_13\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":64,\"w\":24,\"h\":16,\"i\":\"14\"},\"panelIndex\":\"14\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_14\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":0,\"y\":16,\"w\":24,\"h\":16,\"i\":\"16\"},\"panelIndex\":\"16\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_16\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":48,\"w\":24,\"h\":16,\"i\":\"17\"},\"panelIndex\":\"17\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_17\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":16,\"w\":24,\"h\":16,\"i\":\"32a37717-e467-49e0-a39d-631f30b642ba\"},\"panelIndex\":\"32a37717-e467-49e0-a39d-631f30b642ba\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_32a37717-e467-49e0-a39d-631f30b642ba\"},{\"version\":\"7.7.1\",\"type\":\"visualization\",\"gridData\":{\"x\":24,\"y\":32,\"w\":24,\"h\":16,\"i\":\"276b17b6-9afb-44a1-a92d-1e63ab23005a\"},\"panelIndex\":\"276b17b6-9afb-44a1-a92d-1e63ab23005a\",\"embeddableConfig\":{\"enhancements\":{}},\"panelRefName\":\"panel_276b17b6-9afb-44a1-a92d-1e63ab23005a\"}]",
+					"timeRestore": false,
+					"title": "GraphQL API specific dashboard",
+					"version": 1
+				},
+				"type": "dashboard",
+				"references": [
+					{
+						"id": "Native-service-performance",
+						"name": "4:panel_4",
+						"type": "visualization"
+					},
+					{
+						"id": "Events-over-time",
+						"name": "9:panel_9",
+						"type": "visualization"
+					},
+					{
+						"id": "API-trend-by-response",
+						"name": "10:panel_10",
+						"type": "visualization"
+					},
+					{
+						"id": "Runtime-events",
+						"name": "12:panel_12",
+						"type": "search"
+					},
+					{
+						"id": "Response-code-trend",
+						"name": "13:panel_13",
+						"type": "visualization"
+					},
+					{
+						"id": "Success-vs-Failure",
+						"name": "14:panel_14",
+						"type": "visualization"
+					},
+					{
+						"id": "API-Invocations",
+						"name": "16:panel_16",
+						"type": "visualization"
+					},
+					{
+						"id": "API-invocation-pattern",
+						"name": "17:panel_17",
+						"type": "visualization"
+					},
+					{
+						"id": "API-invocations-Status-wise",
+						"name": "32a37717-e467-49e0-a39d-631f30b642ba:panel_32a37717-e467-49e0-a39d-631f30b642ba",
+						"type": "visualization"
+					},
+					{
+						"id": "Gateway-vs-Provider-time",
+						"name": "276b17b6-9afb-44a1-a92d-1e63ab23005a:panel_276b17b6-9afb-44a1-a92d-1e63ab23005a",
+						"type": "visualization"
+					}
+				],
+				"namespaces": [
+					"default"
+				],
+				"migrationVersion": {
+					"dashboard": "8.2.0"
+				},
+				"coreMigrationVersion": "8.2.3"
+			}
+		}
+	]
+}

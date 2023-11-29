@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "transformationValue",
+		"names" : [
+		   {
+			 "value" : "Value",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Value",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

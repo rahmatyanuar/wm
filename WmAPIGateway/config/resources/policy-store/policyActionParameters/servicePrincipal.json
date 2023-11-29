@@ -1,0 +1,19 @@
+{
+				"templateKey" : "servicePrincipal",
+				"names" : [
+				   {
+					 "value" : "Service principal",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Service principal for Kerberos Authentication",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}
+

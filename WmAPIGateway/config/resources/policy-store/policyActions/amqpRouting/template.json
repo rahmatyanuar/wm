@@ -1,0 +1,26 @@
+{
+    "templateKey": "amqpRouting",
+    "names": [
+        {
+            "value": "JMS/AMQP REST Routing",
+            "locale": "en"
+        }
+    ],
+    "descriptions": [
+        {
+            "value": "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+            "locale": "en"
+        }
+    ],
+    "parameterTemplatesReference": [
+        "connectionAlias.json","destinationQueueOrTopicName.json","destinationQueueOrTopicType.json","replyToQueueOrTopicName.json",
+		"replyToQueueOrTopicType.json","timeToLive.json","timeToWait.json","deliveryMode.json"
+    ],
+	"occurence" : "once",
+	"applicableServiceTypes" : ["REST"],
+	"order" :  {
+		"sequence" : ["insequence"],
+		"orderPosition" : "last"
+	},
+	"mutuallyExclusiveActions" : ["straightThroughRouting","contextBasedRouting","dynamicRouting","contentBasedRouting","loadBalancerRouting"]    
+}

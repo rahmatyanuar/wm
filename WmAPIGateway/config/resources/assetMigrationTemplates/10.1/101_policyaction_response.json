@@ -1,0 +1,27 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#assign assetTransformException='com.softwareag.apigateway.core.migration.transformation.AssetTransformerException'?new()/>
+<#assign templateKey=doc.templateKey/>
+<#assign parameters=doc.parameters/>
+ <#if templateKey == "validateAPISpec">
+        <#list parameters as parameter>
+                <#if parameter.templateKey == "validateHTTPHeaders">
+                    <#assign httpHeader=parameter>
+                    <#include "101_validateHTTPHeaders_response.json"/>
+                <#elseif (parameter.templateKey == "schemaValidationFlag" && parameter.values[0] == "true")>
+                    <#assign httpHeader=parameters>
+                    <#include "101_validateSchema_response.json"/>
+                </#if>
+        </#list>
+<#elseif templateKey == "conditionalErrorProcessing">
+      <#include "101_conditionalErrorProcessing_response.json"/>
+<#elseif templateKey == "requestInvokeESB" || templateKey == "responseInvokeESB">
+        <#include "101_InvokeESB_response.json"/>
+<#elseif templateKey == "evaluatePolicy">
+        <#include "101_IdentifyAndAuthorize_response.json"/>
+<#elseif templateKey == "contentBasedRouting">
+        <#include "101_contentBasedRouting_response.json"/>
+<#elseif templateKey == "requestTransformation" || templateKey == "responseTransformation">
+        <#include "101_XSLTTransformation_response.json"/>
+<#else>
+        ${printJsonPayload(doc)}
+</#if>

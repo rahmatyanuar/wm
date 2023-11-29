@@ -1,0 +1,18 @@
+{
+	"templateKey" : "functionName",
+	"names" : [
+	   {
+		 "value" : "Function Name",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "An AWS function name.",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"true",
+	"isArray" : "false"
+}

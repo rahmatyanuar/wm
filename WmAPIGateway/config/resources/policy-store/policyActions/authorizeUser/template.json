@@ -1,0 +1,27 @@
+{
+ "templateKey" : "authorizeUser",
+ "names" : [
+   {
+     "value" : "Authorize User",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Policy that is used to authorize the user (sending the request) against a list of authorized users or groups.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"users.json","groups.json","accessProfiles.json"
+ ],
+ "occurence" : "once",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "order" :  {
+	"sequence" : ["insequence"],
+	"orderPosition" : "afterLastOccurence",
+	"policyTemplateIDs":["evaluatePolicy"]
+ },
+ "dependentActions" : ["evaluatePolicy", "webServiceSecurityPolicy"],
+ "dependentActionsConnector": "any"
+}

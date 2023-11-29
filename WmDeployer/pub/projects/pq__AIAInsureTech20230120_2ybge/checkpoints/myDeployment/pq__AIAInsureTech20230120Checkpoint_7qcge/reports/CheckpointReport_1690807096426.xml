@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="deploySimulateRollback.xsl"?><Report projectType="Runtime" status="0" type="Checkpoint">
+<depCandidate>myDeployment</depCandidate>
+<depMapName>myDeploymentMap</depMapName>
+<buildName>myBuild.zip</buildName>
+<checkpointName>AIA_Insure_Tech_20230120Checkpoint</checkpointName>
+<projectDescription/>
+<startTime>Mon Jul 31 19:38:16 ICT 2023</startTime>
+<projectName>AIA_Insure_Tech_20230120</projectName>
+<user>Administrator</user>
+<messages>
+<message timeStamp="2023-07-31 19:38:16 ICT" type="EXTRACT">
+<messagebody>[DEP.0001.0051] Extracted IS package "Maxis_EAI_Process_TokenMgmt"</messagebody>
+<attributes>
+<set mode="Deploy" name="myDeploymentSet" type="IS"/>
+<targetserver name="localhost1015"/>
+<asset name="AIA_Insure_Tech_20230120_AIA_Insure_Tech_20230120Checkpoint_1690807096453" type="Package"/>
+</attributes>
+</message>
+<message timeStamp="2023-07-31 19:38:16 ICT" type="EXTRACT">
+<messagebody>[DEP.0001.0052] Extracted IS package "Maxis_EAI_Process_TokenMgmt" node ACLs</messagebody>
+<attributes>
+<set mode="Deploy" name="myDeploymentSet" type="IS"/>
+<targetserver name="localhost1015"/>
+<asset name="packageName" type="PackageNodeACL"/>
+</attributes>
+</message>
+<message timeStamp="2023-07-31 19:38:16 ICT" type="MISSING">
+<messagebody>[DEP.0001.0100] Added IS package "Maxis_EAI_System_MicroService" to the missing list</messagebody>
+<attributes>
+<set mode="Deploy" name="myDeploymentSet" type="IS"/>
+<targetserver name="localhost1015"/>
+<asset name="AIA_Insure_Tech_20230120_AIA_Insure_Tech_20230120Checkpoint_1690807096793" type="Package"/>
+</attributes>
+</message>
+<message timeStamp="2023-07-31 19:38:16 ICT" type="MISSING">
+<messagebody>[DEP.0001.0100] Added IS package "Maxis_EAI_System_Admin_Config_00" to the missing list</messagebody>
+<attributes>
+<set mode="Deploy" name="myDeploymentSet" type="IS"/>
+<targetserver name="localhost1015"/>
+<asset name="AIA_Insure_Tech_20230120_AIA_Insure_Tech_20230120Checkpoint_1690807096797" type="Package"/>
+</attributes>
+</message>
+<message timeStamp="2023-07-31 19:38:16 ICT" type="MISSING">
+<messagebody>[DEP.0001.0100] Added IS package "Maxis_EAI_System_Util_Config_00" to the missing list</messagebody>
+<attributes>
+<set mode="Deploy" name="myDeploymentSet" type="IS"/>
+<targetserver name="localhost1015"/>
+<asset name="AIA_Insure_Tech_20230120_AIA_Insure_Tech_20230120Checkpoint_1690807096800" type="Package"/>
+</attributes>
+</message>
+</messages>
+<endTime>2023-07-31 19:38:16 ICT</endTime>
+</Report>

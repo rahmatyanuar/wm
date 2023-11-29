@@ -1,0 +1,18 @@
+{
+		"templateKey" : "runAsUser",
+		"names" : [
+		   {
+			 "value" : "Run As User",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Specify the valid IS User",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

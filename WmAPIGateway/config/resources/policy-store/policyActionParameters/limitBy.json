@@ -1,0 +1,39 @@
+{
+		"templateKey" : "limitBy",
+		"names" : [
+		   {
+			 "value" : "Limit By",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Limit By",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["IP"],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "IP",
+							"locale" : "en"
+						} 						
+						],
+						"value" :  "IP"
+					},
+					{
+						"names" : [
+						{
+							"value" : "GLOBALIP",
+							"locale" : "en"
+						} 						
+						],
+						"value" :  "GLOBALIP"
+					}
+		]
+}

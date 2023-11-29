@@ -1,0 +1,18 @@
+{
+				"templateKey" : "prefix",
+				"names" : [
+				   {
+					 "value" : "Namespace Prefix",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Namespace Prefix",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}

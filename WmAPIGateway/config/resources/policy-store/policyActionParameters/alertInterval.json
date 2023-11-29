@@ -1,0 +1,19 @@
+{
+		"templateKey" : "alertInterval",
+		"names" : [
+		   {
+			 "value" : "Alert Interval",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Alert Interval",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"]
+}

@@ -1,0 +1,18 @@
+			{
+				"templateKey" : "truststoreAlias",
+				"names" : [
+				   {
+					 "value" : "Truststore Alias",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "The trustsore that are configured in IS",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+			}

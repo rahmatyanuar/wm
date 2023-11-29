@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "mashupQueryParamName",
+		"names" : [
+		   {
+			 "value" : "Query Parameter Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

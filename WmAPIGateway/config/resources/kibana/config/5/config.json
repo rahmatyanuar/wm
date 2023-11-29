@@ -1,0 +1,13 @@
+{
+"key": [
+		{
+        "_id": "5.6.9",
+		"_type": "config",
+		"_index": "gateway_{0}_dashboard",
+		"_source": {
+			"buildNum": 9889,
+			"defaultIndex": "gateway_{0}_analytics"
+        }
+	}
+    ]
+}

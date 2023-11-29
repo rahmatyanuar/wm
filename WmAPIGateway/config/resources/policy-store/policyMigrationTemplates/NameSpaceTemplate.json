@@ -1,0 +1,17 @@
+{
+  "templateKey": "namespace",
+  "parameters": [
+	{
+	  "templateKey": "prefix",
+	  "values": [
+		"${namespace.@prefix}"
+	  ]
+	},
+	{
+	  "templateKey": "uri",
+	  "values": [
+		"${namespace.@uri}"
+	  ]
+	}
+  ]
+}

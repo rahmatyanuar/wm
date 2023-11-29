@@ -1,0 +1,187 @@
+{
+	"data_list": [
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "configurations",
+			"document_id": "loadBalancer",
+			"payload": {
+				"configId": "loadBalancer",
+				"userName": null,
+				"internalPorts": null,
+				"properties": {
+					"websocketUrls": [],
+					"httpsUrls": [],
+					"httpUrls": []
+				}
+			}
+		},
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "configurations",
+			"document_id": "whiteListingIPs",
+			"payload": {
+				"configId": "whiteListingIPs",
+				"userName": null,
+				"internalPorts": null,
+				"properties": {
+					"privateIPs": [],
+					"privateV6IPs": []
+				}
+			}
+		},
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "configurations",
+			"document_id": "cloudConfig",
+			"payload": {
+				"configId": "cloudConfig",
+				"userName": null,
+				"internalPorts": null,
+				"properties": {
+					"auth_cloud_redirect": "",
+					"auth_cloud_enabled": "true",
+					"cloud_assertion_endpoint": "",
+					"integration_cloud_tenant_id": "",
+					"apigw_packages_location":"",
+					"apigw_home_page":"",
+					"apigw_domain":"",
+					"provisioning_apiportal":"",
+					"apigw_packages_upload_contract_approved":"",
+					"previous_version":"",
+					"fix_management_s3_bucket":"",
+					"build_source_s3_bucket":"",
+					"is_transaction_license_enabled":"false",
+					"transaction_limit":"",
+					"sagcloud_client_secret":"",
+					"sagcloud_client_id":"",
+					"sagcloud_auth_server_url":"",
+					"type_of_deployment":"",
+					"sagcloud_home_page":"",
+					"apigw_custom_smtp_enabled":"",
+					"gainsightEnabled":"false",
+					"gainsightKey":"",
+					"sagProductName":"",
+					"customerCompanyName":"",
+					"customerEnvironmentName":"",
+					"cloudProvider":"",
+					"customerCountry":"",
+					"customerTimezone":"",
+					"customerAccountId":"",
+					"customerRegionName":"",
+					"customerPlan":"",
+					"doc_base_url":"https://docs.webmethods.io"
+				}
+			}
+		},
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "portalgateways",
+			"document_id": "gatewayCloudPortalConfig",
+			"payload": {
+				"id": "",
+				"externalPortal": {
+					"type": "apiportal",
+					"endpointTenant": "",
+					"endpointURL": "",
+					"endpointUsername": "",
+					"endpointPassword": ""
+				},
+				"gatewayURL": "",
+				"gatewayName": "",
+				"version": "",
+				"published": false
+			}
+		},
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "configurations",
+			"document_id": "emailDestinationConfig",
+			"payload": {
+				"configId": "emailDestinationConfig",
+				"userName": null,
+				"internalPorts": null,
+				"properties": {
+					"smtpServer": "",
+					"port": "",
+					"fromEmail": "",
+					"userName": "",
+					"password": "",
+					"tls": "none",
+					"truststoreAlias": "",
+					"internalEmail": "",
+					"serviceEmail": "",
+					"defaultEmailCharset": "",
+					"testRecipient": "",
+					"logInvocationSubject": "",
+					"logInvocationContent": "",
+					"monitorSPSubject": "",
+					"monitorSPContent": "",
+					"monitorSLASubject": "",
+					"monitorSLAContent": "",
+					"throttlingSubject": "",
+					"throttlingContent": ""
+				}
+			}
+		},
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "configurations",
+			"document_id": "keystore",
+			"payload": {
+				"configId": "keystore",
+				"userName": null,
+				"internalPorts": null,
+				"properties": {
+					"keystoreName": "DEFAULT_IS_KEYSTORE",
+					"signingAlias": "ssos",
+					"truststoreName": "DEFAULT_IS_TRUSTSTORE"
+				}
+			}
+		},
+		{
+			"index_name": "gateway_{0}",
+			"type_name": "policyactions",
+			"document_id": "egviolationalert",
+			"payload": {
+				"id": "egviolationalert",
+				"names": [
+				  {
+				   "value": "Gateway Rule Violation Alerts",
+				   "locale": "en"
+				  }
+				 ],
+				"templateKey": "egviolationalert",
+				"parameters": [{
+					"templateKey": "alertOnEvery",
+					"values": ["false"]
+				}, {
+					"templateKey": "alertInterval",
+					"values": [1]
+				}, {
+					"templateKey": "alertType",
+					"values": ["flowService"]
+				}, {
+					"templateKey": "emailTo",
+					"values": []
+				}, {
+					"templateKey": "flowServiceName",
+					"values": ["pub.apigateway.threatProtection:violationListener"]
+				}, {
+					"templateKey": "runAsUser",
+					"values": ["Administrator"]
+				}]
+			}
+		},
+        {
+            "index_name": "gateway_{0}",
+            "type_name": "stages",
+            "document_id": "PromotionStageConfiguration",
+            "payload": {
+                "id": "",
+                "name": "",
+                "description": "",
+                "url": ""
+            }
+        }
+	]
+}

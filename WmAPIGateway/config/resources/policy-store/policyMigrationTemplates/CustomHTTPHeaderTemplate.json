@@ -1,0 +1,31 @@
+{
+  "names": [
+	{
+	  "value": "Custom HTTP Header",
+	  "locale": "en"
+	}
+  ],
+  "templateKey": "customHttpHeaders",
+  "parameters": [
+	<#list httpConfig.headers.header as header>
+	{
+	  "templateKey": "header",
+	  "parameters": [
+		{
+		  "templateKey": "headerKey",
+		  "values": [
+			"${header.@name}"
+		  ]
+		},
+		{
+		  "templateKey": "headerValue",
+		  "values": [
+			"${header.@value}"
+		  ]
+		}
+	  ]
+	}
+	<#sep>,</#sep>
+	</#list>
+  ]
+}

@@ -1,0 +1,19 @@
+{
+		"templateKey" : "wssCredentials",
+		"names" : [
+		   {
+			 "value" : "WSS Credentials ",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Specify the  WSS authentication credentials ",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  [  "userName.json","password.json"]
+}

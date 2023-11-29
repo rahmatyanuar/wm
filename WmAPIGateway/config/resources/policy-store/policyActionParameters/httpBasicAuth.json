@@ -1,0 +1,18 @@
+{
+		"templateKey" : "httpBasicAuth",
+		"names" : [
+		   {
+			 "value" : "HTTP Basic Authentication",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Evaluate that the request has valid HTTP Basic Authentication credentials",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

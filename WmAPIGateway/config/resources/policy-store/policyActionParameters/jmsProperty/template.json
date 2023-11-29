@@ -1,0 +1,19 @@
+{
+	"templateKey": "jmsProperty",
+	"names": [
+		{
+			"value": "JMS/AMQP Property",
+			"locale": "en"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "JMS Property",
+			"locale": "en"
+		}
+	],
+	"type": "OBJECT",
+	"isRequired": "true",
+	"isArray": "true",
+	"parameterTemplatesReference": ["jmsPropertyKey.json","jmsPropertyValue.json"]
+}

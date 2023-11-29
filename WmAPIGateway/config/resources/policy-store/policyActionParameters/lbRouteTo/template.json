@@ -1,0 +1,21 @@
+{
+ "templateKey" : "lbRouteTo",
+ "names" : [
+   {
+     "value" : "Route To",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"true",
+ "isArray" : "true",
+ "parameterTemplatesReference" : [ 
+	"endpointUri.json","method.json","soapOptimize.json","connectTimeout.json","readTimeout.json","suspendDurationOnFailure.json","passSecurityHeaders.json","sslConfig","serviceRegistry"
+ ]	
+}

@@ -1,0 +1,45 @@
+{
+    "properties": {
+        "lastUpdated": {
+            "type": "date"
+        },
+        "applicationID": {
+            "type" : "keyword"
+        },
+        "packageId": {
+            "type" : "keyword"
+        },
+        "properties": {
+            "type": "object",
+            "dynamic": false
+        },
+        "identifiers": {
+            "properties": {
+                "namedValues": {
+                    "properties": {
+                        "name": {
+                            "type": "text",
+                            "analyzer": "not_analyzed_ignorecase",
+                            "fielddata": true
+                        },
+                        "values": {
+                            "type": "text",
+                            "analyzer": "not_analyzed_ignorecase",
+                            "fielddata": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+        "dynamic_templates": [
+        {
+            "strings": {
+                "match_mapping_type": "string",
+                "mapping": {
+                    "type": "text"
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,51 @@
+{
+  "portalgateways": {
+    "properties": {
+      "externalPortal": {
+        "properties": {
+          "endpointPassword": {
+            "type": "keyword"
+          },
+          "endpointTenant": {
+            "type": "keyword"
+          },
+          "endpointURL": {
+            "type": "keyword"
+          },
+          "endpointUsername": {
+            "type": "keyword"
+          },
+          "type": {
+            "type": "keyword"
+          }
+        }
+      },
+      "gatewayName": {
+        "type": "keyword"
+      },
+      "gatewayPassword": {
+        "type": "keyword"
+      },
+      "gatewayURL": {
+        "type": "keyword"
+      },
+      "gatewayUsername": {
+        "type": "keyword"
+      },
+      "id": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "published": {
+        "type": "boolean"
+      },
+      "refId": {
+        "type": "keyword"
+      },
+      "version": {
+        "type": "keyword"
+      }
+    }
+  }
+}

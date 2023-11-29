@@ -1,0 +1,25 @@
+{
+ "templateKey" : "loadBalancerRouting",
+ "names" : [
+   {
+     "value" : "Load Balancer Routing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"lbRouteTo"
+ ],
+ "occurence" : "once",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ },
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "mutuallyExclusiveActions" : ["contextBasedRouting","dynamicRouting","contentBasedRouting","straightThroughRouting","jmsRouting"]
+}

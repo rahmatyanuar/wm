@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "headerName",
+		"names" : [
+		   {
+			 "value" : "Header Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "HTTP Header Name to be used in request or response to evaluate the error condition.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

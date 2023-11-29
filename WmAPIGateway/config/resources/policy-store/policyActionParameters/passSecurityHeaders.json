@@ -1,0 +1,22 @@
+   {
+		"templateKey" : "passSecurityHeaders",
+		"names" : [
+		   {
+			 "value" : "Pass WS-Security Headers",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "WS-Security Header properties which will be used for endpoint specific connection settings for the native service",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+		  false
+		],
+		"applicableServiceTypes" : ["SOAP"]
+  }

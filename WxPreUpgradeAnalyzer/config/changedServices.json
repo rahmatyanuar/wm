@@ -1,0 +1,1329 @@
+{
+  "changedAssets" : [ {
+    "nodeName" : "VAN.VANConnectivity:getFromVAN",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmEDI",
+    "changes" : [ {
+      "version" : "6.5.2.0",
+      "comment" : "PGP-encryption support is deprecated."
+    } ]
+  }, {
+    "nodeName" : "pub.alert.notifier:create",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the optional consumptionMode and autoMark input parameters."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The smtpSender/secure/useJSSE input parameter has been removed. All outbound connections use JSSE. If you migrated to Integration Server 10.15 and a migrated service invokes pub.alert.notifier:create, the smtpSender/secure/useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the smtpSender/secure/useJSSE parameter, proceeding as if useJSSE were set to yes."
+    } ]
+  }, {
+    "nodeName" : "pub.alert.notifier:list",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the consumptionMode and autoMark parameters in the output."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The smtpSender/secure/useJSSE output parameter has been removed."
+    } ]
+  }, {
+    "nodeName" : "pub.alert.notifier:update",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the optional consumptionMode and autoMark input parameters. The channelIDs parameter now accepts channel IDs as array elements instead of comma-separated values. The severityCutoff parameter now accepts a severity name instead of the severity cutoff identifier."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The smtpSender/secure/useJSSE input parameter has been removed. If you migrated to Integration Server 10.15 and a migrated service invokes pub.alert.notifier:update, the smtpSender/secure/useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the smtpSender/secure/useJSSE parameter, proceeding as if useJSSE were set to yes."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:channels",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now lists 13 alert channels instead of 10. The additional alert channels are Metering Log, User Management, and Master Password. Each channel now has two additional parameters: emissionEnabled and systemNotificationEnabled."
+    }, {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the description, emissionEnabled, and systemNotificationEnabled output parameters for each channel."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:countAll",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the optional filter parameters to get the count of a subset of all alerts in the system."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:countUnread",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the notifierName and filter parameters to get the count of unread alerts for a notifier or a subset of the unread alerts. Both the parameters are optional and can be used independently or together."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:fetchAll",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the optional filter parameters to fetch a subset of all the alerts in the system. The service also includes the sortBy and sortOrder optional input parameters to sort the fetched alerts."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:fetchUnread",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The pub.alert:fetch service from the previous release is renamed to pub.alert:fetchUnread, which now includes the optional notifierName, filter, sortBy and sortOrder input parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:getSettings",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The enabledEmissionChannels and enabledSystemNotifierChannels parameters in the service output display channel IDs as an object list and not as comma-separated values."
+    } ]
+  }, {
+    "nodeName" : "pub.alert:setSettings",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The enabledEmissionChannels and enabledSystemNotifierChannels input parameters in the service accept channel IDs as array elements and not as comma-separated values."
+    } ]
+  }, {
+    "nodeName" : "pub.cache:remove",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.8.0.0",
+      "comment" : "Added useWriter input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.client.ftp:getCompletedNotification",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The publishable document type now specifies the IS_LOCAL_CONNECTION alias as the connection alias used to publish and retrieve instances of this document type."
+    } ]
+  }, {
+    "nodeName" : "pub.client.ftp:login",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.0.0.0",
+      "comment" : "Updated the input parameter secure to include useJSSE as a child parameter."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The secure/useJSSE input parameter has been removed. If you migrated to Integration Server 10.15 and a migrated service invokes pub.client.ftp:login, the secure/useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the secure/useJSSE input parameter, proceeding as if secure/useJSSE were set to yes."
+    }, {
+      "version" : "9.12.0.0",
+      "comment" : "Updated the input parameter secure to include useJSSE as a child parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.client.ftp:putCompletedNotification",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The publishable document type now specifies the IS_LOCAL_CONNECTION alias as the connection alias used to publish and retrieve instances of this document type."
+    } ]
+  }, {
+    "nodeName" : "pub.client.ldap:search",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Added isDocumentList as new input parameter and resultsList as new output parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.client.oauth.executeRequest",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.5.0.0",
+      "comment" : "Removed Google, Facebook, and Twitter as options for the provider parameter. Possible options for the provider parameter are now IntegrationServer and Other."
+    } ]
+  }, {
+    "nodeName" : "pub.client.sftp:login",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.7.0.0",
+      "comment" : "The SFTP login service includes additional input parameters that enable you to log in without configuring the SFTP server and user aliases."
+    } ]
+  }, {
+    "nodeName" : "pub.client:ftp",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.0.0.0",
+      "comment" : "Updated the input parameter secure to include useJSSE as a child parameter."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The secure/useJSSE input parameter has been removed. If you migrated to Integration Server 10.15 and a migrated service invokes pub.client:ftp, the secure/useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the secure/useJSSE input parameter, proceeding as if secure/useJSSE were set to yes."
+    }, {
+      "version" : "9.12.0.0",
+      "comment" : "Updated the input parameter secure to include useJSSE as a child parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.client:http",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the followRedirect input parameter to control whether the outbound request follows a redirect when receiving a response code between 300 and 400."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The useJSSE input parameter has been removed. If you migrated to Integration Server 10.15 and a migrated service invokes pub.client:http, the useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the useJSSE parameter, proceeding as if useJSSE were set to yes."
+    }, {
+      "version" : "10.2.0.0",
+      "comment" : "When the pub.client:http service sends a POST, PUT, DELETE, or PATCH request and receives a 307 or 308 response status code from an HTTP server, the service no longer changes the request method to GET when redirecting."
+    }, {
+      "version" : "10.3.0.0",
+      "comment" : "A new input parameter trustStore has been added which specifies the alias for the truststore that contains the list of certificates that Integration Server uses to validate the trust relationship."
+    }, {
+      "version" : "10.5.0.0",
+      "comment" : "The default value of the Accept header is now controlled by the watt.net.default.accept server configuration parameter. Previously, the default value of the Accept header was: \"image/gif, */*\""
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "Changed type key and added new token key to auth input parameter. You can now specify Basic or Bearer for type. The token key is the access token to submit to the OAuth resource server. It is required only when type is set to \"Bearer\"."
+    }, {
+      "version" : "9.10.0.0",
+      "comment" : "The method input parameter now supports the PATCH method. The auth input parameter now contains a kerberos document in which you can specify jaasContext, clientPrincipal, clientPassword, servicePrincipal, and servicePrincipalForm. If the remote server redirected pub.client:http, encodedURL will contain the URL submitted to the server to which it was redirected."
+    }, {
+      "version" : "9.12.0.0",
+      "comment" : "You can now supply a value in the data/bytes input variable when the method input variable is DELETE."
+    }, {
+      "version" : "9.6.0.0",
+      "comment" : "Added new key Digest to the auth\\type parameter. If connectTimeout is not specified, Integration Server uses the value of watt.net.timeout server configuration parameter. If no value is specified for watt.net.timeout, server will use the operating system timeout value."
+    } ]
+  }, {
+    "nodeName" : "pub.client:restClient",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.7.0.0",
+      "comment" : "The service now includes “OAUTH” and “APIKEY” fields as “type” for the “auth” input parameter. The service also includes the support of the “secure” input parameter and the “trustStoreAlias” field."
+    } ]
+  }, {
+    "nodeName" : "pub.client:smtp",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The useJSSE input parameter has been removed. If you migrated to Integration Server 10.15 and a migrated service invokes pub.client:smtp, the useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the useJSSE parameter ,proceeding as if useJSSE were set to yes."
+    }, {
+      "version" : "10.7.0.0",
+      "comment" : "The service includes the “useJSSE” field in the “secure” input parameter. To support for OAuth 2.0 the service now includes the “bearer” type in the “auth” field and the “token” field."
+    }, {
+      "version" : "8.2.1.0",
+      "comment" : "Added secure as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.client:soapClient",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The useJSSE input parameter has been removed. If you migrated to Integration Server 10.15 and a migrated service invokes pub.client:soapClient, the useJSSE parameter still appears in the pipeline. However, Integration Server ignores the value of the useJSSE parameter, proceeding as if useJSSE were set to yes."
+    }, {
+      "version" : "8.2.1.0",
+      "comment" : "Added transportHeaders as a new input parameter and added headers/requestLines as a new output parameter."
+    }, {
+      "version" : "9.6.0.0",
+      "comment" : "Added new key Digest to the auth\\transport\\type parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.client:soapRPC",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.0.0",
+      "comment" : "Added ability to disable output validation through the use of the watt.server.soap.validateResponse configuration property."
+    }, {
+      "version" : "8.2.2.0",
+      "comment" : "Added ability to disable output validation through the use of the watt.server.soap.validateResponse configuration property."
+    } ]
+  }, {
+    "nodeName" : "pub.client:websocket",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.4.0.0",
+      "comment" : "Adds input parameters cookies, extensions, and subProtocols which are to be parts of the HTTP request used to establish a WebSocket connection."
+    } ]
+  }, {
+    "nodeName" : "pub.compress:compressData",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service includes an additional input parameter encoding that enables you to set the name of a registered IANA character-set that specifies the encoding to use when converting the input string to an array of bytes."
+    } ]
+  }, {
+    "nodeName" : "pub.document:bytesToDocument",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Changed input parameter document to documentBytes.  documentBytes is the array of bytes (byte[]) to convert to a document."
+    } ]
+  }, {
+    "nodeName" : "pub.event.eda:event",
+    "nodeType" : "document type",
+    "svcType" : "",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Added evt:EventID, evt:Priority, evt:ProducerID, evt:UserID, evt:CustomHeaders as new input parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.event.nerv:send",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.7.0.0",
+      "comment" : "Added new encode input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.event.routing:send",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.10.0.0",
+      "comment" : "New input parameters isAsync, service Name, and runAsUser."
+    } ]
+  }, {
+    "nodeName" : "pub.file:getFile",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional largeFile input parameter that indicates whether the file specified in the input is a large file or not."
+    } ]
+  }, {
+    "nodeName" : "pub.flatFile:convertToString",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.7.0.0",
+      "comment" : "The service now includes the support of the “lineSeparator” filed for the “delimiters” input parameter which specifies the character to be used to override the input record delimiter."
+    } ]
+  }, {
+    "nodeName" : "pub.flow.setResponse",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.6.0.0",
+      "comment" : "Added new parameters responseString and responseBytes. Deprecated parameters response, string, and bytes."
+    } ]
+  }, {
+    "nodeName" : "pub.flow:getTransportInfo",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.7.0.0",
+      "comment" : "Service can now return transport information for services invoked by webMethods messaging triggers."
+    } ]
+  }, {
+    "nodeName" : "pub.flow:savePipelineToFile",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.8.0.0",
+      "comment" : "Before writing the pipeline to a file, Integration Server verifies whether the provided path is specified in the allowedWritePaths parameter of the file access control configuration file (fileAccessControl.cnf)."
+    } ]
+  }, {
+    "nodeName" : "pub.flow:setResponseCode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added reasonPhrase as new input parameter."
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "The responseCode parameter now accepts any value. If the value is not listed in RFC 2616, Section 10, you must provide a value for the reasonPhrase parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.flow:setResponseHeader",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added support for setting headers in a JMS message that contains a SOAP response."
+    } ]
+  }, {
+    "nodeName" : "pub.flow:transportInfo",
+    "nodeType" : "document type",
+    "svcType" : "",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added the jms document as a new parameter to contain the JMS protocol information."
+    }, {
+      "version" : "9.5.0.0",
+      "comment" : "Added new keys clientIP and clientPort to the HTTP ipInfo parameter."
+    }, {
+      "version" : "9.7.0.0",
+      "comment" : "Added new messaging field to contain transport information for webMethods messaging triggers."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:JMSMessage",
+    "nodeType" : "document type",
+    "svcType" : "",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added JMS_WMClusterNodes as a new parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:receive",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added JMS_WMClusterNodes as a new output parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:reply",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.4.0.0",
+      "comment" : "When sending a JMS message to Universal Messaging, Integration Server sets the JMSMessageID."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:send",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.4.0.0",
+      "comment" : "When sending a JMS message to Universal Messaging, Integration Server sets the JMSMessageID."
+    }, {
+      "version" : "8.2.1.0",
+      "comment" : "Added JMS_WMClusterNodes as a new input and output parameter."
+    }, {
+      "version" : "9.10.0.0",
+      "comment" : "Added the JMSMessage/header/replyTo input parameter which can be used to specify a destination for replies without actually needing to wait for replies."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:sendAndWait",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.4.0.0",
+      "comment" : "When sending a JMS message to Universal Messaging, Integration Server sets the JMSMessageID."
+    }, {
+      "version" : "8.2.1.0",
+      "comment" : "Added JMS_WMClusterNodes as a new input and output parameter. If the reply destination is a temporary queue and useCSQ is set to true, values must be specified for the destinationNameReplyTo and destinationTypeReplyTo input parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:sendBatch",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "The pub.jms:sendBatch service can now be used with Universal Messaging as the JMS provider."
+    } ]
+  }, {
+    "nodeName" : "pub.jms:waitForReply",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added JMS_WMClusterNodes as a new output parameter. The pub.jms:waitForReply service cannot be used to retrieve response to requests that were routed through the client side queue. To retrieve the response, create a JMS trigger that subscribes to the reply to queue."
+    } ]
+  }, {
+    "nodeName" : "pub.json:documentToJSONString",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the jsonDocumentTypeName and strict input parameters that determine how Integration Server performs the transformation based on a JSON document type."
+    }, {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional encodeStringAsBoolean and encodeStringAsNumber input parameters."
+    }, {
+      "version" : "10.7.0.0",
+      "comment" : "The service now includes the encodeDateAs input parameter to specify how java.util.Date instances in the document are encoded in the returned JSON."
+    } ]
+  }, {
+    "nodeName" : "pub.json:jsonStreamToDocument",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the jsonDocumentTypeName and strict input parameters that determine how Integration Server performs the transformation based on a JSON document type."
+    }, {
+      "version" : "10.7.0.0",
+      "comment" : "The service now includes the unescapeSpecialChars and the decodeNullRootAsEmpty input parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.json:jsonStringToDocument",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the jsonDocumentTypeName and strict input parameters that determine how Integration Server performs the transformation based on a JSON document type."
+    }, {
+      "version" : "10.7.0.0",
+      "comment" : "The service now includes the unescapeSpecialChars and the decodeNullRootAsEmpty input parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:addBodyPart",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    }, {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    }, {
+      "version" : "10.7.0.0",
+      "comment" : "If the data passed to this service is greater than the threshold set by the server configuration property watt.server.mime.largeDataThreshold, this service  internally stores the content as a temporary file in the Tspace."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:addMimeHeader",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:createMimeData",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    }, {
+      "version" : "10.7.0.0",
+      "comment" : "The input parameter of this service now also accepts a javax.mail.internet.MimeMessage object."
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "Added decodeHeaders as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getBodyPartContent",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getBodyPartHeader",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getContentType",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getEnvelopeStream",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getMimeHeader",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getNumParts",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getPrimaryContentType",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:getSubContentType",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.mime:mergeHeaderAndBody",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The multipart MIME messages created by the pub.mime:* services now strip line folding from the header fields."
+    } ]
+  }, {
+    "nodeName" : "pub.monitor.archive:setOperationParameters",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmMonitor",
+    "changes" : [ {
+      "version" : "7.1.0.0",
+      "comment" : "Logging data for activations is deprecated, along with input parameters ACTIVATION_DAYS_TO_RETAIN, ACTIVATION_ARCHIVE_ACTION and ACTIVATION_STATUS_CRITERIA."
+    } ]
+  }, {
+    "nodeName" : "pub.mqtt:triggerSpec",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.7.0.0",
+      "comment" : "The specification for MQTT trigger input now includes the topicName field. MQTT triggers can use wildcards to receive messages from multiple topics."
+    } ]
+  }, {
+    "nodeName" : "pub.oauth:authorize",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes code_challenge and code_challenge_method input parameters for use with PKCE."
+    } ]
+  }, {
+    "nodeName" : "pub.oauth:getAccesssToken",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.3.0.0",
+      "comment" : "The service now supports the client credentials grant and the resource owner password credentials grant types."
+    } ]
+  }, {
+    "nodeName" : "pub.oauth:getToken",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the code_verifier input parameter for use with PKCE."
+    }, {
+      "version" : "10.3.0.0",
+      "comment" : "The service now supports the client credentials grant and the resource owner password credentials grant types."
+    } ]
+  }, {
+    "nodeName" : "pub.oauth:removeExpiredAccessTokens",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now returns the output parameter removedTokensCount, which indicates the number of expired tokens removed by the service."
+    } ]
+  }, {
+    "nodeName" : "pub.packages:installPackage",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added archiveOnInstall as a new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:deliver",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.8.0.0",
+      "comment" : "Added the ability to deliver documents with webMethods Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:deliverAndWait",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.8.0.0",
+      "comment" : "Added the ability to publish documents with webMethods Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:envelope",
+    "nodeType" : "document type",
+    "svcType" : "",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.2.0.0",
+      "comment" : "The uuid field can now be set in the document envelope when publishing a document to Universal Messaging using the pub.publish:publish service. Previously, the uuid field was read-only."
+    }, {
+      "version" : "9.8.0.0",
+      "comment" : "webMethods Universal Messaging now supports the read-only parameter destID."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:publish",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.5.0.0",
+      "comment" : "Added the ability to publish documents to webMethods Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:publishAndWait",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.7.0.0",
+      "comment" : "Added the ability to publish documents to webMethods Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:reply",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.7.0.0",
+      "comment" : "Added the ability to reply to documents via webMethods Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.publish:waitForReply",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.7.0.0",
+      "comment" : "Added the ability to wait for reply documents routed through webMethods Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.remote:invoke",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "Integration Server now ignores the value of the $close input parameter when a trigger service for a webMethods messaging trigger executes the pub.remote:invoke service, if the watt.server.trigger.reuseSession server configuration parameter is set to true."
+    } ]
+  }, {
+    "nodeName" : "pub.report:runFileTemplate",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "Integration Server now executes the template file and any services therein, using the credentials of the user who invoked the pub.report* service."
+    } ]
+  }, {
+    "nodeName" : "pub.report:runFileTemplateOnPipe",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "Integration Server now executes the template file and any services therein, using the credentials of the user who invoked the pub.report* service."
+    } ]
+  }, {
+    "nodeName" : "pub.report:runStringTemplate",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "Integration Server now executes the template file and any services therein, using the credentials of the user who invoked the pub.report* service."
+    } ]
+  }, {
+    "nodeName" : "pub.report:runStringTemplateOnPipe",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "Integration Server now executes the template file and any services therein, using the credentials of the user who invoked the pub.report* service."
+    } ]
+  }, {
+    "nodeName" : "pub.report:runTemplate",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "Integration Server now executes the template file and any services therein, using the credentials of the user who invoked the pub.report* service."
+    } ]
+  }, {
+    "nodeName" : "pub.report:runTemplateOnPipe",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "Integration Server now executes the template file and any services therein, using the credentials of the user who invoked the pub.report* service."
+    } ]
+  }, {
+    "nodeName" : "pub.schema:validate",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The service can now validate XMLData against an XML document type."
+    } ]
+  }, {
+    "nodeName" : "pub.security.keystore.pkcs7:sign",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Changed hashAlgorithm key. You can now specify MD5, SHA-1, SHA-256, SHA-384, or SHA-512 for hashAlgorithm."
+    }, {
+      "version" : "9.10.0.0",
+      "comment" : "New input parameters dataAsStream and signatureAsStream."
+    } ]
+  }, {
+    "nodeName" : "pub.security.pkcs7:verify",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.10.0.0",
+      "comment" : "New input parameters signatureAsStream and dataAsStream. New output parameter contentAsStream."
+    } ]
+  }, {
+    "nodeName" : "pub.security.util:createMessageDigest",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.10.0.0",
+      "comment" : "New input parameter inputAsStream. New output parameter outputAsStream"
+    } ]
+  }, {
+    "nodeName" : "pub.security.util:getCertificateInfo",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the dateFormat parameter to specify the date format to use for the date returned by the notBefore and notAfter fields in the validity output parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.security.xml:signXML",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.12.0.0",
+      "comment" : "Added input parameters isDetached, keyName, includeKeyValue. The certData input parameter now includes X509_CRL as an option."
+    }, {
+      "version" : "9.5.0.0",
+      "comment" : "Added signatureAlgorithm and digestAlgorithm as new input parameters. Possible values for each field are SHA1 (the default), SHA256, SHA384, and SHA512."
+    } ]
+  }, {
+    "nodeName" : "pub.security.xml:verifyXML",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Changed how enveloping signatures are verified."
+    } ]
+  }, {
+    "nodeName" : "pub.security:decrypt",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional secretKeyString input parameter to provide a secret key as a string to decrypt the data. The service also includes the string output parameter to return the decrypted data as a string when the input to the service is a string."
+    } ]
+  }, {
+    "nodeName" : "pub.security:decryptAndVerify",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional input parameters, secretKeyString to pass a secret key as a string to decrypt the data, and publicKeyString to provide one or more public keys as strings to verify the signature of the decrypted data for one or more recipients. The service also includes the string output parameter to return the decrypted and verified data as a string when the input to the service is a string. The data type of the publicKeyBytes input parameter is changed from Byte Array to Object List to provide multiple public key files as byte arrays to the service. The data type of the publicKeyAlias input parameter is changed from String to String List to provide public key aliases for multiple public keys in a keyring file."
+    } ]
+  }, {
+    "nodeName" : "pub.security:encrypt",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional publicKeyString input parameter to provide one or more public keys as strings to encrypt data for one or more recipients. The service also includes the string output parameter to return the encrypted data as a string in the ASCII-armored format when the input to the service is a string.The data type of the publicKeyBytes input parameter is changed from Byte Array to Object List to provide multiple public key files as byte arrays to the service. The data type of the publicKeyAlias input parameter is changed from String to String List to provide public key aliases for multiple public keys in a keyring file."
+    } ]
+  }, {
+    "nodeName" : "pub.security:sign",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional secretKeyString parameter to pass a secret key as a string to sign data. The service also includes the string output parameter to return the signed data as a string in the ASCII-armored format when the input to the service is a string."
+    } ]
+  }, {
+    "nodeName" : "pub.security:signAndEncrypt",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional secretKeyString input parameter to pass a secret key as a string to sign the data and the publicKeyString input parameter to provide one or more public keys as strings to encrypt the signed data for one or more recipients. The service also includes the string output parameter to return the signed and encrypted data as a string in the ASCII-armored format when the input to the service is a string. The data type of the publicKeyBytes input parameter is changed from Byte Array to Object List to provide multiple public key files as byte arrays to the service. The data type of the publicKeyAlias input parameter is changed from String to String List to provide public key aliases for multiple public keys in a keyring file."
+    } ]
+  }, {
+    "nodeName" : "pub.security:verify",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now includes the optional publicKeyString parameter to provide one or more public keys as strings to verify the signed data for one or more recipients. The service also includes the string output parameter to return the verified data as a string when the input to the service is a signed string. The data type of the publicKeyBytes input parameter is changed from Byte Array to Object List to provide multiple public key files as byte arrays to the service. The data type of the publicKeyAlias input parameter is changed from String to String List to provide public key aliases for multiple public keys in a keyring file."
+    } ]
+  }, {
+    "nodeName" : "pub.soap.handler:addHeaderBlock",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added validate as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.soap.handler:generateDocumentTypesFromWSDL",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added generateheaderDocs, generateBodyDoc, generateFaultDocs, and generateXOPObjectForBase64Binary as new input parameters."
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "Added contentModelCompliance as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.soap.handler:getHeaderBlock",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added validate as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.soap.handler:listConsumer",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Added handleRequestService, handleResponseService, and handleFaultService as new output parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.soap.handler:listProvider",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Added handleRequestService, handleResponseService, and handleFaultService as new output parameters."
+    } ]
+  }, {
+    "nodeName" : "pub.soap.wsrm:createSequence",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.6.0.0",
+      "comment" : "Both the auth > message input parameter and sequenceKey output parameter were removed."
+    } ]
+  }, {
+    "nodeName" : "pub.soap:addHeaderBlock",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added validate as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.storage:add",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.0.0",
+      "comment" : "Added error as new output parameter.  "
+    }, {
+      "version" : "8.2.2.0",
+      "comment" : "Added error as new output parameter.  "
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "Added error as new output parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.storage:put",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.0.0",
+      "comment" : "Added error as new output parameter.  "
+    }, {
+      "version" : "8.2.2.0",
+      "comment" : "Added error as new output parameter.  "
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "Added error as new output parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.string:bytesToString",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.8.0.0",
+      "comment" : "Added ignoreBOMChars input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.string:tokenize",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.7.0.0",
+      "comment" : "The service now includes the support of ‘useRegex’ parameter which indicates whether Integration Server must support recognizing delimiter character set for 'delim' parameter as regular expressions."
+    } ]
+  }, {
+    "nodeName" : "pub.trigger:createJMSTrigger",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Added connectionCount as new input parameter"
+    } ]
+  }, {
+    "nodeName" : "pub.trigger:createTrigger",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.7.0.0",
+      "comment" : "Service can be used to create webMethods messaging triggers that subscribe to documents routed through webMethods Universal Messaging. Added the new input parameters properties\\executeUser and  conditions\\messageTypeFilterPairs\\providerFilter."
+    } ]
+  }, {
+    "nodeName" : "pub.trigger:resumeProcessing",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The applyChangeAcrossCluster input parameter now applies to webMethods messaging triggers that receive documents from Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.trigger:resumeRetrieval",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The applyChangeAcrossCluster input parameter now applies to webMethods messaging triggers that receive documents from Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.trigger:suspendProcessing",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The applyChangeAcrossCluster input parameter now applies to webMethods messaging triggers that receive documents from Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.trigger:suspendRetrieval",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.9.0.0",
+      "comment" : "The applyChangeAcrossCluster input parameter now applies to webMethods messaging triggers that receive documents from Universal Messaging."
+    } ]
+  }, {
+    "nodeName" : "pub.utils:executeOSCommand",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Added arguments as a new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.xml.xmlNodeToDocument",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.1.0",
+      "comment" : "Changed default behavior when the XML node contains multiple occurrences of an element in an XML node when the makeArrays input parameter is set to false.  Previously the document would contain only the last occurrence of the element. Now, the document will contains multiple occurrences of the element, controlled by the new parameter watt.server.xml.xmlNodeToDocument.keepDuplicates."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:XMLStringToEnhancedXMLNode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "The inputProcessing\\supportDTD input parameter now has a default value of false. The inputProcessing\\isSupportingExternalEntities input parameter now has a default value of false"
+    } ]
+  }, {
+    "nodeName" : "pub.xml:documentToXMLString",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.11.0.0",
+      "comment" : "The service now includes the strictEncodeElements parameter, which controls the behavior of the encode parameter."
+    }, {
+      "version" : "10.5.0.0",
+      "comment" : "Adds the input parameter preserveRefs which indicates whether the leading & (ampersand) of a well-formed entity or character reference is left as & or further encoded as &amp; when the data is to be HTML-encoded."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:freeXMLNode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "The rootNode input parameter now takes an enhanced XML node as input in addition to a com.wm.lang.xml.Node object."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:getXMLNodeIterator",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "The node input parameter now takes an enhanced XML node as input in addition to a com.wm.lang.xml.Node object."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:loadEnhancedXMLNode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.1.0.0",
+      "comment" : "The inputProcessing\\supportDTD input parameter now has a default value of false. The inputProcessing\\isSupportingExternalEntities input parameter now has a default value of false."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:loadXMLNode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.0.0",
+      "comment" : "Added expandGeneralEntities as new input parameter."
+    }, {
+      "version" : "8.2.2.0",
+      "comment" : "Added expandGeneralEntities as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:queryXMLNode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.15.0.0",
+      "comment" : "The service now longer supports String Table as resultType."
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "The node input parameter now takes an enhanced XML node as input in addition to a com.wm.lang.xml.Node object."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:xmlNodeToDocument",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "8.2.0.0",
+      "comment" : "Added useNamespacesOfDocumentType as new input parameter."
+    }, {
+      "version" : "8.2.2.0",
+      "comment" : "Added useNamespacesOfDocumentType as new input parameter."
+    }, {
+      "version" : "9.0.0.0",
+      "comment" : "The node input parameter now takes an org.w3c.dom.Node object as input in addition to a com.wm.lang.xml.Node object."
+    } ]
+  }, {
+    "nodeName" : "pub.xml:xmlStringToXMLNode",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.5.0.0",
+      "comment" : "Adds input parameter validateXML which indicates whether the service validates the incoming XML document to ensure it is well-formed XML before converting it to a node."
+    }, {
+      "version" : "8.2.0.0",
+      "comment" : "Added expandGeneralEntities as new input parameter."
+    }, {
+      "version" : "8.2.2.0",
+      "comment" : "Added expandGeneralEntities as new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub.xslt.Transformations:transformSerialXML",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "9.0.0.0",
+      "comment" : "Added loadExternalEntities as a new input parameter."
+    } ]
+  }, {
+    "nodeName" : "pub:oauth:getAccessToken",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.4.0.0",
+      "comment" : "Supports requests for an access token for the Resource Owner Password Credentials (ROPC) grant type for a public client. Previously, only confidential clients could obtain an access token for the ROPC grant type."
+    } ]
+  }, {
+    "nodeName" : "pub:oauth:getToken",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmPublic",
+    "changes" : [ {
+      "version" : "10.4.0.0",
+      "comment" : "Supports requests for an access token for the Resource Owner Password Credentials (ROPC) grant type for a public client. Previously, only confidential clients could obtain an access token for the ROPC grant type."
+    } ]
+  }, {
+    "nodeName" : "wm.tn.delivery:deliver",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmTN",
+    "changes" : [ {
+      "version" : "6.5.0.0",
+      "comment" : "Output parameter deliveryID has been deprecated. Use taskId instead."
+    }, {
+      "version" : "7.1.0.0",
+      "comment" : "Output parameter deliveryID is deprecated. Use taskId instead."
+    } ]
+  }, {
+    "nodeName" : "wm.tn.profile:getExternalID",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmTN",
+    "changes" : [ {
+      "version" : "6.5.0.0",
+      "comment" : "Input parameter idType is deprecated. Use idTypeDesc instead."
+    } ]
+  }, {
+    "nodeName" : "wm.tn.profile:getInternalID",
+    "nodeType" : "service",
+    "svcType" : "java",
+    "package" : "WmTN",
+    "changes" : [ {
+      "version" : "6.5.0.0",
+      "comment" : "Input parameter idType is deprecated. Use idTypeDesc instead."
+    } ]
+  }, {
+    "nodeName" : "wm.tn.rec:BizDocEnvelope",
+    "nodeType" : "document type",
+    "svcType" : "",
+    "package" : "WmTN",
+    "changes" : [ {
+      "version" : "6.5.0.0",
+      "comment" : "Field Content is deprecated. The original content of the document is in the list of ContentParts."
+    } ]
+  }, {
+    "nodeName" : "wm.tn.rec:Corporation",
+    "nodeType" : "document type",
+    "svcType" : "",
+    "package" : "WmTN",
+    "changes" : [ {
+      "version" : "6.5.0.0",
+      "comment" : "Fields Certificate, CACertificate and PrivateKey are deprecated, Use services in wm.tn.security to retrieve."
+    } ]
+  } ]
+}

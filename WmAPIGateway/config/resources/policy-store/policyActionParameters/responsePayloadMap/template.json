@@ -1,0 +1,19 @@
+{
+	"templateKey" : "responsePayloadMap",
+	"names" : [
+		   {
+			 "value" : "Transformation",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "To map the response of the custom policies to the response/response received from API Gateway",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "true",
+	"parameterTemplatesReference" : ["responseFromCustomPolicyExpression.json","targetPayloadExpression.json"]
+}

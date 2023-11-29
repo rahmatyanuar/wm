@@ -1,0 +1,18 @@
+{
+		"templateKey" : "requestsPerSeconds",
+		"names" : [
+		   {
+			 "value" : "Seconds",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Maximum Requests allowed per configured Seconds",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

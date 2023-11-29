@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "readTimeout",
+		"names" : [
+		   {
+			 "value" : "Read Timeout (seconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The time interval (in seconds) after which a socket read attempt will timeout.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

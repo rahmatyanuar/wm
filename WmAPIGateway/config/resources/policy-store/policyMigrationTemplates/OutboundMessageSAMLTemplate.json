@@ -1,0 +1,79 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign stsConfig=doc.service.definition.inSequence.outbound\-security.sts\-config/>
+<#assign msgConfig=doc.service.definition.inSequence.outbound\-security.message\-config/>
+<#assign samlIssuer='com.softwareag.apigateway.core.migration.SamlIssuerConfiguration'?new()/>
+{
+    "names": [
+      {
+        "value": "Outbound Authentication - Message",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "outboundMessageAuthentication",
+    "parameters": [
+      {
+        "templateKey": "messageSecurity",
+        "parameters": [
+          {
+            "templateKey": "authType",
+            "values": [
+              "SAML"
+            ]
+          },
+          {
+            "templateKey": "authMode",
+            "values": [
+              "NEW"
+            ]
+          },
+          {
+            "templateKey": "samlIssuerConfig",
+            "values": [
+              "${r"${"}${samlIssuer(stsConfig)}${r"}"}"
+            ]
+          }
+		  <#if msgConfig.sign\-key\-alias[0]?? || msgConfig.encryption\-key\-alias[0]??>
+			  ,
+			  {
+				"templateKey": "signAndEncryptConfig",
+				"parameters": [
+				<#if msgConfig.sign\-key\-alias[0]??>
+				  {
+					"templateKey": "keyStoreAlias",
+					"values": [
+					  "${samlIssuer('keyStore')}"
+					]
+				  },
+				  {
+					"templateKey": "keyAlias",
+					"values": [
+					  "${msgConfig.sign\-key\-alias}"
+					]
+				  }
+				  <#if msgConfig.encryption\-key\-alias[0]??>
+				  ,
+				  </#if>
+				</#if>
+				<#if msgConfig.encryption\-key\-alias[0]??>
+				  {
+					"templateKey": "truststoreAlias",
+					"values": [
+					  "${samlIssuer('trustStore')}"
+					]
+				  },
+				  {
+					"templateKey": "certificateAlias",
+					"values": [
+					  "${msgConfig.encryption\-key\-alias}"
+					]
+				  }
+				</#if>
+				]
+			  }
+		  </#if>
+        ]
+      }
+    ],
+    "active": false
+}

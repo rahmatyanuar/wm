@@ -1,0 +1,44 @@
+{
+  "properties": {
+    "correlationID": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "apiId": {
+      "type" : "keyword"
+    },
+    "startDate": {
+      "type": "long"
+    },
+    "startTime": {
+      "type": "long"
+    },
+    "statusCode": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "type": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "ignore_above": 256
+        }
+      }
+    },
+    "request": {
+      "dynamic": false,
+      "type": "object"
+    },
+    "response": {
+      "dynamic": false,
+      "type": "object"
+    }
+  }
+}

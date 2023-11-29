@@ -1,0 +1,25 @@
+{
+ "templateKey" : "mashupRouting",
+ "names" : [
+   {
+     "value" : "Mashup Routing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [
+	"mashupStepName.json","mashupEndpointDetails","mashupHeaderTransformation","mashupQueryParamsTransformation","mashupPathParamTransformation","mashupPayloadTransformation","advancedTransformation","namespaceHolder","mashupCustomPipelineVariables"
+ ],
+ "occurence" : "multiple",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "isCustomOrderSupported": true
+ },
+ "applicableServiceTypes" : ["REST","ODATA"],
+ "mutuallyExclusiveActions" : ["contextBasedRouting","dynamicRouting","contentBasedRouting","straightThroughRouting","jmsRouting","loadBalancerRouting"]
+}

@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "addOrModify",
+		"names" : [
+		   {
+			 "value" : "Add/Modify",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Add/Modify parms",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" : [ 
+			"transformationVariable.json", "transformationValue.json"
+		]	
+
+   }

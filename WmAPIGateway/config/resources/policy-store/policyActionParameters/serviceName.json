@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "serviceName",
+		"names" : [
+		   {
+			 "value" : "webMethods IS Service",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Name of the IS service to be invoked",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "ESB",
+		"isRequired" : "true",
+		"isArray" : "false"
+  }

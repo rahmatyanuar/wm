@@ -1,0 +1,19 @@
+{
+	"templateKey": "jmsProviderAlias",
+	"names": [
+		{
+			"value": "JMS Provider Endpoint Alias",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "Integration Server's JMS Provider Endpoint Alias",
+			"locale": "en_US"
+		}
+	],
+	"type": "STRING",
+	"isArray": "false",
+	"isRequired": "true",
+	"applicableServiceTypes" : ["SOAP"]
+}

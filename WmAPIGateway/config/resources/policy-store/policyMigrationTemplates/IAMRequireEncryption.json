@@ -1,0 +1,86 @@
+<#assign encryptedElements=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All.sp\:EncryptedElements/>
+<#assign encryptedParts=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All.sp\:EncryptedParts/>
+<#if encryptedElements[0]?? || encryptedParts[0]??>
+,
+{
+  "templateKey": "requireEncryption",
+  "parameters": [
+	<#if encryptedElements[0]??>
+    <#list encryptedElements.sp\:XPath as xpath>
+		{
+		  "templateKey": "encryptedElements",
+		  "parameters": [
+			{
+			  "templateKey": "xpath",
+			  "values": [
+				"${xpath}"
+			  ]
+			},
+			<#list xpath.@@ as attr>
+				{
+				  "templateKey": "namespace",
+				  "parameters": [
+					{
+					  "templateKey": "prefix",
+					  "values": [
+						"${attr?node_name}"
+					  ]
+					},
+					{
+					  "templateKey": "uri",
+					  "values": [
+						"${attr}"
+					  ]
+					}
+				  ]
+				}
+				<#sep>,</#sep>
+			</#list>
+		  ]
+		}
+		<#sep>,</#sep>
+    </#list>
+	</#if>
+	<#if encryptedElements[0]?? && encryptedParts[0]??>,</#if>
+	<#if encryptedParts[0]??>
+    <#list encryptedParts as part>
+		{
+		  "templateKey": "encryptedParts",
+		  "parameters": [
+			  {
+                "templateKey": "entireBody",
+                "values": [
+                  <#if part.sp\:Body[0]??>"true"<#else>"false"</#if>
+                ]
+              },
+              {
+                "templateKey": "entireAttachments",
+                "values": [
+                  "false"
+                ]
+              }
+			  <#list part.sp\:Header as header>
+				,
+				{
+				  "templateKey": "headerToSecure",
+				  "parameters": [
+					<#list header.@@ as attr>
+						{
+						  "templateKey": <#if attr?node_name == "Name">"headerName"<#else>"headerNamespace"</#if>,
+						  "values": [
+							"${attr}"
+						  ]
+						}
+						<#sep>,</#sep>
+					</#list>
+				  ]
+				}
+			</#list>
+		  ]
+		}
+		<#sep>,</#sep>
+    </#list>
+	</#if>
+]
+}
+</#if>

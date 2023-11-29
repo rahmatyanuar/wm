@@ -1,0 +1,50 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#if doc.policyScope == "GLOBAL">
+{
+    "id" : "${doc.id}",
+    <#if  doc.names??>
+    "names" : ${printJsonPayload(doc.names)},
+    </#if>
+    <#if  doc.descriptions??>
+    "descriptions" : ${printJsonPayload(doc.descriptions)},
+    </#if>
+    "policyScope" : "${doc.policyScope}",
+    "policyEnforcements" : ${printJsonPayload(doc.policyEnforcements)},
+    "active" : ${doc.active?c},
+    "global" : ${doc.global?c},
+    "systemPolicy" : ${doc.systemPolicy?c},
+    "scope" : {
+        "applicableAPITypes" : ${printJsonPayload(doc.scope.applicableAPITypes)},
+        "logicalConnector": "${doc.scope.logicalConnector}",
+        "scopeConditions": [
+            <#list doc.scope.scopeConditions as scopeCondition>
+            <#if scopeCondition.filterType != "HTTP_METHOD">
+                ${printJsonPayload(scopeCondition)}
+            <#else>
+                {
+                  "filterType" : "HTTP_METHOD",
+                  "attributes" : [
+                    <#assign count = 0 />
+                    <#list scopeCondition.attributes as attribute>
+                      <#if attribute.attributeName != "HEAD">
+                          <#if count != 0 >
+                          ,
+                          </#if>
+                          {
+                              "attributeName" : "${attribute.attributeName}",
+                              "value" : "${attribute.value}"
+                          }
+                          <#assign count++/>
+                      </#if>
+                    </#list>
+                  ]
+                }
+            </#if>
+            <#sep>,</#sep>
+            </#list>
+            ]
+    }
+}
+<#else>
+    ${printJsonPayload(doc)}
+</#if>

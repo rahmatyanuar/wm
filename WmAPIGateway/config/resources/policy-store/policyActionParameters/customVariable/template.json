@@ -1,0 +1,21 @@
+{
+  "templateKey" : "customVariable",
+  "names" : [
+    {
+      "value" : "Custom variable",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Custom variable",
+      "locale" : "en"
+    }
+  ],
+  "type" : "OBJECT",
+  "isRequired" :"false",
+  "isArray" : "true",
+  "parameterTemplatesReference" : [
+    "variable.json", "value.json"
+  ]
+}

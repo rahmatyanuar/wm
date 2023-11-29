@@ -1,0 +1,158 @@
+{
+				"templateKey" : "algorithmSuite",
+				"names" : [
+				   {
+					 "value" : "Algorithm Suite",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Algorithm Suite",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+					"Basic128"
+				],						
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Basic128",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic128"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic128Rsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic128Rsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic128Sha256",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic128Sha256"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic128Sha256Rsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic128Sha256Rsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic192",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic192"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic192Rsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic192Rsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic192Sha256",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic192Sha256"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic192Sha256Rsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic192Sha256Rsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic256",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic256"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic256Rsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic256Rsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic256Sha256",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic256Sha256"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Basic256Sha256Rsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Basic256Sha256Rsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "TripleDes",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "TripleDes"
+					},
+					{
+						"names" : [
+						{
+							"value" : "TripleDesRsa15",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "TripleDesRsa15"
+					},
+					{
+						"names" : [
+						{
+							"value" : "TripleDesSha256",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "TripleDesSha256"
+					}
+				]
+}

@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "awsClientConfigValue",
+		"names" : [
+		   {
+			 "value" : "Value",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Value of AWS client configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

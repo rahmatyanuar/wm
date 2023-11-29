@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "transformationMetadata",
+		"names" : [
+		   {
+			 "value" : "Transformation Metadata",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Configure metadata like namespace for xpath",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"namespace"
+		]	
+
+   }

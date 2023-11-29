@@ -1,0 +1,21 @@
+{
+	"templateKey": "timeToLive",
+	"names": [
+		{
+			"value": "Time to Live (ms)",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "A numeric value (in milliseconds) that specifies the expiration time of the JMS message",
+			"locale": "en_US"
+		}
+	],
+	"type": "LONG",
+	"isArray": "false",
+	"isRequired": "true",
+	"defaultValues": [
+		0
+	]
+}

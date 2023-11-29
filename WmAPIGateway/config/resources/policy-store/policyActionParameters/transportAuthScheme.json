@@ -1,0 +1,86 @@
+{
+				"templateKey" : "authType",
+				"names" : [
+				   {
+					 "value" : "Authentication scheme",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes how the transport headers should be sent to native service.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "HTTP_BASIC"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Basic",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "HTTP_BASIC"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Kerberos",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "KERBEROS"
+					},
+					{
+						"names" : [
+						{
+							"value" : "NTLM",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "NTLM"
+					},
+					{
+						"names" : [
+						{
+							"value" : "OAuth2",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "OAUTH2"
+					},
+					{
+						"names" : [
+							{
+								"value" : "JWT",
+								"locale" : "en"
+							}
+						],
+						"value" :  "JWT"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Anonymous",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "REMOVE_INCOMING_HTTP_HEADERS"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Alias",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "ALIAS"
+					}
+				]
+}

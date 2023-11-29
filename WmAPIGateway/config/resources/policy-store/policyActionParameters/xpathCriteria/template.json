@@ -1,0 +1,19 @@
+{
+	"templateKey" : "xpathCriteria",
+	"names" : [
+		   {
+			 "value" : "Payload Criteria",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "Condition to match a particular value in the Payload.",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"parameterTemplatesReference" : [ "payloadIdentifier"]
+}

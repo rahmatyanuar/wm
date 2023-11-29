@@ -1,0 +1,18 @@
+{
+  "templateKey": "useIncomingHeaders",
+  "names": [
+    {
+      "value": "Use incoming headers",
+      "locale": "en"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "",
+      "locale": "en"
+    }
+  ],
+  "type": "BOOLEAN",
+  "isRequired": "false",
+  "isArray": "false"
+}

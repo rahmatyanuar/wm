@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "name",
+		"names" : [
+		   {
+			 "value" : "Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Variable Name to be replaced.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+ }

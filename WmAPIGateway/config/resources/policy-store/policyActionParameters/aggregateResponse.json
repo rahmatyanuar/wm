@@ -1,0 +1,18 @@
+{
+  "templateKey": "aggregateResponse",
+  "names": [
+    {
+      "value": "Aggregate response",
+      "locale": "en"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "",
+      "locale": "en"
+    }
+  ],
+  "type": "BOOLEAN",
+  "isRequired": "false",
+  "isArray": "false"
+}

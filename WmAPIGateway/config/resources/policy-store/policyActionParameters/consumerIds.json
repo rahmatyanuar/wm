@@ -1,0 +1,19 @@
+{
+		"templateKey" : "consumerIds",
+		"names" : [
+		   {
+			 "value" : "Consumer Applications",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Consumer Applications to identify",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"defaultValues" : ["AllConsumers", "AllRegisteredConsumers", "AllUnRegisteredConsumers", "EachConsumer", "EachRegisteredConsumer", "EachUnRegisteredConsumer"]
+}

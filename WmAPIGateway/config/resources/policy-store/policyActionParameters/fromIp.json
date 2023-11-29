@@ -1,0 +1,18 @@
+{
+		"templateKey" : "fromIp",
+		"names" : [
+		   {
+			 "value" : "From IP",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "From Ip",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

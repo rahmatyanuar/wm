@@ -1,0 +1,107 @@
+body {
+    color: #666;
+    background-color: #fff;
+    font-size: 1rem;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Roboto', Arial, Sans-Serif;
+    line-height: 1;
+}
+
+#FW-canvas{
+	height: 100%;
+	margin:0pt auto;
+	float:left;
+	padding:10px;
+	
+}
+
+#HP-containerContent{
+	padding: 10px;
+}
+#headpart{
+	margin-top: 10px;
+	margin-bottom:10px;
+}
+.CO-clearfix{
+	padding-bottom:0pt;
+	display:block;
+	clear:both;
+	min-width:0pt;
+}
+.bold-font{
+	font-weight:bold;
+}
+#FW-footer{
+	margin-top:20px;
+	margin-bottom:60px;
+}
+h1{
+	font-size:40px;
+	font-weight:500;
+	margin-top:30px;
+}
+h2{
+	font-weight: normal;
+	font-size : 28px;
+	margin-top:20px;
+	margin-bottom:40px;
+}
+#FW-copyright{
+	color: #666;
+	float:left;
+	font-size:22px;
+	font-weight:normal;
+}
+#scope-list{
+	display:block;
+	padding-bottom:40px;
+}
+#scope-div{
+	margin-bottom: 30px;
+}
+#actions-div{
+	margin-bottom: 40px;
+}
+#all-selection{
+	margin-bottom: 30px;
+}
+#approve-span{
+	padding-left:68px;
+}
+/*
+input[type='checkbox']{
+	vertical-align:middle;
+	position:static;
+	width: 80px;
+	height: 35px;
+}
+*/
+#label-name{
+	padding-left: 16px;
+	color: #333;
+}
+
+img{
+	padding: 10px;
+}
+
+/*
+#approve{
+	width:140px;
+	height:55px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #fff;
+	background-color:#233356;
+}
+
+#deny{
+	width:120px;
+	height:55px;
+	font-size: 25px;
+	background-color:#666;
+	color: #fff;
+	font-weight: bold;
+}
+*/

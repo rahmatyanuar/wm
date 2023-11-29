@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "payloadTransformation",
+		"names" : [
+		   {
+			 "value" : "Payload Transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Transform payload using XSLT",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [
+			"payload.json", "xsltDocument", "xsltAliasSelector"
+		],
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"]
+   }

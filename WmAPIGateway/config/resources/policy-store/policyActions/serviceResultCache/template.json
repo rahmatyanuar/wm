@@ -1,0 +1,24 @@
+{
+ "templateKey" : "serviceResultCache",
+ "names" : [
+   {
+     "value" : "Service Result Cache",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "SRC reduces the hits to  native service by caching response data and serving from cache when same request payload comes again",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"cacheCriteria","ttl.json","max-payload-size.json"
+ ],
+ "occurence" : "once",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ }
+}

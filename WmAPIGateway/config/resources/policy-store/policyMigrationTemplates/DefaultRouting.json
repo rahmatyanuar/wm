@@ -1,0 +1,96 @@
+{
+  <#if straightThroughRouting??>
+  "names" : [
+	{
+	  "value" : "Straight Through Routing",
+	  "locale" : "en"
+	}
+  ],
+  </#if>
+  "templateKey" : "${routingTemplateKey}",
+  "parameters" : [
+	{
+	  <#if routingTemplateKey=="dynRouteTo">
+		"templateKey" : "dynEndpointUri",
+	  <#else>	
+	  "templateKey" : "endpointUri",
+	  </#if>
+	  "values" : [
+		"${endpoint.address.@uri}"
+	  ]
+	}
+	<#if endpoint.address.@optimize[0]??>,
+	{
+		"templateKey": "soapOptimize",
+		"values": [
+		    <#if endpoint.address.@optimize?lower_case=="none">
+			"None"
+		   <#elseif endpoint.address.@optimize=="SWA">
+			"SwA"
+		   <#else>
+			"MTOM"
+		   </#if>
+		]
+	}
+    </#if>
+	<#if endpoint.address.@passSecurityHeaders[0]??>,
+	{
+		"templateKey": "passSecurityHeaders",
+		"values":[
+			"${endpoint.address.@passSecurityHeaders}"
+		]
+	}
+	</#if>
+	<#if endpoint.address.@method[0]??>,
+	{
+	  "templateKey" : "method",
+	  "values" : [
+		<#if endpoint.address.@method[0]??>
+			"${endpoint.address.@method}"
+		<#else>
+			"CUSTOM"
+		</#if>
+      ]
+	}</#if>
+	<#if endpoint.address.connect\-timeout.duration[0]??>,
+	{
+		"templateKey" : "connectTimeout",
+		"values" : [
+			"${endpoint.address.connect\-timeout.duration}"
+		]
+	}</#if>
+	<#if endpoint.address.timeout.duration[0]??>,
+	{
+		"templateKey" : "readTimeout",
+		"values" : [
+			"${endpoint.address.timeout.duration}"
+		]
+	}</#if>
+	<#if endpoint.address.suspendDurationOnFailure[0]??>,
+		{
+			"templateKey" : "suspendDurationOnFailure",
+			"values" : [
+			"${endpoint.address.suspendDurationOnFailure[0]}"
+			]
+	}</#if>
+	<#if endpoint.address.ssl\-config.keyStoreAlias[0]?? && endpoint.address.ssl\-config.keyAlias[0]?? && endpoint.address.ssl\-config.keyStoreAlias?trim != "" && endpoint.address.ssl\-config.keyAlias?trim != "" >,
+	{
+		"templateKey" : "sslConfig",
+		"parameters" : [
+			{
+				"templateKey" : "keyStoreAlias",
+				"values" : [
+					"${endpoint.address.ssl\-config.keyStoreAlias}"
+				]
+			},
+			{
+				"templateKey" : "keyAlias",
+				"values" : [
+					"${endpoint.address.ssl\-config.keyAlias}"
+				]
+			}
+		]
+	}
+	</#if>
+	]
+}

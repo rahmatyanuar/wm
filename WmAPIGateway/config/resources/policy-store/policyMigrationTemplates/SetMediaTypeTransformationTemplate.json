@@ -1,0 +1,41 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign insequenceElements=doc.service.definition.inSequence/>
+<#assign outSequenceElement=doc.service.definition.outSequence/>
+<#list insequenceElements?children as child>
+	<#if child?node_name == "request-message-type">
+		<#assign reqMessageTypeElement=child/>
+	</#if>
+</#list>
+<#list outSequenceElement?children as child>
+	<#if child?node_name == "response-message-type">
+		<#assign respMessageTypeElement=child/>
+	</#if>
+</#list>
+{
+	"names": [
+		{
+			"value": "Set Media Type",
+			"locale": "en"
+		}
+    ],
+	"templateKey": "setMediaType",
+	"parameters": [
+		{
+			"templateKey": "defaultContentType",
+			"values": [
+			   <#if reqMessageTypeElement??>
+				"${reqMessageTypeElement.@type}"
+			   </#if>	
+			]
+		},
+		{
+			"templateKey": "defaultAccept",
+			"values": [
+			<#if respMessageTypeElement??>
+				"${respMessageTypeElement.@type}"
+			</#if>
+			]
+		}
+	]
+}

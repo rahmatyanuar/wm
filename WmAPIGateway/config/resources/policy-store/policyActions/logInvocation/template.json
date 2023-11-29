@@ -1,0 +1,22 @@
+{
+ "templateKey" : "logInvocation",
+ "names" : [
+   {
+     "value" : "Log Invocation",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Emits API requests related details to the configured Destinations",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "storeRequestHeaders.json", "storeRequestPayload.json","storeResponseHeaders.json", "storeResponsePayload.json","storeClientMessage.json", "storeServerMessage.json", "storeAsZip.json", "logGenerationFrequency.json", "destination"],
+ "occurence" : "multiple",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ }
+}

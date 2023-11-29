@@ -1,0 +1,21 @@
+{
+	"key": [
+		{
+			"_id": "config:7.13.0",
+			"_type": "doc",
+			"_index": "gateway_{0}_dashboard",
+			"_source": {
+				"config": {
+					"buildNum": "40865",
+					"defaultIndex": "gateway_{0}_analytics",
+					"discover:sampleSize": 1000,
+					"doc_table:highlight": false,
+					"visualize:enableLabs": false,
+					"sort:options": "{\"unmapped_type\":\"keyword\"}",
+					"discover:searchFieldsFromSource": true
+				},
+				"type": "config"
+			}
+		}
+	]
+}

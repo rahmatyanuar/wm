@@ -1,0 +1,18 @@
+{
+		"templateKey" : "servicePrincipalName",
+		"names" : [
+		   {
+			 "value" : "Service Principal Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Enter the Service Principal Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+}

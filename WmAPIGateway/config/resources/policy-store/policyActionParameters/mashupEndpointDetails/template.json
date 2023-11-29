@@ -1,0 +1,19 @@
+{
+ "templateKey" : "mashupEndpointDetails",
+ "names" : [
+   {
+     "value" : "API Endpoint",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"true",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["gatewayAPIKey.json","gatewayAPIResource.json","gatewayAPIMethod.json","shouldExecuteOutboundAuthPolicy.json"]
+}

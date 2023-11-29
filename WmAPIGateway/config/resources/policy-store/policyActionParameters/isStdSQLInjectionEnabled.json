@@ -1,0 +1,39 @@
+{
+		"templateKey" : "isStdSQLInjectionEnabled",
+		"names" : [
+		   {
+			 "value" : "Standard SQL Injection Protection",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Standard SQL Injection protection to be applied",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["false"],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "false",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "false"
+					},
+					{
+						"names" : [
+						{
+							"value" : "true",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "true"
+					}
+		]
+}

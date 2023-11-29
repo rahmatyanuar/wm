@@ -1,0 +1,48 @@
+   {
+		"templateKey" : "contentType",
+		"names" : [
+		   {
+			 "value" : "Content-type",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Content Type for the Failure Message configured",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"possibleValues" : [
+					{
+						"names" : [
+						{
+							"value" : "text",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "text"
+					},
+					{
+						"names" : [
+						{
+							"value" : "json",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "json"
+					},	
+					{
+						"names" : [
+						{
+							"value" : "xml",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "xml"
+					}
+		],
+		"defaultValues" : ["text"]
+ }

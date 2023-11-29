@@ -1,0 +1,9 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#assign templateKey=doc.templateKey/>
+<#if templateKey == "contextBasedRouting">
+  <#include "107_contextBasedRouting_request.json"/>
+<#elseif templateKey == "conditionalErrorProcessing">
+  <#include "107_conditionalErrorProcessing_request.json"/>
+<#else>
+${printJsonPayload(doc)}
+</#if>

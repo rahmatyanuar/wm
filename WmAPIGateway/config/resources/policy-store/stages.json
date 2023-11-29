@@ -1,0 +1,112 @@
+[
+{
+ "stageKey" : "threatProtection",
+  "names":[
+    {
+      "value":"Threat Protection",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :[
+      "globalipdos", "ipdos", "egviolationalert", "MsgSizeLimitFilter", "OAuthFilter", "mobileAppProtectionFilter", "sqlInjectionFilter", "antiVirusFilter", "jsonThreatProtectionFilter", "xmlThreatProtectionFilter", "customFilter"
+   ],
+   "sequence" : "insequence"
+},
+{
+ "stageKey" : "transport",
+  "names":[
+    {
+      "value":"Transport",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["enableBulkhead","entryProtocolPolicy", "requireJMS", "setMediaType", "enableJmsORAmqp"],
+  "sequence" : "insequence"
+},
+{
+ "stageKey" : "IAM",
+  "names":[
+    {
+      "value":"Identity and Access Management",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :[ "webServiceSecurityPolicy", "authorizeUser", "evaluatePolicy","inboundAuthTransport","customPolicy"]
+},
+{
+ "stageKey" : "requestPayloadProcessing",
+  "names":[
+    {
+      "value":"Request Payload Processing",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["requestInvokeESB","requestTransformation","validateAPISpec", "requestDataMasking","customPolicy"],
+  "sequence" : "insequence"
+},
+{
+ "stageKey" : "routing",
+  "names":[
+    {
+      "value":"Routing Policies",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["contentBasedRouting", "contextBasedRouting", "dynamicRouting", "loadBalancerRouting", "straightThroughRouting", "customHttpHeaders", "outboundTransportAuthentication","outboundMessageAuthentication", "jmsRouting", "amqpRouting", "jmsProperties","mashupRouting","mashupAggregator","mashupComposition","amqpProperties","customPolicy"],
+  "sequence" : "insequence"
+},
+ {
+ "stageKey" : "LMT",
+  "names":[
+    {
+      "value":"Logging, Monitoring and Traffic Optimization",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["logInvocation","monitorServicePerformance", "monitorSLA", "throttle","serviceResultCache", "customDestination"],
+  "sequence" : "insequence"
+},
+{
+ "stageKey" : "responseProcessing",
+  "names":[
+    {
+      "value":"Response Processing",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["responseInvokeESB","responseTransformation","validateAPISpec", "cors", "responseDataMasking","customPolicy"],
+  "sequence" : "outsequence"
+},
+{
+ "stageKey" : "responseFaultProcessing",
+  "names":[
+    {
+      "value":"Error Handling",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["conditionalErrorProcessing", "faultDataMasking","customPolicy"],
+  "sequence" : "faultsequence"
+},
+{
+ "stageKey" : "urlRewriterProcessing",
+  "names":[
+    {
+      "value":"OData URL Rewriter",
+      "locale":"en"
+    }
+    ], 
+  "descriptions" : [],
+  "policyActionTemplates" :["urlRewriterPolicy"],
+  "sequence" : "outsequence"
+}
+
+]

@@ -1,0 +1,144 @@
+<project name="APIGateway" default="all" basedir=".">
+    <description>
+    This will take care of startup tasks. The tasks should be resilient so that it can executed multiple times.
+    SAG_INSTALL_ROOT, IS_INSTANCE_HOME , IS_PROFILE_HOME , APIGW_PKG_HOME will be available by default.
+    </description>
+    
+    <property name="sourceDockerDir" value="${instances.dir}/${instance.name}/packages/WmAPIGateway/resources/docker" />
+    <property name="targetDockerDir" value="${instances.dir}/../docker" />
+    <property name="dockerFileName" value="apigw_container.sh" />
+    <property name="ILiveSamlLoginModule" value="com.wm.app.b2b.server.auth.jaas.SamlILiveContainerAuthLoginModule" />
+    <property name="jaasFile" value="${instances.dir}/${instance.name}/config/is_jaas.cnf" />
+    <property name="ISSamlLoginModule" value="com.wm.app.b2b.server.auth.jaas.SamlOSGiLoginModule" />
+    <property name="APIGWSamlLoginModule" value="com.softwareag.apigateway.auth.saml.APIGatewaySamlLoginModule" />
+	<property name="passmanCnfFile" value="${instances.dir}/${instance.name}/config/passman.cnf" />
+	<property name="DefaultDataStore" value="com.webmethods.sc.security.passman.impl.datastore.DefaultDataStore" />
+	<property name="CustomDataStore" value="com.softwareag.apigateway.passman.datastore.CustomDataStore" />
+	<property name="customPassmanFile" value="${instances.dir}/${instance.name}/packages/WmAPIGateway/config/resources/passman/passman.cnf" />
+
+    <target name="all"></target>
+    <!--  Called when IS instance is created -->
+    <target name="onInstanceCreate">
+        <antcall target="updateConfigStore"/>
+        <antcall target="updateAPIGatewayConfig" />
+		<antcall target="updatePassmanConfig" />
+    </target>
+    
+    <!--  Called when IS instance is updated -->
+    <target name="onInstanceUpdate">
+        <antcall target="updateConfigStore"/>
+        <antcall target="updateAPIGatewayConfig" />
+		<antcall target="updatePassmanConfig" />
+    </target>
+    
+    <!--  Called when IS instance is deleted -->
+    <target name="onInstanceDelete">
+    </target>
+    
+     <!--  Called when WmAPIGateway package is deleted -->
+    <target name="onPackageDelete">
+        <antcall target="resetSAMLLoginModule" />
+		<antcall target="resetPassmanConfig" />
+    </target>
+
+    <target name="updateAPIGatewayConfig" >
+        <antcall target="updateWebPorts" />
+        <antcall target="addSAMLLoginModule" />     
+        <antcall target="copyDockerArtifacts" />  
+    </target>
+
+     <target name="updateWebPorts">
+        <antcall target="updateHTTPPort" />
+        <antcall target="updateHTTPSPort" />
+    </target>
+
+    <target name="updateHTTPPort" if="web.http.port">
+        <antcall target="validatePort">
+            <param name="port" value="${web.http.port}"/>
+        </antcall>            
+        <propertyfile    file="${platform.install.dir}/profiles/IS_${instance.name}/configuration/com.softwareag.platform.config.propsloader/com.softwareag.catalina.connector.http.pid-apigateway.properties"   >
+            <entry  key="port" value="${web.http.port}"/>
+        </propertyfile>        
+    </target>
+         
+    <target name="updateHTTPSPort" if="web.https.port">
+        <antcall target="validatePort">
+            <param name="port" value="${web.https.port}"/>
+        </antcall>  
+        <property name="portFileDir" value="${platform.install.dir}/profiles/IS_${instance.name}/configuration/com.softwareag.platform.config.propsloader" />
+        <propertyfile    file="${portFileDir}/com.softwareag.catalina.connector.https.pid-apigateway.properties"   >
+            <entry  key="port" value="${web.https.port}"/>
+        </propertyfile>   
+        <propertyfile    file="${portFileDir}/com.softwareag.catalina.connector.http.pid-apigateway.properties"   >
+            <entry  key="redirectPort" value="${web.https.port}"/>
+        </propertyfile>             
+    </target>
+
+    <target name="validatePort">        
+         <property name="ant.enable.asserts" value="true"/>
+        <condition property="validPort">
+            <matches pattern="^[1-9]([0-9]{1,}$)" string="${port}"/>
+        </condition>
+        <fail message=" ${port} port number is not an integer" unless="validPort"/>
+        
+        <assert message="Port number ${port} is greater than 65535 which is not allowed">
+            <bool>
+                <isLessThan arg1="${port}" arg2="65535" />
+            </bool>
+        </assert>
+    </target>
+       
+    <target name="addSAMLLoginModule">
+        <replace file="${jaasFile}" token="${ISSamlLoginModule}" value="${APIGWSamlLoginModule}"/>
+        <replace file="${jaasFile}" token="//${ILiveSamlLoginModule}" value="${ILiveSamlLoginModule}"/>  
+        <replace file="${jaasFile}" token="${ILiveSamlLoginModule}" value="//${ILiveSamlLoginModule}"/>        
+    </target>
+
+    <target name="resetSAMLLoginModule">
+        <replace file="${jaasFile}" token="${APIGWSamlLoginModule}" value="${ISSamlLoginModule}"/>
+        <replace file="${jaasFile}" token="//${ILiveSamlLoginModule}" value="${ILiveSamlLoginModule}"/>       
+    </target>   
+
+    <target name="deleteDockerArtifacts">
+        <if>
+        <available file="${targetDockerDir}/${dockerFileName}"/>
+        <then>
+            <delete file="${targetDockerDir}/${dockerFileName}"/>
+        </then>              
+        </if> 
+    </target>    
+
+    <target name="copyDockerArtifacts">
+        <if>
+        <available file="${sourceDockerDir}/${dockerFileName}"/>
+        <then>
+            <if>
+            <available file="${targetDockerDir}/${dockerFileName}"/>
+            <then>
+                <echo> ${targetDockerDir}/${dockerFileName} already exists. Skipping the copy. </echo>
+            </then>              
+            <else>
+                <copy file="${sourceDockerDir}/${dockerFileName}" todir="${targetDockerDir}"/>
+                <chmod file="${targetDockerDir}/${dockerFileName}" perm="744"/>
+            </else>        
+            </if> 
+        </then>        
+        </if>     
+    </target>
+	
+	<target name="updatePassmanConfig">
+	    <copy file="${customPassmanFile}" tofile="${passmanCnfFile}" overwrite="true"/>
+	</target>
+	
+	<target name="resetPassmanConfig">
+	    <replace file="${passmanCnfFile}" token="${CustomDataStore}" value="${DefaultDataStore}"/>
+	</target>
+
+    <target name="updateConfigStore">
+        <propertyfile file="${instances.dir}/${instance.name}/config/server.cnf">
+            <entry  key="watt.server.cache.custom.configStore.class" value="com.softwareag.pg.oauth2.GatewayConfigStore"/>
+        </propertyfile>
+    </target>
+</project>
+  
+  

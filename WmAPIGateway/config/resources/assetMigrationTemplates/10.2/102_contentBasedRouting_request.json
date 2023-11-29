@@ -1,0 +1,36 @@
+{
+  <#if doc.id??>
+  "id": "${doc.id}",
+  </#if>
+  "names": [{
+    "value": "Content-based Routing",
+    "locale": "en"
+  }],
+  "templateKey": "contentBasedRouting",
+  "parameters" : [
+    <#list doc.parameters as cbrParam>
+        <#if cbrParam.templateKey != "contentRules">
+            ${printJsonPayload(cbrParam)}
+        <#elseif cbrParam.templateKey == "contentRules">
+          {
+              "templateKey" : "contentRules",
+              "parameters" : [
+                <#list cbrParam.parameters as contentRuleParam>
+                    <#if contentRuleParam.templateKey == "xpathCriteriaRule">
+                        <#assign payloadIdentifier=contentRuleParam/>
+                        <#include "102_payloadIdentifier_request.json"/>
+                    <#else>
+                        ${printJsonPayload(contentRuleParam)}
+                    </#if>
+                    <#sep>,</#sep>
+                </#list>
+              ]
+          }
+        </#if>
+    <#sep>,</#sep>
+    </#list>
+  ]<#if doc.active??>
+,
+  "active":  ${doc.active?c}
+</#if>
+}

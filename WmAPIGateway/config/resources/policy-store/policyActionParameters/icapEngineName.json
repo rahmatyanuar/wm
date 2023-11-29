@@ -1,0 +1,18 @@
+{
+		"templateKey" : "icapEngineName",
+		"names" : [
+		   {
+			 "value" : "Antivirus ICAP Engine Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Antivirus ICAP Engine Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

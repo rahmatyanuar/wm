@@ -1,0 +1,41 @@
+{
+				"templateKey" : "samlVersion",
+				"names" : [
+				   {
+					 "value" : "SAML Version",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "SAML Version",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+					"SAML_1.0"
+				],						
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "SAML 1.0",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SAML_1.0"
+					},
+					{
+						"names" : [
+						{
+							"value" : "SAML 2.0",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SAML_2.0"
+					}
+				]
+}

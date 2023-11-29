@@ -1,0 +1,39 @@
+{
+		"templateKey" : "whenLimitExceeds",
+		"names" : [
+		   {
+			 "value" : "When Limit Exceeds",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Global Denial of Service",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["Add to Deny List"],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Add to Deny List",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Add to Deny List"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Block",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "Block"
+					}
+		]
+}

@@ -1,0 +1,18 @@
+{
+    "properties": {
+      "apigatewayId": {
+        "type": "keyword"
+      },
+      "id": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "portalRefId": {
+        "type": "keyword"
+      },
+      "providerRefId": {
+        "type": "keyword"
+      }
+    }
+}

@@ -1,0 +1,18 @@
+{
+	"templateKey": "jmsPropertyValue",
+	"names": [
+		{
+			"value": "JMS Property Value",
+			"locale": "en"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "JMS Property Value to be matched.",
+			"locale": "en"
+		}
+	],
+	"type": "STRING",
+	"isRequired": "true",
+	"isArray": "false"
+}

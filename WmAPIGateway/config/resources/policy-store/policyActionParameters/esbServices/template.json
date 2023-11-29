@@ -1,0 +1,19 @@
+{
+ "templateKey" : "esbServices",
+ "names" : [
+   {
+     "value" : "Invoke webMethods IS",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["invokeISService", "esbAlias.json"]
+}

@@ -1,0 +1,158 @@
+{
+"key": 
+[
+  {
+    "_id": "Runtime-events",
+    "_type": "search",
+    "_source": {
+      "title": "Runtime events",
+      "description": "",
+      "columns": [
+        "apiName",
+        "applicationName",
+        "eventType",
+        "alertType",
+        "status",
+        "eventSource",
+        "alertDesc"
+      ],
+      "sort": [
+        "creationDate",
+        "desc"
+      ],
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"gateway_{0}_analytics\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+    "_id": "Threat-protection-events",
+    "_type": "search",
+    "_source": {
+      "title": "Threat protection events",
+      "description": "",
+      "columns": [
+        "filterName",
+        "ruleName",
+        "resourcePath",
+        "serverHost",
+        "requestTime"
+      ],
+      "sort": [
+        "creationDate",
+        "desc"
+      ],
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"gateway_{0}_analytics\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+                "_index": "gateway_{0}_dashboard",
+                "_type": "search",
+                "_id": "API-usage-details",
+                "_score": 1,
+                "_source": {
+                    "title": "API usage details",
+                    "description": "",
+                    "columns": [
+                        "apiName",
+                        "year",
+                        "jan",
+                        "feb",
+                        "mar",
+                        "apr",
+                        "may",
+                        "jun",
+                        "jul",
+                        "aug",
+                        "sep",
+                        "oct",
+                        "nov",
+                        "dec"
+                    ],
+                    "sort": [
+                        "year",
+                        "desc"
+                    ],
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"gateway_{0}_license\",\"query\":{\"query_string\":{\"query\":\"_type:apiUsageDetails\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+                    }
+                }
+            },
+	{
+                "_index": "gateway_{0}_dashboard",
+                "_type": "search",
+                "_id": "Aggregate-usage-details",
+                "_score": 1,
+                "_source": {
+                    "title": "API Gateway invocation usage details",
+                    "description": "",
+                    "columns": [
+                        "yearAndMonth",
+                        "licenseLimit",
+                        "totalUsage"
+                    ],
+                    "sort": [
+                        "yearAndMonth",
+                        "desc"
+                    ],
+                    "kibanaSavedObjectMeta": {
+                        "searchSourceJSON": "{\"index\":\"gateway_{0}_license\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"_type:monthlyAggregatedDetails\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+                    }
+                }
+            },
+  {
+    "_index": "gateway_{0}_dashboard",
+    "_type": "search",
+    "_id": "gatewayAuditlogs",
+    "_score": 1,
+    "_source": {
+      "title": "gatewayAuditlogs",
+      "description": "",
+      "columns": [
+        "action",
+        "clientIPAddress",
+        "message",
+        "object",
+        "objectType",
+        "payload",
+        "sourceMachine",
+        "status",
+        "user",
+        "creationDate"
+      ],
+      "sort": [
+        "creationDate",
+        "desc"
+      ],
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"gateway_{0}_audit\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_index": "gateway_{0}_dashboard",
+    "_id": "AWTQGEQ5q_ZIBgFc-XU5",
+    "_type": "search",
+    "_source": {
+      "title": "ApplicationLogsSavedSearch",
+      "description": "",
+      "columns": [
+        "node",
+        "fileType",
+        "logLevel",
+        "message",
+        "correlationId"
+      ],
+      "sort": [
+        "timestamp",
+        "desc"
+      ],
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"gateway_{0}_log\",\"highlightAll\":true,\"version\":true,\"query\":{\"match_all\":{}},\"filter\":[]}"
+      }
+    }
+  }
+]
+}

@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "properties": {
+      "lastUpdated": {
+        "type": "date",
+        "index": "not_analyzed"
+      }
+    }
+  }
+}

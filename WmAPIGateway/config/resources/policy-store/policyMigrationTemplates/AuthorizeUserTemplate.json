@@ -1,0 +1,47 @@
+<#ftl ns_prefixes={
+"xsl": "http://www.w3.org/1999/XSL/Transform",
+"D": "http://ws.apache.org/ns/synapse"
+}/>
+<#assign rootArray=doc.service.definition.inSequence.authorization/>
+<#list rootArray as root>
+	<#assign type=root.@type/>
+	<#assign users=root.users/>
+	<#assign groups=root.groups/>
+	<#if type=="users">
+	{
+			"names": [
+				{
+					"value": "Authorize User",
+					"locale": "en"
+				}
+			],
+			"templateKey": "authorizeUser",
+			"parameters": [
+				{
+					"templateKey": "users",
+					"values": [
+					  <#if users[0]?has_content>
+					  <#assign usersList = users[0]?split(",")>
+						<#list usersList as user>
+							"${user}"
+						<#sep>,</#sep>
+						</#list>
+					  </#if>
+					]
+				},
+				{
+					"templateKey": "groups",
+					"values": [
+						<#if groups[0]?has_content>
+							<#assign groupList = groups[0]?split(",")>
+							<#list groupList as group>
+								"${group}"
+							<#sep>,</#sep>
+							</#list>
+						</#if>
+					]
+				}
+			]
+	}
+	</#if>
+</#list>

@@ -1,0 +1,18 @@
+{
+	"templateKey" : "defaultAccept",
+	"names" : [
+	   {
+		 "value" : "Default Accept Header",
+		 "locale" : "en"
+	   }
+	 ],
+	 "descriptions" : [
+	   {
+		 "value" : "The Media Type value configured in this parameter will be used as the Accept header if no Accept header is specified in the run-time invoke request.",
+		 "locale" : "en"
+	   }
+	 ],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false"
+}

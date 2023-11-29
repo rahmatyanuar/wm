@@ -1,0 +1,19 @@
+{
+    "templateKey": "destinationId",
+    "names": [
+    {
+            "value": "Desired Destination ID",
+            "locale": "en_US"
+    }
+    ],
+    "descriptions": [
+    {
+            "value": "Exact Destination to send Event",
+            "locale": "en_US"
+    }
+    ],
+    "type": "STRING",
+    "isArray": false,
+    "isRequired": false,
+    "defaultValues": ["default"]
+}

@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "addTransformationParams",
+		"names" : [
+		   {
+			 "value" : "Add/Modify Header/Query or Path",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Header/Query/Path transformationAdd/Modify Header/Query or Path",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"addTransformationParamsValue"
+		]	
+
+   }

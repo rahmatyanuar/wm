@@ -1,0 +1,19 @@
+{
+		"templateKey" : "httpHeaderNonReqValue",
+		"names" : [
+		   {
+			 "value" : "HTTP Header",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "HTTP header",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["headerKey.json","headerValueNonRequired.json"]		
+}

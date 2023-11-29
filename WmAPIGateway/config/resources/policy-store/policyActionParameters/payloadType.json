@@ -1,0 +1,39 @@
+   {
+		"templateKey" : "payloadType",
+		"names" : [
+		   {
+			 "value" : "Payload Type",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This attribute defines from where the value for the token is to be taken.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"possibleValues" : [
+					{
+						"names" : [
+						{
+							"value" : "Request",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "request"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Response",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "response"
+					}
+		],
+		"defaultValues" : ["request"]
+  }

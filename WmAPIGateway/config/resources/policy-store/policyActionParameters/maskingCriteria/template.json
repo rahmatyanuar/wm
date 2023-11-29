@@ -1,0 +1,19 @@
+{
+		"templateKey" : "maskingCriteria",
+		"names" : [
+		   {
+			 "value" : "Masking Criteria",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "mask",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["action.json", "maskingType.json", "maskValue.json"]
+}

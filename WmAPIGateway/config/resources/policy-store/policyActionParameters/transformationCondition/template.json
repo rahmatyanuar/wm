@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "transformationCondition",
+		"names" : [
+		   {
+			 "value" : "Condition",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Condition to match request context",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" : [ 
+				"transformationVariable.json", "transformationConditionOperator.json", "transformationConditionValue.json"
+		]	
+
+   }

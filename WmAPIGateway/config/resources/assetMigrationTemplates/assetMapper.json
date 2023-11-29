@@ -1,0 +1,13 @@
+{
+	"POLICYACTION": ["ALL"],
+	"APPLICATION": ["ALL"],
+	"POLICY": ["ALL"],
+	"ALIAS": ["ALL"],
+	"CONFIGURATION": ["ALL"],
+	"PLAN": ["ALL"],
+	"PACKAGE": ["ALL"],
+	"API": ["ALL"],
+	"STRATEGY": ["ALL"],
+	"ACCESS_PROFILE": ["ALL"],
+	"APPROVAL_CONFIG" : ["ALL"]
+}

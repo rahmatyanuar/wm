@@ -1,0 +1,139 @@
+{
+"templateKey" : "identificationType",
+				"names" : [
+				   {
+					 "value" : "Identification Type",
+					 "locale" : "en"
+				   } 
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denoted how the identification should occur.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"true",
+				"isArray" : "false",
+				"possibleValues" :[
+     				{
+					"names" : [
+					   {
+						 "value" : "API Key",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "apiKey"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "Hostname Address",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "hostNameAddress"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "HTTP Basic Authentication",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "httpBasicAuth"
+					},
+					
+					{
+					"names" : [
+					   {
+						 "value" : "IP Address Range",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "ipAddressRange"
+					},
+					{
+						"names" : [
+							{
+								"value" : "JWT",
+								"locale" : "en"
+							}
+						],
+						"value" :  "jwtClaims"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "Kerberos Token",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "kerberosToken"
+					},
+					{
+                		"names": [
+                  			{
+                    			"value": "OAuth2 Token",
+                    			"locale": "en"
+                  			}
+                		],
+                		"value": "oAuth2Token"
+             		},
+					{
+						"names": [
+							{
+								"value": "OpenID Connect",
+								"locale": "en"
+							}
+						],
+						"value": "openIdClaims"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "SSL Certificate",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "httpsCertificate"
+					},
+					
+					{
+					"names" : [
+					   {
+						 "value" : "WS Security Username token",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "wssecUsernameToken"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "WS Security X.509 Certificate",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "wssecX509Token"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "Payload element",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "payloadElement"
+					},
+					{
+						"names" : [
+							{
+								"value" : "HTTP Headers",
+								"locale" : "en"
+							}
+						],
+						"value" :  "httpHeaders"
+					}
+				]
+}

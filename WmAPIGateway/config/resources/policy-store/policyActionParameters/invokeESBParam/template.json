@@ -1,0 +1,19 @@
+{
+ "templateKey" : "invokeESBParam",
+ "names" : [
+   {
+     "value" : "Invoke webMethods IS",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Processing steps calling an Integration Server (IS) Service or alias which will be executed when the consumer invokes the API.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : [ "invokeISService", "esbAlias.json"]
+}

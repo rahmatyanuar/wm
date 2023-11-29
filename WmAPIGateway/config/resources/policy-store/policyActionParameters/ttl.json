@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "ttl",
+		"names" : [
+		   {
+			 "value" : "Time to Live (e.g.,5d 4h 1m)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Time to live in cache",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

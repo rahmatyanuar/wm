@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "mashupPathParamName",
+		"names" : [
+		   {
+			 "value" : "Path Parameter Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

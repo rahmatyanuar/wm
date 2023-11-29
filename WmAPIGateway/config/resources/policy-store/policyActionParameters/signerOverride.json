@@ -1,0 +1,18 @@
+{
+	"templateKey" : "signerOverride",
+	"names" : [
+		{
+			"value" : "Signer Override",
+			"locale" : "en"
+		}
+	],
+	"descriptions" : [
+		{
+			"value" : "Specifies override to control which signature algorithm should be used to sign requests to the service. If not explicitly set, the client will determine the algorithm to use by inspecting a configuration file baked in to the SDK.",
+			"locale" : "en"
+		}
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false"
+}

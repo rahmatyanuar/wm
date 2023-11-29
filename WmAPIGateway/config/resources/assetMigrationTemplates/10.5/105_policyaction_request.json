@@ -1,0 +1,57 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#if doc.templateKey=="logInvocation">
+{
+    "templateKey": "logInvocation"
+    <#if doc.id??>
+    ,
+    "id": "${doc.id}"
+    </#if>
+    <#if doc.active??>
+    ,
+    "active":  ${doc.active?c}
+    </#if>
+    ,
+    "names": [
+        {
+        "locale": "en",
+        "value": "Log Invocation"
+        }
+    ],
+    "parameters": [
+    <#assign addComma="false"/>
+    <#list doc.parameters as parameter>
+        <#if parameter.templateKey == "storeRequestPayload">
+            <#if addComma == "true" >
+            ,
+            </#if>
+            {
+              "templateKey": "storeRequestHeaders",
+              "values": [ "${parameter.values[0]}" ]
+            }
+            ,
+            ${printJsonPayload(parameter)}
+            <#assign addComma="true"/>
+        <#elseif parameter.templateKey == "storeResponsePayload">
+            <#if addComma == "true" >
+            ,
+            </#if>
+            {
+            "templateKey": "storeResponseHeaders",
+            "values": [ "${parameter.values[0]}" ]
+            }
+            ,
+            ${printJsonPayload(parameter)}
+            <#assign addComma="true"/>
+        <#else>
+            <#if addComma == "true" >
+            ,
+            </#if>
+            ${printJsonPayload(parameter)}
+            <#assign addComma="true"/>
+        </#if>
+    </#list>
+    ]
+}
+<#else>
+    ${printJsonPayload(doc)}
+</#if>

@@ -1,0 +1,24 @@
+{
+ "templateKey" : "customPolicy",
+ "names" : [
+   {
+     "value" : "Custom Extension",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+    "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  ["transformationConditions","customExtensionAction.json", "customExtensionType.json","externalEndpoint","awsLambda","esbServices","customExtensionRequestProcessing","mashupHeaderTransformation","mashupQueryParamsTransformation","customExtensionResponseProcessing","messaging","transformationMetadata", "customVariables"],
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "occurence" : "multiple",
+ "order" :  {
+   "sequence" : ["insequence","outsequence","faultsequence"],
+   "isCustomOrderSupported": true
+ },
+ "canAppliedAtResourceMethodLevel" : true
+}

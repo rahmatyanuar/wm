@@ -1,0 +1,19 @@
+{
+	"templateKey" : "headerCriteria",
+	"names" : [
+		   {
+			 "value" : "Header Error Criteria",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "Header Error Criteria",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"parameterTemplatesReference" : [ "headerName.json","headerValue.json"]
+}

@@ -1,0 +1,90 @@
+{
+  "gatewayfields": {
+    "properties": {
+      "isActive" :{
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "apiDescription": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "description": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "apiName": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "apiVersion": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "approversGroupId": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "id": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "applicationID": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+	  "applicationId": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "name": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "names": {
+        "properties": {
+          "locale": {
+            "type": "string",
+            "analyzer": "not_analyzed_ignorecase"
+          },
+          "value": {
+            "type": "string",
+            "analyzer": "not_analyzed_ignorecase"
+          }
+        }
+      },
+      "policyScope": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "policyEnforcements": {
+        "properties": {
+          "enforcements": {
+            "properties": {
+              "enforcementObjectId": {
+                "type": "string",
+                "analyzer": "not_analyzed_ignorecase"
+              }
+            }
+          },
+          "stageKey": {
+            "type": "string",
+            "analyzer": "not_analyzed_ignorecase"
+          }
+        }
+      },
+      "key": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "configurationId": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+	  "host": {
+		 "type": "string",
+		 "analyzer": "not_analyzed_ignorecase"
+	  }	
+    }
+  }
+}

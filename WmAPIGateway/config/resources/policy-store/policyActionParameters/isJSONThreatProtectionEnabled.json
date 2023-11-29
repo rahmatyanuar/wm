@@ -1,0 +1,19 @@
+{
+  "templateKey" : "isJSONThreatProtectionEnabled",
+  "names" : [
+    {
+      "value" : "Enabled",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Flag to activate JSON Threat Protection",
+      "locale" : "en"
+    }
+  ],
+  "type" : "BOOLEAN",
+  "isRequired" :"true",
+  "isArray" : "false",
+  "defaultValues" : ["false"]
+}

@@ -1,0 +1,23 @@
+{
+    "templateKey": "requireJMS",
+    "names": [
+        {
+            "value": "Enable JMS/AMQP",
+            "locale": "en"
+        }
+    ],
+    "descriptions": [
+        {
+            "value": "Encapsulates the access protocol as JMS which will be used by client for communicating to the API-Gateway.",
+            "locale": "en"
+        }
+    ],
+    "parameterTemplatesReference": ["jmsProviderAlias.json", "soapVersion.json"],
+	"occurence" : "once",
+	"order" :  {
+		"sequence" : ["insequence"],
+		"orderPosition" : "first"
+	},
+	"applicableServiceTypes" : ["SOAP"],
+	"mutuallyExclusiveActions" : ["entryProtocolPolicy"]
+}

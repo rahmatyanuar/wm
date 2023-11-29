@@ -1,0 +1,21 @@
+  {
+		"templateKey" : "suspendDurationOnFailure",
+		"names" : [
+		   {
+			 "value" : "Suspend duration (seconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The duration (in seconds) to suspend the endpoint on failure",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+		  30
+		]
+  }

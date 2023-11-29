@@ -1,0 +1,19 @@
+{
+	"templateKey" : "payloadIdentifier",
+	"names" : [
+		   {
+			 "value" : "Payload Identifier",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "To Identify an expression",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "true",
+	"parameterTemplatesReference" : [ "expressionType.json","expression.json","namespace","value.json"]
+}

@@ -1,0 +1,32 @@
+{
+    "templateKey": "xpathCriteria",
+    "parameters": [
+    {
+       "templateKey": "payloadIdentifier",
+       "parameters": [
+        {
+          "templateKey": "expressionType",
+          "values": [
+			 "xpath"
+            ]
+        },
+        {
+           "templateKey": "expression",
+           "values": [
+              "${xpath.@expression}"
+                ]
+        }
+		<#list xpath.namespace as namespace>
+			,<#include "NameSpaceTemplate.json"/>
+		</#list>
+        
+		]
+    },
+    {
+       "templateKey": "value",
+       "values": [
+         "${xpath.value}"
+       ]
+    }
+   ]
+}

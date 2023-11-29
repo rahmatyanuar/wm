@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="repository-deploySimulateRollback.xsl"?><Report projectType="Repository" status="0" type="Deploy">
+<depCandidate>ISABEProjectAutomatorCandidate</depCandidate>
+<depMapName>myDeploymentMap</depMapName>
+<projectDescription/>
+<startTime>2023-11-17 20:03:46 ICT</startTime>
+<projectName>ISABEProjectAutomator</projectName>
+<user>Administrator</user>
+<messages>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="MESSAGE">
+<messagebody>[DEP.0005.1168] Deleted previously delivered artifacts successfully for IS.</messagebody>
+<attributes>
+<targetserver name="local"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="MESSAGE">
+<messagebody>[DEP.0005.1164] Artifacts delivered successfully to IS.</messagebody>
+<attributes>
+<targetserver name="local"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="SUCCESS">
+<messagebody>Maxis_EAI_Process_Contact package installed and activated. The original package has been moved to package recovery area. Package has been moved to archive area as Maxis_EAI_Process_Contact.zip_20231117200346.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="Maxis_EAI_Process_Contact" type="ispackage"/>
+</attributes>
+</message>
+</messages>
+<endTime>2023-11-17 20:03:46 ICT</endTime>
+</Report>

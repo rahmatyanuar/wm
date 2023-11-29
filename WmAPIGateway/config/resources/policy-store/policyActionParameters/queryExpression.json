@@ -1,0 +1,18 @@
+{
+				"templateKey" : "queryExpression",
+				"names" : [
+				   {
+					 "value" : "Query Expression",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Query expression that is used to identify an element in the payload",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "XPATH",
+				"isRequired" :"true",
+				"isArray" : "false"
+}

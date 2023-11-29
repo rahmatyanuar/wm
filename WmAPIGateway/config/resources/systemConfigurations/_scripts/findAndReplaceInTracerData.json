@@ -1,0 +1,6 @@
+{
+  "script": {
+    "lang": "painless",
+    "source": "def replaceBasedOnType(def obj, String find, String replace) { if (obj instanceof Map) return replaceInMap((Map) obj, find, replace); else if (obj instanceof List) return replaceInList((List) obj, find, replace); else if (obj instanceof String) return replaceInString((String) obj, find, replace); return obj; } Map replaceInMap(Map map, String find, String replace) { if (map != null) { for (entry in map.entrySet()) { map[entry.getKey()] = replaceBasedOnType(entry.getValue(), find, replace); } } return map; } List replaceInList(List list, String find, String replace) { if (list != null) { return list.stream().map(l -> replaceBasedOnType(l, find, replace)).collect(Collectors.toList()); } return list; } String replaceInString(String field, String find, String replace) { return (field != null) ? field.replace(find, replace) : field; } void replaceAnyValue(def src, String find, String replace) { src.request = replaceInMap(src.request, find, replace); src.response = replaceInMap(src.response, find, replace); src.inputs = replaceInMap(src.inputs, find, replace); src.outputs = replaceInMap(src.outputs, find, replace); if (src.trace != null) src.trace.logs = replaceInList(src.trace.logs, find, replace); } replaceAnyValue(ctx._source, params.find, params.replace);"
+  }
+}

@@ -1,0 +1,22 @@
+function FileData_Pairs(x)
+{
+x.t("rfc","trace");
+x.t("files","screen");
+x.t("displays","log");
+x.t("trace","files");
+x.t("trace","file");
+x.t("contents","trace");
+x.t("file","click");
+x.t("file","view");
+x.t("entry","screen");
+x.t("selected","trace");
+x.t("click","associated");
+x.t("view","contents");
+x.t("screen","rfc");
+x.t("screen","displays");
+x.t("screen","appears");
+x.t("timestamp","entry");
+x.t("associated","timestamp");
+x.t("log","entries");
+x.t("entries","selected");
+}

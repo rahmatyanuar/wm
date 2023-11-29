@@ -1,0 +1,9 @@
+<HTML>
+<Script language="javascript">	
+  function redirect() {
+   location.href=("/WmSAP/monitoring.dsp?adapterTypeName=WmSAP&amp;%ifvar RFCmessage%RFCmessage=%value RFCmessage%%else%SAPmessage=%value SAPmessage%%endif%");
+   }
+</script> 
+<BODY onload="redirect()">
+</BODY>
+</HTML>

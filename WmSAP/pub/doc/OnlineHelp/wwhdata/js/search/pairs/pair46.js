@@ -1,0 +1,25 @@
+function FileData_Pairs(x)
+{
+x.t("field","selection");
+x.t("reply","field");
+x.t("new","sap");
+x.t("document","type");
+x.t("settings","tab");
+x.t("idoc","settings");
+x.t("search","tab");
+x.t("selection","tab");
+x.t("request","field");
+x.t("function","search");
+x.t("transport","settings");
+x.t("additional","settings");
+x.t("developer","tabs");
+x.t("sap","document");
+x.t("tabs","function");
+x.t("tabs","developer");
+x.t("tab","reply");
+x.t("tab","new");
+x.t("tab","idoc");
+x.t("tab","request");
+x.t("tab","transport");
+x.t("tab","additional");
+}

@@ -1,0 +1,19 @@
+{
+  "templateKey" : "clientConfiguration",
+  "names" : [
+    {
+      "value" : "",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "AWS Client Configuration properties which will be used for endpoint specific connection settings",
+      "locale" : "en"
+    }
+  ],
+  "type" : "OBJECT",
+  "isRequired" :"false",
+  "isArray" : "true",
+  "parameterTemplatesReference" :  ["awsClientConfigName.json","awsClientConfigValue.json"]
+}

@@ -1,0 +1,19 @@
+{
+	"templateKey" : "tokenAssertion",
+	"names" : [
+		   {
+			 "value" : "Token Assertions",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "Security Token assertions",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"parameterTemplatesReference" : [ "x509TokenAssertion.json","wssUserNameToken.json","kerberosTokenAssertion","samlToken","customToken.json"]
+}

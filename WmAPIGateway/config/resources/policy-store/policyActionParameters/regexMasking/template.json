@@ -1,0 +1,19 @@
+{
+		"templateKey" : "regexMasking",
+		"names" : [
+		   {
+			 "value" : "Regex",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Regex masking",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  ["maskingCriteria"]		
+}

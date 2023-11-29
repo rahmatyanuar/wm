@@ -1,0 +1,18 @@
+{
+    "templateKey": "reportPerformanceData",
+    "names": [
+      {
+        "value": "Report performance data",
+        "locale": "en_US"
+      }
+    ],
+    "descriptions": [
+      {
+        "value": "Report performance data",
+        "locale": "en"
+      }
+    ],
+    "type": "BOOLEAN",
+    "isArray": false,
+    "isRequired": false
+}

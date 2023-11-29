@@ -1,0 +1,61 @@
+{
+  "properties": {
+    "applicationId": {
+      "type": "keyword"
+    },
+    "applicationName": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "failureCount": {
+      "type": "long"
+    },
+    "interval": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "intervalUnit": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "lastSurvivalTime": {
+      "type": "long"
+    },
+    "lastTickInterval": {
+      "type": "long"
+    },
+    "packageId": {
+      "type": "keyword"
+    },
+    "packageName": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "planId": {
+      "type": "keyword"
+    },
+    "planName": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "policyActionKey": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "quotaAllowed": {
+      "type": "long"
+    },
+    "successCount": {
+      "type": "long"
+    },
+    "usedQuota": {
+      "type": "long"
+    }
+  }
+}

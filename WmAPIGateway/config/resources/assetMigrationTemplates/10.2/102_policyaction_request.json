@@ -1,0 +1,54 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#assign assetTransformException='com.softwareag.apigateway.core.migration.transformation.AssetTransformerException'?new()/>
+<#assign findStage='com.softwareag.apigateway.core.migration.transformation.PolicyActionStageGetterHelper'?new()/>
+<#assign templateKey=doc.templateKey/>
+<#if templateKey=="validateHTTPHeaders">
+        <#include "102_validateHTTPHeaders_request.json"/>
+<#elseif templateKey=="validateSchema">
+        <#include "102_validateSchema_request.json"/>
+<#elseif templateKey == "conditionalErrorProcessing">
+        <#include "102_conditionalErrorProcessing_request.json"/>
+<#elseif templateKey == "invokeESB" || templateKey == "requestInvokeESB" || templateKey == "responseInvokeESB" >
+        <#if parentPolicy??>
+            <#assign stage="${findStage([doc.id,parentPolicy])}"/>
+        </#if>
+        <#if (!stage?? || (stage?trim?length == 0)) && transformationMode?? && (transformationMode?length > 0) && transformationMode != "REST">
+            <#assign stage="request"/>
+        </#if>
+        <#if templateKey == "requestInvokeESB" || (templateKey == "invokeESB" && stage?? && stage == "request")>
+                <#assign invokeESBTemplateKey ="requestInvokeESB"/>
+                <#include "102_InvokeESB_request.json"/>
+        <#elseif templateKey == "responseInvokeESB" || (templateKey == "invokeESB" && stage?? && stage == "response")>
+                <#assign invokeESBTemplateKey ="responseInvokeESB"/>
+                <#include "102_InvokeESB_request.json"/>
+        <#elseif templateKey == "invokeESB" && !(stage??)>
+                ${assetTransformException("Invoke ESB policy action templateKey should either be 'requestInvokeESB' or 'responseInvokeESB'")}
+        </#if>
+<#elseif templateKey == "evaluatePolicy">
+        <#include "102_IdentifyAndAuthorize_request.json"/>
+<#elseif templateKey == "contentBasedRouting">
+        <#include "102_contentBasedRouting_request.json"/>
+<#elseif templateKey == "xsltTransformation" || templateKey == "requestTransformation" || templateKey == "responseTransformation">
+        <#if parentPolicy??>
+                <#assign stage="${findStage([doc.id,parentPolicy])}"/>
+        </#if>
+        <#if (!stage?? || (stage?trim?length == 0)) && transformationMode?? && (transformationMode?length > 0) && transformationMode != "REST">
+                <#assign stage="request"/>
+        </#if>
+        <#if templateKey == "requestTransformation" || (templateKey == "xsltTransformation" && stage?? &&  stage == "request")>
+                <#assign transformationTemplateKey ="requestTransformation"/>
+                <#assign transformationName = "Request Transformation"/>
+                <#assign transformationConfiguration = "requestTransformationConfiguration"/>
+                <#include "102_requestTransformation_request.json"/>
+        <#elseif templateKey == "responseTransformation" || (templateKey == "xsltTransformation" && stage?? && stage == "response")>
+                <#assign transformationTemplateKey ="responseTransformation"/>
+                <#assign transformationName = "Response Transformation"/>
+                <#assign transformationConfiguration = "responseTransformationConfiguration"/>
+                <#include "102_requestTransformation_request.json"/>
+        <#elseif templateKey == "xsltTransformation" && !(stage??)>
+              ${assetTransformException("XSLT Transformation policy action templateKey should either be 'requestTransformation' or 'responseTransformation'")}
+        </#if>
+<#else>
+       ${printJsonPayload(doc)}
+</#if>
+

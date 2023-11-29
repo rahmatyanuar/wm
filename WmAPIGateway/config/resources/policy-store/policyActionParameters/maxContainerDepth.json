@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxContainerDepth",
+  "names" : [
+    {
+      "value" : "Maximum Container Depth",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Container Depth",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

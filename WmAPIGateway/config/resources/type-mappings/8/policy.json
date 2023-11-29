@@ -1,0 +1,28 @@
+{
+    "properties": {
+      "isActive" :{
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "policyScope": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "policyEnforcements": {
+			"properties": {
+				"enforcements": {
+					"properties": {
+						"enforcementObjectId": {
+							"type": "keyword"
+						}
+					}
+				},
+				"stageKey": {
+					"type": "keyword"
+				}
+			}
+		}
+    }
+}

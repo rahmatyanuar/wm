@@ -1,0 +1,23 @@
+{
+ "templateKey" : "wsEntryProtocolPolicy",
+ "names" : [
+   {
+     "value" : "Require WSS",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the access protocol WSS which will be used by client for communicating to the API-Gateway.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "wsProtocol.json"],
+ "occurence" : "once",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "first"
+ },
+ "applicableServiceTypes" : ["websocket"]
+}

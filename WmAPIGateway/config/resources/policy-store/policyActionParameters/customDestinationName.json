@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "customDestinationName",
+		"names" : [
+		   {
+			 "value" : "Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

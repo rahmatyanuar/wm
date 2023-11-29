@@ -1,0 +1,18 @@
+			{
+				"templateKey" : "mashupStepName",
+				"names" : [
+				   {
+					 "value" : "Mashup step name",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Name of the step",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"true",
+				"isArray" : "false"
+			}

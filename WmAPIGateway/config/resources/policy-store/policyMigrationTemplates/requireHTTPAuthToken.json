@@ -1,0 +1,17 @@
+{	
+	"names": [
+      {
+        "value": "Inbound Authentication - Transport - Migrated from requireHTTPAuthToken element",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "inboundAuthTransport",
+    "parameters": [
+	  {
+	    "templateKey": "httpBasicAuth",
+	    "values": [
+		  "true"
+	    ]
+	  }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+  "templateKey": "gatewayAPIMethod",
+  "names": [
+    {
+      "value": "Method",
+      "locale": "en"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "the method used to invoke the participating api in the Mashup.",
+      "locale": "en"
+    }
+  ],
+  "type": "STRING",
+  "isRequired": "true",
+  "isArray": "false"
+}

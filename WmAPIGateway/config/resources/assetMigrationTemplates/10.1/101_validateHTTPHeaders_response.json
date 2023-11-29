@@ -1,0 +1,13 @@
+{
+    "id": "${doc.id}",
+    "names": [
+      {
+        "value": "Validate HTTP Headers",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "validateHTTPHeaders",
+
+    "parameters" : ${printJsonPayload(httpHeader.parameters)},
+    "active" : ${doc.active?c}
+}

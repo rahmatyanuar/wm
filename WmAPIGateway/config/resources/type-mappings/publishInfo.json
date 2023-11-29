@@ -1,0 +1,10 @@
+{
+  "publishInfo": {
+    "properties": {
+      "apiId": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      }
+    }
+  }
+}

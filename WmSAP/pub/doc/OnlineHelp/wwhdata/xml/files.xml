@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebWorksHelpBook version="5.0" name="SAP Adapter - new stationary" context="Help" locale="en" xmlns="urn:WebWorks-Help-Book-Files-Schema">
+  <CommonWordsToSkip minlen="3">
+    a about after all also am an and another any are as at
+    be because been before being between both but by
+    came can come copyright corp corporation could
+    did do does
+    each etc
+    for from
+    get goes got
+    had has have he her here him himself his how
+    if in inc into is it its
+    let like
+    make many me might more most much must my
+    never nor not now
+    of off on one only or other our out over own
+    reserved rights
+    said same see set shall she should since so some still such
+    take than that the their them then there these they this those though through to too
+    under us use
+    very
+    was way we well were what when where which while who why will with would
+    yes yet you your
+   </CommonWordsToSkip>
+  <ScoringPrefs>
+    <meta name="keywords" weight="100" />
+    <meta name="description" weight="50" />
+    <meta name="summary" weight="50" />
+    <title weight="20" />
+    <h1 weight="15" />
+    <h2 weight="10" />
+    <caption weight="10" />
+    <h3 weight="7" />
+    <th weight="5" />
+    <h4 weight="5" />
+    <h5 weight="4" />
+    <h6 weight="3" />
+    <h7 weight="2" />
+  </ScoringPrefs>
+  <DocumentInfo>
+    <Document title="Help Basics" href="Help_Basics.html" />
+    <Document title="Copyright" href="OH_Copyright.html" />
+    <Document title="Screen Descriptions" href="ScreenLevelHelp.3.1.html" />
+    <Document title="IS Administrator Screens" href="ScreenLevelHelp.3.2.html" />
+    <Document title="About" href="ScreenLevelHelp.3.3.html" />
+    <Document title="Connections Screen" href="ScreenLevelHelp.3.4.html" />
+    <Document title="Connection Type Screen" href="ScreenLevelHelp.3.5.html" />
+    <Document title="Configure, Edit, View, and Copy Connection Screens" href="ScreenLevelHelp.3.6.html" />
+    <Document title="DDIC-Cache Screen" href="ScreenLevelHelp.3.7.html" />
+    <Document title="Listeners Screen" href="ScreenLevelHelp.3.8.html" />
+    <Document title="Listener Types Screen" href="ScreenLevelHelp.3.9.html" />
+    <Document title="Configure, Edit, View, and Copy Listener Screens (RFC Listener)" href="ScreenLevelHelp.3.10.html" />
+    <Document title="Edit and View Listener Screens (Routing Listener)" href="ScreenLevelHelp.3.11.html" />
+    <Document title="Listener Notifications Screen" href="ScreenLevelHelp.3.12.html" />
+    <Document title="Logging Screen" href="ScreenLevelHelp.3.13.html" />
+    <Document title="RFC Trace Files Screen" href="ScreenLevelHelp.3.14.html" />
+    <Document title="Entry Screen" href="ScreenLevelHelp.3.15.html" />
+    <Document title="Details of IS Log File Screen" href="ScreenLevelHelp.3.16.html" />
+    <Document title="Lookup Screen" href="ScreenLevelHelp.3.17.html" />
+    <Document title="RFC Search Results Screen" href="ScreenLevelHelp.3.18.html" />
+    <Document title="Function Module Signature Screen" href="ScreenLevelHelp.3.19.html" />
+    <Document title="Function Module Test Screen" href="ScreenLevelHelp.3.20.html" />
+    <Document title="Results Screen" href="ScreenLevelHelp.3.21.html" />
+    <Document title="RFC Template Screen" href="ScreenLevelHelp.3.22.html" />
+    <Document title="Business Objects Screen" href="ScreenLevelHelp.3.23.html" />
+    <Document title="Business Object Screen" href="ScreenLevelHelp.3.24.html" />
+    <Document title="BAPI Screen" href="ScreenLevelHelp.3.25.html" />
+    <Document title="Parameter Screen" href="ScreenLevelHelp.3.26.html" />
+    <Document title="Key Field Screen" href="ScreenLevelHelp.3.27.html" />
+    <Document title="BAPI-XML Template Screen" href="ScreenLevelHelp.3.28.html" />
+    <Document title="Table Screen" href="ScreenLevelHelp.3.29.html" />
+    <Document title="IDoc Screen" href="ScreenLevelHelp.3.30.html" />
+    <Document title="IDoc Segment Screen" href="ScreenLevelHelp.3.31.html" />
+    <Document title="IDoc Segment Field Screen" href="ScreenLevelHelp.3.32.html" />
+    <Document title="Monitoring Screen" href="ScreenLevelHelp.3.33.html" />
+    <Document title="Connection Pools Screen" href="ScreenLevelHelp.3.34.html" />
+    <Document title="Locked Connections Screen" href="ScreenLevelHelp.3.35.html" />
+    <Document title="Request Overview Screen" href="ScreenLevelHelp.3.36.html" />
+    <Document title="Component Overview Screen" href="ScreenLevelHelp.3.37.html" />
+    <Document title="Routing/Mapping Screen" href="ScreenLevelHelp.3.38.html" />
+    <Document title="Types Screen" href="ScreenLevelHelp.3.39.html" />
+    <Document title="Register User Exit Service Screen" href="ScreenLevelHelp.3.40.html" />
+    <Document title="Unregister User Exit Service Screen" href="ScreenLevelHelp.3.41.html" />
+    <Document title="Settings Screen" href="ScreenLevelHelp.3.42.html" />
+    <Document title="Transactions Screen" href="ScreenLevelHelp.3.43.html" />
+    <Document title="Create Alias Screen" href="ScreenLevelHelp.3.44.html" />
+    <Document title="Developer Tabs" href="ScreenLevelHelp.3.45.html" />
+    <Document title="Function Search Tab" href="ScreenLevelHelp.3.46.html" />
+    <Document title="IDoc Settings Tab" href="ScreenLevelHelp.3.47.html" />
+    <Document title="Request Field Selection Tab" href="ScreenLevelHelp.3.48.html" />
+    <Document title="Reply Field Selection Tab" href="ScreenLevelHelp.3.49.html" />
+    <Document title="Transport Settings Tab" href="ScreenLevelHelp.3.50.html" />
+    <Document title="Additional Settings Tab" href="ScreenLevelHelp.3.51.html" />
+    <Document title="New SAP Document Type" href="ScreenLevelHelp.3.52.html" />
+  </DocumentInfo>
+  <TopicMap>
+    <Topic name="IS_Admin_Scrn" href="ScreenLevelHelp.3.2.html#1122380" />
+    <Topic name="IS_AT" href="ScreenLevelHelp.3.3.html#1122564" />
+    <Topic name="IS_CS" href="ScreenLevelHelp.3.4.html#1140331" />
+    <Topic name="IS_CS_TYP" href="ScreenLevelHelp.3.5.html#1144841" />
+    <Topic name="IS_CS_RFC" href="ScreenLevelHelp.3.6.html#1122987" />
+    <Topic name="IS_DD" href="ScreenLevelHelp.3.7.html#1126683" />
+    <Topic name="IS_LS" href="ScreenLevelHelp.3.8.html#1125242" />
+    <Topic name="IS_LS_TYP" href="ScreenLevelHelp.3.9.html#1144932" />
+    <Topic name="IS_LS_RFC" href="ScreenLevelHelp.3.10.html#1123628" />
+    <Topic name="IS_LS_ROUTE" href="ScreenLevelHelp.3.11.html#1127088" />
+    <Topic name="IS_LN" href="ScreenLevelHelp.3.12.html#1122421" />
+    <Topic name="IS_LG" href="ScreenLevelHelp.3.13.html#1145143" />
+    <Topic name="IS_LG_RFC" href="ScreenLevelHelp.3.14.html#1125894" />
+    <Topic name="IS_LG_DETAIL" href="ScreenLevelHelp.3.15.html#1126916" />
+    <Topic name="IS_LG_SAPADA" href="ScreenLevelHelp.3.16.html#1126921" />
+    <Topic name="IS_LP" href="ScreenLevelHelp.3.17.html#1132010" />
+    <Topic name="IS_LP_RFCLIST" href="ScreenLevelHelp.3.18.html#1124233" />
+    <Topic name="IS_LP_RFC" href="ScreenLevelHelp.3.19.html#1124238" />
+    <Topic name="IS_LP_RFCTEST" href="ScreenLevelHelp.3.20.html#1124284" />
+    <Topic name="IS_LP_RFCTESTRET" href="ScreenLevelHelp.3.21.html#1124297" />
+    <Topic name="IS_LP_RFCTEMP" href="ScreenLevelHelp.3.22.html#1126945" />
+    <Topic name="IS_LP_BOLIST" href="ScreenLevelHelp.3.23.html#1124529" />
+    <Topic name="IS_LP_BO" href="ScreenLevelHelp.3.24.html#1142616" />
+    <Topic name="IS_LP_BAPI" href="ScreenLevelHelp.3.25.html#1124568" />
+    <Topic name="IS_LP_BAPIPARAM" href="ScreenLevelHelp.3.26.html#1124572" />
+    <Topic name="IS_LP_BOKEY" href="ScreenLevelHelp.3.27.html#1126966" />
+    <Topic name="IS_LP_BOTEMP" href="ScreenLevelHelp.3.28.html#1132704" />
+    <Topic name="IS_LP_STRUCT" href="ScreenLevelHelp.3.29.html#1124727" />
+    <Topic name="IS_LP_IDOC" href="ScreenLevelHelp.3.30.html#1126987" />
+    <Topic name="IS_LP_IDOCSEG" href="ScreenLevelHelp.3.31.html#1126988" />
+    <Topic name="IS_LP_IDOCSEGFIELD" href="ScreenLevelHelp.3.32.html#1126993" />
+    <Topic name="IS_MG" href="ScreenLevelHelp.3.33.html#1124301" />
+    <Topic name="IS_MG_Pools" href="ScreenLevelHelp.3.34.html#1144206" />
+    <Topic name="IS_MG_LCS" href="ScreenLevelHelp.3.35.html#1142786" />
+    <Topic name="IS_MG_REQ" href="ScreenLevelHelp.3.36.html#1144745" />
+    <Topic name="IS_MG_COMP" href="ScreenLevelHelp.3.37.html#1144766" />
+    <Topic name="IS_RG" href="ScreenLevelHelp.3.38.html#1122504" />
+    <Topic name="IS_RG_TYP" href="ScreenLevelHelp.3.39.html#1125555" />
+    <Topic name="IS_RG_SVC" href="ScreenLevelHelp.3.40.html#1125588" />
+    <Topic name="IS_RG_UESrvc" href="ScreenLevelHelp.3.41.html#1125620" />
+    <Topic name="IS_SS" href="ScreenLevelHelp.3.42.html#1125624" />
+    <Topic name="IS_TS" href="ScreenLevelHelp.3.43.html#1141672" />
+    <Topic name="IS_TS_TID" href="ScreenLevelHelp.3.43.html#1125711" />
+    <Topic name="Dev_Tab" href="ScreenLevelHelp.3.45.html#1119601" />
+    <Topic name="DEV_RFC" href="ScreenLevelHelp.3.46.html#1125984" />
+    <Topic name="DEV_IDOC" href="ScreenLevelHelp.3.47.html#1127047" />
+    <Topic name="DEV_SIG_REQ" href="ScreenLevelHelp.3.48.html#1125961" />
+    <Topic name="DEV_SIG_REP" href="ScreenLevelHelp.3.49.html#1131129" />
+    <Topic name="DEV_AS_TP" href="ScreenLevelHelp.3.50.html#1125971" />
+    <Topic name="DEV_LN_SYNC" href="ScreenLevelHelp.3.51.html#1127068" />
+    <Topic name="DEV_DT" href="ScreenLevelHelp.3.52.html#1126149" />
+  </TopicMap>
+</WebWorksHelpBook>

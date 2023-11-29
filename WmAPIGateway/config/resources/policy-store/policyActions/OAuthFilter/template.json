@@ -1,0 +1,17 @@
+{
+ "templateKey" : "OAuthFilter",
+ "names" : [
+   {
+     "value" : "OAuth Filter",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "OAuth Filter",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [ "isOAuthEnabled.json", "isRequireOAuthCredentials.json","isPassedFromUI.json"]
+}                                                       

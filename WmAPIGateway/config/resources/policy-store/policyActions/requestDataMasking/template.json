@@ -1,0 +1,24 @@
+{
+ "templateKey" : "requestDataMasking",
+ "names" : [
+   {
+     "value" : "Data Masking",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Fields that needs to be masked",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"consumerIdsOptional.json", "xpathMasking", "jpathMasking", "regexMasking", "sameForTransactionalLogging.json", "applyForPayload.json"
+ ],
+ "occurence" : "multiple",
+ "order" :  {
+ "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ },
+  "applicableServiceTypes" : ["REST","SOAP"]
+}

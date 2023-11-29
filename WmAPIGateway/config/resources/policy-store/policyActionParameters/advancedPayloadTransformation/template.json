@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "advancedPayloadTransformation",
+		"names" : [
+		   {
+			 "value" : "Advanced Payload Transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Transform payload using XSLT",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"xsltDocument", "xsltAliasSelector"
+		],
+		"applicableServiceTypes" : ["REST"]
+   }

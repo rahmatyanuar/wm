@@ -1,0 +1,18 @@
+{
+  "templateKey": "gatewayAPIResource",
+  "names": [
+    {
+      "value": "Resource",
+      "locale": "en"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "",
+      "locale": "en"
+    }
+  ],
+  "type": "STRING",
+  "isRequired": "true",
+  "isArray": "false"
+}

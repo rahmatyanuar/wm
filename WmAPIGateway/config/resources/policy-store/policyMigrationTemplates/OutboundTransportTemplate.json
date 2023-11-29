@@ -1,0 +1,140 @@
+<#if transportAuth.authentication.@mode[0] != "anonymous">
+{
+    "names": [
+      {
+        "value": "Outbound Authentication - Transport",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "outboundTransportAuthentication",
+    "parameters": [
+      {
+        "templateKey": "transportSecurity",
+        "parameters": [
+          {
+            "templateKey": "authType",
+            "values": [
+			<#if transportAuth.authentication.@aliasName[0]??>
+				"ALIAS"
+              <#elseif transportAuth.authentication.@scheme[0]??>
+				  <#if transportAuth.authentication.@scheme[0] == "basicauth">
+					"HTTP_BASIC"
+				  <#elseif transportAuth.authentication.@scheme[0] == "ntlm">
+					"NTLM"
+				  <#elseif transportAuth.authentication.@scheme[0] == "kerberos">
+					"KERBEROS"
+				  <#elseif transportAuth.authentication.@scheme[0] == "oauth_2">
+					"OAUTH2"
+				  </#if>
+			  </#if>
+            ]
+          },
+          {
+            "templateKey": "authMode",
+            "values": [
+			  <#if transportAuth.authentication.@mode[0] == "new">
+			  "NEW"
+			  <#elseif transportAuth.authentication.@mode[0] == "incoming">
+				<#if transportAuth.authentication.@scheme[0] == "oauth_2">
+					"INCOMING_OAUTH_TOKEN"
+				<#else>
+					"INCOMING_HTTP_BASIC_AUTH"
+				</#if>
+			  <#elseif transportAuth.authentication.@mode[0] == "delegation">
+				"DELEGATE_INCOMING"
+			  <#elseif transportAuth.authentication.@mode[0] == "transparent">
+			  "TRANSPARENT"
+			  </#if>
+            ]
+          }
+		   <#if transportAuth.authentication.@aliasName[0]??>
+			,
+          {
+            "templateKey": "alias",
+            "values": [
+              "${r"${"}${transportAuth.authentication.@aliasName}${r"}"}"
+            ]
+          }
+		  <#elseif transportAuth.authentication.@scheme[0]??>
+			  <#if transportAuth.authentication.@scheme[0] == "kerberos">
+				,
+				{
+				"templateKey": "kerberosCredentials",
+				"parameters": [
+				 <#if transportAuth.authentication.@mode != "incoming">
+					  {
+						"templateKey": "clientPrincipal",
+						"values": [
+						  "${transportAuth.authentication.client\-principal?json_string}"
+						]
+					  },
+					  {
+						"templateKey": "clientPassword",
+						"values": [
+						  "${transportAuth.authentication.client\-password}"
+						]
+					  },
+				  </#if>
+				  {
+					"templateKey": "servicePrincipal",
+					"values": [
+					  "${transportAuth.authentication.service\-principal\-name?json_string}"
+					]
+				  },
+				  {
+					"templateKey": "servicePrincipalNameForm",
+					"values": [
+					  "${transportAuth.authentication.service\-principal\-name\-form}"
+					]
+				  }
+				]
+				}
+			  </#if>
+			  <#if transportAuth.authentication.@scheme[0] == "basicauth" || transportAuth.authentication.@scheme[0] == "ntlm">
+				  <#if transportAuth.authentication.@mode[0] == "new">
+					  ,
+					  {
+						"templateKey": "httpAuthCredentials",
+						"parameters": [
+						  {
+							"templateKey": "userName",
+							"values": [
+							  "${transportAuth.authentication.user?json_string}"
+							]
+						  },
+						  {
+							"templateKey": "password",
+							"values": [
+							  "${transportAuth.authentication.password}"
+							]
+						  }
+						  <#if transportAuth.authentication.domain[0]??>
+							  ,
+							  {
+								"templateKey": "domain",
+								"values": [
+								  "${transportAuth.authentication.domain}"
+								]
+							  }
+						  </#if>
+						]
+					  }
+				  </#if>
+			  </#if>
+			  <#if transportAuth.authentication.@scheme == "oauth_2" && transportAuth.authentication.@mode[0] != "incoming">
+			  ,
+			  {
+				"templateKey": "oauth2Token",
+				"values": [
+				  "${transportAuth.authentication.accesstoken}"
+				]
+			  }
+			  </#if>
+		  </#if>
+
+        ]
+      }
+    ],
+    "active": false
+}
+</#if>

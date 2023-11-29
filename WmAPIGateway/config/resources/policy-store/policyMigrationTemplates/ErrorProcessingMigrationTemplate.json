@@ -1,0 +1,236 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign resources=doc.service.resources/>
+<#assign base64Encode='com.softwareag.apigateway.core.migration.Base64Encoder'?new()/>
+<#assign faultCriteriaAny=doc.service.definition.faultSequence.fault\-criteria\-any/>
+[
+<#list faultCriteriaAny.fault\-criteria\-all as faultCriteriaAll>
+		<#assign makeFault=faultCriteriaAll.makefault/>
+<#if makeFault.@sendNativeProviderFault[0]??>
+{
+	"names": [
+	  {
+		"value": "Conditional Error Processing",
+		"locale": "en"
+	  }
+	],
+	"templateKey": "conditionalErrorProcessing",
+	"parameters": [
+	  <#assign preprocessingNodes = []/>
+	  <#list faultCriteriaAll?children as preprocessing>
+			  <#if preprocessing?node_type == "element">
+		         <#if preprocessing?node_name == "makefault">
+					<#break>
+		         </#if>
+				 <#if preprocessing?node_name == "invokeESB" || preprocessing?node_name == "xslt">
+					<#assign preprocessingNodes = preprocessingNodes + [preprocessing]/>
+                 </#if>
+
+			  </#if>
+	  </#list>
+	  <#if preprocessingNodes?has_content>
+		{
+			"templateKey": "preProcessingSteps",
+			"parameters": [
+				<#assign xsltDefaultDocumentName="PreProcessingXSLT"/>
+				<#assign xsltDefaultDocumentExtension=".xsl"/>
+				<#assign count=0/>
+				<#list preprocessingNodes as preprocessingNode>
+						<#if preprocessingNode?node_name == "invokeESB">
+							<#assign invokeESB=preprocessingNode/>
+							<#assign isErrorProcessing=true/>
+							<#include "InokeESBTrasnformationTemplate.json"/>
+						</#if>
+						<#if preprocessingNode?node_name == "xslt">
+							<#assign xsltElement=preprocessingNode/>
+							<#assign count++/>
+							<#assign xsltDocumentName=xsltDefaultDocumentName+"_"+count+xsltDefaultDocumentExtension/>
+							<#include "XSLTElementTransformation.json"/>
+						</#if>
+						<#sep>,</#sep>
+				</#list>
+			]
+		},
+	  </#if>
+	  <#if makeFault.@sendNativeProviderFault[0]??>
+	  {
+		"templateKey": "customFailureMessages",
+		"parameters": [
+		  {
+			"templateKey": "sendNativeProviderFault",
+			"values": [
+			  "${makeFault.@sendNativeProviderFault}"
+			]
+		  }
+		  <#list makeFault.fault\-message\-criteria as message>
+		   <#if message.reason.@type[0]?? && message.reason.@value[0]??>
+		   ,{
+				"templateKey": "failureMessage",
+				"parameters": [
+					{
+						"templateKey": "contentType",
+						"values": [
+							"${message.reason.@type}"
+						]
+					},
+					{
+						"templateKey": "errortemplate",
+						"values": [
+							"${message.reason.@value?json_string}"
+						]
+					},
+					{
+						"templateKey": "useAsDefault",
+						"values": [
+							"${message.reason.@isDefault}"
+						]
+					}
+				]
+			}
+		    </#if>
+			</#list>
+		]
+	  },
+	  </#if>
+	  	<#assign postProcessingNodes = []/>
+		<#assign postProcessingMakeFaultOccurred = false/>
+		<#list faultCriteriaAll?children as postProcessing>
+			<#if postProcessing?node_type == "element">
+				<#if postProcessing?node_name == "makefault">
+					<#assign postProcessingMakeFaultOccurred = true/>
+				</#if>
+				<#if (postProcessingMakeFaultOccurred == true) && (postProcessing?node_name == "invokeESB" || postProcessing?node_name == "xslt")>
+					<#assign postProcessingNodes = postProcessingNodes + [postProcessing]/>
+				</#if>
+			</#if>
+		</#list>
+		<#assign commaFlag = false/>
+		<#if postProcessingNodes?has_content>
+		
+		{
+			"templateKey": "postProcessingSteps",
+			"parameters": [
+				<#assign xsltDefaultDocumentName="PostProcessingXSLT"/>
+				<#assign xsltDefaultDocumentExtension=".xsl"/>
+				<#assign count=0/>
+				<#list postProcessingNodes as postProcessingNode>
+					<#if postProcessingNode?node_name == "invokeESB">
+						<#assign invokeESB=postProcessingNode/>
+						<#assign isErrorProcessing=true/>
+						<#include "InokeESBTrasnformationTemplate.json"/>
+				  	</#if>
+				  	<#if postProcessingNode?node_name == "xslt">
+						<#assign xsltElement=postProcessingNode/>
+					  	<#assign count++/>
+					  	<#assign xsltDocumentName=xsltDefaultDocumentName+"_"+count+xsltDefaultDocumentExtension/>
+					  	<#include "XSLTElementTransformation.json"/>
+				  	</#if>
+				  	<#sep>,</#sep>
+				</#list>
+			]
+		},
+		</#if>
+	  <#list faultCriteriaAll.fault\-criteria as faultCriteria>
+	  <#assign commaFlag = true/>
+		<#if faultCriteria.@type=="Status Code">
+		{
+			"templateKey": "faultCriteria",
+			"parameters": [
+				{
+					"templateKey": "statusCodeCriteria",
+					"parameters": [
+					  {
+						  "templateKey": "statusCode",
+						  "values": [
+							  "${faultCriteria.native\-response\-code}"
+						  ]
+					  }
+					]
+				}
+			]
+		}
+		</#if>
+		<#if faultCriteria.@type == "HTTP Header">
+		{
+		  "templateKey": "faultCriteria",
+			"parameters": [
+				{
+				  "templateKey": "headerCriteria",
+				  "parameters": [
+					{
+						"templateKey": "headerName",
+						"values": [
+							"${faultCriteria.header\-name}"
+						]
+					},
+					{
+						"templateKey": "headerValue",
+						"values": [
+							"${faultCriteria.header\-value}"
+						]
+				  	}
+					]
+				}
+		  	]
+		}
+		</#if>
+		<#if faultCriteria.@type == "XPath Expression">
+		{
+			"templateKey": "faultCriteria",
+			"parameters": [
+				<#assign xpath=faultCriteria.xpath/>
+				<#include "XPathCriteriaTemplate.json"/>
+			]
+		}
+		</#if>
+		<#sep>,</#sep>
+	  </#list>
+	  
+      <#list faultCriteriaAll.custom\-error\-variables.custom\-error\-variable as customErrorVariable>
+		<#if commaFlag == true>,</#if> 	
+			{
+				"templateKey": "customErrorVariable",
+				"parameters": [
+					{
+						"templateKey": "payloadType",
+						"values": [
+							"${customErrorVariable.@payload\-type?lower_case}"
+						 ]
+					},
+					{
+						"templateKey": "name",
+						"values": [
+							"${customErrorVariable.@name}"
+						]
+					},
+					{
+                        "templateKey": "payloadIdentifier",
+                        "parameters": [
+                            {
+                                "templateKey": "expressionType",
+                                "values": [
+                                    "xpath"
+                                ]
+                            },
+                            {
+                                "templateKey": "expression",
+                                "values": [
+                                    "${customErrorVariable.xpath.@expression}"
+                                ]
+                            }
+                         	<#list customErrorVariable.xpath.namespace as namespace>
+								,<#include "NameSpaceTemplate.json"/>
+							</#list>
+                        ]
+                    }
+				
+					]
+				}
+				<#assign commaFlag = true/>
+	  </#list>
+	]
+}
+</#if>
+<#sep>,</#sep>
+</#list>
+]

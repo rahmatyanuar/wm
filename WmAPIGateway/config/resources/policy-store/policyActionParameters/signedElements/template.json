@@ -1,0 +1,19 @@
+{
+		"templateKey" : "signedElements",
+		"names" : [
+		   {
+			 "value" : "Signed Elements",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Signed some elements of Request/Response SOAP body",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["xpath.json","namespace"]		
+}

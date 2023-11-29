@@ -1,0 +1,58 @@
+{
+				"templateKey" : "applicationLookup",
+				"names" : [
+				   {
+					 "value" : "Application Lookup condition",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes how the Application needs to be looked up.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "strict"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Registered applications",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "strict"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Global applications",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "relax"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Do not identify",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "donotidentify"
+					},
+					{
+						"names": [
+							{
+								"value": "Global applications and defaultApplication",
+								"locale": "en"
+							}],
+							"value": "open"
+					}
+				]
+}

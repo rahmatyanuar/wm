@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+
+    <bean id="pgconfiguration" class="com.softwareag.pg.config.PGConfiguration">
+        <property name="creationHandlers">
+            <list>
+                <ref bean="defaultPolicyActionsCreator"/>
+                <ref bean="apiPolicyActionsDependencyHandler"/>
+                <ref bean="restToSoapCreationHandler"/>
+                <ref bean="APICreationUrlAliasHandler"/>
+                <ref bean="apiValidationHandler"/>
+            </list>
+        </property>
+        <property name="deploymentHandlers">
+            <list>
+                <bean id="RoutingValidationDeploymentHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.RoutingValidationDeploymentHandler">
+                    <property name="routingPolicies">
+                        <list>
+                            <value>straightThroughRouting</value>
+                            <value>contentBasedRouting</value>
+                            <value>contextBasedRouting</value>
+                            <value>loadBalancerRouting</value>
+                            <value>dynamicRouting</value>
+                            <value>customPolicy</value>
+                        </list>
+                    </property>
+                    <property name="routingEndpointParams">
+                        <list>
+                            <value>endpointUri</value>
+                            <value>dynEndpointUri</value>
+                        </list>
+                    </property>
+                </bean>
+                <ref bean="rampartDeploymentHandler"/>
+                <bean id="PolicyActionDeploymentHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.PolicyActionDeploymentHandler">
+                    <property name="policyScopeHandlers">
+                        <map>
+                            <entry key="monitorServicePerformance">
+                                <ref bean="lmtPolicyActionListener"/>
+                            </entry>
+                            <entry key="monitorSLA">
+                                <ref bean="lmtPolicyActionListener"/>
+                            </entry>
+                            <entry key="throttle">
+                                <ref bean="lmtPolicyActionListener"/>
+                            </entry>
+                            <entry key="conditionalErrorProcessing">
+                                <ref bean="errorProcessingPolicyActionListener"/>
+                            </entry>
+                            <entry key="customPolicy">
+                                <ref bean="errorProcessingPolicyActionListener"/>
+                            </entry>
+                            <entry key="validateAPISpec">
+                                <ref bean="schemaValidationCacheListener"/>
+                            </entry>
+                        </map>
+                    </property>
+                </bean>
+                <bean id="RestPolicyActionDeploymentHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.RestPolicyActionDeploymentHandler"/>
+                <bean id="API2PackageDeploymentHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.API2PackageDeploymentHandler"/>
+                <bean id="NativeServicePolicyHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.NativeServicePolicyHandler"/>
+                <bean id="SRCDeploymentHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.SRCDeploymentHandler"/>
+                <bean id="JmsAmqpDeploymentHandler"
+                      class="com.softwareag.apigateway.runtime.provider.handlers.JmsAmqpDeploymentHandler"/>
+                <ref bean="webSocketAPIDeploymentHandler"/>
+                <bean id="ServiceOrgAssociationDeploymentHandler"
+                      class="com.softwareag.pg.service.organization.ServiceOrgAssociationDeploymentHandler"/>
+                <bean id="ContextVariableServiceDeploymentHandler"
+                      class="com.softwareag.pg.ctxvar.ContextVariableServiceDeploymentHandler"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="policygateway" class="com.softwareag.pg.PolicyGateway" factory-method="getInstance" init-method="init">
+        <!--We need another bean to supply the ConfigurationContext for the Axis2 installation-->
+        <property name="configurationContextSupplier" ref="configurationcontextsupplier"/>
+        <!-- The PGConfiguration bean has references to the deployment handlers and other configuration-->
+        <property name="pgConfiguration" ref="pgconfiguration"/>
+    </bean>
+
+    <bean id="configurationcontextsupplier" class="com.softwareag.pg.config.ISConfigurationContextSupplier"/>
+    <bean  id="schemaValidationCacheListener" class="com.softwareag.apigateway.runtime.provider.handlers.SchemaValidationCacheListener"/>
+    <bean id="transportManager" class="com.softwareag.pg.transports.APIGatewayTransportManager">
+        <property name="configurationContextProvider" ref="configurationcontextsupplier"/>
+        <property name="transportMap">
+            <map>
+                <entry key="http">
+                    <ref bean="serverManager"/>
+                </entry>
+                <entry key="https">
+                    <ref bean="serverManager"/>
+                </entry>
+                <entry key="apigateway">
+                    <ref bean="apiGatewaySender"/>
+                </entry>
+				 <entry key="jms">
+				  <ref bean="jmsSender"/>
+		 	     </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="expressionEvaluator" class="com.softwareag.pg.mediators.enforce.ExpressionEvaluator">
+        <!--
+        <property name="parameterVerifiers">
+         <map>
+                <entry key="apiKey">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.APIKeyChecker"/>
+                </entry>
+                <entry key="httpBasicAuth">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.HttpTokenChecker"/>
+                </entry>
+                <entry key="ipAddressRange">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.IPRangeChecker"/>
+                </entry>
+                <entry key="hostNameAddress">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.HostNameChecker"/>
+                </entry>
+                <entry key="httpsCertificate">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.ClientSSLCertificateChecker"/>
+                </entry>
+                <entry key="payloadElement">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.XpathChecker"/>
+                </entry>
+                <entry key="wssecUsernameToken">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.WssUserNameTokenChecker"/>
+                </entry>
+                <entry key="wssecX509Token">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.CertificateChecker"/>
+                </entry>
+                <entry key="oAuth2Token">
+                    <bean class="com.softwareag.pg.evaluate.consumer.identifier.checkers.OAuth2TokenChecker"/>
+                </entry>
+         </map>
+        </property>
+        -->
+    </bean>
+
+    <bean id="identityContextCreator" class="com.softwareag.pg.security.identity.IdentityContextCreator"/>
+
+    <bean id="rootAppFinderFinder" class="com.softwareag.pg.mediators.enforce.appfinders.RootAppFinderFinder"
+          init-method="init"/>
+
+    <!-- CentraSite events -->
+    <bean id="SnmpCentraSiteSender" class="com.softwareag.pg.pgmen.events.snmp.SnmpEventTrapDestination"
+          init-method="init" destroy-method="destroy">
+        <property name="toCs" value="true"/>
+        <!--<property name="active" value="true"/>-->
+        <!-- hack, to reduce dropped messages (milliseconds)  -->
+        <!--<property name="sendDelay" value="1000"/>-->
+        <!--  Change this property to true to create a new snmp session for each alert sent. -->
+        <!--  this is not an optimal configuration for performance reasons.                  -->
+        <property name="closeAfterSend" value="false"/>
+        <!--  How many milliseconds are inactive, open connection objects kept around?  Zero -->
+        <!--     implies they are open indefinitely.                                         -->
+        <!--<property name="connectionTimeout" value="0"/>-->
+        <property name="snmpTarget" ref="csSnmpTarget"/>
+        <property name="pduBuilder" ref="pduBuilder"/>
+    </bean>
+
+    <bean id="pduBuilder" class="com.softwareag.pg.pgmen.events.snmp.PduBuilder"/>
+
+    <bean id="PduCsTransactionFormatter" class="com.softwareag.pg.pgmen.events.snmp.PduCsTransactionFormatter"
+          init-method="init" destroy-method="onDestroy">
+        <property name="typeName" value="transactionalEvents"/>
+    </bean>
+
+    <bean id="PduCsMonitorFormatter" class="com.softwareag.pg.pgmen.events.snmp.PduCsMonitorFormatter"
+          init-method="init" destroy-method="onDestroy">
+        <property name="typeName" value="monitorEvents"/>
+    </bean>
+
+    <bean id="PduCsErrorFormatter" class="com.softwareag.pg.pgmen.events.snmp.PduCsErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="errorEvents"/>
+    </bean>
+
+    <bean id="PduCsLifeCycleFormatter" class="com.softwareag.pg.pgmen.events.snmp.PduCsLifeCycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="lifeCycleEvents"/>
+    </bean>
+
+    <bean id="PduCsPolViolationFormatter" class="com.softwareag.pg.pgmen.events.snmp.PduCsPolViolationFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="policyViolationEvents"/>
+    </bean>
+
+    <bean id="csSnmpTarget" class="com.softwareag.pg.pgmen.events.snmp.SnmpUserTarget"
+          depends-on="distributedCacheManager">
+        <property name="authKeyHandle" value="pg.cs.snmpTarget.authKey"/>
+        <property name="privKeyHandle" value="pg.cs.snmpTarget.privKey"/>
+    </bean>
+
+    <bean class="com.softwareag.pg.pgmen.events.snmp.SnmpEnginePropertyStore" factory-method="inst"/>
+
+    <!-- CentraSite Metrics -->
+    <!--  This is the bean that initializes the uddi publish connection to   -->
+    <!--  CentraSite's UDDI registry. CentraSite should already be started   -->
+    <!--  and apache web server should be up and listening before this       -->
+    <!--  connection will successfully connect.                              -->
+    <!--  other bean properties are defined in this class, but they do not   -->
+    <!--  require configuration at this time, so they are not exposed here.  -->
+
+    <bean id="passman" class="com.softwareag.pg.security.ISPassMan" factory-method="getInstance"/>
+
+    <bean id="uddiPublisher" depends-on="configurationcontextsupplier, passman"
+          init-method="init" destroy-method="destroy"
+          class="com.softwareag.pg.pgmen.events.uddi.UddiClientAdapter">
+    </bean>
+
+    <!--  Sends performance metrics events to CentraSite using pure UDDI publish service -->
+    <bean id="MetricsSender" class="com.softwareag.pg.pgmen.events.uddi.UddiPerformanceMetricsSender"
+          init-method="init" destroy-method="destroy">
+
+        <property name="uddiClientAdapter" ref="uddiPublisher"/>
+    </bean>
+
+    <!-- 3rd Party SNMP destination -->
+    <!--  3rd party SNMP Server, configured to receive v1 alerts -->
+    <bean id="Snmp3rdPartySender" class="com.softwareag.pg.pgmen.events.snmp.SnmpEventTrapDestination"
+          init-method="init" destroy-method="destroy">
+        <property name="toCs" value="false"/>
+        <!--  Change this property to true to create a new snmp session for each alert sent. -->
+        <!--  this is not an optimal configuration for performance reasons.                  -->
+        <property name="closeAfterSend" value="false"/>
+        <property name="pduBuilder" ref="pduBuilder"/>
+    </bean>
+
+    <bean id="communityTarget" class="com.softwareag.pg.pgmen.events.snmp.SnmpCommunityTarget">
+    </bean>
+
+    <bean id="userTarget" class="com.softwareag.pg.pgmen.events.snmp.SnmpUserTarget"
+          depends-on="PgMenSharedCacheManager">
+        <!-- 'MD5' or 'SHA'-->
+        <property name="authKeyHandle" value="pg.snmp.userTarget.authKey"/>
+        <!-- 'DES' or 'AES128' or 'AES192' or 'AES256'-->
+        <property name="privKeyHandle" value="pg.snmp.userTarget.privKey"/>
+    </bean>
+
+
+    <!--A collection of formatters to support conversion of various event
+      types to send to third-party snmp server.
+    One formatter for each snmp message type.
+    -->
+    <bean id="Pdu3PErrorFormatter" class="com.softwareag.pg.pgmen.events.snmp.Pdu3PErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  as stipulated by java SimpleDateFormat, default format: EEE, d MMM yyyy HH:mm:ss Z  -->
+        <property name="dateFormat" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    </bean>
+
+    <bean id="Pdu3PLifeCycleFormatter" class="com.softwareag.pg.pgmen.events.snmp.Pdu3PLifeCycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  as stipulated by java SimpleDateFormat, default format: EEE, d MMM yyyy HH:mm:ss Z  -->
+        <property name="dateFormat" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    </bean>
+
+    <bean id="Pdu3PMonitorFormatter" class="com.softwareag.pg.pgmen.events.snmp.Pdu3PMonitorFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  as stipulated by java SimpleDateFormat, default format: EEE, d MMM yyyy HH:mm:ss Z  -->
+        <property name="dateFormat" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    </bean>
+
+    <bean id="Pdu3PPolViolationFormatter" class="com.softwareag.pg.pgmen.events.snmp.Pdu3PPolViolationFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  as stipulated by java SimpleDateFormat, default format: EEE, d MMM yyyy HH:mm:ss Z  -->
+        <property name="dateFormat" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    </bean>
+
+    <bean id="Pdu3PTransactionFormatter" class="com.softwareag.pg.pgmen.events.snmp.Pdu3PTransactionFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  as stipulated by java SimpleDateFormat, default format: EEE, d MMM yyyy HH:mm:ss Z  -->
+        <property name="dateFormat" value="EEE, d MMM yyyy HH:mm:ss Z"/>
+    </bean>
+
+    <!--API Gateway Events & Metrics -->
+    <bean id="LifecycleEventFormatter" class="com.softwareag.pg.pgmen.events.gateway.LifecycleEventFormatter"/>
+    <bean id="GatewayEventSender" class="com.softwareag.pg.pgmen.events.gateway.GatewayEventSender"/>
+
+    <bean id="GatewayAuditlogEventSender" class="com.softwareag.pg.pgmen.events.gateway.GatewayAuditlogEventSender"/>
+
+    <bean id="EmailSender" class="com.softwareag.pg.pgmen.events.email.EmailSender"/>
+    <bean id="EmailResourceHandler" class="com.softwareag.pg.pgmen.events.email.EmailResourceHandler">
+        <property name="resourceMimeTypes">
+            <map>
+                <entry key="text/xml" value="xml"/>
+                <entry key="application/gzip" value="gzip"/>
+                <entry key="application/zip" value="zip"/>
+            </map>
+		</property>
+    </bean>
+    <bean id="TransactionEventFormatter" class="com.softwareag.pg.pgmen.events.gateway.TransactionEventFormatter"/>
+    <bean id="MonitorEventFormatter" class="com.softwareag.pg.pgmen.events.gateway.MonitorEventFormatter"/>
+    <bean id="ErrorEventFormatter" class="com.softwareag.pg.pgmen.events.gateway.ErrorEventFormatter"/>
+    <bean id="PolicyViolationEventFormatter"
+          class="com.softwareag.pg.pgmen.events.gateway.PolicyViolationEventFormatter"/>
+
+    <!-- Email destination -->
+    <bean id="EmailTransactionFormatter" class="com.softwareag.pg.pgmen.events.email.EmailTransactionFormatter"/>
+    <bean id="EmailMonitorFormatter" class="com.softwareag.pg.pgmen.events.email.EmailMonitorFormatter"/>
+
+    <!-- Local Log destination -->
+    <bean id="LocalLogTransactionFormatter"
+          class="com.softwareag.pg.pgmen.events.locallog.LocalLogTransactionFormatter"/>
+    <bean id="LocalLogMonitorFormatter" class="com.softwareag.pg.pgmen.events.locallog.LocalLogMonitorFormatter"/>
+    <bean id="LocalLogDestination" class="com.softwareag.pg.pgmen.events.locallog.LocalLogDestination"/>
+
+    <!-- Database destination -->
+    <bean id="JdbcEventSenderPool" class="com.softwareag.pg.pgmen.readers.DCIntervalPool"
+          init-method="init" destroy-method="destroy">
+        <property name="minThreads" value="1"/>
+        <property name="maxThreads" value="1"/>
+        <property name="forcefulShutdown" value="true"/>
+        <property name="poolName" value="JdbcEventSenderPool"/>
+    </bean>
+
+    <bean id="EventJdbcDataSource" class="com.wm.app.b2b.server.jdbc.JDBCConnDataSource">
+        <constructor-arg>
+            <value>APIGateway</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="JdbcEventSender" class="com.softwareag.pg.pgmen.events.jdbc.JdbcEventDestination" init-method="init"
+          destroy-method="onDestroy" depends-on="JdbcEventSenderPool">
+        <property name="dataSource" ref="EventJdbcDataSource"/>
+        <property name="batchSize" value="10"/>
+        <!-- thread will flush queued events to data source every 'flushInterval' milliseconds -->
+        <property name="flushInterval" value="3000"/>
+        <!-- a debug log message may be sent to server.log if it takes more than 'jdbcLogThreshold' msecs -->
+        <!-- to get/close a prepared statement/connection -->
+        <property name="jdbcLogThreshold" value="50"/>
+        <!-- a debug log message may be sent to server.log if it takes more than 'executeLogThreshold' msecs -->
+        <!-- to execute a jdbc batch update -->
+        <property name="executeLogThreshold" value="500"/>
+    </bean>
+
+    <bean id="JdbcErrorFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JdbcErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_ERR"/>
+    </bean>
+
+    <bean id="JdbcLifecycleFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JdbcLifecycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_LC"/>
+    </bean>
+
+    <bean id="JdbcTransactionFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JdbcTransactionFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_TXN"/>
+    </bean>
+
+    <bean id="JdbcMonitorFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JdbcMonitorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_MON"/>
+    </bean>
+
+    <bean id="JdbcPVFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JdbcPVFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_PV"/>
+    </bean>
+
+    <bean id="JdbcPerfMetricsFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JdbcPerfMetricsFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_METRICS"/>
+    </bean>
+
+    <bean id="JDBCGatewayAuditlogFormatter" class="com.softwareag.pg.pgmen.events.jdbc.JDBCGatewayAuditlogFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="tableName" value="AGW_EVENT_AUDITLOGS"/>
+    </bean>
+
+    <!-- API Portal events -->
+    <bean id="APIPortalEventSender" class="com.softwareag.pg.pgmen.events.apiportal.APIPortalEventSender"
+          init-method="init"
+          destroy-method="onDestroy">
+    </bean>
+
+    <bean id="APIPortalErrorFormatter" class="com.softwareag.pg.pgmen.events.apiportal.APIPortalErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="ErrorEvents"/>
+    </bean>
+
+    <bean id="APIPortalLifecycleFormatter" class="com.softwareag.pg.pgmen.events.apiportal.APIPortalLifecycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="LifeCycleEvents"/>
+    </bean>
+
+    <bean id="APIPortalMonitorFormatter" class="com.softwareag.pg.pgmen.events.apiportal.APIPortalMonitorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="MonitorEvents"/>
+    </bean>
+
+    <bean id="APIPortalPVFormatter" class="com.softwareag.pg.pgmen.events.apiportal.APIPortalPVFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="PolicyViolationEvents"/>
+    </bean>
+
+    <bean id="APIPortalPerfMetricsFormatter"
+          class="com.softwareag.pg.pgmen.events.apiportal.APIPortalPerfMetricsFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="PerformanceMetrics"/>
+    </bean>
+
+    <bean id="APIPortalTransactionFormatter"
+          class="com.softwareag.pg.pgmen.events.apiportal.APIPortalTransactionFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="TransactionalEvents"/>
+    </bean>
+
+    <!-- Custom destination events -->
+    <bean id="CustomDestinationSender" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationSender" init-method="init"
+          destroy-method="onDestroy">
+    </bean>
+
+    <bean id="CustomDestinationTransactionFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationTransactionFormatter"
+          init-method="init" destroy-method="onDestroy">
+        <property name="typeName" value="transactionalEvents"/>
+    </bean>
+
+    <bean id="CustomDestinationErrorFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="errorEvents"/>
+    </bean>
+
+    <bean id="CustomDestinationMonitorFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationMonitorFormatter" init-method="init"
+          destroy-method="onDestroy">
+        <property name="typeName" value="monitorEvents"/>
+    </bean>
+
+    <bean id="CustomDestinationPVFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationPVFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="policyViolationEvents"/>
+    </bean>
+
+    <bean id="CustomDestinationLifecycleFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationLifecycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="lifeCycleEvents"/>
+    </bean>
+
+    <bean id="CustomDestinationPerfMetricsFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationPerfMetricsFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="performanceMetrics"/>
+    </bean>
+
+    <bean id="CustomDestinationGatewayAuditlogFormatter" class="com.softwareag.pg.pgmen.events.custom.CustomDestinationGatewayAuditlogFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="auditlogs"/>
+    </bean>
+
+    <!--Elasticsearch events-->
+    <bean id="ESSender" class="com.softwareag.pg.pgmen.events.es.ESSender" init-method="init"
+          destroy-method="onDestroy">
+        <property name="indexName" value="gateway_default_analytics"/>
+    </bean>
+
+    <bean id="ESTransactionFormatter" class="com.softwareag.pg.pgmen.events.es.ESTransactionFormatter"
+          init-method="init" destroy-method="onDestroy">
+        <property name="typeName" value="transactionalEvents"/>
+    </bean>
+
+    <bean id="ESMonitorFormatter" class="com.softwareag.pg.pgmen.events.es.ESMonitorFormatter" init-method="init"
+          destroy-method="onDestroy">
+        <property name="typeName" value="monitorEvents"/>
+    </bean>
+
+    <bean id="ESErrorFormatter" class="com.softwareag.pg.pgmen.events.es.ESErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="errorEvents"/>
+    </bean>
+
+    <bean id="ESLifecycleFormatter" class="com.softwareag.pg.pgmen.events.es.ESLifecycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="lifeCycleEvents"/>
+    </bean>
+
+    <bean id="ESPVFormatter" class="com.softwareag.pg.pgmen.events.es.ESPVFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="policyViolationEvents"/>
+    </bean>
+
+    <bean id="ESPerfMetricsFormatter" class="com.softwareag.pg.pgmen.events.es.ESPerfMetricsFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="performanceMetrics"/>
+    </bean>
+
+    <bean id="ESGatewayAuditlogFormatter" class="com.softwareag.pg.pgmen.events.es.ESGatewayAuditlogFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="auditlogs"/>
+    </bean>
+
+    <!--DES events -->
+    <bean id="DESSender" class="com.softwareag.pg.pgmen.events.des.DESSender" init-method="init"
+          destroy-method="onDestroy">
+    </bean>
+
+    <bean id="DESTransactionFormatter" class="com.softwareag.pg.pgmen.events.des.DESTransactionFormatter"
+          init-method="init" destroy-method="onDestroy">
+        <property name="typeName" value="transactionalEvents"/>
+    </bean>
+
+    <bean id="DESMonitorFormatter" class="com.softwareag.pg.pgmen.events.des.DESMonitorFormatter" init-method="init"
+          destroy-method="onDestroy">
+        <property name="typeName" value="monitorEvents"/>
+    </bean>
+
+    <bean id="DESErrorFormatter" class="com.softwareag.pg.pgmen.events.des.DESErrorFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="errorEvents"/>
+    </bean>
+
+    <bean id="DESLifecycleFormatter" class="com.softwareag.pg.pgmen.events.des.DESLifecycleFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="lifeCycleEvents"/>
+    </bean>
+
+    <bean id="DESPVFormatter" class="com.softwareag.pg.pgmen.events.des.DESPVFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="policyViolationEvents"/>
+    </bean>
+
+    <bean id="DESPerfMetricsFormatter" class="com.softwareag.pg.pgmen.events.des.DESPerfMetricsFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="performanceMetrics"/>
+    </bean>
+
+    <bean id="DESGatewayAuditlogFormatter" class="com.softwareag.pg.pgmen.events.des.DESGatewayAuditlogFormatter"
+          init-method="init" destroy-method="destroy">
+        <property name="typeName" value="AuditlogEvents"/>
+    </bean>
+
+    <!--AuditLog events-->
+    <bean id="AuditRecordSender" class="com.softwareag.pg.pgmen.events.audit.AuditRecordSender"
+          init-method="init" destroy-method="destroy" depends-on="AuditTransactionFormatter">
+        <property name="active" value="true"/>
+        <!-- IS server is responsible for this, so it should already be running unless Unit test. -->
+        <property name="startAdmin" value="false"/>
+    </bean>
+
+    <!-- Custom API Gateway record type and logger  -->
+    <bean id="AuditTransactionFormatter" class="com.softwareag.pg.pgmen.events.audit.AuditTransactionFormatter"
+          init-method="init" destroy-method="destroy">
+
+        <property name="loggerName" value="API Gateway Transaction Logger"/>
+        <!--
+    	     The last portion of URI context is the func alias name defined in IS
+    	     The table name is defined in each record type class.
+    	     The destination name is stored in AuditConfig.xml
+    	     The uri paths must be unique within the audit config. ( Shared component verifies this )
+    	  -->
+        <property name="jdbcUri" value="java:webmethods/jdbc/ISCoreAudit"/>
+        <property name="jdbcDestName" value="apigatewayTxnJdbc"/>
+        <!--  no other logger can have this uri or server startup will FAIL (See AuditConfig.xml)  -->
+        <property name="dirUri" value="dir:./logs/APIGateway"/>
+        <property name="fileDestName" value="apigatewayTxnFile"/>
+        <!--  the decision to use JDBC or File is determined when configuring the IS logger, but we default to JDBC  -->
+        <!--   The name cannot be dynamically changed and must be valid for a JDBC table or filename
+               AGW_EVENT_TXN  or APIGatewayEventTxn.log
+          -->
+        <property name="tableOrFilename" value="AGW_EVENT_TXN"/>
+    </bean>
+
+    <bean id="restServiceFinder" class="com.softwareag.pg.dispatch.RestServiceFinder">
+        <!--TODO Read the directive from the properties-->
+        <property name="directive" value="gateway"/>
+    </bean>
+
+    <bean id="graphqlServiceFinder" class="com.softwareag.pg.dispatch.GraphQLServiceFinder"/>
+
+    <bean id="pgEndpointFactory" class="com.softwareag.pg.config.endpoints.PGEndpointFactory" factory-method="get">
+        <property name="factories">
+            <list>
+                <bean class="com.softwareag.pg.config.endpoints.loadbalance.LoadbalanceEndpointFactory"/>
+                <bean class="com.softwareag.pg.config.endpoints.address.AddressEndpointFactory"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="filterProcessorFactory" class="com.softwareag.pg.filter.FilterProcessorFactory" factory-method="getInstance">
+        <property name="filterProcessorList">
+            <list>
+                <ref bean="DenyByIPForFailedAuthFilter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="DenyByIPForFailedAuthFilter" class="com.softwareag.pg.filter.DenyByIPForFailedAuthFilter"/>
+
+    <bean id="pgHttpEndpointHandler" class="com.softwareag.pg.http.PGHttpEndpoint">
+        <property name="transportManager" ref="transportManager">
+        </property>
+    </bean>
+
+    <bean id="serviceConsul" class="com.softwareag.pg.serviceregistry.ServiceConsul" scope="prototype">
+        <property name="transportManager" ref="transportManager">
+        </property>
+    </bean>
+
+    <bean id="eureka" class="com.softwareag.pg.serviceregistry.Eureka" scope="prototype">
+        <property name="transportManager" ref="transportManager">
+        </property>
+    </bean>
+
+
+    <bean id="pgAddressEndpointHandler" class="com.softwareag.pg.config.endpoints.address.PGAddressEndpoint"/>
+
+    <!--
+      Custom Error Handling
+  -->
+    <bean id="textErrorMessageFactory"
+          class="com.softwareag.pg.mediators.errorprocessing.factory.TextErrorMessageFactory"/>
+
+    <bean id="jsonErrorMessageFactory"
+          class="com.softwareag.pg.mediators.errorprocessing.factory.JsonErrorMessageFactory"/>
+
+    <bean id="xmlErrorMessageFactory"
+          class="com.softwareag.pg.mediators.errorprocessing.factory.XMLErrorMessageFactory"/>
+
+    <bean id="jsonErrorMessageHandler" class="com.softwareag.pg.mediators.errorprocessing.JSONErrorMessageHandler"/>
+
+    <bean id="xmlErrorMessageHandler" class="com.softwareag.pg.mediators.errorprocessing.XMLErrorMessageHandler"/>
+
+    <bean id="textErrorMessageHandler" class="com.softwareag.pg.mediators.errorprocessing.TextMessageHandler"/>
+
+    <bean id="errorMessagesManager" class="com.softwareag.pg.mediators.errorprocessing.ErrorMessagesManager">
+        <!-- All factories that are used for building the errorMessages-->
+        <property name="errorMessageFactories">
+            <map>
+                <entry key="text">
+                    <ref bean="textErrorMessageFactory"/>
+                </entry>
+                <entry key="json">
+                    <ref bean="jsonErrorMessageFactory"/>
+                </entry>
+                <entry key="xml">
+                    <ref bean="xmlErrorMessageFactory"/>
+                </entry>
+            </map>
+        </property>
+        <!-- All the message handlers-->
+        <property name="errorMessageHandlers">
+            <map>
+                <entry key="application/json">
+                    <ref bean="jsonErrorMessageHandler"/>
+                </entry>
+                <entry key="application/xml">
+                    <ref bean="xmlErrorMessageHandler"/>
+                </entry>
+                <entry key="default">
+                    <ref bean="textErrorMessageHandler"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="downtimeDetector" class="com.softwareag.pg.config.downtime.DowntimeDetector">
+    </bean>
+
+    <bean id="sessionHandler" class="com.softwareag.apigateway.is.session.ISSessionHandler"/>
+
+    <!--APIGateway Metrics and Event Notification Engine beans-->
+
+	<bean id="eventFactory" class="com.softwareag.pg.pgmen.events.EventFactory" factory-method="inst"/>
+
+	<bean id="metricQueue" class="com.softwareag.pg.pgmen.collectors.CollectionManager" factory-method="inst"/>
+
+    <bean id="PgMenConfiguration" class="com.softwareag.pg.pgmen.config.PgMenConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- report pd stats after ?reportInterval? ticks (10 minutes) -->
+        <property name="reportInterval" value="60"/>
+        <!-- global switch for pdCollection -->
+        <property name="pdCollectionEnabled" value="false"/>
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+        <!-- how often will a scheduled task run (in seconds) default should be 60 for production -->
+        <property name="tickInterval" value="15"/>
+
+
+    </bean>
+
+    <bean id="PgMenJdbcConfiguration" class="com.softwareag.pg.pgmen.config.PgMenJdbcConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- report pd stats after ?reportInterval? ticks (10 minutes) -->
+        <property name="reportInterval" value="60"/>
+        <!-- global switch for pdCollection -->
+        <property name="pdCollectionEnabled" value="false"/>
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+        <!-- how often will a scheduled task run (in seconds) default should be 60 for production -->
+        <property name="tickInterval" value="15"/>
+
+
+    </bean>
+
+    <bean id="PgMenPortalConfiguration" class="com.softwareag.pg.pgmen.config.PgMenPortalConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- report pd stats after ?reportInterval? ticks (10 minutes) -->
+        <property name="reportInterval" value="60"/>
+        <!-- global switch for pdCollection -->
+        <property name="pdCollectionEnabled" value="false"/>
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+        <!-- how often will a scheduled task run (in seconds) default should be 60 for production -->
+        <property name="tickInterval" value="15"/>
+
+    </bean>
+
+    <bean id="PgMenESConfiguration" class="com.softwareag.pg.pgmen.config.PgMenESConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- report pd stats after ?reportInterval? ticks (10 minutes) -->
+        <property name="reportInterval" value="60"/>
+        <!-- global switch for pdCollection -->
+        <property name="pdCollectionEnabled" value="false"/>
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+        <!-- how often will a scheduled task run (in seconds) default should be 60 for production -->
+        <property name="tickInterval" value="15"/>
+    </bean>
+
+    <bean id="PgMenCustomDestinationConfiguration" class="com.softwareag.pg.pgmen.config.PgMenCustomDestinationConfiguration"
+          factory-method="inst" destroy-method="destroy">
+    </bean>
+
+    <bean id="PgMenDESConfiguration" class="com.softwareag.pg.pgmen.config.PgMenDESConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- report pd stats after ?reportInterval? ticks (10 minutes) -->
+        <property name="reportInterval" value="60"/>
+        <!-- global switch for pdCollection -->
+        <property name="pdCollectionEnabled" value="false"/>
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+        <!-- how often will a scheduled task run (in seconds) default should be 60 for production -->
+        <property name="tickInterval" value="15"/>
+
+
+    </bean>
+
+    <bean id="PgMenSNMPConfiguration" class="com.softwareag.pg.pgmen.config.PgMenSNMPConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+    </bean>
+
+    <bean id="PgMenCSConfiguration" class="com.softwareag.pg.pgmen.config.PgMenCSConfiguration"
+          factory-method="inst" destroy-method="destroy">
+        <!-- report pd stats after ?reportInterval? ticks (10 minutes) -->
+        <property name="reportInterval" value="60"/>
+        <!-- global switch for pdCollection -->
+        <property name="pdCollectionEnabled" value="false"/>
+        <!-- global switches for event publication -->
+        <property name="lifeCycleEventPublished" value="false"/>
+        <property name="errorEventPublished" value="false"/>
+        <property name="policyViolationEventPublished" value="false"/>
+        <!-- how often will a scheduled task run (in seconds) default should be 60 for production -->
+        <property name="tickInterval" value="15"/>
+
+    </bean>
+
+    <bean id="CSMetricsFormatter" class="com.softwareag.pg.pgmen.events.CSMetricInfoFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  if true, service faults are included in the avg and min/max aggregates  -->
+        <property name="includeFaults" value="true"/>
+    </bean>
+
+    <!--
+            Supports conversion of performance data event to send to cs integrator
+          -->
+    <bean id="MetricsFormatter" class="com.softwareag.pg.pgmen.events.MetricInfoFormatter"
+          init-method="init" destroy-method="destroy">
+        <!--  if true, service faults are included in the avg and min/max aggregates  -->
+        <property name="includeFaults" value="true"/>
+    </bean>
+
+    <bean id="GatewayAuditlogInfoFormatter" class="com.softwareag.pg.pgmen.events.GatewayAuditlogInfoFormatter"
+          init-method="init" destroy-method="destroy">
+    </bean>
+
+    <!-- Configures to send Performance Data events to the SNMP destination -
+         the default for Mediator.   -->
+    <bean id="PerfDataDestConfigurator"
+          class="com.softwareag.pg.pgmen.policy.config.DestinationConfigurator"
+          init-method="init" destroy-method="destroy">
+        <property name="destConfigs">
+            <list>
+                <bean class="com.softwareag.pg.pgmen.policy.config.GatewayConfig"/>
+            </list>
+        </property>
+        <property name="requestPayloadType" value="NONE"/>
+        <property name="responsePayloadType" value="NONE"/>
+    </bean>
+
+    <!-- Used for Mediator internals. Produces debug information regarding event generation if enabled. -->
+    <bean id="eventMarkerFactory" class="com.softwareag.pg.pgmen.events.EventMarkerFactory" init-method="init"
+          destroy-method="destroy">
+        <property name="eventMarkerEnabled" value="false"/>
+    </bean>
+
+    <!-- thread pool for data collection processing  -->
+    <bean id="CollectionPool" class="com.softwareag.pg.pgmen.readers.DCPool" init-method="init"
+          destroy-method="destroy">
+        <property name="workQueue" ref="CollectionWorkQueue"/>
+        <property name="minThreads" value="1"/>
+        <property name="maxThreads" value="8"/>
+        <property name="forcefulShutdown" value="true"/>
+        <property name="poolName" value="CollectionPool"/>
+    </bean>
+
+    <!-- workqueues used by the DCPools -->
+    <bean id="CollectionWorkQueue" class="com.softwareag.pg.pgmen.readers.DCWorkQueue">
+        <!--  queue capacity for the Collection WorkQueue -->
+        <property name="queueCapacity" value="10000"/>
+    </bean>
+
+    <bean id="IntervalManager" class="com.softwareag.pg.pgmen.policy.IntervalManager"
+          depends-on="PgMenSharedCacheManager,IntervalPool" factory-method="inst"
+          init-method="init" destroy-method="destroy">
+
+        <!--  how quickly does AccumulatorManager push sie events into shared cache? (in seconds) -->
+        <property name="sieFlushInterval" value="2"/>
+        <!--  how many sie's are cached locally for a virtual service before they are flushed to shared cache  -->
+        <property name="sieFlushThreshold" value="50"/>
+
+    </bean>
+
+    <bean id="licenseTAMVerifier" class="com.softwareag.pg.license.LicenseVerifier"/>
+
+    <bean id="IntervalPool" class="com.softwareag.pg.pgmen.readers.DCIntervalPool"
+          depends-on="PgMenSharedCacheManager"
+          init-method="init" destroy-method="destroy">
+
+        <!-- number of threads for WorkQueue -->
+        <property name="minThreads" value="1"/>
+        <property name="maxThreads" value="1"/>
+        <property name="forcefulShutdown" value="true"/>
+        <property name="poolName" value="IntervalPool"/>
+
+    </bean>
+
+    <bean id="ReportingPool" class="com.softwareag.pg.pgmen.readers.DCPool"
+          depends-on="PgMenSharedCacheManager"
+          init-method="init" destroy-method="destroy">
+        <!-- named queue is a ref to another bean config -->
+        <property name="workQueue" ref="ReportingWorkQueue"/>
+        <!-- number of threads for WorkQueue -->
+        <property name="minThreads" value="2"/>
+        <property name="maxThreads" value="4"/>
+        <property name="forcefulShutdown" value="true"/>
+        <property name="poolName" value="ReportingPool"/>
+    </bean>
+
+    <bean id="ReportingWorkQueue" class="com.softwareag.pg.pgmen.readers.DCWorkQueue">
+        <!--  queue capacity for the Collection WorkQueue -->
+        <property name="queueCapacity" value="5000"/>
+    </bean>
+
+    <!-- a utility object to supply UUID strings -->
+    <bean id="UuidGenerator" class="com.softwareag.pg.pgmen.util.IsUuidStringGenerator">
+    </bean>
+
+    <bean id="eventPublisher"
+          class="com.softwareag.pg.pgmen.events.EventPublisher" factory-method="inst"/>
+
+    <bean id="pgMenPolicyManager" class="com.softwareag.pg.pgmen.policy.PgMenPolicyManager" factory-method="inst"/>
+
+    <bean id="accumulatorManager" class="com.softwareag.pg.pgmen.processors.AccumulatorManager" factory-method="inst"/>
+
+    <!--end-->
+
+    <!--
+   All beans related to REST2SOAP Conversion.
+-->
+
+    <bean id="contentTypesManager" class="com.softwareag.pg.rest2soap.contentTypes.ContentTypesManager">
+        <property name="contentTypesHandlers">
+            <map>
+                <entry key="application/xml">
+                    <ref bean="applicationXMLConvertor"/>
+                </entry>
+                <entry key="application/x-www-form-urlencoded">
+                    <ref bean="urlencodedConvertor"/>
+                </entry>
+                <entry key="application/json">
+                    <ref bean="jsonConvertor"/>
+                </entry>
+                <entry key="application/json/badgerfish">
+                    <ref bean="badgerfishJsonConvertor"/>
+                </entry>
+                <entry key="multipart/form-data">
+                    <ref bean="multipartConvertor"/>
+                </entry>
+                <entry key="text/xml">
+                    <ref bean="rawXMLConvertor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="applicationXMLConvertor" class="com.softwareag.pg.rest2soap.contentTypes.ApplicationXMLConvertor"/>
+    <bean id="urlencodedConvertor" class="com.softwareag.pg.rest2soap.contentTypes.XFormURLEncodedConvertor"/>
+    <bean id="jsonConvertor" class="com.softwareag.pg.rest2soap.contentTypes.JsonConvertor"/>
+    <bean id="badgerfishJsonConvertor" class="com.softwareag.pg.rest2soap.contentTypes.JsonBadgerfishConvertor"/>
+    <bean id="rawXMLConvertor" class="com.softwareag.pg.rest2soap.contentTypes.RawXMLConvertor"/>
+    <bean id="multipartConvertor" class="com.softwareag.pg.rest2soap.contentTypes.MultipartFormDataConvertor">
+        <property name="bodyContentTypes">
+            <list>
+                <value>application/json</value>
+                <value>application/json/badgerfish</value>
+                <value>application/xml</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="LicenseDestinationConfigurator"
+          class="com.softwareag.pg.pgmen.processors.LicenseDestinationConfigurator"></bean>
+    <bean id="exceptionProvider" class="com.softwareag.pg.exceptions.PGExceptionProvider"/>
+    <bean id="errorProcessingDelegator"
+          class="com.softwareag.pg.mediators.errorprocessing.GatewayErrorProcessingDelegator"/>
+    <bean id="corsHandler" class="com.softwareag.pg.mediators.GatewayCORSHandler"/>
+    <bean id="contextVariableManager" class="com.softwareag.pg.ctxvar.ContextVariableManager" factory-method="inst"/>
+    <bean id="COMMON_UTILS" class="com.softwareag.pg.utils.APIGatewayCommonUtils" />
+    <bean id="ContextVariableAdapter" class="com.softwareag.pg.ctxvar.MediatorContextVariableAdapter" />
+
+    <bean id="AuthenticationModeHandlerFactory" class="com.softwareag.pg.authmode.handlers.factory.AuthenticationModeHandlerFactory" factory-method="getInstance"/>
+
+    <bean id="availabilityMetricsCollector" class="com.softwareag.pg.metrics.AvailabilityMetricsCollector" />
+	<bean id="apiMetricsCollector" class="com.softwareag.pg.metrics.APIMetricsCollector" />
+
+</beans>

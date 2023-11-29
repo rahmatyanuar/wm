@@ -1,0 +1,38 @@
+{
+  "templateKey": "useExpectContinue",
+  "names": [
+    {
+      "value": "Use ExpectContinue",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Specifies whether to enable/disable support for HTTP/1.1 handshake utilizing EXPECT: 100-Continue.",
+      "locale": "en_US"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "possibleValues" :[
+	{
+		"names" : [
+			{
+				"value" : "True",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "true"
+	},
+	{
+		"names" : [
+			{
+				"value" : "False",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "false"
+	}
+  ]
+}

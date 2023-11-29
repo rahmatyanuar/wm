@@ -1,0 +1,134 @@
+{
+  "description": "Pipeline that transforms API Gateway server logs",
+  "processors": [{
+	"rename": {
+	  "field": "fields.node",
+	  "target_field": "node",
+	  "ignore_missing": true
+	}
+  }, {
+	"rename": {
+	  "field": "fields.fileType",
+	  "target_field": "fileType",
+	  "ignore_missing": true
+	}
+  },{
+	"grok": {
+	  "field": "message",
+	  "patterns": [
+		"%{NOTSPACE:logLevel} (.)* %{YEAR:year}/%{MONTHNUM2:month}/%{MONTHDAY:day} %{TIME:time}",
+        "%{YEAR:year}-%{MONTHNUM2:month}-%{MONTHDAY:day} %{TIME:time} %{LOGLEVEL:logLevel}",
+		"%{YEAR:year}-%{MONTHNUM2:month}-%{MONTHDAY:day} %{TIME:time} %{NOTSPACE} %{NOTSPACE:logLevel} %{NOTSPACE:correlationId}",
+		"\\[%{YEAR:year}-%{MONTHNUM2:month}-%{MONTHDAY:day}T%{TIME:time}\\]\\[%{LOGLEVEL:logLevel}",
+		"%{YEAR:year}-%{MONTHNUM2:month}-%{MONTHDAY:day} %{TIME:time}",
+		"\"@timestamp\":\"%{YEAR:year}-%{MONTHNUM2:month}-%{MONTHDAY:day}T%{TIME:time}"
+	  ],
+	  "pattern_definitions" : {
+		"LOGLEVEL" : "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
+	  },
+	  "ignore_failure": true
+	}
+  },{
+	"gsub": {
+	  "field": "time",
+	  "pattern": ",(.)*|\\.(.)*",
+	  "replacement": "",
+	  "ignore_failure": true
+	}
+  },{
+	"gsub": {
+	  "field": "logLevel",
+	  "pattern": "(.)*T\\]",
+	  "replacement": "TRACE",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "logLevel",
+	  "pattern": "(.)*I\\]",
+	  "replacement": "INFO",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "logLevel",
+	  "pattern": "(.)*E\\]",
+	  "replacement": "ERROR",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "logLevel",
+	  "pattern": "(.)*D\\]",
+	  "replacement": "DEBUG",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "logLevel",
+	  "pattern": "(.)*W\\]",
+	  "replacement": "WARN",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "logLevel",
+	  "pattern": "(.)*F\\]",
+	  "replacement": "FATAL",
+	  "ignore_failure": true
+	}
+  }, {
+    "gsub": {
+      "field": "logLevel",
+      "pattern": "(.)*C\\]",
+      "replacement": "CRITICAL",
+      "ignore_failure": true
+    }
+  }, {
+	"gsub": {
+	  "field": "correlationId",
+	  "pattern": "^((?!APIGW).)*$",
+	  "replacement": "",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "correlationId",
+	  "pattern": "(.)*APIGW:",
+	  "replacement": "",
+	  "ignore_failure": true
+	}
+  }, {
+	"gsub": {
+	  "field": "correlationId",
+	  "pattern": "\\](.)*",
+	  "replacement": "",
+	  "ignore_failure": true
+	}
+	},
+	{
+	"set": {
+	  "field": "timestamp",
+	  "value": "{{year}}-{{month}}-{{day}} {{time}}{{timezone}}"
+	}
+  },
+	{
+	  "date": {
+		"field": "timestamp",
+		"target_field": "timestamp",
+		"formats" : ["yyyy-MM-dd HH:mm:ssZ"],
+		"ignore_failure": true
+	  }
+	}, {
+	  "remove": {
+		"field": ["beat","prospector","offset","@timestamp","source","timezone"],"ignore_failure": true
+	  }
+	},
+	{
+	  "remove": {
+		"field": ["year","month","day","time"
+		],"ignore_failure": true
+	  }
+	}
+  ]
+}

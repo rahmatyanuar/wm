@@ -1,0 +1,23 @@
+{
+ "templateKey" : "entryProtocolPolicy",
+ "names" : [
+   {
+     "value" : "Enable HTTP / HTTPS",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the access protocol (HTTP and/or HTTPS) which will be used by client for communicating to the API-Gateway.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "protocol.json", "soapVersion.json"],
+ "occurence" : "once",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "first"
+ },
+ "applicableServiceTypes" : ["REST","SOAP","ODATA","GRAPHQL"]
+}

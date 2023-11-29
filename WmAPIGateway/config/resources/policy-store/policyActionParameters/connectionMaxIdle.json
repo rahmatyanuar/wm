@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "connectionMaxIdle",
+		"names" : [
+		   {
+			 "value" : "Connection Maximum Idle Time (milliseconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The maximum idle time (in milliseconds) for a connection in the connection pool.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "maxConsecutiveRetriesBeforeThrottling",
+		"names" : [
+		   {
+			 "value" : "Max Consecutive Retries Before Throttling",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The maximum number of throttled retries if the initial request fails.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

@@ -1,0 +1,19 @@
+{
+		"templateKey" : "identificationQuery",
+		"names" : [
+		   {
+			 "value" : "Identification Query",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "XPath or JSONPath query to identify an element in the payload",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  ["queryExpression.json", "namespace"]
+}

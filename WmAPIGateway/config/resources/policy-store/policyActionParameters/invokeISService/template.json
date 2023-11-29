@@ -1,0 +1,19 @@
+{
+ "templateKey" : "invokeISService",
+ "names" : [
+   {
+     "value" : "webMethods IS Service",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Configuration for name of the IS Service and authentication type for invoking the IS Service",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : [ "serviceName.json", "runAsUser.json", "complyToISSpec.json"]
+}

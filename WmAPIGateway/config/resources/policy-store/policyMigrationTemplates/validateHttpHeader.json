@@ -1,0 +1,24 @@
+<#if isValidateHttpHeaderCreation>
+{	
+	"names": [
+      {
+        "value": "Validate HTTP Headers",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "validateHTTPHeaders",
+    "parameters": [{
+			"templateKey": "logicalConnector",
+			"values": ["OR"]
+		}, {
+			"templateKey": "httpHeaderNonReqValue",
+			"parameters": [{
+				"templateKey": "headerKey",
+				"values": ["Authorization"]
+			}, {
+				"templateKey": "headerValueNonRequired",
+				"values": []
+			}]
+		}]
+}
+</#if>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="svc_type">AdapterService</value>
+  <value name="svc_subtype">unknown</value>
+  <value name="svc_sigtype">unknown</value>
+  <record name="svc_sig" javaclass="com.wm.util.Values">
+    <record name="sig_in" javaclass="com.wm.util.Values">
+      <value name="node_type">record</value>
+      <value name="field_type">record</value>
+      <value name="field_dim">0</value>
+      <value name="nillable">true</value>
+      <array name="rec_fields" type="record" depth="1">
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">unknown</value>
+          <value name="field_name">serverName</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
+          <value name="nillable">true</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">unknown</value>
+          <value name="field_name">$client</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
+          <value name="field_opt">true</value>
+          <value name="nillable">true</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">unknown</value>
+          <value name="field_name">$user</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
+          <value name="field_opt">true</value>
+          <value name="nillable">true</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">unknown</value>
+		  <record name="node_hints" javaclass="com.wm.util.Values">
+                <null name="field_usereditable"/>
+                <value name="field_largerEditor">false</value>
+                <value name="field_password">true</value>
+          </record>
+          <value name="field_name">$pass</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
+          <value name="field_opt">true</value>
+          <value name="nillable">true</value>
+        </record>
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">unknown</value>
+          <value name="field_name">$language</value>
+          <value name="field_type">string</value>
+          <value name="field_dim">0</value>
+          <value name="field_opt">true</value>
+          <value name="nillable">true</value>
+        </record>
+      </array>
+    </record>
+    <record name="sig_out" javaclass="com.wm.util.Values">
+      <value name="node_type">record</value>
+      <value name="field_type">record</value>
+      <value name="field_dim">0</value>
+      <value name="nillable">true</value>
+      <array name="rec_fields" type="record" depth="1">
+        <record javaclass="com.wm.util.Values">
+          <value name="node_type">record</value>
+          <value name="field_name">rfcAttributes</value>
+          <value name="field_type">record</value>
+          <value name="field_dim">0</value>
+          <value name="nillable">true</value>
+          <array name="rec_fields" type="record" depth="1">
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">destination</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">ownHost</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">partnerHost</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">systemNumber</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">systemID</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">client</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">user</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">language</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">ISOLanguage</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">ownCodepage</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">partnerCodepage</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">ownRelease</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">partnerRelease</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">kernelRelease</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">partnerType</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">trace</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">rfcRole</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">ownType</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">CPICConversationID</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">encoding</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">charset</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+            <record javaclass="com.wm.util.Values">
+              <value name="node_type">unknown</value>
+              <value name="field_name">bytesPerChar</value>
+              <value name="field_type">string</value>
+              <value name="field_dim">0</value>
+              <value name="nillable">true</value>
+            </record>
+          </array>
+        </record>
+      </array>
+    </record>
+  </record>
+  <value name="stateless">no</value>
+  <value name="caching">no</value>
+  <value name="prefetch">no</value>
+  <value name="cache_ttl">15</value>
+  <value name="prefetch_level">1</value>
+  <value name="audit_level">off</value>
+  <value name="check_internal_acls">no</value>
+  <value name="icontext_policy">$null</value>
+  <value name="system_service">no</value>
+  <value name="retry_max">0</value>
+  <value name="retry_interval">0</value>
+  <value name="svc_in_validator_options">none</value>
+  <value name="svc_out_validator_options">none</value>
+  <value name="auditoption">0</value>
+  <record name="auditsettings" javaclass="com.wm.util.Values">
+    <value name="document_data">0</value>
+    <value name="startExecution">false</value>
+    <value name="stopExecution">false</value>
+    <value name="onError">true</value>
+  </record>
+  <value name="node_type">service</value>
+  <value name="IRTNODE_VERSION">1</value>
+  <value name="IRTNODE_PROPERTY">CwQAAAABBQEEGQBjAG8AbQAuAHcAbQAuAGQAYQB0AGEALgBJAFMATQBlAG0ARABhAHQAYQBJAG0AcABsBBMAcwBlAHIAdgBpAGMAZQBUAGUAbQBwAGwAYQB0AGUATgBhAG0AZQQkAGMAbwBtAC4AdwBtAC4AYQBkAGEAcAB0AGUAcgAuAHMAYQBwAC4AYwBjAGkALgBHAGUAdABBAHQAdAByAGkAYgB1AHQAZQBzBA4AYwBvAG4AbgBlAGMAdABpAG8AbgBOAGEAbQBlBCIAdwBtAC4AcwBhAHAALgBpAG4AdABlAHIAbgBhAGwALgBjAHMAOgBlAG0AcAB0AHkAQwBvAG4AbgBlAGMAdABpAG8AbgQSAHQAZQBtAHAAbABhAHQAZQBQAHIAbwBwAGUAcgB0AGkAZQBzBQEAAgQMAHIAZQBxAHUAZQBzAHQATgBhAG0AZQBzCgUEEABqAGEAdgBhAC4AbABhAG4AZwAuAFMAdAByAGkAbgBnBAoAcwBlAHIAdgBlAHIATgBhAG0AZQQHACQAYwBsAGkAZQBuAHQEBQAkAHUAcwBlAHIEBQAkAHAAYQBzAHMECQAkAGwAYQBuAGcAdQBhAGcAZQQMAHIAZQBxAHUAZQBzAHQAVAB5AHAAZQBzCgUADAAMAAwADAAMAAwEEAByAGUAcQB1AGUAcwB0AFMAaQBnAG4AYQB0AHUAcgBlCgUADAANAA4ADwAQABEECgByAGUAcABsAHkATgBhAG0AZQBzChYADAQZAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBkAGUAcwB0AGkAbgBhAHQAaQBvAG4EFQByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AbwB3AG4ASABvAHMAdAQZAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBwAGEAcgB0AG4AZQByAEgAbwBzAHQEGgByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AcwB5AHMAdABlAG0ATgB1AG0AYgBlAHIEFgByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AcwB5AHMAdABlAG0ASQBEBBQAcgBmAGMAQQB0AHQAcgBpAGIAdQB0AGUAcwAuAGMAbABpAGUAbgB0BBIAcgBmAGMAQQB0AHQAcgBpAGIAdQB0AGUAcwAuAHUAcwBlAHIEFgByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AbABhAG4AZwB1AGEAZwBlBBkAcgBmAGMAQQB0AHQAcgBpAGIAdQB0AGUAcwAuAEkAUwBPAEwAYQBuAGcAdQBhAGcAZQQZAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBvAHcAbgBDAG8AZABlAHAAYQBnAGUEHQByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AcABhAHIAdABuAGUAcgBDAG8AZABlAHAAYQBnAGUEGAByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AbwB3AG4AUgBlAGwAZQBhAHMAZQQcAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBwAGEAcgB0AG4AZQByAFIAZQBsAGUAYQBzAGUEGwByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AawBlAHIAbgBlAGwAUgBlAGwAZQBhAHMAZQQZAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBwAGEAcgB0AG4AZQByAFQAeQBwAGUEEwByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AdAByAGEAYwBlBBUAcgBmAGMAQQB0AHQAcgBpAGIAdQB0AGUAcwAuAHIAZgBjAFIAbwBsAGUEFQByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AbwB3AG4AVAB5AHAAZQQgAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBDAFAASQBDAEMAbwBuAHYAZQByAHMAYQB0AGkAbwBuAEkARAQWAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBlAG4AYwBvAGQAaQBuAGcEFQByAGYAYwBBAHQAdAByAGkAYgB1AHQAZQBzAC4AYwBoAGEAcgBzAGUAdAQaAHIAZgBjAEEAdAB0AHIAaQBiAHUAdABlAHMALgBiAHkAdABlAHMAUABlAHIAQwBoAGEAcgQKAHIAZQBwAGwAeQBUAHkAcABlAHMKFgAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwADAAMAAwEDgByAGUAcABsAHkAUwBpAGcAbgBhAHQAdQByAGUKFgAMACUAJgAnACgAKQAqACsALAAtAC4ALwAwADEAMgAzADQANQA2ADcAOAA5ADoEEABkAGUAcwBpAGcAbgBUAGkAbQBlAEwAbwBjAGEAbABlBAUAZQBuAF8AVQBTAgAEGQBhAGQAYQBwAHQAZQByAFMAZQByAHYAaQBjAGUATgBvAGQAZQBWAGUAcgBzAGkAbwBuCwQAAAACBAsAYQBkAGEAcAB0AGUAcgBUAHkAcABlBAUAVwBtAFMAQQBQBA8AaQBuAHAAdQB0AFIAZQBjAG8AcgBkAE4AYQBtAGUEEgBnAGUAdABBAHQAdAByAGkAYgB1AHQAZQBzAEkAbgBwAHUAdAQQAG8AdQB0AHAAdQB0AFIAZQBjAG8AcgBkAE4AYQBtAGUEEwBnAGUAdABBAHQAdAByAGkAYgB1AHQAZQBzAE8AdQB0AHAAdQB0AgA=</value>
+</Values>

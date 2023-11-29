@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "contextCondition",
+		"names" : [
+		   {
+			 "value" : "Condition",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Condition to match request context",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"parameterTemplatesReference" : [ 
+			"conditionVariable.json", "conditionOperator.json","conditionDataType.json", "fromIp.json","toIp.json","conditionKey.json", "conditionValue.json","hour.json","minute.json"
+		]	
+
+   }

@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "maxConnections",
+		"names" : [
+		   {
+			 "value" : "Maximum no of Connections",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The maximum number of open HTTP connections.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

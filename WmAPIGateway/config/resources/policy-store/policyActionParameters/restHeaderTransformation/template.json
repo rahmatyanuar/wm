@@ -1,0 +1,23 @@
+  {
+		"templateKey" : "restHeaderTransformation",
+		"names" : [
+		   {
+			 "value" : "Header transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Do you want to transform the transport headers ?",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+	  	"applicableServiceTypes" : ["REST"],
+		"parameterTemplatesReference" : [ 
+			"addOrModify", "remove.json"
+		]	
+
+   }

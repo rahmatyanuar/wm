@@ -1,0 +1,19 @@
+{
+		"templateKey" : "messageSecurity",
+		"names" : [
+		   {
+			 "value" : "SOAP Message Security",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Specify the authentication credentials or the values for the selected authentication scheme and mode.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  [  "soapMessageAuthScheme.json","authUsing.json","wssCredentials","kerberosCredentials","samlIssuerConfig.json","signAndEncryptConfig","alias.json"]
+}

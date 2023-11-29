@@ -1,0 +1,19 @@
+{
+		"templateKey" : "signedParts",
+		"names" : [
+		   {
+			 "value" : "Signed Parts",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Sign entire Request/Response SOAP body or SOAP headers",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["entireBody.json","entireAttachments.json","headerToSecure"]		
+}

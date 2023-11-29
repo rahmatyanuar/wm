@@ -1,0 +1,37 @@
+{
+         <#if doc.id??>
+        "id": "${doc.id}",
+        </#if>
+        "names": [{
+        "value": "Invoke webMethods IS",
+        "locale": "en"
+        }],
+        "templateKey" : "${invokeESBTemplateKey}",
+        "parameters"  : [
+              <#list doc.parameters as invokeESBParameter>
+               <#if invokeESBParameter.templateKey == "serviceNames" && (invokeESBParameter.values?size > 0)>
+                  <#list invokeESBParameter.values as invokeESBServiceName>
+                  {
+                    "templateKey": "invokeISService",
+                    "parameters": [
+                      {
+                          "templateKey": "serviceName",
+                          "values": ["${invokeESBServiceName}"]
+                      },
+                      {
+                          "templateKey": "complyToISSpec",
+                          "values": ["false"]
+                      }
+                    ]
+                  }
+                  <#sep>,</#sep>
+                  </#list>
+               <#elseif invokeESBParameter.templateKey == "esbAlias" &&( invokeESBParameter.values?size > 0)>
+                  ${printJsonPayload(invokeESBParameter)}
+               </#if>
+              </#list>
+        ]<#if doc.active??>
+,
+  "active":  ${doc.active?c}
+</#if>
+}

@@ -1,0 +1,21 @@
+   {
+		"templateKey" : "complyToISSpec",
+		"names" : [
+		   {
+			 "value" : "Comply to IS Spec (pub.apigateway.invokeISService.specifications)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Logical condition to decide if the IS Service should be invoked with new specifications.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+		  "true"
+		]
+  }

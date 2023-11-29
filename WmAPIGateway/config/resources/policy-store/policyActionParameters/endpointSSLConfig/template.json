@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "endpointSSLConfig",
+		"names" : [
+		   {
+			 "value" : "SSL Configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "SSL Configuration properties which will be used for endpoint specific connection settings for the native service",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"],
+		"parameterTemplatesReference" : [ 
+			"keyStoreAlias.json","keyAlias.json","truststoreAlias.json"
+		]
+   }

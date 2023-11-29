@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <title>BAPI Screen</title>
+    <link rel="StyleSheet" href="" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/context.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/towwhdir.js"></script>
+    <script type="text/javascript" language="JavaScript1.2" src="wwhdata/common/wwhpagef.js"></script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        // Set reference to top level help frame
+        //
+        var  WWHFrame = WWHGetWWHFrame("", true);
+      // -->
+    </script>
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body class="" style="margin-left: 25px; margin-right: 25px;" onload="WWHUpdate();" onunload="WWHUnload();" onkeydown="WWHHandleKeyDown((document.all||document.getElementById||document.layers)?event:null);" onkeypress="WWHHandleKeyPress((document.all||document.getElementById||document.layers)?event:null);" onkeyup="WWHHandleKeyUp((document.all||document.getElementById||document.layers)?event:null);">
+    <table align="left" summary="">
+      <tr>
+        <td class="WebWorks_Company_Logo_Top">
+          <img src="logo.gif" alt="" />
+        </td>
+      </tr>
+    </table>
+    <br clear="all" />
+    <hr align="left" />
+    <blockquote>
+      <div class="OH_Heading2NewPage"><a name="1124568">BAPI Screen</a></div>
+      <div class="Paragraph1"><a name="1124574">By entering the full name of the business object and BAPI in the corresponding field on </a>the Lookup main page, you can display detailed information of the BAPI. You can also display this information by following the corresponding link on the display page for a business object.</div>
+      <div class="Anchor"><a name="1124612">&nbsp;</a></div>
+      <table class="NoRules1" style="text-align: left; width: 431.99928pt;" cellspacing="0" summary="">
+        <caption></caption>
+        <tr>
+          <td style="padding-bottom: 4pt; padding-left: 0pt; padding-right: 12px; padding-top: 4pt; vertical-align: bottom; width: 98.1828pt;">
+            <div class="Table_HeadRule"><a name="1124577">Field</a></div>
+          </td>
+          <td style="padding-bottom: 4pt; padding-left: 0pt; padding-right: 12px; padding-top: 4pt; vertical-align: bottom; width: 333.81648pt;">
+            <div class="Table_HeadRule"><a name="1124579">Description</a></div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><span class="ScreenElement"><a name="1124581">Static method</a></span></div>
+          </td>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><a name="1124583">The </a><span class="ScreenElement">Static method </span>flag is <span class="ScreenElement">true</span> if the BAPI is an instance-independent method. In practice, that means that you do not have to specify the business objects key fields when calling this method.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><span class="ScreenElement"><a name="1132807">Dialog method</a></span></div>
+          </td>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><a name="1132809">The </a><span class="ScreenElement">Dialog method</span> flag is <span class="ScreenElement">true</span> if the method is a dialog method. If the method is not using a dialog, the flag is <span class="ScreenElement">false</span>. Dialog BAPIs require a SAPGui.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><span class="ScreenElement"><a name="1124585">Factory method</a></span></div>
+          </td>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><a name="1124587">The </a><span class="ScreenElement">Factory method </span>flag is <span class="ScreenElement">true</span> if the BAPI is used to create an object instance inside the SAP system. Factory methods return the key fields of the business object.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><span class="ScreenElement"><a name="1124592">Function mod</a></span>ule </div>
+          </td>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><a name="1139800">The </a><span class="ScreenElement">Function module </span>is the message type that has to be used to set up routing for synchronous and asynchronous calls coming from an SAP system. This is technically realized via RFC, so here the name of the corresponding RFC function module inside the SAP system is provided. Although it is possible at the moment, it is not recommended to call BAPIs directly via RFC-XML, as this would only be an implementation-dependent view of the BAPI.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><span class="ScreenElement"><a name="1124602">ALE message type</a></span></div>
+          </td>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><a name="1124604">The </a><span class="ScreenElement">ALE message type</span> is the message type that has to be used to set up routing for asynchronous calls coming from an SAP system. This is technically implemented via IDoc transfers, but when using the BAPI styled XML calls, the ALE message type is only needed to set up routing.</div>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><span class="ScreenElement"><a name="1124609">Parameters</a></span></div>
+          </td>
+          <td style="padding-bottom: 0px; padding-left: 0pt; padding-right: 12px; padding-top: 0px; vertical-align: top;">
+            <div class="Paragraph1"><a name="1124611">The</a><span class="ScreenElement"> Parameters</span> field contains a list of all parameters in the BAPI interface. By clicking each parameter’s link, you can display more information for that parameter in the <a href="javascript:WWHClickedPopup('Help', 'ScreenLevelHelp.3.26.html#1124572', '');" title="Parameter Screen">Parameter Screen</a>. </div>
+            <div class="Paragraph1"><a name="1132827">Note that the key fields of a business object are not displayed in </a>this <span class="ScreenElement">Parameter</span> area but in the <span class="ScreenElement">Key fields </span>area on the <a href="javascript:WWHClickedPopup('Help', 'ScreenLevelHelp.3.24.html#1142616', '');" title="Business Object Screen">Business Object Screen</a>.</div>
+          </td>
+        </tr>
+      </table>
+      <div class="Paragraph1"><a name="1124613">Click </a><span class="ScreenElement">Create XML template</span> to generate a bXML template (in the <a href="javascript:WWHClickedPopup('Help', 'ScreenLevelHelp.3.28.html#1132704', '');" title="BAPI-XML Template Screen">BAPI-XML Template Screen</a>) that is used to invoke this BAPI via XML. After it has been generated, you can immediately send the XML to the SAP system for testing purposes.</div>
+      <script type="text/javascript" language="JavaScript1.2">
+        <!--
+          // Clear related topics
+          //
+          WWHClearRelatedTopics();
+
+          document.writeln(WWHRelatedTopicsInlineHTML());
+        // -->
+      </script>
+    </blockquote>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        document.write(WWHRelatedTopicsDivTag() + WWHPopupDivTag() + WWHALinksDivTag());
+      // -->
+    </script>
+  </body>
+</html>

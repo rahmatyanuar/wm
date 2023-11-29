@@ -1,0 +1,240 @@
+{
+        <#if doc.id??>
+        "id": "${doc.id}",
+        </#if>
+        "names": [
+            {
+                "value": "Conditional Error Processing",
+                "locale": "en"
+            }
+        ],
+        "templateKey": "conditionalErrorProcessing",
+        "parameters" : [
+              <#assign addMainParametersComma="false"/>
+              <#list doc.parameters as parameter>
+              <#if parameter.templateKey == "customFailureMessages">
+              <#if addMainParametersComma== "true">
+              ,
+              </#if>
+              <#assign addMainParametersComma="true"/>
+              ${printJsonPayload(parameter)}
+              <#elseif parameter.templateKey == "faultCriteria" && parameter.parameters[0].templateKey != "xpathCriteria">
+              <#if addMainParametersComma== "true">
+              ,
+              </#if>
+              <#assign addMainParametersComma="true"/>
+              {
+                    "templateKey" : "faultCriteria",
+                    "parameters"  : [
+                        <#if parameter.parameters[0].templateKey == "statusCodeCriteria">
+                        {
+                            "templateKey": "statusCodeCriteria",
+                            "parameters": [
+                                {
+                                    "templateKey": "statusCode",
+                                    "values": [
+                                        "${parameter.parameters[0].parameters[0].values[0]}"
+                                    ]
+                                }
+                            ]
+                        }
+                        <#elseif parameter.parameters[0].templateKey == "headerCriteria">
+                        {
+                            "templateKey": "headerCriteria",
+                            "parameters": [
+                                  <#list parameter.parameters[0].parameters as headerParam>
+                                  <#if headerParam.templateKey == "headerName">
+                                  {
+                                      "templateKey": "headerName",
+                                      "values": [
+                                            "${headerParam.values[0]}"
+                                      ]
+                                  }
+                                  <#else>
+                                  {
+                                      "templateKey": "headerValue",
+                                      "values": [
+                                          "${headerParam.values[0]}"
+                                      ]
+                                  }
+                                  </#if>
+                                  <#sep>,</#sep>
+                                  </#list>
+                            ]
+                        }
+                        </#if>
+                    ]
+              }
+              <#elseif parameter.templateKey == "faultCriteria" && parameter.parameters[0].templateKey == "xpathCriteria">
+                  <#assign isXpathAvailable="false"/>
+                  <#list parameter.parameters[0].parameters as payloadIdentifierParameter>
+                      <#list payloadIdentifierParameter.parameters as xpathParameter>
+                          <#if xpathParameter.templateKey == "expressionType">
+                               <#if xpathParameter.values[0] == "xpath">
+                                  <#assign xpathCriteria=payloadIdentifierParameter>
+                                  <#assign isXpathAvailable="true"/>
+                                  <#break>
+                               </#if>
+                          </#if>
+                      </#list>
+                      <#if isXpathAvailable == "true">
+                          <#break>
+                      </#if>
+                  </#list>
+                  <#if isXpathAvailable == "true">
+              <#if addMainParametersComma== "true">
+              ,
+              </#if>
+              <#assign addMainParametersComma="true"/>
+              {
+                    "templateKey" : "faultCriteria",
+                    "parameters"  : [
+                          {
+                              "templateKey": "xpathCriteria",
+                              "parameters": [
+                                  <#assign addXpathParamComma="false"/>
+                                  <#list xpathCriteria.parameters as param>
+                                  <#if param.templateKey == "expression" || param.templateKey == "value" || param.templateKey == "namespace">
+                                  <#if addXpathParamComma == "true">,
+                                  </#if>
+                                  <#assign addXpathParamComma = "true"/>
+                                  ${printJsonPayload(param)}
+                                  </#if>
+                                  </#list>
+                              ]
+                          }
+                    ]
+              }
+                  </#if>
+              <#elseif parameter.templateKey == "preProcessingSteps">
+              <#if addMainParametersComma== "true">
+              ,
+              </#if>
+              <#assign addMainParametersComma="true"/>
+              {
+                    "templateKey" : "preProcessingSteps",
+                    "parameters"  : [
+                          <#list parameter.parameters as preProcessingParameters>
+                          <#if preProcessingParameters.templateKey == "xsltTransformation">
+                          ${printJsonPayload(preProcessingParameters)}
+                          <#elseif preProcessingParameters.templateKey == "invokeESBParam">
+                          {
+                                "templateKey" : "invokeESB",
+                                "parameters"  : [
+                                    {
+                                        "templateKey" : "serviceNames",
+                                        "values"  : [
+                                              <#list preProcessingParameters.parameters as invokeESBParams>
+                                              <#list invokeESBParams.parameters as invokeISServiceParams>
+                                                  <#if invokeISServiceParams.templateKey == "serviceName">
+                                                    "${invokeISServiceParams.values[0]}"
+                                                    <#break>
+                                                  </#if>
+                                              </#list>
+                                              <#sep>,</#sep>
+                                              </#list>
+                                        ]
+                                    }
+                                ]
+                          }
+                          </#if>
+
+                          <#sep>,</#sep>
+                          </#list>
+                    ]
+              }
+              <#elseif parameter.templateKey == "postProcessingSteps">
+              <#if addMainParametersComma== "true">
+              ,
+              </#if>
+              <#assign addMainParametersComma="true"/>
+              {
+                    "templateKey" : "postProcessingSteps",
+                    "parameters"  : [
+                          <#list parameter.parameters as postProcessingParameters>
+                          <#if postProcessingParameters.templateKey == "xsltTransformation">
+                          ${printJsonPayload(postProcessingParameters)}
+                          <#elseif postProcessingParameters.templateKey == "invokeESBParam">
+                          {
+                              "templateKey" : "invokeESB",
+                              "parameters"  : [
+                                    {
+                                        "templateKey" : "serviceNames",
+                                        "values"  : [
+                                            <#list postProcessingParameters.parameters as invokeESBParams>
+                                                <#list invokeESBParams.parameters as invokeISServiceParams>
+                                                    <#if invokeISServiceParams.templateKey == "serviceName">
+                                                        "${invokeISServiceParams.values[0]}"
+                                                        <#break>
+                                                    </#if>
+                                                </#list>
+                                                <#sep>,</#sep>
+                                            </#list>
+                                        ]
+                                    }
+                              ]
+                          }
+                          </#if>
+                          <#sep>,</#sep>
+                          </#list>
+                    ]
+              }
+              <#elseif parameter.templateKey == "customErrorVariable">
+                <#assign isFirstCustomXpathVariableAvail = "false"/>
+                <#list parameter.parameters as customErrorVariableParam>
+                    <#if customErrorVariableParam.templateKey == "payloadIdentifier">
+                            <#list customErrorVariableParam.parameters as payloadIdentifierParam>
+                                <#if payloadIdentifierParam.templateKey == "expressionType">
+                                    <#assign firstCustomErrorVariableXpathParam=customErrorVariableParam/>
+                                    <#assign isFirstCustomXpathVariableAvail = "true"/>
+                                    <#break>
+                                </#if>
+                            </#list>
+                    </#if>
+                    <#if isFirstCustomXpathVariableAvail == "true">
+                        <#break>
+                    </#if>
+                </#list>
+              <#if isFirstCustomXpathVariableAvail == "true">
+              <#if addMainParametersComma== "true">
+              ,
+              </#if>
+              <#assign addMainParametersComma="true"/>
+              {
+                    "templateKey" : "customErrorVariable",
+                    "parameters"  : [
+                        <#list parameter.parameters as cevParam>
+                            <#if cevParam.templateKey == "payloadType" || cevParam.templateKey == "name">
+                            ${printJsonPayload(cevParam)},
+                            </#if>
+                        </#list>
+                        <#assign addCevXPathParamComma = "false"/>
+                        <#list firstCustomErrorVariableXpathParam.parameters as cevXpathParam>
+                            <#if cevXpathParam.templateKey == "expression">
+                            <#if addCevXPathParamComma == "true">
+                            ,
+                            </#if>
+                            <#assign addCevXPathParamComma = "true"/>
+                            {
+                                "templateKey" : "xpathExpression",
+                                "values"  : [
+                                    "${cevXpathParam.values[0]}"
+                                ]
+                            }
+                            <#elseif cevXpathParam.templateKey == "namespace">
+                            <#if addCevXPathParamComma == "true">
+                            ,
+                            </#if>
+                            <#assign addCevXPathParamComma = "true"/>
+                            ${printJsonPayload(cevXpathParam)}
+                            </#if>
+
+                        </#list>
+                    ]
+              }
+              </#if>
+              </#if>
+              </#list>
+        ],
+      "active":  ${doc.active?c}
+}

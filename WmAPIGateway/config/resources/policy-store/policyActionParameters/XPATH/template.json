@@ -1,0 +1,20 @@
+{
+		"templateKey" : "XPATH",
+		"names" : [
+		   {
+			 "value" : "XPath",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["namespace-src","xpath-exp.json","whiteList.json"],
+		"applicableServiceTypes" : ["SOAP"]
+}

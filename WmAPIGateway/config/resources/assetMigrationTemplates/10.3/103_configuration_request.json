@@ -1,0 +1,7 @@
+  <#assign jwtHandler='com.softwareag.apigateway.core.migration.transformation.configuration.JwtConfig102to103Transformation'?new()/>
+  <#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+  <#if id=="jsonWebToken" || id=="externalJWTConfig">
+      ${jwtHandler([doc,utilityProvider, id, mode])}
+  <#else>
+    ${printJsonPayload(doc)}
+  </#if>

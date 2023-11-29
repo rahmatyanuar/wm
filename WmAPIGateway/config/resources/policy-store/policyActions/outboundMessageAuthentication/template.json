@@ -1,0 +1,25 @@
+{
+ "templateKey" : "outboundMessageAuthentication",
+ "names" : [
+   {
+     "value" : "Outbound Auth - Message",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "This policy is used to configure the authentication details at the SOAP message level required for the native service.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  ["messageSecurity"],
+  "occurence" : "once",
+  "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+  "order" :  {
+			"sequence" : ["insequence"],
+			"orderPosition" : "beforeFirstOccurence",
+			"policyTemplateIDs":["straightThroughRouting"]
+		},
+ "applicableServiceTypes" : ["SOAP"]
+}

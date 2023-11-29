@@ -1,0 +1,20 @@
+<#assign supportingTokens=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All.sp\:SupportingTokens/>
+{
+  "templateKey": "tokenAssertion",
+  "parameters": [
+    {
+      "templateKey": "x509TokenAssertion",
+      "values": [
+        <#if supportingTokens.wsp\:Policy.sp\:X509Token[0]??>"true"<#else>"false"</#if>
+      ]
+    },
+    {
+      "templateKey": "wssUserNameToken",
+      "values": [
+        <#if supportingTokens.wsp\:Policy.sp\:UsernameToken[0]??>"true"<#else>"false"</#if>
+      ]
+    }
+	<#include "IAMEvaluateKerberos.json"/>
+	<#include "IAMRequireWssSaml.json"/>
+  ]
+}

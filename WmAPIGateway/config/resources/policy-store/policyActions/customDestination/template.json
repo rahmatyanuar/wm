@@ -1,0 +1,24 @@
+{
+ "templateKey" : "customDestination",
+ "names" : [
+   {
+     "value" : "Custom Destination",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+    "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [ "customDestinationName.json", "transformationConditions","customExtensionAction.json", "customExtensionType.json","externalEndpoint","awsLambda","esbServices","customExtensionRequestProcessing","mashupHeaderTransformation","mashupQueryParamsTransformation","customExtensionResponseProcessing","messaging","transformationMetadata", "customVariables","customDestinationEvents"],
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "occurence" : "multiple",
+ "order" :  {
+   "sequence" : ["insequence","outsequence","faultsequence"],
+   "isCustomOrderSupported": true
+ },
+ "canAppliedAtResourceMethodLevel" : true
+}

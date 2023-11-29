@@ -1,0 +1,2 @@
+<#assign ctxHandler='com.softwareag.apigateway.core.migration.transformation.CtxRouting105to107RespTransformation'?new()/>
+${ctxHandler(doc, transformationMode)}

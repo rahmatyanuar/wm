@@ -1,0 +1,19 @@
+{
+  "templateKey" : "isXMLThreatProtectionEnabled",
+  "names" : [
+    {
+      "value" : "Enabled",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Flag to activate XMLS Threat Protection",
+      "locale" : "en"
+    }
+  ],
+  "type" : "BOOLEAN",
+  "isRequired" :"true",
+  "isArray" : "false",
+  "defaultValues" : ["false"]
+}

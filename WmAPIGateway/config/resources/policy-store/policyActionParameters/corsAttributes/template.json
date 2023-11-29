@@ -1,0 +1,22 @@
+{
+  "templateKey" : "corsAttributes",
+  "names" : [
+    {
+      "value" : "CORS Response Headers",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "CORS Response header details",
+      "locale" : "en"
+    }
+  ],
+  "type" : "OBJECT",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "parameterTemplatesReference" : [
+    "allowedOrigins.json", "allowHeaders.json",  "exposeHeaders.json", "allowCredentials.json","allowMethods.json", "maxAge.json"
+  ]
+
+}

@@ -1,0 +1,16 @@
+{
+	"_source": {
+		"mappings": {
+			"cachestatistics": {
+				"properties": {
+					"creationDate": {
+						"type": "date"
+					},
+					"nodeName": {
+						"type": "keyword"
+					}
+				}
+			}
+		}
+	}
+}

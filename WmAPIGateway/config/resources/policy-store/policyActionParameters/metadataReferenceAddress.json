@@ -1,0 +1,18 @@
+{
+		"templateKey" : "metadataReferenceAddress",
+		"names" : [
+		   {
+			 "value" : "Metadata Reference Address",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Metadata Reference Address",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

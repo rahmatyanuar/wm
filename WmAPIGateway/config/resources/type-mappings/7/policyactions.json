@@ -1,0 +1,31 @@
+{
+  "properties" : {
+    "parameters" : {
+      "properties" : {
+        "parameters" : {
+          "properties" : {
+            "parameters" : {
+              "properties" : {
+                "templateKey" : {
+                  "type" : "text"
+                },
+                "values" : {
+                  "type" : "text"
+                }
+              }
+            },
+            "templateKey" : {
+              "type" : "text"
+            },
+            "values" : {
+              "type" : "text"
+            }
+          }
+        },
+        "templateKey" : {
+          "type" : "text"
+        }
+      }
+    }
+  }
+}

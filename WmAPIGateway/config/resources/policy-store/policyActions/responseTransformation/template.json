@@ -1,0 +1,24 @@
+{
+  "templateKey" : "responseTransformation",
+  "names" : [
+    {
+      "value" : "Response Transformation",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Response Transformation",
+      "locale" : "en"
+    }
+  ],
+  "parameterTemplatesReference" : [
+    "transformationConditions", "responseTransformationConfiguration", "transformationMetadata"
+  ],
+  "occurence" : "multiple",
+  "order" :  {
+    "sequence" : ["outsequence"],
+    "orderPosition" : "last"
+  }, 
+  "applicableServiceTypes" : ["REST","SOAP"]
+}

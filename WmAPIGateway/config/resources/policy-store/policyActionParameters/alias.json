@@ -1,0 +1,19 @@
+{
+				"templateKey" : "alias",
+				"names" : [
+				   {
+					 "value" : "Alias Name",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Alias Name",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}
+

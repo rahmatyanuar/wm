@@ -1,0 +1,16 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign httpConfig=doc.service.definition.inSequence.http\-config/>
+[
+	<#assign comma=false/>
+	<#if httpConfig.authentication[0]?? && httpConfig.authentication.@mode[0] != "anonymous">
+		<#assign transportAuth=httpConfig/>
+		<#assign comma=true/>
+		<#include "OutboundTransportTemplate.json"/>
+	</#if>
+	<#if httpConfig.headers[0]??>
+		<#if comma == true>
+		,</#if>
+		<#include "CustomHTTPHeaderTemplate.json"/>
+    </#if>
+]

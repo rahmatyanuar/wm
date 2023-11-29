@@ -1,0 +1,18 @@
+{
+		"templateKey" : "customToken",
+		"names" : [
+		   {
+			 "value" : "Custom Token Assertion",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Add any custom Token assertion to the Security policy",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+}

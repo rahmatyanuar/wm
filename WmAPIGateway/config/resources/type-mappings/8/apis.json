@@ -1,0 +1,296 @@
+{
+	"properties": {
+		"isActive": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"apiDescription": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"apiName": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"apiVersion": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"referencedFiles": {
+			"type": "object",
+			"dynamic": false
+		},
+		"maturityState" : {
+			"type" : "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"scopes" : {
+			"properties" : {
+				"description" : {
+					"type" : "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				},
+				"name" : {
+					"type" : "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				},
+				"oAuth2ScopeName" : {
+					"type" : "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				}
+			}
+		},
+		"apiDefinition": {
+			"properties": {
+				"components": {
+					"properties": {
+						"schemas": {
+							"type": "object",
+							"dynamic": false
+						},
+						"responses": {
+							"type": "object",
+							"dynamic": false
+						},
+						"parameters": {
+							"type": "object",
+							"dynamic": false
+						},
+						"examples": {
+							"type": "object",
+							"dynamic": false
+						},
+						"requestBodies": {
+							"type": "object",
+							"dynamic": false
+						},
+						"headers": {
+							"type": "object",
+							"dynamic": false
+						},
+						"securitySchemes": {
+							"type": "object",
+							"dynamic": false
+						},
+						"links": {
+							"type": "object",
+							"dynamic": false
+						},
+						"callbacks": {
+							"type": "object",
+							"dynamic": false
+						}
+					}
+				},
+				"paths": {
+					"type": "object",
+					"dynamic": false
+				},
+				"apiTags" : {
+					"type" : "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				},
+				"tags": {
+					"properties": {
+						"description": {
+							"type": "text",
+							"analyzer": "not_analyzed_ignorecase",
+							"fielddata": true
+						},
+						"name": {
+							"type": "text",
+							"analyzer": "not_analyzed_ignorecase",
+							"fielddata": true
+						}
+					}
+				},
+				"securityDefinitions": {
+					"type": "object",
+					"dynamic": false
+				},
+				"definitions": {
+					"type": "object",
+					"dynamic": false
+				},
+				"parameters": {
+					"type": "object",
+					"dynamic": false
+				},
+				"responses": {
+					"type": "object",
+					"dynamic": false
+				},
+				"servers": {
+					"properties": {
+						"variables": {
+							"type": "object",
+							"dynamic": false
+						}
+					}
+				},
+				"operationPolicies": {
+					"type": "object",
+					"dynamic": false
+				},
+				"primaryEndpoints": {
+					"type": "object",
+					"dynamic": false
+				},
+				"operationsInfo" : {
+					"properties": {
+						"mockedResponses": {
+							"type": "object",
+							"dynamic": false
+						},
+						"restEnabledPath": {
+							"dynamic": false,
+							"properties": {
+								"enabled": {
+									"type": "boolean"
+								},
+								"invokePath": {
+									"type": "text",
+									"analyzer": "not_analyzed_ignorecase",
+									"fielddata": true
+								},
+								"name": {
+									"type": "text",
+									"analyzer": "not_analyzed_ignorecase",
+									"fielddata": true
+								}
+							}
+						},
+						"bindings": {
+							"type": "object",
+							"dynamic": false
+						},
+						"mockedConditionsBasedCustomResponsesList": {
+							"type": "object",
+							"dynamic": false
+						},
+						"name": {
+							"type": "text",
+							"analyzer": "not_analyzed_ignorecase",
+							"fielddata": true
+						}
+					}
+				},
+				"entitySets": {
+					"type": "object",
+					"dynamic": false
+				},
+				"singletons": {
+					"type": "object",
+					"dynamic": false
+				},
+				"actionImports": {
+					"type": "object",
+					"dynamic": false
+				},
+				"functionImports": {
+					"type": "object",
+					"dynamic": false
+				},
+				"entityTypes": {
+					"type": "object",
+					"dynamic": false
+				},
+				"actions": {
+					"type": "object",
+					"dynamic": false
+				},
+				"functions": {
+					"type": "object",
+					"dynamic": false
+				},
+				"batchMap": {
+					"type": "object",
+					"dynamic": false
+				},
+				"nativeEndpoints": {
+					"properties": {
+						"description": {
+							"type": "text",
+							"analyzer": "not_analyzed_ignorecase",
+							"fielddata": true
+						},
+						"url": {
+							"type": "text",
+							"analyzer": "not_analyzed_ignorecase",
+							"fielddata": true
+						}
+					}
+				},
+				"sdlDefinitions": {
+					"properties": {
+						"directiveDefinitions": {
+							"type": "object",
+							"dynamic": false
+						},
+						"enumTypeExtensions": {
+							"type": "object",
+							"dynamic": false
+						},
+						"inputObjectTypeExtensions": {
+							"type": "object",
+							"dynamic": false
+						},
+						"interfaceTypeExtensions": {
+							"type": "object",
+							"dynamic": false
+						},
+						"objectTypeExtensions": {
+							"type": "object",
+							"dynamic": false
+						},
+						"scalarTypeExtensions": {
+							"type": "object",
+							"dynamic": false
+						},
+						"scalarTypes": {
+							"type": "object",
+							"dynamic": false
+						},
+						"schemaDefinition": {
+							"type": "object",
+							"dynamic": false
+						},
+						"types": {
+							"type": "object",
+							"dynamic": false
+						},
+						"unionTypeExtensions": {
+							"type": "object",
+							"dynamic": false
+						}
+					}
+				}
+			}
+		},
+		"apiDocuments": {
+			"type": "keyword"
+		},
+		"systemVersion": {
+			"type": "long"
+		}
+	},
+	"dynamic_templates": [
+		{
+			"strings": {
+				"match_mapping_type": "string",
+				"mapping": {
+					"type": "text"
+				}
+			}
+		}
+	]
+}

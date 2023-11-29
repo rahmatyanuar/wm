@@ -1,0 +1,18 @@
+{
+		"templateKey" : "entireAttachments",
+		"names" : [
+		   {
+			 "value" : "All SOAP Attachments",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Sign/Encrypt all SOAP attachments in the Request/Response",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

@@ -1,0 +1,18 @@
+{
+	"templateKey" : "maxConcurrentCallbacks",
+	"names" : [
+		{
+			"value" : "Maximum Concurrent Calls for Callbacks",
+			"locale" : "en"
+		}
+	],
+	"descriptions" : [
+		{
+			"value" : "The maximum number of open Concurrent connections.",
+			"locale" : "en"
+		}
+	],
+	"type": "LONG",
+	"isRequired" :"false",
+	"isArray" : "false"
+}

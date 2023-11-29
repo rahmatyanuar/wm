@@ -1,0 +1,8 @@
+<#assign applicationMigration='com.softwareag.apigateway.core.migration.transformation.ApplicationTemplateHelper'?new()/>
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#if transformationMode?? && (transformationMode?length > 0)>
+<#assign input=[doc,utilityProvider]/>
+${applicationMigration(input)}
+<#else>
+${printJsonPayload(doc)}
+</#if>

@@ -1,0 +1,223 @@
+<#assign destinations=throtllingRoot.destinations/>
+<#assign consumerNameIDMapper='com.softwareag.apigateway.core.migration.ConsumerNameIDMapper'?new()/>
+<#assign IntervalUnitCalculator='com.softwareag.apigateway.core.migration.IntervalUnitCalculator'?new()/>
+<#assign IntervalCalculator='com.softwareag.apigateway.core.migration.IntervalCalculator'?new()/>
+{
+"names": [
+{
+"value": "Throttling Traffic Optimization",
+"locale": "en"
+}
+],
+"templateKey": "throttle",
+"parameters": [
+{
+"templateKey": "throttleRule",
+"parameters": [
+{
+"templateKey": "throttleRuleName",
+"values": [
+"requestCount"
+]
+},
+{
+"templateKey": "monitorRuleOperator",
+"values": [
+"GT"
+]
+},
+{
+"templateKey": "value",
+"values": [
+"${throtllingRoot.rules.rule?number?floor?c}"
+]
+}
+]
+},
+{
+"templateKey": "alertInterval",
+"values": [
+"${IntervalCalculator(throtllingRoot.alert.@interval)}"
+]
+},
+{
+"templateKey": "alertIntervalUnit",
+"values": [
+"${IntervalUnitCalculator(throtllingRoot.alert.@interval)}"
+]
+},
+{
+"templateKey": "alertFrequency",
+"values": [
+"${throtllingRoot.alert.@frequency}"
+]
+},
+{
+"templateKey": "alertMessage",
+"values": [
+<#assign message=throtllingRoot.alert/>
+<#if (message[0]?length>0) >
+"${message[0]?json_string}"
+<#else>
+"Throttling alert notification message"
+</#if>
+]
+},
+{
+"templateKey": "consumerIds",
+"values": [
+<#if throtllingRoot.consumers[0]??>
+  <#list throtllingRoot.consumers.name as name>
+        "${consumerNameIDMapper(name)}"
+        <#sep>, </#sep>
+   </#list>
+<#else>
+        "AnyConsumer"
+</#if>
+]
+},
+{
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"GATEWAY"
+]
+}
+]
+}
+<#if destinations.localLog[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"localLog"
+]
+},
+{
+"templateKey": "logLevel",
+"values": [
+"${destinations.localLog.@level?cap_first}"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.apiPortal[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"APIPORTAL"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.smtp[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"SMTP"
+]
+},
+{
+"templateKey": "emailTo",
+"values": [
+<#list destinations.smtp.emailAddresses.emailAddress as emailAddress>
+"${emailAddress}"
+<#sep>, </#sep>
+</#list>
+]
+}
+]
+}
+</#if>
+
+<#if destinations.snmp[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"SNMP"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.eda[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"JDBC"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.eda[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"DES"
+]
+}
+]
+}
+</#if>
+
+
+<#if destinations.centrasite[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"CENTRASITE"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.localAudit[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"AUDITLOG"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.elasticsearch[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"ELASTICSEARCH"
+]
+}
+]
+}
+</#if>
+]
+}

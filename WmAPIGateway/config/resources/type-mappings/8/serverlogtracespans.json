@@ -1,0 +1,21 @@
+{
+  "dynamic": false,
+  "properties": {
+    "correlationID": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "trace": {
+      "dynamic": false,
+      "properties": {
+        "logs": {
+          "type": "text"
+        }
+      }
+    },
+    "startDate" : {
+      "type" : "long"
+    }
+  }
+}

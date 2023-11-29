@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "expression",
+		"names" : [
+		   {
+			 "value" : "Payload Expression",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Payload Expression to be evaluated on request or response to evaluate error condition.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

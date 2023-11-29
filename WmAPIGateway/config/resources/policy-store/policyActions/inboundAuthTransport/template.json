@@ -1,0 +1,24 @@
+{
+ "templateKey" : "inboundAuthTransport",
+ "names" : [
+   {
+     "value" : "Inbound Authentication - Transport",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Inbound Authentication policy to be applied to the API at Transport level",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"kerberosTokenAssertion", "httpBasicAuth.json","openIDAuthentication.json", "jwtAuth.json"
+ ],
+ "occurence" : "once",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "first"
+ }
+}

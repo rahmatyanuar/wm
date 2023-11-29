@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd "
+       default-init-method="init"
+       default-destroy-method="shutdown">
+
+    <context:property-placeholder ignore-unresolvable="true" location="${apigateway.home.uri}/config/resources/elasticsearch/config.properties,${apigateway.home.uri}/config/resources/elasticsearch/analyticsds.properties"/>
+
+    <import resource="beans/gateway-es-store.xml"/>
+    <import resource="beans/gateway-analytics-ds.xml"/>
+    <!-- This is PropertyPlaceHolderConfigurer. It first looks at the
+          properties element, then at all the locations defined in the
+          property element with name attribute of "locations". This allows
+          us to externalize properties in the pg-config.properties file-->
+    <!-- This is PropertyPlaceHolderConfigurer. It first looks at the
+          properties element, then at all the locations defined in the
+          property element with name attribute of "locations". This allows
+          us to externalize properties in the pg-config.properties file-->
+    <bean id="pgPropertyPlaceholderConfigurer" class="com.softwareag.pg.onlyforprototype.PGPropertyPlaceholderConfigurer" factory-method="getInstance">
+        <property name="location">
+           		<value>file:packages/WmAPIGateway/config/resources/configuration.properties</value>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+    </bean>
+
+  <import resource="beans/gateway-core.xml"/>
+  <import resource="beans/gateway-runtime-provider.xml"/>
+  <import resource="beans/gateway-runtime.xml"/>
+  <import resource="beans/gateway-is.xml"/>
+  <import resource="beans/gateway-datastore.xml"/>
+  <import resource="cluster/pg-cluster.xml"/>
+  <import resource="beans/gateway-apiportal-connector.xml"/>
+  <import resource="sts/sts-config.xml"/>
+  <import resource="../../bin/migrate/MigrationESHandler.xml"/>
+	
+</beans>

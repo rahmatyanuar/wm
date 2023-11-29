@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "statusTransformation",
+		"names" : [
+		   {
+			 "value" : "Status Transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Do you want to modify the status code and status message?",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+				"statusCodeOptional.json", "statusMessage.json"
+		]	
+
+   }

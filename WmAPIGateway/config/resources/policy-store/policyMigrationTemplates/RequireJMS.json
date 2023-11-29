@@ -1,0 +1,35 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse",
+"soap":"http://schemas.xmlsoap.org/wsdl/soap/",
+"soap12":"http://schemas.xmlsoap.org/wsdl/soap12/",
+"wsdl":"http://schemas.xmlsoap.org/wsdl/"}/>
+<#assign wsdlDef=doc.service.resources.wsdl.wsdl\:definitions[0]/>
+{
+"names": [
+{
+"value":"Require JMS",
+"locale":"en"
+}
+],
+"templateKey":"requireJMS",
+"parameters": [
+{
+"templateKey":"jmsProviderAlias",
+"values": [
+"${doc.service.resources["D:parameter[@locked='true']"][0]}"
+]
+},
+{
+"templateKey":"soapVersion",
+"values": [
+<#assign bindingName=wsdlDef.wsdl\:service.wsdl\:port.@binding[0]?split(":")[1]/>
+<#if wsdlDef["wsdl:binding[@name=$bindingName]"][0].soap\:binding[0]??>
+"soap"
+<#elseif wsdlDef["wsdl:binding[@name=$bindingName]"][0].soap12\:binding[0]??>
+"soap12"
+</#if>
+]
+}
+]
+
+}

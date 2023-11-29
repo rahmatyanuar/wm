@@ -1,0 +1,18 @@
+{
+	"templateKey" : "defaultContentType",
+	"names" : [
+	   {
+		 "value" : "Default Content-Type",
+		 "locale" : "en"
+	   }
+	 ],
+	 "descriptions" : [
+	   {
+		 "value" : "The Media Type value configured in this parameter will be sent as the Content-Type if no Content-Type is specified in the run-time invoke request.",
+		 "locale" : "en"
+	   }
+	 ],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false"
+}

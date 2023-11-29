@@ -1,0 +1,50 @@
+{
+        <#if doc.id??>
+        "id": "${doc.id}",
+        </#if>
+        "names": [{
+            "value": "Identify & Authorize Application",
+            "locale": "en"
+        }],
+        "templateKey": "evaluatePolicy",
+        "parameters": [
+            <#list doc.parameters as parameter>
+            <#if parameter.templateKey != "IdentificationRule">
+             ${printJsonPayload(parameter)}
+            <#else>
+              <#assign isPayloadRule = "false"/>
+              <#list parameter.parameters as identificationRuleParameter>
+                   <#if identificationRuleParameter.templateKey == "identificationType">
+                      <#if identificationRuleParameter.values[0] == "payloadElement">
+                          <#assign isPayloadRule = "true"/>
+                          <#break>
+                      </#if>
+                    </#if>
+              </#list>
+              <#if isPayloadRule == "false">
+              ${printJsonPayload(parameter)}
+              <#else>
+              {
+                  "templateKey" : "IdentificationRule",
+                  "parameters"  : [
+                   <#list parameter.parameters as payloadParameter>
+                   <#if payloadParameter.templateKey != "identificationQuery">
+                    ${printJsonPayload(payloadParameter)}
+                   <#else>
+                    <#assign payloadIdentifier=payloadParameter/>
+                    <#include "102_payloadIdentifier_request.json"/>
+                   </#if>
+                   <#sep>,</#sep>
+                  </#list>
+                  ]
+              }
+              </#if>
+
+            </#if>
+            <#sep>,</#sep>
+            </#list>
+        ]<#if doc.active??>
+,
+  "active":  ${doc.active?c}
+</#if>
+}

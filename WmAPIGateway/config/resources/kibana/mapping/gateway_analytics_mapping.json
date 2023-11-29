@@ -1,0 +1,464 @@
+{
+"key":[
+{
+        "_source": {
+			"mappings": {
+				"errorEvents" : {
+					"properties" : {
+						"apiName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiVersion": {
+							"type": "string"
+						},
+						"applicationId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"applicationIp": {
+							"type": "string"
+						},
+						"applicationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"creationDate": {
+							"type": "date"
+						},
+						"errorDesc" : {
+							"type": "string"
+						},
+						"eventType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"operationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"sessionId": {
+							"type": "string"
+						},
+						"userAgent": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"responseCode": {
+							"type": "string"
+						},
+						"eventSource": {
+							"type": "string"
+						},
+						"httpMethod": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"correlationID": {
+							"type": "string",
+							"index": "not_analyzed"
+						}
+					}
+				},
+				"policyViolationEvents": {
+					"properties": {
+						"alertDesc": {
+							"type": "string"
+						},
+						"alertSource": {
+							"type": "string"
+						},
+						"alertType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiVersion": {
+							"type": "string"
+						},
+						"applicationId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"applicationIp": {
+							"type": "string"
+						},
+						"applicationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"creationDate": {
+							"type": "date"
+						},
+						"eventType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"operationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"sessionId": {
+							"type": "string"
+						},
+						"userAgent": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"responseCode": {
+							"type": "string"
+						},
+						"eventSource": {
+							"type": "string"
+						},
+						"httpMethod": {
+							"type": "string",
+							"index": "not_analyzed"
+					}
+					}
+				},
+				"monitorEvents": {
+					"properties": {
+						"alertDesc": {
+							"type": "string"
+						},
+						"alertType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiVersion": {
+							"type": "string"
+						},
+						"applicationId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"applicationIp": {
+							"type": "string"
+						},
+						"applicationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"creationDate": {
+							"type": "date"
+						},
+						"eventType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"operationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"sessionId": {
+							"type": "string"
+						},
+						"userAgent": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"responseCode": {
+							"type": "string"
+						},
+						"eventSource": {
+							"type": "string"
+						},
+						"httpMethod": {
+							"type": "string",
+							"index": "not_analyzed"
+					}
+					}
+				},
+				"performanceMetrics": {
+					"properties": {
+						"apiName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiId": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"apiVersion": {
+							"type": "string"
+						},
+						"availability": {
+							"type": "long"
+						},
+						"avgResponseTime": {
+							"type": "long"
+						},
+						"creationDate": {
+							"type": "date"
+						},
+						"eventType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"faultCount": {
+							"type": "long"
+						},
+						"includeFaults": {
+							"type": "string"
+						},
+						"intervalStart": {
+							"type": "long"
+						},
+						"intervalStop": {
+							"type": "long"
+						},
+						"maxResponseTime": {
+							"type": "long"
+						},
+						"minResponseTime": {
+							"type": "long"
+						},
+						"operationName": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"successCount": {
+							"type": "long"
+						},
+						"totalCount": {
+							"type": "long"
+						}
+					}
+				},
+				"lifecycleEvents": {
+					"properties": {
+						"creationDate": {
+							"type": "date"
+						},
+						"eventStatus": {
+							"type": "string"
+						},
+						"eventType": {
+							"type": "string",
+							"index": "not_analyzed"
+						},
+						"eventSource": {
+							"type": "string"
+						}
+					}
+			},
+			"transactionalEvents": {
+				"properties": {
+					"apiId": {
+						"type": "string",
+							"index": "not_analyzed"
+					},
+					"apiName": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"apiVersion": {
+						"type": "string"
+					},
+					"applicationId": {
+						"type": "string",
+							"index": "not_analyzed"
+					},
+					"applicationIp": {
+						"type": "string"
+					},
+					"applicationName": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"creationDate": {
+						"type": "date"
+					},
+					"eventType": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"operationName": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"providerTime": {
+						"type": "long"
+					},
+					"request": {
+						"type": "string"
+					},
+					"response": {
+						"type": "string"
+					},
+					"sessionId": {
+						"type": "string"
+					},
+					"status": {
+						"type": "string"
+					},
+					"totalDataSize": {
+						"type": "long"
+					},
+					"totalTime": {
+						"type": "long"
+					},
+					"userAgent": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"responseCode": {
+						"type": "string"
+					},
+					"eventSource": {
+						 "type": "string"
+					},
+					"cachedResponse": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"packageName": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"planName": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"packageId": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"planId": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"httpMethod": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"origin": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"messageType": {
+						"type": "string",
+						"index": "not_analyzed"
+					},					
+					"errorOrigin": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"correlationID": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"callbackRequest": {
+						"type": "boolean"
+					},
+					"nativeRequestHeaders": {
+						"type": "object"
+					},
+					"nativeReqPayload": {
+						"type": "string",
+                        "index": "not_analyzed"
+					},
+					"nativeResponseHeaders": {
+						"type": "object"
+					},
+					"nativeResPayload": {
+						"type": "string",
+                        "index": "not_analyzed"
+					},
+					"nativeHttpMethod": {
+						"type": "string",
+						"index": "not_analyzed"
+					},
+					"nativeURL": {
+						"type": "string"
+                    },
+					"externalCalls": {
+						"type": "object"
+					},
+					"sourceGatewayNode": {
+						"type": "string",
+						"index": "not_analyzed"
+					}
+				}
+	},
+			"threatProtectionEvents": {
+				"properties": {
+          "alertAction": {
+            "type": "string"
+          },
+          "creationDate": {
+            "type": "date"
+          },
+          "eventType": {
+            "type": "string",
+			"index": "not_analyzed"
+          },
+          "filterName": {
+            "type": "string",
+			"index": "not_analyzed"
+          },
+          "message": {
+            "type": "string",
+			"index": "not_analyzed"
+          },
+          "requestHost": {
+            "type": "string"
+          },
+          "requestTime": {
+            "type": "string"
+          },
+          "requestType": {
+            "type": "string"
+          },
+          "requestUser": {
+            "type": "string"
+          },
+          "resourcePath": {
+            "type": "string",
+			"index": "not_analyzed"
+          },
+          "responseCode": {
+            "type": "string"
+          },
+          "ruleName": {
+            "type": "string",
+			"index": "not_analyzed"
+          },
+          "serverHost": {
+            "type": "string"
+          },
+          "serverPort": {
+            "type": "string"
+          },
+          "userAgent": {
+            "type": "string",
+			"index": "not_analyzed"
+          }
+        
+				}
+	}
+}
+}
+}
+]
+}

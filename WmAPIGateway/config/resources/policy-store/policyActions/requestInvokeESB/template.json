@@ -1,0 +1,24 @@
+{
+ "templateKey" : "requestInvokeESB",
+ "names" : [
+   {
+     "value" : "Invoke webMethods IS",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Processing steps calling an Integration Server (IS) Service which will be executed when the consumer invokes the API.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"invokeISService", "esbAlias.json"
+ ],
+ "occurence" : "multiple",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA","WEBSOCKET"],
+ "order" :  {
+ "sequence" : ["insequence", "outsequence"],
+   "orderPosition" : "first"
+ }
+}

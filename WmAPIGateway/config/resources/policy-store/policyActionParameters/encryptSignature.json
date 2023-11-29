@@ -1,0 +1,21 @@
+{
+				"templateKey" : "encryptSignature",
+				"names" : [
+				   {
+					 "value" : "Encrypt Signature",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "encryptSignature",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "BOOLEAN",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "false"
+				]
+}

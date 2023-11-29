@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "httpResource",
+		"names" : [
+		   {
+			 "value" : "Resource",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "HTTP RESOURCE",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

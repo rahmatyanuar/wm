@@ -1,0 +1,19 @@
+{
+  "templateKey" : "consumerSpecificCounter",
+  "names" : [
+    {
+      "value" : "Consumer-specific throttling",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Apply throttling specific to consumer if this property is true",
+      "locale" : "en"
+    }
+  ],
+  "type" : "BOOLEAN",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "applicableServiceTypes" : ["REST","SOAP","ODATA"]
+}

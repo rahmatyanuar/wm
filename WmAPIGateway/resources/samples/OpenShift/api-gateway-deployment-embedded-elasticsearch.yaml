@@ -1,0 +1,151 @@
+# Configuration for deploying an API Gateway with an embedded elasticsearch to an OpenShift cluster.
+# The cluster should provide at least 4 GB of main memory.
+#
+# The full documentation is available from the Software AG Documentation website: 
+# http://techcommunity.softwareag.com/ecosystem/documentation/webmethods/api_gateway/yai10-7/index.htm
+#
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: api-gateway-deployment
+  labels:
+    app: api-gateway-deployment
+spec:
+  replicas: 1
+
+  selector:
+    deploymentconfig: api-gateway-deployment  
+  
+  template:
+    metadata:
+      labels:
+        deploymentconfig: api-gateway-deployment
+        tuned.openshift.io/elasticsearch: ""
+
+    spec:
+      containers:
+      - name: api-gateway-deployment
+        # The default pull policy is IfNotPresent which causes the Kubelet to skip pulling an image if it already exists.
+        # If you would like to always force a pull use "Always"
+        imagePullPolicy: IfNotPresent 
+        # Ports used in the docker image, the default ports are 5555, 9072 and 9240
+        ports:
+        - containerPort: 5555
+          name: 5555tcp1
+          protocol: TCP
+        - containerPort: 9072
+          name: 9072tcp1
+          protocol: TCP
+        - containerPort: 9240
+          name: 9240tcp1
+          protocol: TCP
+        resources:
+          requests:
+            memory: 4G
+            cpu: 100m
+        livenessProbe:
+          failureThreshold: 4
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 5555
+          timeoutSeconds: 2
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /rest/apigateway/health
+            port: 5555
+            scheme: HTTP
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 2
+          timeoutSeconds: 2
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: default
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - api-gateway-deployment
+      from:
+        kind: ImageStreamTag
+        name: api-gateway-deployment:10.7
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: api-gateway-deployment
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - from:
+      kind: DockerImage
+      # Please fill in the path to your api gateway image stored in a docker registry.
+      name: <yourDockerRegistry>:<RegistryPort>/<PathToApiGateway>:10.7
+    importPolicy: {}
+    name: "10.7"
+    referencePolicy:
+      type: Source
+---
+# An example service for the deployment above.
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway-service
+  labels:
+    app.kubernetes.io/name: api-gateway-deployment
+spec:
+  type: NodePort
+  ports:
+    - name: 5555-tcp
+      port: 5555
+      targetPort: 5555
+      protocol: TCP
+    - name: 9072-tcp
+      port: 9072
+      targetPort: 9072
+      protocol: TCP
+    - name: 9240-tcp
+      port: 9240
+      targetPort: 9240
+  selector:
+    deploymentconfig: api-gateway-deployment
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: api-gateway-ui
+spec:
+  # Provide a URL that will be visible outside of the OpenShift cluster
+  host: api-gateway-ui.apps.<yourClusterBaseUrl>
+  port:
+    targetPort: 9072-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: api-gateway-service
+    weight: 100
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: api-gateway-rest
+spec:
+  host: api-gateway-rest.apps.<yourClusterBaseUrl>
+  port:
+    targetPort: 5555-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: api-gateway-service
+    weight: 100
+  wildcardPolicy: None

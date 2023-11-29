@@ -1,0 +1,50 @@
+{
+				"templateKey" : "soapMessageAuthMode",
+				"names" : [
+				   {
+					 "value" : "Authentication Mode",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes how the SOAP headers should be sent to native service.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "removeIncoming"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Remove Processed WS Security Headers",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "removeIncoming"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Pass all WS Security Headers",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "passIncoming"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Choose Alias",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "alias"
+					}
+				]
+}

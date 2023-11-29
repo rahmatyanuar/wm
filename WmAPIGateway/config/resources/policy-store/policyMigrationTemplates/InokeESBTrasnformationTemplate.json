@@ -1,0 +1,34 @@
+{
+  "templateKey": 
+		<#if isErrorProcessing??>
+			"invokeESBParam",
+		<#else>
+			"${policyTemplateKey}",
+		</#if>
+  "parameters": [
+  {
+    <#if invokeESB["self::node()[@isAlias = 'true']"][0]??> 
+    "templateKey": "esbAlias",
+    "values": [
+      "${invokeESB.@service?keep_after('${')?keep_before('}')}"
+    ]
+    <#else>
+	  "templateKey": "invokeISService",
+	  "parameters": [
+		{
+		  "templateKey": "serviceName",
+		  "values": [
+			"${invokeESB.@service}"
+		  ]
+		}, 
+		{
+		  "templateKey": "complyToISSpec",
+		  "values": [
+			"false"
+		  ]
+		}
+	  ]
+    </#if>
+    }
+  ]
+}

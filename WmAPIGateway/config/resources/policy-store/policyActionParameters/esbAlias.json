@@ -1,0 +1,17 @@
+  {
+		"templateKey" : "esbAlias",
+		"names" : [
+		   {
+			 "value" : "webMethods IS Service Alias",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Calls the ESB service specified by name in policy gateway.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isArray" : "true"
+  }

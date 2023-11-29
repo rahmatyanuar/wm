@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <!-- ################################################################
+      ###### Don't change the following bean order or id ######### -->
+
+    <!-- Replace dot method is removed from version 10.15. Any migration that is happening from
+         lower version to 10.15 must run below handler to covert #! to .(dot) for all the fields that is saved with #!
+          in the elasticsearch. This conversion runs for all indices name starting with gateway_<tenantname> except analytics type by default.-->
+
+    <bean id="replaceDotMigrationHandler"
+          class="com.softwareag.apigateway.migration.handlers.ReplaceDotMigrationHandler">
+        <property name="handlerEnabled" value="true" />
+        <property name="version" value="10.15" />
+        <property name="runOnCluster" value="false"/>
+        <property name="runForTransform" value="true"/>
+        <property name="excludeTracer" value="false"/>
+        <property name="excludeAuditLog" value="false"/>
+        <property name="excludeIndices" value=""/>
+        <property name="batchSize" value="10"/>
+        <property name="scrollTimeout" value="60000"/>
+    </bean>
+
+    <!-- ################################################################ -->
+
+	<bean id="passmanHandler"
+		  class="com.softwareag.apigateway.migration.handlers.PassmanMigrationHandler">
+		<property name="handlerEnabled" value="true" />
+		<property name="version" value="all" />
+		<property name="runOnCluster" value="true"/>
+	</bean>
+
+    <bean id="aclHandler"
+          class="com.softwareag.apigateway.migration.handlers.MigrateACLHandler">
+            <property name="handlerEnabled" value="true" />
+            <property name="version" value="10.5" />
+            <property name="runOnCluster" value="false"/>
+    </bean>
+
+	<bean id="apisHandler"
+                  class="com.softwareag.apigateway.migration.handlers.MigrateApisHandler">
+                <property name="handlerEnabled" value="true" />
+                <property name="version" value="10.3" />
+                <property name="runOnCluster" value="false"/>
+        </bean>
+
+        <bean id="thirdpartyJWTMigrationHandler"
+                  class="com.softwareag.apigateway.migration.handlers.ThirdpartyJWTMigrationHandler">
+                <property name="handlerEnabled" value="true" />
+                <property name="version" value="10.2" />
+                <property name="runOnCluster" value="false"/>
+        </bean>
+
+        <bean id="apiGatewayAssetsMigrationHandler"
+                  class="com.softwareag.apigateway.migration.handlers.APIGatewayAssetsMigrationHandler">
+                <property name="handlerEnabled" value="true" />
+                <property name="version" value="all" />
+                <property name="runOnCluster" value="false"/>
+				<property name="runForTransform" value="true"/>
+                <property name="handlers">
+                        <list>
+                                <ref bean="policyActionHandler"/>
+                                <ref bean="policyHandler"/>
+                                <ref bean="applicationHandler"/>
+                                <ref bean="aliasHandler"/>
+                                <ref bean="configurationHandler"/>
+                                <ref bean="strategyHandler"/>
+                        </list>
+                </property>
+        </bean>
+
+        <bean id="policyActionHandler" class="com.softwareag.apigateway.migration.handlers.PolicyActionMigrationHandler" >
+                <constructor-arg value="POLICYACTION"/>
+                <property name="enabled" value="true"/>
+                <property name="bulkRequestCount" value="20"/>
+        </bean>
+
+        <bean id="policyHandler" class="com.softwareag.apigateway.migration.handlers.PolicyMigrationHandler" >
+                <constructor-arg value="POLICY"/>
+                <property name="enabled" value="true"/>
+                <property name="bulkRequestCount" value="20"/>
+        </bean>
+
+        <bean id="aliasHandler" class="com.softwareag.apigateway.migration.handlers.AliasMigrationHandler" >
+                <constructor-arg value="ALIAS"/>
+                <property name="enabled" value="true"/>
+                <property name="bulkRequestCount" value="20"/>
+        </bean>
+
+        <bean id="strategyHandler" class="com.softwareag.apigateway.migration.handlers.StrategyMigrationHandler" >
+            <constructor-arg value="STRATEGY"/>
+            <property name="enabled" value="true"/>
+            <property name="bulkRequestCount" value="20"/>
+        </bean>
+
+        <bean id="configurationHandler" class="com.softwareag.apigateway.migration.handlers.ConfigurationMigrationHandler" >
+                <constructor-arg value="CONFIGURATION"/>
+                <property name="enabled" value="true"/>
+                <property name="bulkRequestCount" value="20"/>
+        </bean>
+
+        <bean id="oauth2ScopeHandler" class="com.softwareag.apigateway.migration.handlers.OAuth2ScopeMigrationHandler">
+                <property name="handlerEnabled" value="true" />
+                <property name="version" value="10.3" />
+                <property name="runOnCluster" value="false"/>
+        </bean>
+
+        <bean id="applicationHandler" class="com.softwareag.apigateway.migration.handlers.ApplicationMigrationHandler" >
+                <constructor-arg value="APPLICATION"/>
+                <property name="enabled" value="true"/>
+                <property name="bulkRequestCount" value="20"/>
+        </bean>
+
+        <bean id="passwordHandler"
+                  class="com.softwareag.apigateway.migration.handlers.APIGatewayPasswordHandler">
+                <property name="handlerEnabled" value="true" />
+                <property name="version" value="10.2" />
+                <property name="runOnCluster" value="false"/>
+        </bean>
+        <bean id="reverseMapEntryHandler"
+                  class="com.softwareag.apigateway.migration.handlers.ReverseMapIndexMigrationHandler">
+                <property name="handlerEnabled" value="true" />
+                <property name="version" value="10.2" />
+                <property name="runOnCluster" value="false"/>
+        </bean>
+
+        <bean id="OAuth2ProviderMigrationHandler"
+              class="com.softwareag.apigateway.migration.handlers.OAuth2ProviderMigrationHandler">
+            <property name="handlerEnabled" value="true" />
+            <property name="version" value="10.11" />
+            <property name="runOnCluster" value="false"/>
+        </bean>
+
+        <bean id="applicationStrategyMigrationHandler" class="com.softwareag.apigateway.migration.handlers.ApplicationStrategyMigrationHandler">
+                <property name="handlerEnabled" value="true"/>
+                <property name="version" value="10.3" />
+                <property name="runOnCluster" value="false"/>
+        </bean>
+
+		<bean id="clientSecretMaskingMigrationHandler" class="com.softwareag.apigateway.migration.handlers.ClientSecretMaskingMigrationHandler">
+			<property name="handlerEnabled" value="true" />
+			<property name="version" value="all" />
+			<property name="runOnCluster" value="false"/>
+			<property name="runForTransform" value="true"/>
+		</bean>
+
+		<bean id="soapToRestMigrationHandler"
+		  class="com.softwareag.apigateway.migration.handlers.SOAPToRestMigrationHandler">
+			<property name="handlerEnabled" value="true" />
+			<property name="version" value="10.11" />
+			<property name="runOnCluster" value="false"/>
+			<property name="runForTransform" value="true"/>
+		</bean>
+
+</beans>

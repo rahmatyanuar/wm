@@ -1,0 +1,19 @@
+{
+		"templateKey" : "httpHeader",
+		"names" : [
+		   {
+			 "value" : "HTTP Header",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["httpHeaderName.json","whiteList.json"]
+}

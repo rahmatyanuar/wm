@@ -1,0 +1,18 @@
+{
+  "templateKey" : "variable",
+  "names" : [
+    {
+      "value" : "Variable",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Variable",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"true",
+  "isArray" : "false"
+}

@@ -1,0 +1,194 @@
+
+
+function setField(field, val)
+{
+    if (val) {
+        field.disabled = false;
+    }
+    else {
+        field.disabled = true;
+        field.setAttribute("color", "red");
+    }
+}
+
+function init()
+{
+    handleLoadBalancingChange( document.forms[0]);
+    handleConnectionTypeChange( document.forms[0]);
+    handleSNCChange( document.forms[0]);
+    handlePoolableChange( document.forms[0]);
+}
+
+function init1()
+{
+    handleSNCChange1( document.forms[0]);
+}
+
+function enableAll( theForm)
+{
+    setField(theForm.elements[".CPROP.logonGroup"]          , true);
+    setField(theForm.elements[".CPROP.messageServerHost"]   , true);
+    setField(theForm.elements[".CPROP.systemId"]            , true);
+    setField(theForm.elements[".CPROP.appServerHost"]       , true);
+    setField(theForm.elements[".CPROP.systemNumber"]        , true);
+    setField(theForm.elements[".CPROP.programId"]           , true);
+    setField(theForm.elements[".CPROP.gatewayHost"]         , true);
+    setField(theForm.elements[".CPROP.gatewayService"]      , true);
+    setField(theForm.elements[".CPROP.repositoryServer"]    , true);
+    setField(theForm.elements[".CPROP.sncQualityOfService"] , true);
+    setField(theForm.elements[".CPROP.sncMyName"]           , true);
+    setField(theForm.elements[".CPROP.sncPartnerName"]      , true);
+
+    setField(theForm.elements[".CMGRPROP.poolable"]	      , true);
+}
+
+function enableAll1( theForm)
+{
+    setField(theForm.elements[".CPROP.sncQualityOfService"] , true);
+    setField(theForm.elements[".CPROP.sncMyName"]           , true);
+    setField(theForm.elements[".CPROP.authService"]         , true);
+}
+
+function setLoadBalancingFields(theForm, val)
+{
+    setField(theForm.elements[".CPROP.logonGroup"]          , val);
+    setField(theForm.elements[".CPROP.messageServerHost"]   , val);
+    setField(theForm.elements[".CPROP.systemId"]            , val);
+    setField(theForm.elements[".CPROP.appServerHost"]       , !val);
+    setField(theForm.elements[".CPROP.systemNumber"]        , !val);
+}
+
+function handleLoadBalancingChange(theForm)
+{
+    var optionobj = theForm.elements[".CPROP.loadBalancing"];
+    var option = optionobj.options[optionobj.selectedIndex].value;
+
+    if (option == "On") {
+        setLoadBalancingFields(theForm, true);
+    }
+    else if (option == "Off") {
+        setLoadBalancingFields(theForm, false);
+    }
+}
+
+function setConnectionTypeFields(theForm, val)
+{
+    setField(theForm.elements[".CPROP.programId"]           , val);
+    setField(theForm.elements[".CPROP.gatewayHost"]         , val);
+    setField(theForm.elements[".CPROP.gatewayService"]      , val);
+    setField(theForm.elements[".CPROP.repositoryServer"]    , val);
+}
+
+function handleConnectionTypeChange(theForm)
+{
+    var optionobj = theForm.elements[".CPROP.connectionType"];
+    var option = optionobj.options[optionobj.selectedIndex].value;
+
+    if (option == "Yes") {
+        setConnectionTypeFields(theForm, true);
+    }
+    else if (option == "No") {
+        setConnectionTypeFields(theForm, false);
+    }
+}
+
+
+function enablePoolFields( theForm, val)
+{
+    setField( theForm.elements[".CMGRPROP.minimumPoolSize"],   val);
+    setField( theForm.elements[".CMGRPROP.maximumPoolSize"],   val);
+    setField( theForm.elements[".CMGRPROP.poolIncrementSize"], val);
+    setField( theForm.elements[".CMGRPROP.blockingTimeout"],   val);
+    setField( theForm.elements[".CMGRPROP.expireTimeout"],     val);
+
+    if (val == true)
+    {
+         if (theForm.elements[".CMGRPROP.minimumPoolSize"].value == "")
+             theForm.elements[".CMGRPROP.minimumPoolSize"].value = "1";
+         if (theForm.elements[".CMGRPROP.maximumPoolSize"].value == "")
+             theForm.elements[".CMGRPROP.maximumPoolSize"].value = "10";
+         if (theForm.elements[".CMGRPROP.poolIncrementSize"].value == "")
+             theForm.elements[".CMGRPROP.poolIncrementSize"].value = "1";
+         if (theForm.elements[".CMGRPROP.blockingTimeout"].value == "")
+             theForm.elements[".CMGRPROP.blockingTimeout"].value = "1000";
+         if (theForm.elements[".CMGRPROP.expireTimeout"].value == "")
+             theForm.elements[".CMGRPROP.expireTimeout"].value = "1000";
+    }
+
+    if (theForm.elements[".CMGRPROP.startupRetryCount"].value == "")
+        theForm.elements[".CMGRPROP.startupRetryCount"].value = "0";
+    if (theForm.elements[".CMGRPROP.startupBackoffSecs"].value == "")
+        theForm.elements[".CMGRPROP.startupBackoffSecs"].value = "10";
+}
+
+
+function handlePoolableChange( theForm)
+{
+    var poolableobj = theForm.elements[".CMGRPROP.poolable"];
+    var poolable = poolableobj.options[poolableobj.selectedIndex].value;
+
+    if (poolable == "true")
+    {
+        enablePoolFields( theForm, true);
+    }
+    else if (poolable == "false")
+    {
+        enablePoolFields( theForm, false);
+    }
+}
+
+
+function setPoolFields( theForm, val)
+{
+    setField( theForm.elements[".CMGRPROP.poolable"], val);
+
+    if (val == false)
+    {
+        theForm.elements[".CMGRPROP.poolable"].value = "false";
+        handlePoolableChange( theForm);
+    }
+}
+
+
+function setSNCFields( theForm, val)
+{
+    setField(theForm.elements[".CPROP.sncQualityOfService"] , val);
+    setField(theForm.elements[".CPROP.sncMyName"]           , val);
+    setField(theForm.elements[".CPROP.sncPartnerName"]      , val);
+}
+
+
+function handleSNCChange( theForm)
+{
+    var optionobj = theForm.elements[".CPROP.sncMode"];
+    var option = optionobj.options[optionobj.selectedIndex].value;
+
+    if (option == "Yes")
+    {
+        setSNCFields( theForm, true);
+    }
+    else if (option == "No")
+    {
+        setSNCFields( theForm, false);
+    }
+}
+
+function setSNCFields1(theForm, val)
+{
+    setField(theForm.elements[".CPROP.sncQualityOfService"] , val);
+    setField(theForm.elements[".CPROP.sncMyName"]           , val);
+    setField(theForm.elements[".CPROP.authService"]         , val);
+}
+
+function handleSNCChange1(theForm)
+{
+    var optionobj = theForm.elements[".CPROP.sncMode"];
+    var option = optionobj.options[optionobj.selectedIndex].value;
+
+    if (option == "Yes") {
+        setSNCFields1(theForm, true);
+    }
+    else if (option == "No") {
+        setSNCFields1(theForm, false);
+    }
+}

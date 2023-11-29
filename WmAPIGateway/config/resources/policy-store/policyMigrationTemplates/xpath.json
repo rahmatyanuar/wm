@@ -1,0 +1,39 @@
+  ,
+  {
+	"templateKey": "payloadIdentifier",
+	"parameters": [
+	  {
+        "templateKey": "expressionType",
+        "values": [
+            "xpath"
+         ]
+      },
+      {
+        "templateKey": "expression",
+        "values": [
+            "${param.content.@xpath}"
+        ]
+      }
+	  <#list param.content.namespace as ns>
+	  <#if ns.@prefix[0]??>
+		  ,{
+			"templateKey": "namespace",
+			"parameters": [
+			  {
+				"templateKey": "prefix",
+				"values": [
+				  "${ns.@prefix}"
+				]
+			  },
+			  {
+				"templateKey": "uri",
+				"values": [
+				  "${ns.@uri}"
+				]
+			  }
+			]
+		  }
+	  </#if>
+	  </#list>
+	]
+  }

@@ -1,0 +1,43 @@
+{
+	"properties": {
+	  "description": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "id": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "name": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "names": {
+		"properties": {
+		  "locale": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		  },
+		  "value": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		  }
+		}
+	  },
+		"key": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"host": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		}
+	}
+}

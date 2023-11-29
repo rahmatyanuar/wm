@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "requestPayload",
+		"names" : [
+		   {
+			 "value" : "Request Payload",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "TEXT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

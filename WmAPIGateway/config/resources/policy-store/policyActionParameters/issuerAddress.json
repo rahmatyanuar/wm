@@ -1,0 +1,18 @@
+{
+		"templateKey" : "issuerAddress",
+		"names" : [
+		   {
+			 "value" : "Issuer Address",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Address of the Issuer",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

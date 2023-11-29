@@ -1,0 +1,24 @@
+{
+ "templateKey" : "throttle",
+ "names" : [
+   {
+     "value" : "Traffic Optimization",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "The API enforces traffic limits to protect the backend service from becoming overloaded<br/><b>Hard Limit:</b> ${hardlimit} invocations per ${hardinterval} - further requests will be blocked<br/>",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"throttleRule","consumerIds.json","consumerSpecificCounter.json","destination", "alertInterval.json","unit.json","alertFrequency.json","alertMessage.json"
+ ],
+ "occurence" : "multiple",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA","WEBSOCKET"],
+ "order" :  {
+   "sequence" : ["insequence"]
+ },
+ "dependentActions":["evaluatePolicy"]
+}

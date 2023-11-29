@@ -1,0 +1,77 @@
+{
+				"templateKey" : "authType",
+				"names" : [
+				   {
+					 "value" : "Authentication scheme",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes how the transport headers should be sent to native service.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "NONE"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "None",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "NONE"
+					},
+					{
+						"names" : [
+						{
+							"value" : "WSS username",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "WSS_USERNAME"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Kerberos",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "KERBEROS"
+					},
+					{
+						"names" : [
+						{
+							"value" : "SAML",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SAML"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Alias",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "ALIAS"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Remove WSS headers",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "REMOVE_WSS_HEADERS"
+					}
+				]
+}

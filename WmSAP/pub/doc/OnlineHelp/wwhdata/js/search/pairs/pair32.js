@@ -1,0 +1,19 @@
+function FileData_Pairs(x)
+{
+x.t("plain","fields");
+x.t("displays","document");
+x.t("type","definition");
+x.t("document","type");
+x.t("built","segments");
+x.t("definition","specific");
+x.t("idoc","segments");
+x.t("idoc","segment");
+x.t("segments","built");
+x.t("segments","and/or");
+x.t("segment","idoc");
+x.t("segment","screen");
+x.t("and/or","plain");
+x.t("specific","idoc");
+x.t("screen","displays");
+x.t("screen","idoc");
+}

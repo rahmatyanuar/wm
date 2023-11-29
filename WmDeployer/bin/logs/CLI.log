@@ -1,0 +1,1035 @@
+[ INFO] [17 Nov 2023 19:04:22,971] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:04:22,980] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:04:22,980] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:04:22,980] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:04:22,981] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:04:22,984] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:04:22,984] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:04:22,988] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:04:23,918] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:04:23,928] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:04:23,945] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:04:23,954] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ERROR] [17 Nov 2023 19:04:23,964] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:450)
+Unable to connect to Deployer Server ${machinename}:${isport}. The <host></host> tag should be specified as follows <host>hostname.domain:port</host>
+
+[ INFO] [17 Nov 2023 19:04:23,964] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:04:23,966] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 3
+
+[ INFO] [17 Nov 2023 19:04:23,966] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 0
+
+[ INFO] [17 Nov 2023 19:04:23,984] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[ INFO] [17 Nov 2023 19:05:58,221] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:05:58,227] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:05:58,228] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:05:58,228] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:05:58,229] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:05:58,231] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:05:58,231] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:05:58,235] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:05:59,152] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:05:59,161] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:05:59,175] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:05:59,184] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:05:59,308] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:05:59,330] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:05:59,347] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:05:59,351] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:05:59,351] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:05:59,364] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:05:59,364] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:05:59,477] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:05:59,478] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:05:59,487] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@localhost:5551
+
+[ INFO] [17 Nov 2023 19:05:59,599] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@localhost:5551
+
+[DEBUG] [17 Nov 2023 19:05:59,605] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@localhost:5551 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:05:59,723] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@localhost:5551 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:05:59,735] (RepoAssetUtil.java:getRepositoryComposite:288)
+Adding asset Maxis_EAI_Process_Contact from srcAlias=ABEISRepository to Deployment Set myDeploymentSet
+
+[DEBUG] [17 Nov 2023 19:05:59,736] (RepoAssetUtil.java:getRepositoryComposite:291)
+ABEISRepository$IS$Maxis_EAI_Process_Contact$COMPOSITE_INCL
+
+[DEBUG] [17 Nov 2023 19:05:59,741] (ProjectPlanExecutorXMLParser.java:getProjectDetails:627)
+Deleting Project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:05:59,746] (ProjectPlanExecutorXMLParser.java:getProjectDetails:632)
+Creating Project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:05:59,804] (ProjectPlanExecutorXMLParser.java:getProjectDetails:634)
+Created Project ISABEProjectAutomator
+
+[DEBUG] [17 Nov 2023 19:05:59,805] (DeploymentSet.java:create:190)
+Creating Deployment Set myDeploymentSet of type Repository for project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:05:59,822] (DeploymentSet.java:create:219)
+Created Deployment Set myDeploymentSet of type Repository for project ISABEProjectAutomator
+
+[DEBUG] [17 Nov 2023 19:05:59,823] (DeploymentSet.java:updateSourceServerAliasToSets:389)
+Updating Source Server Aliases on Deployment Set myDeploymentSet of type Repository for project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:05:59,839] (DeploymentSet.java:updateSourceServerAliasToSets:434)
+Updated Source Server Aliases on Deployment Set myDeploymentSet of type Repository for project ISABEProjectAutomator
+
+[DEBUG] [17 Nov 2023 19:05:59,845] (DeploymentSet.java:addRepoCompositesToDeploymentSet:2867)
+Adding Repository Objects to Deployment Set myDeploymentSet of type Repository for project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:05:59,889] (DeploymentSet.java:addRepoCompositesToDeploymentSet:2896)
+Added Repository Objects to Deployment Set myDeploymentSet of type Repository for project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:05:59,991] (DeploymentMap.java:create:70)
+Creating Deployment Map myDeploymentMap in Project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:06:00,002] (DeploymentMap.java:create:90)
+Successfully created Deployment Map myDeploymentMap in Project ISABEProjectAutomator
+
+[ INFO] [17 Nov 2023 19:06:00,076] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:06:00,078] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 16
+
+[ INFO] [17 Nov 2023 19:06:00,079] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 0
+
+[ INFO] [17 Nov 2023 19:06:00,089] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[DEBUG] [17 Nov 2023 19:07:56,726] (ParseDeployerParams.java:parse:74)
+[Deployer] Entering parse(String[] args) Method
+
+[ INFO] [17 Nov 2023 19:07:56,737] (ParseDeployerParams.java:parse:1951)
+[[DEP.0100.5.56] Operation] [DEP.0100.5.23] Deploy Deployment Candidate
+
+[DEBUG] [17 Nov 2023 19:07:56,737] (ParseDeployerParams.java:validateCommandLineParametersForAction:2575)
+[Deployer] Entering validateCommandLineParametersForAction(Args arg,	CommandLineParser parser)
+
+[DEBUG] [17 Nov 2023 19:07:56,737] (ParseDeployerParams.java:validateCommandLineParametersForAction:2886)
+[Deployer] [Param Authentication] 
+
+[DEBUG] [17 Nov 2023 19:07:56,738] (ParseDeployerParams.java:validateCommandLineParametersForAction:2889)
+[Deployer] [Config File Parameters]isUserSpecifiedinConfigFile = false
+
+[DEBUG] [17 Nov 2023 19:07:56,738] (ParseDeployerParams.java:validateCommandLineParametersForAction:2892)
+[Deployer] [Config File Parameters]isPasswordSpecifiedinConfigFile = false
+
+[DEBUG] [17 Nov 2023 19:07:56,741] (ParseDeployerParams.java:validateCommandLineParametersForAction:2894)
+[Deployer] Operation invoked by User Administrator on Deployer localhost:5555
+
+[DEBUG] [17 Nov 2023 19:07:56,742] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = port Value = 5555
+
+[DEBUG] [17 Nov 2023 19:07:56,742] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = host Value = localhost
+
+[DEBUG] [17 Nov 2023 19:07:56,742] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = action Value = deploy
+
+[DEBUG] [17 Nov 2023 19:07:56,743] (ParseDeployerParams.java:printParamMap:5180)
+[Deployer][ParamMap] Key = pwd.Value present but not shown.
+
+[DEBUG] [17 Nov 2023 19:07:56,743] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = user Value = Administrator
+
+[ INFO] [17 Nov 2023 19:07:56,744] (ParseDeployerParams.java:validateCommandLineParametersForAction:4040)
+[[DEP.0100.5.56] Operation] [DEP.0100.5.23] Deploy Deployment Candidate
+
+[ INFO] [17 Nov 2023 19:07:56,744] (ParseDeployerParams.java:validateCommandLineParametersForAction:4112)
+[DEP.0100.5.62] -force flag is true
+
+[DEBUG] [17 Nov 2023 19:07:56,744] (ParseDeployerParams.java:validateCommandLineParametersForAction:5150)
+[Deployer] Exiting validateCommandLineParametersForAction(Args arg,	CommandLineParser parser)
+
+[DEBUG] [17 Nov 2023 19:07:56,747] (DeployerServiceUtils.java:deployAction:657)
+[Deployer] Entering deployAction(HashMap paramMap) Method
+
+[DEBUG] [17 Nov 2023 19:07:56,752] (DeployerServiceUtils.java:deployAction:660)
+[Deployer] Invoking Service wm.deployer.UIDeployer.deployToTargets on Deployer localhost:5555
+
+[DEBUG] [17 Nov 2023 19:07:56,753] (DeployerServiceUtils.java:deployAction:666)
+[Deployer] Service invoked by User Administrator
+
+[DEBUG] [17 Nov 2023 19:07:56,753] (DeployerServiceUtils.java:deployAction:668)
+[Deployer] Parameters to the service 
+
+[DEBUG] [17 Nov 2023 19:07:56,757] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	project = ISABEProjectAutomator
+
+[DEBUG] [17 Nov 2023 19:07:56,758] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	deploymentName = ISABEProjectAutomatorCandidate
+
+[DEBUG] [17 Nov 2023 19:07:56,758] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	preDeployString = false
+
+[DEBUG] [17 Nov 2023 19:07:56,758] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	force = true
+
+[DEBUG] [17 Nov 2023 19:07:56,758] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	reportFilePath = null
+
+[DEBUG] [17 Nov 2023 19:07:56,759] (DeployerServiceUtils.java:executeService:1484)
+[Deployer] Entering executeService(String server, String user, String pwd, String packageStr, String service,IData inputDocument) Method
+
+[DEBUG] [17 Nov 2023 19:07:56,773] (DeployerServiceUtils.java:executeService:1535)
+[Deployer] Initiating connection Secure Socket Layer = false
+
+[FATAL] [17 Nov 2023 19:07:56,876] (DeployerServiceUtils.java:deployAction:720)
+[Deployer Service Exception] Stature returned with status error
+
+[FATAL] [17 Nov 2023 19:07:56,876] (DeployerServiceUtils.java:deployAction:721)
+[Deployer Service Exception] Message = Connection refused: connect
+
+[DEBUG] [17 Nov 2023 19:07:56,877] (DeployerServiceUtils.java:deployAction:723)
+[Deployer Service Exception Dump]
+
+[DEBUG] [17 Nov 2023 19:07:56,878] (DeployerServiceUtils.java:deployAction:724)
+null
+
+[DEBUG] [17 Nov 2023 19:07:56,878] (DeployerServiceUtils.java:deployAction:726)
+[Deployer] Exiting deployAction(HashMap paramMap) Method
+
+[DEBUG] [17 Nov 2023 19:07:56,878] (ParseDeployerParams.java:addStatusRecordToReport:5157)
+[Deployer] Entering addStatusRecordToReport(int errorCode, String message, boolean isUsageRecord) Method
+
+[DEBUG] [17 Nov 2023 19:07:56,879] (ParseDeployerParams.java:addStatusRecordToReport:5168)
+[Deployer] Exiting addStatusRecordToReport(int errorCode, String message, boolean isUsageRecord) Method
+
+[ INFO] [17 Nov 2023 19:07:56,880] (ParseDeployerParams.java:parse:1986)
+[[DEP.0100.4.01] Error -999][DEP.0100.-999] Service Error Connection refused: connect
+
+[ INFO] [17 Nov 2023 19:16:55,452] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:16:55,459] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:16:55,459] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:16:55,460] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:16:55,460] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:16:55,463] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:16:55,463] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:16:55,467] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:16:56,275] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:16:56,283] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:16:56,432] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:16:56,451] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:16:56,458] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:16:56,462] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:16:56,463] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:16:56,473] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:16:56,474] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:16:56,509] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:16:56,510] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:16:56,512] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@kubernetes.docker.internal/:5551
+
+[ INFO] [17 Nov 2023 19:16:56,604] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@kubernetes.docker.internal/:5551
+
+[DEBUG] [17 Nov 2023 19:16:56,610] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@kubernetes.docker.internal/:5551 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:16:56,622] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:16:56,630] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:16:56,728] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@kubernetes.docker.internal/:5551 with the user Administrator
+
+[ERROR] [17 Nov 2023 19:16:56,732] (ProjectPlanExecutorXMLParser.java:getProjectDetails:537)
+Error creating Project ISABEProjectAutomator as the project already exits.
+
+[ INFO] [17 Nov 2023 19:16:56,732] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:16:56,733] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 9
+
+[ INFO] [17 Nov 2023 19:16:56,733] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 1
+
+[ INFO] [17 Nov 2023 19:16:56,743] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[ INFO] [17 Nov 2023 19:18:07,669] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:18:07,677] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:18:07,677] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:18:07,677] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:18:07,678] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:18:07,680] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:18:07,681] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:18:07,684] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:18:08,588] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:18:08,596] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:18:08,720] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:18:08,743] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:18:08,749] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:18:08,753] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:18:08,754] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:18:08,765] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:18:08,767] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:18:08,793] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:18:08,795] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:18:08,797] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@kubernetes.docker.internal:5551
+
+[ INFO] [17 Nov 2023 19:18:08,888] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@kubernetes.docker.internal:5551
+
+[DEBUG] [17 Nov 2023 19:18:08,894] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@kubernetes.docker.internal:5551 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:18:08,905] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:18:08,914] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:18:09,046] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@kubernetes.docker.internal:5551 with the user Administrator
+
+[ERROR] [17 Nov 2023 19:18:09,050] (ProjectPlanExecutorXMLParser.java:getProjectDetails:537)
+Error creating Project ISABEProjectAutomator as the project already exits.
+
+[ INFO] [17 Nov 2023 19:18:09,051] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:18:09,051] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 9
+
+[ INFO] [17 Nov 2023 19:18:09,052] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 1
+
+[ INFO] [17 Nov 2023 19:18:09,062] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[ INFO] [17 Nov 2023 19:52:54,467] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:52:54,474] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:52:54,474] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:52:54,475] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:52:54,475] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:52:54,478] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:52:54,478] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:52:54,482] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:52:55,217] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:52:55,229] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:52:55,385] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:52:55,399] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:52:55,416] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:52:55,419] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:52:55,420] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:52:55,432] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:52:55,433] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:52:55,548] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:52:55,549] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:52:55,551] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@rhellocalhost:5555
+
+[ INFO] [17 Nov 2023 19:52:55,668] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@rhellocalhost:5555
+
+[DEBUG] [17 Nov 2023 19:52:55,675] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@rhellocalhost:5555 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:52:55,687] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:52:55,696] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:52:55,812] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@rhellocalhost:5555 with the user Administrator
+
+[ERROR] [17 Nov 2023 19:52:55,816] (ProjectPlanExecutorXMLParser.java:getProjectDetails:537)
+Error creating Project ISABEProjectAutomator as the project already exits.
+
+[ INFO] [17 Nov 2023 19:52:55,817] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:52:55,817] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 9
+
+[ INFO] [17 Nov 2023 19:52:55,818] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 1
+
+[ INFO] [17 Nov 2023 19:52:55,828] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[ INFO] [17 Nov 2023 19:56:55,095] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:56:55,102] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:56:55,103] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:56:55,103] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:56:55,103] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:56:55,106] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:56:55,107] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:56:55,111] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:56:56,015] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:56:56,024] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:56:56,173] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:56:56,184] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:56:56,190] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:56:56,193] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:56:56,194] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:56:56,205] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:56:56,206] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:56:56,236] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:56:56,237] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:56:56,240] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@localhost:5555
+
+[ INFO] [17 Nov 2023 19:56:56,336] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@localhost:5555
+
+[DEBUG] [17 Nov 2023 19:56:56,343] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@localhost:5555 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:56:56,355] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:56:56,364] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:56:56,470] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@localhost:5555 with the user Administrator
+
+[ERROR] [17 Nov 2023 19:56:56,473] (ProjectPlanExecutorXMLParser.java:getProjectDetails:537)
+Error creating Project ISABEProjectAutomator as the project already exits.
+
+[ INFO] [17 Nov 2023 19:56:56,473] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:56:56,474] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 9
+
+[ INFO] [17 Nov 2023 19:56:56,474] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 1
+
+[ INFO] [17 Nov 2023 19:56:56,485] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[ INFO] [17 Nov 2023 19:58:29,959] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:58:29,966] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:58:29,966] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:58:29,967] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:58:29,967] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:58:29,970] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:58:29,971] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:58:29,975] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:58:30,688] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:58:30,700] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:58:30,837] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:58:30,844] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:58:30,849] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:58:30,853] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:58:30,854] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:58:30,864] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:58:30,864] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:58:30,892] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:58:30,893] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:58:30,895] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@localhost:5551
+
+[ INFO] [17 Nov 2023 19:58:30,986] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@localhost:5551
+
+[DEBUG] [17 Nov 2023 19:58:30,994] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@localhost:5551 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:58:31,006] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:58:31,014] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:58:31,124] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@localhost:5551 with the user Administrator
+
+[ERROR] [17 Nov 2023 19:58:31,130] (ProjectPlanExecutorXMLParser.java:getProjectDetails:537)
+Error creating Project ISABEProjectAutomator as the project already exits.
+
+[ INFO] [17 Nov 2023 19:58:31,130] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:58:31,130] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 9
+
+[ INFO] [17 Nov 2023 19:58:31,131] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 1
+
+[ INFO] [17 Nov 2023 19:58:31,141] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[ INFO] [17 Nov 2023 19:59:50,760] (MainClass.java:main:168)
+No of command line arguments = 4
+
+[ INFO] [17 Nov 2023 19:59:50,767] (MainClass.java:main:170)
+Argument 0 = C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:59:50,768] (MainClass.java:main:170)
+Argument 1 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRuntime.xsd
+
+[ INFO] [17 Nov 2023 19:59:50,769] (MainClass.java:main:170)
+Argument 2 = C:\cc-def-10.15-fix1-w64\IntegrationServer\instances\is_5551\packages\WmDeployer\bin\\..\config\ProjectAutomatorForRepository.xsd
+
+[ INFO] [17 Nov 2023 19:59:50,769] (MainClass.java:main:170)
+Argument 3 = 1
+
+[ INFO] [17 Nov 2023 19:59:50,772] (MainClass.java:main:198)
+Operating System on which ProjectAutomator is running is a WINDOWS or a WINDOWS Variant
+
+[ INFO] [17 Nov 2023 19:59:50,772] (MainClass.java:main:212)
+Path to XML project definition file : C:\SoftwareAGABE1015\ProjectAutomator.xml
+
+[ INFO] [17 Nov 2023 19:59:50,776] (MainClass.java:<init>:46)
+Started Operation of Deployer Test Suite
+
+[ INFO] [17 Nov 2023 19:59:51,602] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:59:51,610] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:59:51,746] (ProjectPlanExecutorXMLParser.java:getDeployerServerDetails:467)
+Using WmDeployer package on the Server localhost:5551 configured with the user Administrator
+
+[DEBUG] [17 Nov 2023 19:59:51,758] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias ABEISRepository of pluginType Repository exists.
+
+[DEBUG] [17 Nov 2023 19:59:51,761] (DeployerUtil.java:createRepositoryServerAliases:1322)
+Deleting Repository Server Alias ABEISRepository
+
+[ INFO] [17 Nov 2023 19:59:51,765] (DeployerUtil.java:createRepositoryServerAliases:1324)
+Deleted Repository Server Alias ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:59:51,765] (DeployerUtil.java:createRepositoryServerAliases:1326)
+Creating Repository Server Alias : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:59:51,776] (DeployerUtil.java:createRepositoryServerAliases:1328)
+Created Repository Server Alias Alias : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:59:51,776] (DeployerUtil.java:createRepositoryServerAliases:1330)
+Creating Repository Indexes : aliasName = ABEISRepository
+
+[ INFO] [17 Nov 2023 19:59:51,801] (DeployerUtil.java:createRepositoryServerAliases:1332)
+Created Repository Indexes : aliasName = ABEISRepository
+
+[DEBUG] [17 Nov 2023 19:59:51,802] (ServerAlias.java:doesServerAliasExist:92)
+Checking if the  Server Alias local of pluginType IS&TN exists.
+
+[DEBUG] [17 Nov 2023 19:59:51,805] (DeployerUtil.java:createISServerAliases:214)
+Deleting IS Alias : aliasName = local@localhost:5551
+
+[ INFO] [17 Nov 2023 19:59:51,903] (DeployerUtil.java:createISServerAliases:217)
+Deleted IS Alias : aliasName = local@localhost:5551
+
+[DEBUG] [17 Nov 2023 19:59:51,911] (DeployerUtil.java:createISServerAliases:220)
+Creating IS Alias : aliasName = local@localhost:5551 with the user Administrator
+
+[ INFO] [17 Nov 2023 19:59:51,923] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:59:51,931] (KeyObfuscator.java:decryptAndUnobfuscate:162)
+Successfully retrieved the key from the given obfuscated file.
+
+[ INFO] [17 Nov 2023 19:59:52,080] (DeployerUtil.java:createISServerAliases:242)
+Created IS Alias : aliasName = local@localhost:5551 with the user Administrator
+
+[ERROR] [17 Nov 2023 19:59:52,084] (ProjectPlanExecutorXMLParser.java:getProjectDetails:537)
+Error creating Project ISABEProjectAutomator as the project already exits.
+
+[ INFO] [17 Nov 2023 19:59:52,085] (XMLReport.java:runExample:41)
+Started Generating Report ... 
+
+[ INFO] [17 Nov 2023 19:59:52,085] (XMLReport.java:createDOMTree:88)
+Info Messages Size = 9
+
+[ INFO] [17 Nov 2023 19:59:52,086] (XMLReport.java:createDOMTree:89)
+Error Messages Size = 1
+
+[ INFO] [17 Nov 2023 19:59:52,095] (XMLReport.java:runExample:44)
+Generated Automation Test Suite Report file successfully.
+
+[DEBUG] [17 Nov 2023 20:00:34,345] (ParseDeployerParams.java:parse:74)
+[Deployer] Entering parse(String[] args) Method
+
+[ INFO] [17 Nov 2023 20:00:34,357] (ParseDeployerParams.java:parse:1951)
+[[DEP.0100.5.56] Operation] [DEP.0100.5.23] Deploy Deployment Candidate
+
+[DEBUG] [17 Nov 2023 20:00:34,358] (ParseDeployerParams.java:validateCommandLineParametersForAction:2575)
+[Deployer] Entering validateCommandLineParametersForAction(Args arg,	CommandLineParser parser)
+
+[DEBUG] [17 Nov 2023 20:00:34,359] (ParseDeployerParams.java:validateCommandLineParametersForAction:2886)
+[Deployer] [Param Authentication] 
+
+[DEBUG] [17 Nov 2023 20:00:34,360] (ParseDeployerParams.java:validateCommandLineParametersForAction:2889)
+[Deployer] [Config File Parameters]isUserSpecifiedinConfigFile = false
+
+[DEBUG] [17 Nov 2023 20:00:34,360] (ParseDeployerParams.java:validateCommandLineParametersForAction:2892)
+[Deployer] [Config File Parameters]isPasswordSpecifiedinConfigFile = false
+
+[DEBUG] [17 Nov 2023 20:00:34,363] (ParseDeployerParams.java:validateCommandLineParametersForAction:2894)
+[Deployer] Operation invoked by User Administrator on Deployer localhost:5551
+
+[DEBUG] [17 Nov 2023 20:00:34,363] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = port Value = 5551
+
+[DEBUG] [17 Nov 2023 20:00:34,363] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = host Value = localhost
+
+[DEBUG] [17 Nov 2023 20:00:34,364] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = action Value = deploy
+
+[DEBUG] [17 Nov 2023 20:00:34,365] (ParseDeployerParams.java:printParamMap:5180)
+[Deployer][ParamMap] Key = pwd.Value present but not shown.
+
+[DEBUG] [17 Nov 2023 20:00:34,365] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = user Value = Administrator
+
+[ INFO] [17 Nov 2023 20:00:34,365] (ParseDeployerParams.java:validateCommandLineParametersForAction:4040)
+[[DEP.0100.5.56] Operation] [DEP.0100.5.23] Deploy Deployment Candidate
+
+[ INFO] [17 Nov 2023 20:00:34,366] (ParseDeployerParams.java:validateCommandLineParametersForAction:4112)
+[DEP.0100.5.62] -force flag is true
+
+[DEBUG] [17 Nov 2023 20:00:34,366] (ParseDeployerParams.java:validateCommandLineParametersForAction:5150)
+[Deployer] Exiting validateCommandLineParametersForAction(Args arg,	CommandLineParser parser)
+
+[DEBUG] [17 Nov 2023 20:00:34,369] (DeployerServiceUtils.java:deployAction:657)
+[Deployer] Entering deployAction(HashMap paramMap) Method
+
+[DEBUG] [17 Nov 2023 20:00:34,374] (DeployerServiceUtils.java:deployAction:660)
+[Deployer] Invoking Service wm.deployer.UIDeployer.deployToTargets on Deployer localhost:5551
+
+[DEBUG] [17 Nov 2023 20:00:34,375] (DeployerServiceUtils.java:deployAction:666)
+[Deployer] Service invoked by User Administrator
+
+[DEBUG] [17 Nov 2023 20:00:34,376] (DeployerServiceUtils.java:deployAction:668)
+[Deployer] Parameters to the service 
+
+[DEBUG] [17 Nov 2023 20:00:34,380] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	project = ISABEProjectAutomator
+
+[DEBUG] [17 Nov 2023 20:00:34,380] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	deploymentName = ISABEProjectAutomatorCandidate
+
+[DEBUG] [17 Nov 2023 20:00:34,380] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	preDeployString = false
+
+[DEBUG] [17 Nov 2023 20:00:34,380] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	force = true
+
+[DEBUG] [17 Nov 2023 20:00:34,381] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	reportFilePath = null
+
+[DEBUG] [17 Nov 2023 20:00:34,381] (DeployerServiceUtils.java:executeService:1484)
+[Deployer] Entering executeService(String server, String user, String pwd, String packageStr, String service,IData inputDocument) Method
+
+[DEBUG] [17 Nov 2023 20:00:34,395] (DeployerServiceUtils.java:executeService:1535)
+[Deployer] Initiating connection Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:00:34,529] (DeployerServiceUtils.java:executeService:1537)
+[Deployer] Connection Established Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:00:34,534] (DeployerServiceUtils.java:executeService:1539)
+[Deployer] Executing Service wm.deployer.UIDeployer:deployToTargets Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:00:34,559] (DeployerServiceUtils.java:executeService:1541)
+[Deployer] Completed Executing Service wm.deployer.UIDeployer:deployToTargets Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:00:34,562] (DeployerServiceUtils.java:executeService:1577)
+[Deployer] Exiting executeService(String server, String user, String pwd, String packageStr, String service,IData inputDocument) Method
+
+[DEBUG] [17 Nov 2023 20:00:34,562] (DeployerServiceUtils.java:deployAction:710)
+[Deployer Service Status] Stature returned with status error
+
+[DEBUG] [17 Nov 2023 20:00:34,563] (DeployerServiceUtils.java:deployAction:714)
+[Deployer Service Status] Message = [DEP.0002.0148] No such deployment candidate ISABEProjectAutomatorCandidate found in project ISABEProjectAutomator. Delete and recreate the deployment candidate.
+
+[DEBUG] [17 Nov 2023 20:00:34,563] (DeployerServiceUtils.java:deployAction:726)
+[Deployer] Exiting deployAction(HashMap paramMap) Method
+
+[DEBUG] [17 Nov 2023 20:00:34,563] (ParseDeployerParams.java:addStatusRecordToReport:5157)
+[Deployer] Entering addStatusRecordToReport(int errorCode, String message, boolean isUsageRecord) Method
+
+[DEBUG] [17 Nov 2023 20:00:34,564] (ParseDeployerParams.java:addStatusRecordToReport:5168)
+[Deployer] Exiting addStatusRecordToReport(int errorCode, String message, boolean isUsageRecord) Method
+
+[ INFO] [17 Nov 2023 20:00:34,564] (ParseDeployerParams.java:parse:1986)
+[[DEP.0100.4.01] Error -999][DEP.0100.-999] Service Error [DEP.0002.0148] No such deployment candidate ISABEProjectAutomatorCandidate found in project ISABEProjectAutomator. Delete and recreate the deployment candidate.
+
+[DEBUG] [17 Nov 2023 20:03:44,591] (ParseDeployerParams.java:parse:74)
+[Deployer] Entering parse(String[] args) Method
+
+[ INFO] [17 Nov 2023 20:03:44,602] (ParseDeployerParams.java:parse:1951)
+[[DEP.0100.5.56] Operation] [DEP.0100.5.23] Deploy Deployment Candidate
+
+[DEBUG] [17 Nov 2023 20:03:44,603] (ParseDeployerParams.java:validateCommandLineParametersForAction:2575)
+[Deployer] Entering validateCommandLineParametersForAction(Args arg,	CommandLineParser parser)
+
+[DEBUG] [17 Nov 2023 20:03:44,604] (ParseDeployerParams.java:validateCommandLineParametersForAction:2886)
+[Deployer] [Param Authentication] 
+
+[DEBUG] [17 Nov 2023 20:03:44,605] (ParseDeployerParams.java:validateCommandLineParametersForAction:2889)
+[Deployer] [Config File Parameters]isUserSpecifiedinConfigFile = false
+
+[DEBUG] [17 Nov 2023 20:03:44,606] (ParseDeployerParams.java:validateCommandLineParametersForAction:2892)
+[Deployer] [Config File Parameters]isPasswordSpecifiedinConfigFile = false
+
+[DEBUG] [17 Nov 2023 20:03:44,608] (ParseDeployerParams.java:validateCommandLineParametersForAction:2894)
+[Deployer] Operation invoked by User Administrator on Deployer localhost:5551
+
+[DEBUG] [17 Nov 2023 20:03:44,609] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = port Value = 5551
+
+[DEBUG] [17 Nov 2023 20:03:44,609] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = host Value = localhost
+
+[DEBUG] [17 Nov 2023 20:03:44,610] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = action Value = deploy
+
+[DEBUG] [17 Nov 2023 20:03:44,610] (ParseDeployerParams.java:printParamMap:5180)
+[Deployer][ParamMap] Key = pwd.Value present but not shown.
+
+[DEBUG] [17 Nov 2023 20:03:44,611] (ParseDeployerParams.java:printParamMap:5183)
+[Deployer][ParamMap] Key = user Value = Administrator
+
+[ INFO] [17 Nov 2023 20:03:44,613] (ParseDeployerParams.java:validateCommandLineParametersForAction:4040)
+[[DEP.0100.5.56] Operation] [DEP.0100.5.23] Deploy Deployment Candidate
+
+[ INFO] [17 Nov 2023 20:03:44,613] (ParseDeployerParams.java:validateCommandLineParametersForAction:4112)
+[DEP.0100.5.62] -force flag is true
+
+[DEBUG] [17 Nov 2023 20:03:44,613] (ParseDeployerParams.java:validateCommandLineParametersForAction:5150)
+[Deployer] Exiting validateCommandLineParametersForAction(Args arg,	CommandLineParser parser)
+
+[DEBUG] [17 Nov 2023 20:03:44,615] (DeployerServiceUtils.java:deployAction:657)
+[Deployer] Entering deployAction(HashMap paramMap) Method
+
+[DEBUG] [17 Nov 2023 20:03:44,619] (DeployerServiceUtils.java:deployAction:660)
+[Deployer] Invoking Service wm.deployer.UIDeployer.deployToTargets on Deployer localhost:5551
+
+[DEBUG] [17 Nov 2023 20:03:44,620] (DeployerServiceUtils.java:deployAction:666)
+[Deployer] Service invoked by User Administrator
+
+[DEBUG] [17 Nov 2023 20:03:44,621] (DeployerServiceUtils.java:deployAction:668)
+[Deployer] Parameters to the service 
+
+[DEBUG] [17 Nov 2023 20:03:44,625] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	project = ISABEProjectAutomator
+
+[DEBUG] [17 Nov 2023 20:03:44,626] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	deploymentName = ISABEProjectAutomatorCandidate
+
+[DEBUG] [17 Nov 2023 20:03:44,626] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	preDeployString = false
+
+[DEBUG] [17 Nov 2023 20:03:44,627] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	force = true
+
+[DEBUG] [17 Nov 2023 20:03:44,627] (DeployerServiceUtils.java:deployAction:680)
+[Deployer] 	reportFilePath = null
+
+[DEBUG] [17 Nov 2023 20:03:44,627] (DeployerServiceUtils.java:executeService:1484)
+[Deployer] Entering executeService(String server, String user, String pwd, String packageStr, String service,IData inputDocument) Method
+
+[DEBUG] [17 Nov 2023 20:03:44,641] (DeployerServiceUtils.java:executeService:1535)
+[Deployer] Initiating connection Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:03:44,768] (DeployerServiceUtils.java:executeService:1537)
+[Deployer] Connection Established Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:03:44,773] (DeployerServiceUtils.java:executeService:1539)
+[Deployer] Executing Service wm.deployer.UIDeployer:deployToTargets Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:03:46,681] (DeployerServiceUtils.java:executeService:1541)
+[Deployer] Completed Executing Service wm.deployer.UIDeployer:deployToTargets Secure Socket Layer = false
+
+[DEBUG] [17 Nov 2023 20:03:46,684] (DeployerServiceUtils.java:executeService:1577)
+[Deployer] Exiting executeService(String server, String user, String pwd, String packageStr, String service,IData inputDocument) Method
+
+[DEBUG] [17 Nov 2023 20:03:46,685] (DeployerServiceUtils.java:deployAction:701)
+[Deployer Service Status] Stature returned with status success
+
+[DEBUG] [17 Nov 2023 20:03:46,685] (DeployerServiceUtils.java:deployAction:714)
+[Deployer Service Status] Message = [DEP.0005.0201] Deployment succeeded
+
+[DEBUG] [17 Nov 2023 20:03:46,686] (DeployerServiceUtils.java:deployAction:726)
+[Deployer] Exiting deployAction(HashMap paramMap) Method
+
+[DEBUG] [17 Nov 2023 20:03:46,686] (ParseDeployerParams.java:addStatusRecordToReport:5157)
+[Deployer] Entering addStatusRecordToReport(int errorCode, String message, boolean isUsageRecord) Method
+
+[DEBUG] [17 Nov 2023 20:03:46,687] (ParseDeployerParams.java:addStatusRecordToReport:5168)
+[Deployer] Exiting addStatusRecordToReport(int errorCode, String message, boolean isUsageRecord) Method
+
+[ INFO] [17 Nov 2023 20:03:46,690] (ParseDeployerParams.java:parse:1967)
+[[DEP.0100.4.00] Success0] [DEP.0005.0201] Deployment succeeded
+

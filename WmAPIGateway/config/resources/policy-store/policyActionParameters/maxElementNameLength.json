@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxElementNameLength",
+  "names" : [
+    {
+      "value" : "Maximum Element Name Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum length of the name of an element",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

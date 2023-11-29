@@ -1,0 +1,18 @@
+{
+		"templateKey" : "inProgressRequests",
+		"names" : [
+		   {
+			 "value" : "Maximum Requests in progress",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Maximum Requests in progress at a time",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

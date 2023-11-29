@@ -1,0 +1,19 @@
+{
+				"templateKey" : "clientPrincipal",
+				"names" : [
+				   {
+					 "value" : "Client principal",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Client principal for Kerberos Authentication",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}
+

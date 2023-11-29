@@ -1,0 +1,21 @@
+{
+    "id": "${doc.id}",
+    "names": [
+      {
+        "value": "Validate Schema",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "validateSchema",
+  <#list doc.parameters as parameter>
+        <#if parameter.templateKey == "validateSchema">
+            <#assign validateSchema = parameter/>
+            <#break>
+        </#if>
+  </#list>
+    "parameters" : <#if validateSchema??>
+                      ${printJsonPayload(validateSchema.parameters)}
+                   <#else> []</#if>
+
+,"active" : ${doc.active?c}
+}

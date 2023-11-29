@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "apiName",
+		"names" : [
+		   {
+			 "value" : "Service Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Service Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

@@ -1,0 +1,19 @@
+{
+    "properties": {
+		"type": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"key": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"value": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		}
+    }
+}

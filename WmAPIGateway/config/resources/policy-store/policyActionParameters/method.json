@@ -1,0 +1,87 @@
+{
+	"templateKey" : "method",
+	"names" : [
+	   {
+		 "value" : "HTTP Method",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Indicates the HTTP Method which will be modified on Method Bridging",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : [
+		  "CUSTOM"
+	],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "GET",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "GET"
+		},
+		{
+			"names" : [
+				{
+					"value" : "POST",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "POST"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "PUT",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "PUT"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "DELETE",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "DELETE"
+		},
+		{
+			"names" : [
+				{
+					"value" : "HEAD",
+					"locale" : "en"
+				}
+			],
+			"value" :  "HEAD"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "CUSTOM",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "CUSTOM"
+		},
+		{
+			"names" : [
+				{
+					"value" : "PATCH",
+					"locale" : "en"
+				}
+			],
+			"value" :  "PATCH"
+		}
+	],
+	"applicableServiceTypes" : ["REST","ODATA","GRAPHQL"]
+}

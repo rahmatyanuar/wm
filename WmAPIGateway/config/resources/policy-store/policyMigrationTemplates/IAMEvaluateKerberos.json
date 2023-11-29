@@ -1,0 +1,26 @@
+<#assign kerberosToken=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All.sp\:EndorsingSupportingTokens.wsp\:Policy.sp\:KerberosToken/>
+	<#list expressions.expression as expression>
+	<#list expression.params as param>
+		<#if param.@type == "kerberosAuth" && param.kerberosConfig.@mode == "message">
+			<#assign isKerberosExists = true/>
+			,
+			{
+				"templateKey": "kerberosTokenAssertion",
+				"parameters": [
+				{
+				"templateKey": "servicePrincipalName",
+					"values": [
+						"${param.kerberosConfig.principalName}"
+					]
+				},
+				{
+				"templateKey": "servicePrincipalPassword",
+					"values": [
+						"${param.kerberosConfig.principalPassword}"
+					]
+				}
+				]
+			}
+		</#if>
+	</#list>
+</#list>

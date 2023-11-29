@@ -1,0 +1,19 @@
+  {
+		"templateKey" : "schemaProperties",
+		"names" : [
+		   {
+			 "value" : "XML Schema properties (For XML Schema only)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "XML Schema properties",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["featureNames.json","featureValues.json"]
+  }

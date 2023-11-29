@@ -1,0 +1,19 @@
+{
+ "templateKey" : "customExtensionResponseProcessing",
+ "names" : [
+   {
+     "value" : "Response Processing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["copyEntireResponse.json","abortInCaseOfFailure.json","responsePayloadMap"]
+}

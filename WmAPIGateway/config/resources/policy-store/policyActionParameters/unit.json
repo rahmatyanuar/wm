@@ -1,0 +1,76 @@
+{
+	"templateKey" : "alertIntervalUnit",
+	"names" : [
+		{
+			"value" : "Unit",
+			"locale" : "en"
+  	    }
+	],
+	"descriptions" : [
+		{
+			"value" : "Unit for Alert Interval",
+			"locale" : "en"
+		}
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : ["minutes"],
+	"applicableServiceTypes" : ["REST","SOAP","ODATA"],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "Minutes",
+					"locale" : "en"
+				}
+			],
+			"value" :  "minutes"
+		},
+		{
+			"names" : [
+				{
+					"value" : "Hours",
+					"locale" : "en"
+				}
+			],
+			"value" :  "hours"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Days",
+					"locale" : "en"
+			    }
+			],
+			"value" :  "days"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "Weeks",
+					"locale" : "en"
+			    }
+			],
+			"value" :  "weeks"
+		},
+		{
+			"names" : [
+				{
+					"value" : "Calendar Week",
+					"locale" : "en"
+				}
+			],
+			"value" :  "calendar_week"
+		},
+		{
+			"names" : [
+				{
+					"value" : "Calendar Month",
+					"locale" : "en"
+				}
+			],
+			"value" :  "calendar_month"
+		}
+	]
+}

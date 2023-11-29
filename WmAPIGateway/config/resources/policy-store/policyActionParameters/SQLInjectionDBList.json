@@ -1,0 +1,66 @@
+{
+		"templateKey" : "SQLInjectionDBList",
+		"names" : [
+		   {
+			 "value" : "Database",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Select DB",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["NONE"],
+		    "possibleValues" : [
+					{
+						"names" : [
+						{
+							"value" : "NONE",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "NONE"
+					},
+					{
+						"names" : [
+						{
+							"value" : "DB2",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "DB2"
+					},
+						{
+						"names" : [
+						{
+							"value" : "MYSQL",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "MYSQL"
+					},
+					{
+						"names" : [
+						{
+							"value" : "ORACLE",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "ORACLE"
+					},
+					{
+						"names" : [
+						{
+							"value" : "SQL_SERVER",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SQL_SERVER"
+					}
+	]
+}

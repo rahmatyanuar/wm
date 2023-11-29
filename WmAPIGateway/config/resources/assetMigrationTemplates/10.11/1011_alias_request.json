@@ -1,0 +1,2 @@
+<#assign aliasTransformationHandler='com.softwareag.apigateway.core.migration.transformation.alias.Alias107to1011Transformation'?new()/>
+${aliasTransformationHandler(doc, transformationMode)}

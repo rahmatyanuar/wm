@@ -1,0 +1,24 @@
+{
+ "templateKey" : "outboundTransportAuthentication",
+ "names" : [
+   {
+     "value" : "Outbound Auth - Transport",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "This policy is used to configure the authentication details at the transport level required for the native service.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  ["transportSecurity"],
+  "occurence" : "once",
+  "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+  "order" :  {
+			"sequence" : ["insequence"],
+			"orderPosition" : "beforeFirstOccurence",
+			"policyTemplateIDs":["straightThroughRouting"]
+		}
+}

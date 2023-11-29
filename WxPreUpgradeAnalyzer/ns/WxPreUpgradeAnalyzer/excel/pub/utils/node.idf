@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">WxPreUpgradeAnalyzer.excel.pub.utils</value>
+  <value name="is_public">false</value>
+  <value name="shared">cHJpdmF0ZSBzdGF0aWMgSURhdGEgZG9jdW1lbnRUb1N0cmluZyhJRGF0YSBpbklEYXRhLCBib29s
+ZWFuIHRyaW1GaWVsZHMpCnsKICBJRGF0YSBvdXRJRGF0YSA9IElEYXRhRmFjdG9yeS5jcmVhdGUo
+KTsKICBJRGF0YUN1cnNvciBvdXRDdXJzb3IgPSBvdXRJRGF0YS5nZXRDdXJzb3IoKTsKICBJRGF0
+YUN1cnNvciBpbkN1cnNvciA9IGluSURhdGEuZ2V0Q3Vyc29yKCk7CgogIHdoaWxlIChpbkN1cnNv
+ci5uZXh0KCkpCiAgewogICAgT2JqZWN0IG9iaiA9IGluQ3Vyc29yLmdldFZhbHVlKCk7CiAgICBp
+ZiAob2JqID09IG51bGwpCiAgICB7CiAgICAgIGNvbnRpbnVlOwogICAgfQoKICAgIGlmIChvYmog
+aW5zdGFuY2VvZiBTdHJpbmcpCiAgICB7CiAgICAgIFN0cmluZyB0ZW1wID0gKFN0cmluZykgb2Jq
+OwogICAgICBpZiAodHJpbUZpZWxkcykKICAgICAgewogICAgICAgIHRlbXAgPSB0ZW1wLnRyaW0o
+KTsKICAgICAgfQoKICAgICAgaWYgKHRlbXAubGVuZ3RoKCkgPiAwICkKICAgICAgewogICAgICAg
+IElEYXRhVXRpbC5wdXQob3V0Q3Vyc29yLCBpbkN1cnNvci5nZXRLZXkoKSwgdGVtcCk7CiAgICAg
+IH0KICAgIH0KICAgIGVsc2UgaWYgKG9iaiBpbnN0YW5jZW9mIElEYXRhKQogICAgewogICAgICBJ
+RGF0YSBvdXQgPSBkb2N1bWVudFRvU3RyaW5nKChJRGF0YSkgb2JqLCB0cmltRmllbGRzKTsKICAg
+ICAgaWYgKG91dCAhPSBudWxsICYmIG91dC5nZXRDdXJzb3IoKS5oYXNNb3JlRGF0YSgpKQogICAg
+ICB7CiAgICAgICAgSURhdGFVdGlsLnB1dChvdXRDdXJzb3IsIGluQ3Vyc29yLmdldEtleSgpLCBv
+dXQpOwogICAgICB9CiAgICB9CiAgICBlbHNlIGlmIChvYmogaW5zdGFuY2VvZiBJRGF0YVtdKQog
+ICAgewogICAgICBJRGF0YVtdIG9iakFycmF5ID0gKElEYXRhW10pIG9iajsKICAgICAgQXJyYXlM
+aXN0IG91dEFycmF5TGlzdCA9IG5ldyBBcnJheUxpc3QoKTsKCiAgICAgIGZvciAoaW50IGkgPSAw
+OyBpIDwgb2JqQXJyYXkubGVuZ3RoOyBpKyspCiAgICAgIHsKICAgICAgICBJRGF0YSBvdXQgPSBk
+b2N1bWVudFRvU3RyaW5nKG9iakFycmF5W2ldLCB0cmltRmllbGRzKTsKICAgICAgICBpZiAob3V0
+ICE9IG51bGwgJiYgb3V0LmdldEN1cnNvcigpLmhhc01vcmVEYXRhKCkpCiAgICAgICAgewogICAg
+ICAgICAgb3V0QXJyYXlMaXN0LmFkZChvdXQpOwogICAgICAgIH0KICAgICAgfQoKICAgICAgSURh
+dGFbXSBvdXRBcnJheSA9IG51bGw7CiAgICAgIGlmIChvdXRBcnJheUxpc3Quc2l6ZSgpID4gMCkK
+ICAgICAgewogICAgICAgIG91dEFycmF5ID0gbmV3IElEYXRhW291dEFycmF5TGlzdC5zaXplKCld
+OwogICAgICAgIG91dEFycmF5TGlzdC50b0FycmF5KG91dEFycmF5KTsKICAgICAgICBJRGF0YVV0
+aWwucHV0KG91dEN1cnNvciwgaW5DdXJzb3IuZ2V0S2V5KCksIG91dEFycmF5KTsKICAgICAgfQog
+ICAgfQogICAgZWxzZQogICAgewogICAgICBJRGF0YVV0aWwucHV0KG91dEN1cnNvciwgaW5DdXJz
+b3IuZ2V0S2V5KCksIG9iai50b1N0cmluZygpKTsKICAgIH0KICB9CiAgb3V0Q3Vyc29yLmRlc3Ry
+b3koKTsKICBpbkN1cnNvci5kZXN0cm95KCk7CiAgcmV0dXJuIG91dElEYXRhOwp9CQoJ</value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>java.text.DateFormat</value>
+    <value>java.text.ParseException</value>
+    <value>java.text.SimpleDateFormat</value>
+    <value>java.util.*</value>
+    <value>java.io.*</value>
+    <value>java.math.BigDecimal</value>
+    <value>java.math.BigInteger</value>
+    <value>java.nio.channels.FileChannel</value>
+    <value>java.nio.file.Paths</value>
+  </array>
+</Values>

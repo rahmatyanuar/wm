@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxArrayElementCount",
+  "names" : [
+    {
+      "value" : "Maximum Array Element Count",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Array Element Count",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

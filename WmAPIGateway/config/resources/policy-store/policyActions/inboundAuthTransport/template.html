@@ -1,0 +1,18 @@
+<#list keys as key>
+    <#if key=='httpBasicAuth'>
+        <table>
+            <br/>
+            <tr><b>Evaluate HTTP Basic Authentication</b> <br/>The API requires the usage of HTTP Basic authentication header to allow access. The HTTP header takes them following format:<br/><b>Details:</b>Authorization: Basic {Base64 hash of user:password} <br/><b>Example:</b>Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ\u003d<br/></tr>
+        </table>
+		<#elseif key=='jwtAuth'>
+        <table>
+            <br/>
+            <tr><b> Evaluate JWT</b><br/>The API requires JWT authentication to allow access.</tr>
+        </table>
+    <#elseif key=='openIDAuthentication'>
+        <table>
+            <br/>
+            <tr><b> Evaluate OpenId Connect</b><br/>The API requires OpenId Connect authentication to allow access.</tr>
+       </table>
+    </#if>
+</#list>

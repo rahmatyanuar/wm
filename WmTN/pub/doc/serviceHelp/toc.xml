@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+<toc label="webMethods Trading Networks Built-In Services Reference" xmlns="urn:Eclipse-TOC-Schema">
+  <topic label="Core Services" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_coreservices.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_coreservices_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_coreservices_3.html#">
+      <topic label="wm.tn:log" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_log.html#" />
+      <topic label="wm.tn:receive" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_receive.html#" />
+      <topic label="wm.tn:reroute" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_reroute.html#" />
+      <topic label="wm.tn:submit" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_submit.html#" />
+    </topic>
+  </topic>
+  <topic label="Admin Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_adminfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_adminfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_adminfolder_3.html#">
+      <topic label="wm.tn.admin:exportData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_exportData.html#" />
+      <topic label="wm.tn.admin:extendedExportData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_extendedExportData.html#" />
+      <topic label="wm.tn.admin:extendedImportData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_extendedImportData.html#" />
+      <topic label="wm.tn.admin:getDBLimits" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_getDBLimits.html#" />
+      <topic label="wm.tn.admin:getDBPoolInfo" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_getDBPoolInfo.html#" />
+      <topic label="wm.tn.admin:getProperties" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_getProperties.html#" />
+      <topic label="wm.tn.admin:getStartupErrors" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_getStartupErrors.html#" />
+      <topic label="wm.tn.admin:importData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_importData.html#" />
+      <topic label="wm.tn.admin:setProperties" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_admin_setProperties.html#" />
+    </topic>
+  </topic>
+  <topic label="Archive Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_archivefolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_archivefolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_archivefolder_3.html#">
+      <topic label="wm.tn.archive:archive" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_archive_archive.html#" />
+      <topic label="wm.tn.archive:extendedArchive" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_archive_extendedArchive.html#" />
+      <topic label="wm.tn.archive:archiveByStoredProc" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_archive_archiveByStoredProc.html#" />
+      <topic label="wm.tn.archive:purgeBizdocUniqueKeysData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_archive_purgeBizdocUniqueKeysData.html#" />
+      <topic label="wm.tn.archive:purgeEDITrackingData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_archive_purgeEDITrackingData.html#" />
+    </topic>
+  </topic>
+  <topic label="Charting Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_chartingfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_chartingfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_chartingfolder_3.html#">
+      <topic label="wm.tn.charting:purgeTransactionSummaryData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_charting_purgeTransactionSummaryData.html#" />
+      <topic label="wm.tn.charting:populateSummaryData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_charting_populateSummaryData.html#" />
+    </topic>
+  </topic>
+  <topic label="Delivery Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_deliveryfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_deliveryfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_deliveryfolder_3.html#">
+      <topic label="wm.tn.delivery:deliver" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_deliver.html#" />
+      <topic label="wm.tn.delivery:getRegisteredService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_getRegisteredService.html#" />
+      <topic label="wm.tn.delivery:getRegisteredServices" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_getRegisteredServices.html#" />
+      <topic label="wm.tn.delivery:isServiceRegistered" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_isServiceRegistered.html#" />
+      <topic label="wm.tn.delivery:refreshServiceCache" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_refreshServiceCache.html#" />
+      <topic label="wm.tn.delivery:registerDefaults" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_registerDefaults.html#" />
+      <topic label="wm.tn.delivery:registerService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_registerService.html#" />
+      <topic label="wm.tn.delivery:removeService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_delivery_removeService.html#" />
+    </topic>
+  </topic>
+  <topic label="Dictionary Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_dictionaryfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_dictionaryfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_dictionaryfolder_3.html#">
+      <topic label="wm.tn.dictionary:addContactType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_addContactType.html#" />
+      <topic label="wm.tn.dictionary:addFieldDefinition" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_addFieldDefinition.html#" />
+      <topic label="wm.tn.dictionary:addFieldGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_addFieldGroup.html#" />
+      <topic label="wm.tn.dictionary:addIDType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_addIDType.html#" />
+      <topic label="wm.tn.dictionary:addProfileGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_addProfileGroup.html#" />
+      <topic label="wm.tn.dictionary:changeContactType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_changeContactType.html#" />
+      <topic label="wm.tn.dictionary:changeFieldGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_changeFieldGroup.html#" />
+      <topic label="wm.tn.dictionary:changeIDType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_changeIDType.html#" />
+      <topic label="wm.tn.dictionary:changeProfileGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_changeProfileGroup.html#" />
+      <topic label="wm.tn.dictionary:deleteContactType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_deleteContactType.html#" />
+      <topic label="wm.tn.dictionary:deleteFieldGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_deleteIDType.html#" />
+      <topic label="wm.tn.dictionary:deleteIDType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_deleteFieldGroup.html#" />
+      <topic label="wm.tn.dictionary:deleteProfileGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_deleteProfileGroup.html#" />
+      <topic label="wm.tn.dictionary:getBinaryTypes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getBinaryTypes.html#" />
+      <topic label="wm.tn.dictionary:getContactTypes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getContactTypes.html#" />
+      <topic label="wm.tn.dictionary:getFieldDefinitions" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getFieldDefinitions.html#" />
+      <topic label="wm.tn.dictionary:getFieldGroups" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getFieldGroups.html#" />
+      <topic label="wm.tn.dictionary:getIDTypes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getIDTypes.html#" />
+      <topic label="wm.tn.dictionary:getProfileGroups" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getProfileGroups.html#" />
+      <topic label="wm.tn.dictionary:updateFieldDefinition" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_dictionary_getProfileGroups_2.html#" />
+    </topic>
+  </topic>
+  <topic label="Doc Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_docfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_docfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_docfolder_3.html#">
+      <topic label="wm.tn.doc:addAttributes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_addAttributes.html#" />
+      <topic label="wm.tn.doc:addContentPart" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_addContentPart.html#" />
+      <topic label="wm.tn.doc:changeStatus" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_changeStatus.html#" />
+      <topic label="wm.tn.doc:createNewEnvelope" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_createNewEnvelope.html#" />
+      <topic label="wm.tn.doc:createReply" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_createReply.html#" />
+      <topic label="wm.tn.doc:deleteDocuments" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_deleteDocuments.html#" />
+      <topic label="wm.tn.doc:getContentPart" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_getContentPart.html#" />
+      <topic label="wm.tn.doc:getContentPartData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_getContentPartData.html#" />
+      <topic label="wm.tn.doc:getDeliveryContent" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_getDeliveryContent.html#" />
+      <topic label="wm.tn.doc:getEvents" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_getEvents.html#" />
+      <topic label="wm.tn.doc:getSenderReceiver" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_getSenderReceiver.html#" />
+      <topic label="wm.tn.doc:handleLargeDoc" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_handleLargeDoc.html#" />
+      <topic label="wm.tn.doc:persist" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_persist.html#" />
+      <topic label="wm.tn.doc:recognize" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_recognize.html#" />
+      <topic label="wm.tn.doc:relateDocuments" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_relateDocuments.html#" />
+      <topic label="wm.tn.doc:replaceContentPart" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_replaceContentPart.html#" />
+      <topic label="wm.tn.doc:resubmit" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_resubmit.html#" />
+      <topic label="wm.tn.doc:resubmits" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_resubmits.html#" />
+      <topic label="wm.tn.doc:setAttribute" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_setAttribute.html#" />
+      <topic label="wm.tn.doc:sign" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_sign.html#" />
+      <topic label="wm.tn.doc:updateAttributes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_updateAttributes.html#" />
+      <topic label="wm.tn.doc:updateComments" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_updateComments.html#" />
+      <topic label="wm.tn.doc:updateSystemAttributes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_updateSystemAttributes.html#" />
+      <topic label="wm.tn.doc:validate" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_validate.html#" />
+      <topic label="wm.tn.doc:verify" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_verify.html#" />
+      <topic label="wm.tn.doc:view" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_view.html#" />
+      <topic label="wm.tn.doc.viewAll" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_viewAll.html#" />
+      <topic label="wm.tn.doc:viewAs" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_viewAs.html#" />
+      <topic label="wm.tn.doc.ff:registerContentTypes" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_ff_registerContentTypes.html#" />
+      <topic label="wm.tn.doc.ff:routeFlatFile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_ff_routeFlatFile.html#" />
+      <topic label="wm.tn.doc.ff:validate" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_ff_validate.html#" />
+      <topic label="wm.tn.doc.xml:bizdocToRecord" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_xml_bizdocToRecord.html#" />
+      <topic label="wm.tn.doc.xml:recordToBizdoc" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_xml_recordToBizdoc.html#" />
+      <topic label="wm.tn.doc.xml:routeXml" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doc_xml_routeXml.html#" />
+    </topic>
+  </topic>
+  <topic label="Docattr Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_docattrfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_docattrfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_docattrfolder_3.html#">
+      <topic label="wm.tn.docattr:add" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.add.html#" />
+      <topic label="wm.tn.docattr:disable" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.disable.html#" />
+      <topic label="wm.tn.docattr:enable" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.enable.html#" />
+      <topic label="wm.tn.docattr:list" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.list.html#" />
+      <topic label="wm.tn.docattr:listTypesForAttribute" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.listTypesForAttribute.html#" />
+      <topic label="wm.tn.docattr:setPersist" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.setPersist.html#" />
+      <topic label="wm.tn.docattr:update" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.update.html#" />
+      <topic label="wm.tn.docattr:view" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_docattr.view.html#" />
+    </topic>
+  </topic>
+  <topic label="Doctype Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_doctypefolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_doctypefolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_doctypefolder_3.html#">
+      <topic label="wm.tn.doctype:add" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.add.html#" />
+      <topic label="wm.tn.doctype:delete" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.delete.html#" />
+      <topic label="wm.tn.doctype:disable" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.disable.html#" />
+      <topic label="wm.tn.doctype:enable" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.enable.html#" />
+      <topic label="wm.tn.doctype:list" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.list.html#" />
+      <topic label="wm.tn.doctype:update" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.update.html#" />
+      <topic label="wm.tn.doctype:view" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_doctype.view.html#" />
+    </topic>
+  </topic>
+  <topic label="Enumerate Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_enumeratefolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_enumeratefolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_enumeratefolder_3.html#">
+      <topic label="wm.tn.enumerate:cancel" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_enumerate_cancel.html#" />
+      <topic label="wm.tn.enumerate:deleteQueryResults" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_enumerate_deleteQueryResults.html#" />
+      <topic label="wm.tn.enumerate:nth" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_enumerate_nth.html#" />
+      <topic label="wm.tn.enumerate:unregister" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_enumerate_unregister.html#" />
+    </topic>
+  </topic>
+  <topic label="Mime Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_mimefolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_mimefolder_2.html#" />
+    <topic label="Using the MIME Services to Send MIME Messages You Create" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_mimefolder_3.html#" />
+    <topic label="Using the MIME Services to Receive MIME Objects" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_mimefolder_4.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_mimefolder_5.html#">
+      <topic label="wm.tn.mime:addBodyPart" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_addBodyPart.html#" />
+      <topic label="wm.tn.mime:addMimeHeader" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_addMimeHeader.html#" />
+      <topic label="wm.tn.mime:createCertsOnlyData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_createCertsOnlyData.html#" />
+      <topic label="wm.tn.mime:createEncryptedData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_createEncryptedData.html#" />
+      <topic label="wm.tn.mime:createMimeData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_createMimeData.html#" />
+      <topic label="wm.tn.mime:createSignedAndEncryptedData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_createSignedAndEncryptedData.html#" />
+      <topic label="wm.tn.mime:createSignedData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_createSignedData.html#" />
+      <topic label="wm.tn.mime:getBodyPartContent" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getBodyPartContent.html#" />
+      <topic label="wm.tn.mime:getBodyPartHeader" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getBodyPartHeader.html#" />
+      <topic label="wm.tn.mime:getContentType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getContentType.html#" />
+      <topic label="wm.tn.mime:getDigest" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getDigest.html#" />
+      <topic label="wm.tn.mime:getMimeHeader" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getMimeHeader.html#" />
+      <topic label="wm.tn.mime:getNumParts" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getNumParts.html#" />
+      <topic label="wm.tn.mime:getParameterList" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getParameterList.html#" />
+      <topic label="wm.tn.mime:getPrimaryContentType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getPrimaryContentType.html#" />
+      <topic label="wm.tn.mime:getSharedInputStream" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getSharedInputStream.html#" />
+      <topic label="wm.tn.mime:getSize" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getSize.html#" />
+      <topic label="wm.tn.mime:getSubContentType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_getSubContentType.html#" />
+      <topic label="wm.tn.mime:processCertsOnlyData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_processCertsOnlyData.html#" />
+      <topic label="wm.tn.mime:processEncryptedData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_processEncryptedData.html#" />
+      <topic label="wm.tn.mime:processSignedData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_processSignedData.html#" />
+      <topic label="wm.tn.mime:removeHeader" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_removeHeader.html#" />
+      <topic label="wm.tn.mime:resetMimeHeader" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_resetMimeHeader.html#" />
+      <topic label="wm.tn.mime:setDigestAlgorithm" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_setDigestAlgorithm.html#" />
+      <topic label="wm.tn.mime:sign" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_sign.html#" />
+      <topic label="wm.tn.mime:verify" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_verify.html#" />
+      <topic label="wm.tn.mime:writeToStream" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_mime_writeToStream.html#" />
+    </topic>
+  </topic>
+  <topic label="Polling Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_pollingfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_pollingfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_pollingfolder_3.html#">
+      <topic label="wm.tn.polling:acceptDocument" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_polling_acceptDocument.html#" />
+      <topic label="wm.tn.polling:localCheck" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_polling_localCheck.html#" />
+      <topic label="wm.tn.polling:remoteCheck" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_polling_remoteCheck.html#" />
+    </topic>
+  </topic>
+  <topic label="Profile Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_profilefolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_profilefolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_profilefolder_3.html#">
+      <topic label="wm.tn.profile:addAddresses" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addAddresses.html#" />
+      <topic label="wm.tn.profile:addConnections" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addConnections.html#" />
+      <topic label="wm.tn.profile:addContacts" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addContacts.html#" />
+      <topic label="wm.tn.profile:addIDs" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addIDs.html#" />
+      <topic label="wm.tn.profile:addProfile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addProfile.html#" />
+      <topic label="wm.tn.profile:addProfileGroups" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addProfileGroups.html#" />
+      <topic label="wm.tn.profile:addUsers" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_addUsers.html#" />
+      <topic label="wm.tn.profile:changeStatus" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_changeStatus.html#" />
+      <topic label="wm.tn.profile:deleteAddress" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteAddress.html#" />
+      <topic label="wm.tn.profile:deleteConnection" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteConnection.html#" />
+      <topic label="wm.tn.profile:deleteConnectionOfPartner" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteConnectionOfPartner.html#" />
+      <topic label="wm.tn.profile:deleteContact" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteContact.html#" />
+      <topic label="wm.tn.profile:deleteID" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteID.html#" />
+      <topic label="wm.tn.profile:deleteProfile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteProfile.html#" />
+      <topic label="wm.tn.profile:deleteProfileGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteProfileGroup.html#" />
+      <topic label="wm.tn.profile:deleteUser" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteUser.html#" />
+      <topic label="wm.tn.profile:deleteUsers" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_deleteUsers.html#" />
+      <topic label="wm.tn.profile:getExtendedFields" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getExtendedFields.html#" />
+      <topic label="wm.tn.profile:getExternalID" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getExternalID.html#" />
+      <topic label="wm.tn.profile:getExternalIDs" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getExternalIDs.html#" />
+      <topic label="wm.tn.profile:getHostProfile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getHostProfile.html#" />
+      <topic label="wm.tn.profile:getInternalID" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getInternalID.html#" />
+      <topic label="wm.tn.profile:getInternalIDsByGroup" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getInternalIDsByGroup.html#" />
+      <topic label="wm.tn.profile:getInternalIDsForUser" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getInternalIDsForUser.html#" />
+      <topic label="wm.tn.profile:getPartnerBinary" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getPartnerBinary.html#" />
+      <topic label="wm.tn.profile:getProfile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getProfile.html#" />
+      <topic label="wm.tn.profile:getProfileGroups" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getProfileGroups.html#" />
+      <topic label="wm.tn.profile:getProfileMappings" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getProfileMappings.html#" />
+      <topic label="wm.tn.profile:getProfileSummaries" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getProfileSummaries.html#" />
+      <topic label="wm.tn.profile:getProfileSummary" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getProfileSummary.html#" />
+      <topic label="wm.tn.profile:getUserProfiles" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getUserProfiles.html#" />
+      <topic label="wm.tn.profile:getUserProfilesSummaries" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getUserProfilesSummaries.html#" />
+      <topic label="wm.tn.profile:getUsersForPartner" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_getUsersForPartner.html#" />
+      <topic label="wm.tn.profile:setExtendedFields" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_setExtendedFields.html#" />
+      <topic label="wm.tn.profile:setPartnerBinary" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_setPartnerBinary.html#" />
+      <topic label="wm.tn.profile:undeleteProfile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_undeleteProfile.html#" />
+      <topic label="wm.tn.profile:updateAddresses" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_updateConnections.html#" />
+      <topic label="wm.tn.profile:updateConnections" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_updateAddresses.html#" />
+      <topic label="wm.tn.profile:updateContacts" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_updateContacts.html#" />
+      <topic label="wm.tn.profile:updateCorporation" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_updateCorporation.html#" />
+      <topic label="wm.tn.profile:updateIDs" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_updateIDs.html#" />
+      <topic label="wm.tn.profile:updateProfileGroups" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_updateProfileGroups.html#" />
+      <topic label="wm.tn.profile.create:newAddress" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_newAddress.html#" />
+      <topic label="wm.tn.profile.create:newContact" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_newContact.html#" />
+      <topic label="wm.tn.profile.create:newDelivery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_newDelivery.html#" />
+      <topic label="wm.tn.profile.create:newExtendedFields" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_profilefolder_4.html#" />
+      <topic label="wm.tn.profile.create:newExternalID" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_newExternalID.html#" />
+      <topic label="wm.tn.profile.create:newPrivateQueue" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_newPrivateQueue.html#" />
+      <topic label="wm.tn.profile.create:newProfile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_profile_newProfile.html#" />
+    </topic>
+  </topic>
+  <topic label="Query Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_queryfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_queryfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_queryfolder_3.html#">
+      <topic label="wm.tn.query:createDocumentQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_createDocumentQuery.html#" />
+      <topic label="wm.tn.query:createEventQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_createEventQuery.html#" />
+      <topic label="wm.tn.query:createProfileQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_createProfileQuery.html#" />
+      <topic label="wm.tn.query:createTaskQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_createTaskQuery.html#" />
+      <topic label="wm.tn.query:createTPAQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_createTPAQuery.html#" />
+      <topic label="wm.tn.query:deliveryServiceDelete" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_deliveryServiceDelete.html#" />
+      <topic label="wm.tn.query:deliveryServiceQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_deliveryServiceQuery.html#" />
+      <topic label="wm.tn.query:documentQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_documentQuery.html#" />
+      <topic label="wm.tn.query:doQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_doQuery.html#" />
+      <topic label="wm.tn.query:eventDelete" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_eventDelete.html#" />
+      <topic label="wm.tn.query:eventQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_eventQuery.html#" />
+      <topic label="wm.tn.query:getQueryResults" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_getQueryResults.html#" />
+      <topic label="wm.tn.query:getSQL" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_getSQL.html#" />
+      <topic label="wm.tn.query:profileQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_profileQuery.html#" />
+      <topic label="wm.tn.query:taskDelete" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_taskDelete.html#" />
+      <topic label="wm.tn.query:taskQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_taskQuery.html#" />
+      <topic label="wm.tn.query:tpaQuery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_query_tpaQuery.html#" />
+    </topic>
+  </topic>
+  <topic label="Queuing Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_queuingfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_queuingfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_queuingfolder_3.html#">
+      <topic label="wm.tn.queuing:deliverBatch" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_deliverBatch.html#" />
+      <topic label="wm.tn.queuing:getQueuedTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_getQueuedTask.html#" />
+      <topic label="wm.tn.queuing:getRegisteredQueue" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_getRegisteredQueue.html#" />
+      <topic label="wm.tn.queuing:getRegisteredQueues" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_getRegisteredQueues.html#" />
+      <topic label="wm.tn.queuing:listQueuedTasks" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_listQueuedTasks.html#" />
+      <topic label="wm.tn.queuing:queueDocument" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_queueDocument.html#" />
+      <topic label="wm.tn.queuing:reassign" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_reassign.html#" />
+      <topic label="wm.tn.queuing:registerQueue" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_registerQueue.html#" />
+      <topic label="wm.tn.queuing:removeQueue" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_removeQueue.html#" />
+      <topic label="wm.tn.queuing:updateQueue" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_updateQueue.html#" />
+      <topic label="wm.tn.queuing:updateQueuedTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_queuing_updateQueuedTask.html#" />
+    </topic>
+  </topic>
+  <topic label="Route Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_routefolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_routefolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_routefolder_3.html#">
+      <topic label="wm.tn.route:abort" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_abort.html#" />
+      <topic label="wm.tn.route:add" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_add.html#" />
+      <topic label="wm.tn.route:alert" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_alert.html#" />
+      <topic label="wm.tn.route:containsRuleName" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_containsRuleName.html#" />
+      <topic label="wm.tn.route:create" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_create.html#" />
+      <topic label="wm.tn.route:delete" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_delete.html#" />
+      <topic label="wm.tn.route:disableDeliveryForPartner" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_disableDeliveryForPartner.html#" />
+      <topic label="wm.tn.route:getAllMatches" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_getAllMatches.html#" />
+      <topic label="wm.tn.route:getAnyTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_getAnyTask.html#" />
+      <topic label="wm.tn.route:getLastChangeID" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_getLastChangeID.html#" />
+      <topic label="wm.tn.route:getRule" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_getRule.html#" />
+      <topic label="wm.tn.route:getTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_getTask.html#" />
+      <topic label="wm.tn.route:list" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_list.html#" />
+      <topic label="wm.tn.route:load" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_load.html#" />
+      <topic label="wm.tn.route:mergeFlags" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_mergeFlags.html#" />
+      <topic label="wm.tn.route:preroute" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_preroute.html#" />
+      <topic label="wm.tn.route:route" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_route.html#" />
+      <topic label="wm.tn.route:routeBizdoc" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_routeBizdoc.html#" />
+      <topic label="wm.tn.route:update" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_route_update.html#" />
+    </topic>
+  </topic>
+  <topic label="Security Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_securityfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_securityfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_securityfolder_3.html#">
+      <topic label="wm.tn.security:addCertificateData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_addCertificateData.html#" />
+      <topic label="wm.tn.security:deleteCertificateData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_deleteCertificateData.html#" />
+      <topic label="wm.tn.security:getAllCertificateData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getAllCertificateData.html#" />
+      <topic label="wm.tn.security:getCertificateData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getCertificateData.html#" />
+      <topic label="wm.tn.security:getDecryptionKeyAndCert" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getDecryptionKeyAndCert.html#" />
+      <topic label="wm.tn.security:getEncryptionChain" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getEncryptionChain.html#" />
+      <topic label="wm.tn.security:getSigningKeyAndChain" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getSigningKeyAndChain.html#" />
+      <topic label="wm.tn.security:getSSLKeyAndChain" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getSSLKeyAndChain.html#" />
+      <topic label="wm.tn.security:getVerifyingChain" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getVerifyingChain.html#" />
+      <topic label="wm.tn.security:queryExpiredCertificates" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_queryExpiredCertificates.html#" />
+      <topic label="wm.tn.security:setPrimaryCertificate" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_setPrimaryCertificate.html#" />
+      <topic label="wm.tn.security:setSSLKeyAndChain" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_setSSLKeyAndChain.html#" />
+      <topic label="wm.tn.security:updateCertificate" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_updateCertificate.html#" />
+      <topic label="wm.tn.security:updateCertificateData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_updateCertificateData.html#" />
+    </topic>
+  </topic>
+  <topic label="Task Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_taskfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_taskfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_taskfolder_3.html#">
+      <topic label="wm.tn.task:changeServerForTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_changeServerForTask.html#" />
+      <topic label="wm.tn.task:getAnyTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getAnyTask.html#" />
+      <topic label="wm.tn.task:getTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getTask.html#" />
+      <topic label="wm.tn.task:getTaskOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getTaskOutput.html#" />
+      <topic label="wm.tn.task:getTasks" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getTasks.html#" />
+      <topic label="wm.tn.task:getTaskStatus" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_getTaskStatus.html#" />
+      <topic label="wm.tn.task:reassign" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_reassign.html#" />
+      <topic label="wm.tn.task:removeTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_removeTask.html#" />
+      <topic label="wm.tn.task:restartTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_restartTask.html#" />
+      <topic label="wm.tn.task:shutdown" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_shutdown.html#" />
+      <topic label="wm.tn.task:stopTask" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_stopTask.html#" />
+      <topic label="wm.tn.task:updateProperties" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_security_updateProperties.html#" />
+    </topic>
+  </topic>
+  <topic label="TPA Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_tpafolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_tpafolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_tpafolder_3.html#">
+      <topic label="wm.tn.tpa:changeStatus" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_changeStatus.html#" />
+      <topic label="wm.tn.tpa:createTPA" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_createTPA.html#" />
+      <topic label="wm.tn.tpa:deleteTPA" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_deleteTPA.html#" />
+      <topic label="wm.tn.tpa:getTPA" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_getTPA.html#" />
+      <topic label="wm.tn.tpa:getTPAInLock" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_getTPAInLock.html#" />
+      <topic label="wm.tn.tpa:getTPALock" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_getTPALock.html#" />
+      <topic label="wm.tn.tpa:nextControlNumber" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_nextControlNumber.html#" />
+      <topic label="wm.tn.tpa:releaseTPALock" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_releaseTPALock.html#" />
+      <topic label="wm.tn.tpa:setLockError" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_setLockError.html#" />
+      <topic label="wm.tn.tpa:updateControlNumber" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_updateControlNumber.html#" />
+      <topic label="wm.tn.tpa:updateControlNumberInLock" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_updateControlNumberInLock.html#" />
+      <topic label="wm.tn.tpa:updateTPA" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_updateTPA.html#" />
+      <topic label="wm.tn.tpa:updateTPAData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_updateTPAData.html#" />
+      <topic label="wm.tn.tpa:updateTPADataInLock" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_updateTPADataInLock.html#" />
+      <topic label="wm.tn.tpa:validateTPA" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_validateTPA.html#" />
+    </topic>
+  </topic>
+  <topic label="Transport Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_transportfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_transportfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_transportfolder_3.html#">
+      <topic label="wm.tn.transport:activeTransfer" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_activeTransfer.html#" />
+      <topic label="wm.tn.transport:batchFtp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_batchFtp.html#" />
+      <topic label="wm.tn.transport:Ftp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_Ftp.html#" />
+      <topic label="wm.tn.transport:Ftps" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_Ftps.html#" />
+      <topic label="wm.tn.transport:Sftp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_Sftp.html#" />
+      <topic label="wm.tn.transport:Http" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_Http.html#" />
+      <topic label="wm.tn.transport:Https" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_Https.html#" />
+      <topic label="wm.tn.transport:primaryFtp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_primaryFtp.html#" />
+      <topic label="wm.tn.transport:primaryFtps" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_primaryFtps.html#" />
+      <topic label="wm.tn.transport:primaryHttp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_primaryHttp.html#" />
+      <topic label="wm.tn.transport:primaryHttps" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_primaryHttps.html#" />
+      <topic label="wm.tn.transport:primarySmtp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_primarySmtp.html#" />
+      <topic label="wm.tn.transport:primarySftp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_primarySftp.html#" />
+      <topic label="wm.tn.transport:secondaryFtp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_secondaryFtp.html#" />
+      <topic label="wm.tn.transport:secondaryFtps" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_secondaryFtps.html#" />
+      <topic label="wm.tn.transport:secondarySftp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_secondarySftp.html#" />
+      <topic label="wm.tn.transport:secondaryHttp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_secondaryHttp.html#" />
+      <topic label="wm.tn.transport:secondaryHttps" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_secondaryHttps.html#" />
+      <topic label="wm.tn.transport:secondarySmtp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_tpa_transport_secondarySmtp.html#" />
+      <topic label="wm.tn.transport:Smtp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_transport_Smtp.html#" />
+      <topic label="wm.tn.transport:webService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_transport_webService.html#" />
+    </topic>
+  </topic>
+  <topic label="Util Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_utilfolder.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_utilfolder_2.html#" />
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_utilfolder_3.html#">
+      <topic label="wm.tn.util:longToSqlTimestamp" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_util_longToSqlTimestamp.html#" />
+      <topic label="wm.tn.util:stringListToDateList" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_util_stringListToDateList.html#" />
+      <topic label="wm.tn.util:stringListToDoubleList" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_util_stringListToDoubleList.html#" />
+      <topic label="wm.tn.util:stringToDate" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_util_stringToDate.html#" />
+      <topic label="wm.tn.util:stringToDouble" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_util_stringToDouble.html#" />
+    </topic>
+  </topic>
+  <topic label="Service Specifications" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_servicespecifications.html#">
+    <topic label="Overview" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_servicespecifications_2.html#" />
+    <topic label="Summary of Specifications" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_servicespecifications_3.html#">
+      <topic label="wm.tn.rec:BizDocSigningService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocSigningService.html#" />
+      <topic label="wm.tn.rec:BizDocValidationService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocValidationService.html#" />
+      <topic label="wm.tn.rec:BizDocVerificationService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocVerificationService.html#" />
+      <topic label="wm.tn.rec:DeliveryServiceSignature" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_DeliveryServiceSignature.html#" />
+      <topic label="wm.tn.rec:DupCheckService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_DupCheckService.html#" />
+      <topic label="wm.tn.rec:ProcessingService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_ProcessingService.html#" />
+      <topic label="wm.tn.rec:ReliableProcessingService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_ReliableProcessingService.html#" />
+    </topic>
+    <topic label="wm.tn.rec:GatewayService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_GatewayService.html#" />
+    <topic label="wm.tn.rec:TPAValidationService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_TPAValidationService.html#" />
+  </topic>
+  <topic label="IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes.html#">
+    <topic label="Summary of Elements in this Folder" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_2.html#">
+      <topic label="Document-Related to IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_3.html#" />
+      <topic label="Profile Management IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_4.html#" />
+      <topic label="Security-Related IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_5.html#" />
+      <topic label="Task Management Service IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_6.html#" />
+      <topic label="TPA IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_7.html#" />
+      <topic label="Delivery Service IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_8.html#" />
+      <topic label="Query-Related IS Document Types" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-tnbis_isdocumenttypes_9.html#" />
+      <topic label="wm.tn.rec:ActivityLogEntry" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_ActivityLogEntry.html#" />
+      <topic label="wm.tn.rec:Address" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Address.html#" />
+      <topic label="wm.tn.rec:BizDocAttribute" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocAttribute.html#" />
+      <topic label="wm.tn.rec:BizDocContentPart" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocContentPart.html#" />
+      <topic label="wm.tn.rec:BizDocContentPartCriteria" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocContentPartCriteria.html#" />
+      <topic label="wm.tn.rec:BizDocEnvelope" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocEnvelope.html#" />
+      <topic label="wm.tn.rec:BizDocErrorSet" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocErrorSet.html#" />
+      <topic label="wm.tn.rec:BizDocType" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocType.html#" />
+      <topic label="wm.tn.rec:BizDocTypeSummary" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_BizDocTypeSummary.html#" />
+      <topic label="wm.tn.rec:Contact" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Contact.html#" />
+      <topic label="wm.tn.rec:Corporation" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Corporation.html#" />
+      <topic label="wm.tn.rec:Delivery" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Delivery.html#" />
+      <topic label="wm.tn.rec:DeliveryService" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_DeliveryService.html#" />
+      <topic label="wm.tn.rec:DeliveryServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_DeliveryServiceOutput.html#" />
+      <topic label="wm.tn.rec:ExternalID" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_ExternalID.html#" />
+      <topic label="wm.tn.rec:Field" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Field.html#" />
+      <topic label="wm.tn.rec:FieldMetaData" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_FieldMetaData.html#" />
+      <topic label="wm.tn.rec:activeTransferOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_activeTransferOutput.html#" />
+      <topic label="wm.tn.rec:FtpDeliveryServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_FtpDeliveryServiceOutput.html#" />
+      <topic label="wm.tn.rec:FtpOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_FtpOutput.html#" />
+      <topic label="wm.tn.rec:SftpDeliveryServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_SftpDeliveryServiceOutput.html#" />
+      <topic label="wm.tn.rec:SftpOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_SftpOutput.html#" />
+      <topic label="wm.tn.rec:HttpDeliveryServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_HttpDeliveryServiceOutput.html#" />
+      <topic label="wm.tn.rec:HttpOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_HttpOutput.html#" />
+      <topic label="wm.tn.rec:PreProcessingFlags" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_PreProcessingFlags.html#" />
+      <topic label="wm.tn.rec:Profile" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Profile.html#" />
+      <topic label="wm.tn.rec:ProfileSummary" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_ProfileSummary.html#" />
+      <topic label="wm.tn.rec:queryField" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_queryField.html#" />
+      <topic label="wm.tn.rec:queryInput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_queryInput.html#" />
+      <topic label="wm.tn.rec:queryOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_queryOutput.html#" />
+      <topic label="wm.tn.rec:ReliableServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_ReliableServiceOutput.html#" />
+      <topic label="wm.tn.rec:SmtpDeliveryServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_SmtpDeliveryServiceOutput.html#" />
+      <topic label="wm.tn.rec:SmtpOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_SmtpOutput.html#" />
+      <topic label="wm.tn.rec:svcResponse" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_svcResponse.html#" />
+      <topic label="wm.tn.rec:Task" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_Task.html#" />
+      <topic label="wm.tn.rec:TaskDbUpdate" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_TaskDbUpdate.html#" />
+      <topic label="wm.tn.rec:TaskFailure" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_TaskFailure.html#" />
+      <topic label="wm.tn.rec:tpa" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_tpa.html#" />
+      <topic label="wm.tn.rec:tpaError" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_tpaError.html#" />
+      <topic label="wm.tn.rec:TPAValidateServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_TPAValidateServiceOutput.html#" />
+      <topic label="wm.tn.rec:WebServiceDeliveryServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_WebServiceDeliveryServiceOutput.html#" />
+      <topic label="wm.tn.rec:WebServiceOutput" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/wm_tn_rec_WebServiceOutput.html#" />
+    </topic>
+  </topic>
+  <topic label="Java API" href="/com.softwareag.doc.ide.eclipse.tn.tn.bis/to-java_api.html#" />
+</toc>

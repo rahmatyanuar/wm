@@ -1,0 +1,18 @@
+{
+		"templateKey" : "entireBody",
+		"names" : [
+		   {
+			 "value" : "Entire SOAP Body",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Sign/Encrypt the entire SOAP Request/Response",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

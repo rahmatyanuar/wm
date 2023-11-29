@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <meta name="Creator" content="stat17_update_1516_0241" />
+    <title>wm.tn.transport:Ftps</title>
+    <link rel="StyleSheet" href="css/_trading_networks_bis_reference_diba2.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <div class="Heading_2"><a name="ID0EOCDS">wm.tn.transport:Ftps</a></div>
+    <div class="Body"><a name="ID0EYDDS">Delivers documents through FTP over SSL (also known as FTPS). This service uses the delivery method information from the receiving partner's profile for the delivery method that uses FTPS. The information determines the host name, port number, user name, password, and directory to use to deliver the document.</a></div>
+    <div class="Section_Title"><a name="ID0EHEDS">Input Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 25%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ESFDS">serviceName</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 75%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E5FDS">String</a></span> The name of the service you must use to deliver a document using FTPS.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EPGDS">bizdoc</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E2GDS">Document</a></span> The document you want to deliver. The document must be an instance of <span class="apiname">com.wm.app.tn.doc.BizDocEnvelope</span>.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ERHDS">retriesRemaining</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E4HDS">String</a></span> The number of retries remaining. The delivery engine passes this information into the server at every attempt of job delivery.</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0EVIDS">Output Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 25%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EAKDS">serviceOutput</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 75%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EMKDS">Document</a></span> The output from the delivery. For the structure of <span class="varname">serviceOutput</span>, see <span class="apiname-only"><a href="wm_tn_rec_FtpDeliveryServiceOutput.html#ID0EQH3S" title="wm.tn.rec:FtpDeliveryServiceOutput">wm.tn.rec:FtpDeliveryServiceOutput</a></span>. The document contains the following keys:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0ELLDS">status</a></span> <span class="bisdatatype">String</span> The outcome of the delivery: <span class="codeph">success</span> or <span class="codeph">fail</span>.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0EQMDS">statusMessage</a></span> <span class="bisdatatype">String</span> The status message from the last attempt to deliver the document. For example, the status message might be <span class="codeph">221</span>.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0ERNDS">transportTime</a></span> <span class="bisdatatype">String</span> Total time (in milliseconds) it took to deliver the document.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="varname"><a name="ID0EOODS">output</a></span> <span class="bisdatatype">Document</span> The header and body that was returned from the FTP <span class="codeph">put</span>. For the structure of <span class="varname">output</span>, see <span class="apiname-only"><a href="wm_tn_rec_FtpOutput.html#ID0EAQ3S" title="wm.tn.rec:FtpOutput">wm.tn.rec:FtpOutput</a></span>.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0ELQDS">Usage Notes</a></div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EWQDS">This service can establish connections only to FTP servers that use SSL; it cannot establish connections to servers that implement other security facilities.</a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EJRDS">FTPS requires an SSL handshake, which results in additional processing and additional exposure to network latency. If very large documents are being transmitted, this additional overhead is likely to be negligible. However, if FTPS is used to deliver small documents, the additional overhead may be significant.</a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0E3RDS">The service throws an exception if the receiver identified to receive the document in </a><span class="codeph">bizdoc</span> is a local partner. And the local partner is a host of the network.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0ETSDS">This service performs a passive transfer.</a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EGTDS">The file name of the delivered document is the internal document ID and the extension is either .xml if the content-type is text, xml, or </a><span class="codeph">.bizdoc </span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- SQ/SAG: insert custom footer -->
+    <br />
+    <hr style="border:1px solid; border-color: #1776BF; " />
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 10px; margin-top: 6px; margin-bottom: 6px; text-align: center;">
+      Copyright © 2007-2022 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors</div>
+    <!-- SQ old code:
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 12px; color: #0899cc; margin-top: 12px; padding-bottom: 6px; text-align: left; text-decoration: underline;">
+	Copyright &#169; <span wwpage:content="wwvars:versionfirst">First cpyr from map</span><span wwpage:content="wwvars:versionlast">Last cpyr from map</span><span wwpage:content="copyright-first-b">First cpyr from book</span><span wwpage:content="copyright-last-b">Last cpyr from book</span>
+		</div>
+    -->
+    <!-- SQ Variablen ausgeblendet
+    <!-\- Copyright Test -\->
+    <div style="text-decoration: underline">Copyright Import Test:</div>
+    <wwpage:Import wwpage:content-from-file="Copyright/copyright_en.asp" />
+    <br></br>
+    
+    <!-\- SQ Variables - Information from xresources-\->
+    <div style="text-decoration: underline">From xresources:</div>
+    <div>sag:organization-id == <span wwpage:content="sag:organization-id"></span></div>
+    <div>sag:organization-name == <span wwpage:content="sag:organization-name"></span></div>
+    <div>sag:organization-copyrholder == <span wwpage:content="sag:organization-copyrholder"></span></div>
+    <div>sag:organization-url == <span wwpage:content="sag:organization-url"></span></div>
+    
+    <div>sag:family-id == <span wwpage:content="sag:family-id"></span></div>
+    <div>sag:family-name == <span wwpage:content="sag:family-name"></span></div>
+    <div>sag:family-organization == <span wwpage:content="sag:family-organization"></span></div>
+    
+    <div>sag:product-id == <span wwpage:content="sag:product-id"></span></div>
+    <div>sag:product-name == <span wwpage:content="sag:product-name"></span></div>
+    <div>sag:product-copyrfirst == <span wwpage:content="sag:product-copyrfirst"></span></div>
+    <div>sag:product-family == <span wwpage:content="sag:product-family"></span></div>
+    
+    <!-\- SQ Variables - Values from DITA-Map-\->
+    <br></br>
+    <div style="text-decoration: underline">From DITA/Book-Map:</div>
+    <div>ProdInfo Prodname == <span wwpage:replace="wwvars:ProdInfoProdName"></span></div>
+    <div>ProdInfo Mod First == <span wwpage:replace="wwvars:ProdInfoModFirst"></span></div>
+    <div>ProdInfo Mod Last == <span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>ProdInfo Rel First == <span wwpage:replace="wwvars:ProdInfoRelFirst"></span></div>
+    <div>ProdInfo Rel Last == <span wwpage:replace="wwvars:ProdInfoRelLast"></span></div>
+    <div>ProdInfo Vers First == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span></div>
+    <div>ProdInfo Vers Last == <span wwpage:replace="wwvars:ProdInfoVersLast"></span></div>
+    <div>ProdInfo vrm vers.rel.mod == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span>.<span wwpage:replace="wwvars:ProdInfoRelLast"></span>.<span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>BookID PartNo == <span wwpage:replace="wwvars:BookPartNo"></span></div>
+    <div>othermeta release-version == <span wwpage:replace="wwvars:ReleaseVersion"></span></div>
+    <div>othermeta release-date == <span wwpage:replace="wwvars:ReleaseDate"></span></div>
+    <div>othermeta release-edition == <span wwpage:replace="wwvars:ReleaseEdition"></span></div>
+    <div>othermeta product == <span wwpage:replace="wwvars:Product"></span></div>
+    <br></br>
+    <div style="text-decoration: underline">Reserve:</div>
+    <div>organization == <span wwpage:content="organization"></span></div>
+    <div>product-name == <span wwpage:content="product-name"></span></div>
+    <div>copyright-first == <span wwpage:content="copyright-first"></span></div>
+    <div>copyright-last == <span wwpage:content="copyright-last"></span></div>
+    <div>copyright-first-b == <span wwpage:content="wwvars:copyright-first-b"></span></div>
+    <div>copyright-last-b == <span wwpage:content="copyright-last-b"></span></div>
+    <div>doc-id-one == <span wwpage:content="doc-id-one"></span></div>
+    <div>doc-id-two == <span wwpage:content="doc-id-two"></span></div>-->
+  </body>
+</html>

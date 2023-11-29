@@ -1,0 +1,38 @@
+{
+  "templateKey": "tcpKeepAlive",
+  "names": [
+    {
+      "value": "TC Keep Alive",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Enables support for TCP KeepAlive.",
+      "locale": "en_US"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "possibleValues" :[
+	{
+		"names" : [
+			{
+				"value" : "True",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "true"
+	},
+	{
+		"names" : [
+			{
+				"value" : "False",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "false"
+	}
+  ]
+}

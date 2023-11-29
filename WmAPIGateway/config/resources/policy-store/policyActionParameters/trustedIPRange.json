@@ -1,0 +1,18 @@
+{
+		"templateKey" : "trustedIPRange",
+		"names" : [
+		   {
+			 "value" : "Trusted IP Address Range",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Trusted IP Address Range",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+}

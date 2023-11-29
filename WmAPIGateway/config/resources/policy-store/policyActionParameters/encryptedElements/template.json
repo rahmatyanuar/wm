@@ -1,0 +1,19 @@
+{
+		"templateKey" : "encryptedElements",
+		"names" : [
+		   {
+			 "value" : "Encrypted Elements",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Encrypt some elements of Request/Response SOAP body",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["xpath.json","namespace"]		
+}

@@ -1,0 +1,18 @@
+{
+  "templateKey" : "allowHeaders",
+  "names" : [
+    {
+      "value" : "Allow Headers",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Allow Headers response headers",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "true"
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="repository-deploySimulateRollback.xsl"?><Report projectType="Repository" status="0" type="Checkpoint">
+<depCandidate>ISABEProjectAutomatorCandidate</depCandidate>
+<depMapName>myDeploymentMap</depMapName>
+<projectDescription/>
+<startTime>2023-11-17 20:03:45 ICT</startTime>
+<projectName>ISABEProjectAutomator</projectName>
+<user>Administrator</user>
+<messages>
+<message timeStamp="2023-11-17 20:03:45 ICT" type="MESSAGE">
+<messagebody>[DEP.0008.0021] Successfully deleted checkpoints for IS.</messagebody>
+<attributes>
+<targetserver name="local"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:45 ICT" type="SUCCESS">
+<messagebody>Successfully extracted assets for package Maxis_EAI_Process_Contact.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="Maxis_EAI_Process_Contact" type="ispackage"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="MESSAGE">
+<messagebody>Asset Maxis_EAI_Process_Contact exists in the target Integration Server. Created checkpoint for the asset.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="Maxis_EAI_Process_Contact" type="ispackage"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="MESSAGE">
+<messagebody>Created ACDL file for the composite Maxis_EAI_Process_Contact.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="Maxis_EAI_Process_Contact" type="ispackage"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="MESSAGE">
+<messagebody>Created binary file for the composite Maxis_EAI_Process_Contact.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="Maxis_EAI_Process_Contact" type="ispackage"/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="MESSAGE">
+<messagebody>Persisted assets for checkpoint ID 212afbd3-f611-454a-a4f8-f8b36f0b418d.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="" type=""/>
+</attributes>
+</message>
+<message timeStamp="2023-11-17 20:03:46 ICT" type="SUCCESS">
+<messagebody>Successfully created checkpoint for the checkpoint ID 212afbd3-f611-454a-a4f8-f8b36f0b418d.</messagebody>
+<attributes>
+<targetserver name="local"/>
+<asset name="" type=""/>
+</attributes>
+</message>
+</messages>
+<endTime>2023-11-17 20:03:46 ICT</endTime>
+</Report>

@@ -1,0 +1,21 @@
+{
+	"templateKey": "timeToWait",
+	"names": [
+		{
+			"value": "Time to Wait (ms)",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "A numeric value (in milliseconds) that specifies the waiting time of the JMS message",
+			"locale": "en_US"
+		}
+	],
+	"type": "LONG",
+	"isArray": "false",
+	"isRequired": "true",
+	"defaultValues": [
+		0
+	]
+}

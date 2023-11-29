@@ -1,0 +1,59 @@
+<#ftl ns_prefixes={
+"xsl": "http://www.w3.org/1999/XSL/Transform",
+"D": "http://ws.apache.org/ns/synapse"
+}/>
+<#assign consumerNameIDMapper='com.softwareag.apigateway.core.migration.ConsumerNameIDMapper'?new()/>
+<#assign contextRoot=doc.service.definition.inSequence.context />
+<#assign variableRoot=doc.service.definition.variables />
+{
+"names": [
+{
+"value": "Context-based Routing",
+"locale": "en"
+}
+],
+"templateKey": "contextBasedRouting",
+"parameters": [
+<#assign routingTemplateKey="routeTo">
+<#assign endpoint=contextRoot.send.endpoint/>
+<#include "DefaultRouting.json"/>
+<#assign defaultRuleName="Rule"/>
+<#assign ruleName=defaultRuleName/>
+<#assign defaultRuleNumber=0/>
+<#list contextRoot.rule as rule>, {
+"templateKey": "contextRules",
+"parameters": [
+{
+"templateKey": "name",
+"values": [
+<#if rule.@name[0]??>
+"${rule.@name}"
+<#else>
+"${ruleName}"
+<#assign defaultRuleNumber++/>
+<#assign ruleName=defaultRuleName+defaultRuleNumber/>
+</#if>
+]
+},
+{
+"templateKey": "contextConditionOperator",
+"values": [
+<#if rule.and[0]??>
+"and"
+<#assign operators=rule.and/>
+<#else>
+<#assign operators=rule.or/>
+"or"
+</#if>
+]
+}
+<#list operators.condition as condition>
+<#include "ContextRuleConditionTemplate.json"/>
+</#list>,
+<#assign routingTemplateKey="routeTo">
+<#assign endpoint=rule.send.endpoint/>
+<#include "DefaultRouting.json"/>
+]}
+</#list>
+]
+}

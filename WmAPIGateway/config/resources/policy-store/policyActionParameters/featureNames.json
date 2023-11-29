@@ -1,0 +1,191 @@
+{
+		"templateKey" : "featureNames",
+		"names" : [
+		   {
+			 "value" : "Feature name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This is the logical condition based on which all the Identification policies are combined.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "GENERATE_SYNTHETIC_ANNOTATIONS",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "http://apache.org/xml/features/generate-synthetic-annotations"
+		},
+		{
+			"names" : [
+				{
+					"value" : "ID_IDREF_CHECKING",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "http://apache.org/xml/features/validation/id-idref-checkingID_IDREF_CHECKING"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "IDENTITY_CONSTRAINT_CHECKING",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/identity-constraint-checking"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "IGNORE_XSI_TYPE",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/schema/ignore-xsi-type-until-elemdecl"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "NAMESPACE_GROWTH",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/namespace-growth"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "NORMALIZE_DATA",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/schema/normalized-value"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "ROOT_ELEMENT_DECL",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/properties/validation/schema/root-element-declaration"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "ROOT_TYPE_DEF",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/properties/validation/schema/root-type-definition"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "SCHEMA_AUGMENT_PSVI",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/schema/augment-psvi"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "SCHEMA_DV_FACTORY",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/properties/internal/validation/schema/dv-factory"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "SCHEMA_ELEMENT_DEFAULT",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/schema/element-default"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "SCHEMA_LOCATION",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/properties/schema/external-schemaLocation"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "SCHEMA_NONS_LOCATION",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/properties/schema/external-noNamespaceSchemaLocation"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "SCHEMA_VALIDATOR",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/properties/internal/validator/schema"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "TOLERATE_DUPLICATES",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/internal/tolerate-duplicates"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "UNPARSED_ENTITY_CHECKING",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/unparsed-entity-checking"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "VALIDATE_ANNOTATIONS",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validate-annotations"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "XMLSCHEMA_FULL_CHECKING",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/schema-full-checking"
+		},
+		{
+			"names" : [
+		        {
+					"value" : "XMLSCHEMA_VALIDATION",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "http://apache.org/xml/features/validation/schema"
+		}
+	]
+}

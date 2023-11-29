@@ -1,0 +1,24 @@
+<table class="tableView">
+  %scope fields%
+  <tr>
+    <!-- %loop -struct% -->
+    <td class="oddcol">%value $key%</td>
+    <!-- %endloop% -->
+  </tr>
+  <tr>
+    <!-- %loop -struct% -->
+    <td class="oddrowdata-l">%value%</td>
+    <!-- %endloop% -->
+  </tr>
+  %endscope%
+</table>
+%ifvar segments%
+<table class="tableView">
+  %loop segments%
+  <tr>
+    <td class="subHeading">%value name%</td>
+    <td>%include segment.html%</td>
+  </tr>
+  %endloop%
+</table>
+%endif%

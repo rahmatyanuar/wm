@@ -1,0 +1,39 @@
+{
+		"templateKey" : "routingConditionKey",
+		"names" : [
+		   {
+			 "value" : "Route Using",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Route Using",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["header"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "Header",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "header"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Context",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "context"
+			}			
+	]
+}

@@ -1,0 +1,25 @@
+{
+    "templateKey": "amqpProperties",
+    "names": [
+        {
+            "value": "JMS/AMQP REST Properties",
+            "locale": "en"
+        }
+    ],
+    "descriptions": [
+        {
+            "value": "JMS/AMQP Properties",
+            "locale": "en"
+        }
+    ],
+    "parameterTemplatesReference": ["jmsProperty"],
+	"occurence" : "once",
+	"applicableServiceTypes" : ["REST"],
+	"order" :  {
+		"sequence" : ["insequence"],
+		"orderPosition" : "beforeFirstOccurence",
+		"policyTemplateIDs":["amqpRouting"]
+	},
+	"dependentActions":["amqpRouting"],
+	"mutuallyExclusiveActions" : ["straightThroughRouting","contextBasedRouting","dynamicRouting","contentBasedRouting","loadBalancerRouting"]
+}

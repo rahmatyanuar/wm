@@ -1,0 +1,96 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign cacheserviceresult=doc.service.definition.inSequence.cache\-service\-result/>
+<#assign cachecriteria=cacheserviceresult.cache\-criterias\-any.cache\-criterias\-all.cache\-criteria/>
+{
+    "names": [
+      {
+        "value": "Service Result Cache",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "serviceResultCache",
+    "parameters": [
+	<#if cachecriteria.header[0]?? ||  cachecriteria.xpath[0]??>
+      {
+        "templateKey": "cacheCriteria",
+        "parameters": [
+
+			<#if cachecriteria.header[0]??>
+				{
+				 "templateKey": "httpHeader",
+					"parameters": [
+				{
+                "templateKey": "httpHeaderName",
+                "values": [
+                  "${cachecriteria.header.@name}"
+                ]
+              },
+              {
+                "templateKey": "whiteList",
+                "values": [
+					<#list cachecriteria.values.value as value>
+						"${value}"
+						<#sep>, </#sep>
+					</#list>
+                ]
+              }
+            ]
+          }
+			</#if>
+			<#if cachecriteria.xpath[0]??>
+		   {
+            "templateKey": "XPATH",
+            "parameters": [
+              {
+                "templateKey": "xpath-exp",
+                "values": [
+                  "${cachecriteria.xpath.@expression}"
+                ]
+              },
+              {
+                "templateKey": "whiteList",
+                "values": [
+					<#list cachecriteria.values.value as value>
+						"${value}"
+						<#sep>, </#sep>
+					</#list>
+                ]
+              },
+              {
+                "templateKey": "namespace-src",
+                "parameters": [
+                  {
+                    "templateKey": "prefix-src",
+                    "values": [
+                     "${cachecriteria.xpath.namespace.@prefix}"
+                    ]
+                  },
+                  {
+                    "templateKey": "uri-src",
+                    "values": [
+                      "${cachecriteria.xpath.namespace.@uri}"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+		  </#if>
+        ]
+      },
+	</#if>
+      {
+        "templateKey": "ttl",
+        "values": [
+          "${cacheserviceresult.ttl}"
+        ]
+      },
+      {
+        "templateKey": "max-payload-size",
+        "values": [
+         "${cacheserviceresult.max\-payload\-size}"
+        ]
+      }
+    ]
+}

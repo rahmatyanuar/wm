@@ -1,0 +1,77 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign param=doc.service.definition.inSequence.id\-consumer/>
+<#assign rule=doc.service.definition.inSequence.id\-consumer.@rule/>
+<#assign allowAnon=doc.service.definition.inSequence.id\-consumer.@allow\-anon/>
+<#assign authorizationRootArray=doc.service.definition.inSequence.authorization/>
+
+<#assign isRegisteredConsumers=false/>
+<#if authorizationRootArray??>
+	<#list authorizationRootArray as authorization>
+		<#if authorization.@type == "consumers">
+			<#assign isRegisteredConsumers=true/>
+		</#if>
+	</#list>
+</#if>
+
+{
+"names": [
+      {
+        "value": "Identify & Authorize Application - Migrated from id-Consumer element",
+        "locale": "en"
+      }
+    ],
+"templateKey": "evaluatePolicy",
+"parameters": [
+  {
+	"templateKey": "logicalConnector",
+	"values": [
+			"OR"
+	]
+  },
+  {
+	"templateKey": "allowAnonymous",
+	"values": [
+	  "${allowAnon}"
+	]
+  },
+  {
+	  "templateKey": "IdentificationRule",
+	  "parameters": [
+		{
+		  "templateKey": "applicationLookup",
+		  "values": [
+			<#if isRegisteredConsumers>
+				"strict"
+			<#else>
+				"relax"
+			</#if>
+		  ]
+		},
+		{
+		  "templateKey": "identificationType",
+		  "values": [
+			<#if rule == "HttpToken">
+				"httpBasicAuth"
+			<#elseif rule == "UsernameToken">
+				"wssecUsernameToken"
+			<#elseif rule == "IPRange">
+				"ipAddressRange"
+			<#elseif rule == "Hostname">
+				"hostNameAddress"
+			<#elseif rule == "Custom">
+				"payloadElement"
+			<#elseif rule == "HTTPSCertificate">
+				"httpsCertificate"
+			<#elseif rule == "WSSCert">
+				"wssecX509Token"
+			</#if>
+		  ]
+		}
+		<#if rule == "Custom">
+			<#include "xpath.json"/>
+		</#if>
+	  ]
+  }
+  ]
+}

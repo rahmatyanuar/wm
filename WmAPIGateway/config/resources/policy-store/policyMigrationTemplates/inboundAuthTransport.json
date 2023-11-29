@@ -1,0 +1,49 @@
+<#if isTransportPolicyExists>
+{	
+	"names": [
+      {
+        "value": "Inbound Authentication - Transport",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "inboundAuthTransport",
+    "parameters": [
+	  {
+	    "templateKey": "httpBasicAuth",
+	    "values": [
+		  <#if isHttpBasicAuthExists>
+			"true"
+		  <#else>
+			"false"
+		  </#if>
+	    ]
+	  }
+	  <#if isKerberosPolicyExists>
+	  ,
+      {
+        "templateKey": "kerberosTokenAssertion",
+        "parameters": [
+          {
+            "templateKey": "servicePrincipalNameForm",
+            "values": [
+				"${servicePrincipalNameform}"
+            ]
+          },
+          {
+            "templateKey": "servicePrincipalName",
+            "values": [
+              "${principalName}"
+            ]
+          },
+          {
+            "templateKey": "servicePrincipalPassword",
+            "values": [
+              "${principalPassword}"
+            ]
+          }
+        ]
+      }
+	  </#if>
+    ]
+}
+</#if>

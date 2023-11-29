@@ -1,0 +1,19 @@
+{
+ "templateKey" : "mashupQueryParams",
+ "names" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Place holder",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : ["mashupQueryParamName.json","mashupQueryParamValue.json"]
+}

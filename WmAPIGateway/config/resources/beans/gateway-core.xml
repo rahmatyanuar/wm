@@ -1,0 +1,1538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd"
+       xmlns:util="http://www.springframework.org/schema/util"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+    <bean id="applicationCreationCompletionHandler"
+          class="com.softwareag.apigateway.core.approval.handlers.ApplicationCreationCompletionHandler"/>
+    <bean id="applicationRegistrationCompletionHandler"
+          class="com.softwareag.apigateway.core.approval.handlers.ApplicationRegistrationCompletionHandler"/>
+    <bean id="applicationUpdationCompletionHandler"
+          class="com.softwareag.apigateway.core.approval.handlers.ApplicationUpdationCompletionHandler"/>
+    <bean id="changeOwnerApprovalCompletionHandler"
+          class="com.softwareag.apigateway.core.approval.handlers.ChangeOwnerApprovalCompletionHandler">
+        <property name="orchestrationManager" ref="orchestrationManager"/>
+    </bean>
+    <bean id="subscribePackageCompletionHandler"
+          class="com.softwareag.apigateway.portal.connector.approval.SubscribePackageCompletionHandler"/>
+    <bean id="updateSubscriptionCompletionHandler"
+          class="com.softwareag.apigateway.portal.connector.approval.UpdateSubscriptionCompletionHandler"/>
+    <bean id="deleteSubscriptionCompletionHandler"
+          class="com.softwareag.apigateway.portal.connector.approval.DeleteSubscriptionCompletionHandler"/>
+    <bean id="approvalNotificationHandler"
+          class="com.softwareag.apigateway.is.approval.handler.ApprovalNotificationHandlerImpl"/>
+
+
+    <bean id="apiDesigntimePolicyActionUpdater"
+          class="com.softwareag.apigateway.core.policy.APIDesignTimePolicyActionUpdater"/>
+    <bean id="GatewayIndexCreater" class="com.softwareag.apigateway.core.init.GatewayIndexCreater"
+          depends-on="elasticSearchClient">
+        <property name="esClient" ref="elasticSearchClient"/>
+        <property name="analyticsDataStoreClient" ref="analyticsDataStoreClient"/>
+    </bean>
+
+    <bean id="GatewayAuditIndexCreator" class="com.softwareag.apigateway.core.init.GatewayAuditIndexCreator"
+          depends-on="elasticSearchClient">
+        <property name="esClient" ref="elasticSearchClient"/>
+        <property name="analyticsDataStoreClient" ref="analyticsDataStoreClient"/>
+        <property name="numberOfShards" value="5"/>
+    </bean>
+
+    <bean id="tenantInfoProvider" class="com.softwareag.apigateway.core.init.TenantInfoProvider" depends-on="elasticSearchClient">
+    </bean>
+
+    <bean id="importerFactory" class="com.softwareag.apigateway.core.importer.impl.ImporterFactory"/>
+    <bean id="apiManager" class="com.softwareag.apigateway.core.manager.APIManager" depends-on="pgconfiguration">
+        <property name="runtimeServiceProvider" ref="runtimeServiceProvider"/>
+        <property name="isAssetManager" ref="isAssetManager"/>
+        <property name="listeners">
+            <list>
+                <ref bean="GlobalPolicyAPIListener"/>
+                <ref bean="OAuth2APIListener"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="apiGatewayEngine" class="com.softwareag.apigateway.core.api.engine.DefaultAPIGatewayEngine">
+        <property name="apiRuntimeManager" ref="runtimeServiceProvider"/>
+        <property name="apiNotificationManager" ref="apiNotificationManager"/>
+    </bean>
+    <bean id="apiNotificationManager" class="com.softwareag.apigateway.core.api.engine.APINotificationManager">
+        <property name="gatewayEngine" ref="apiGatewayEngine"/>
+        <property name="listeners">
+            <list>
+                <ref bean="MashupAPIListener"/>
+                <ref bean="GlobalPolicyAPIListener"/>
+                <ref bean="OAuth2APIListener"/>
+                <ref bean="ValidateAPISpecAPIListener"/>
+                <ref bean="PackageAPIListener"/>
+				<ref bean="MetricsAPIListener"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="MetricsAPIListener" class="com.softwareag.apigateway.core.api.listener.MetricsAPIListener"/>
+    <bean id="PackageAPIListener" class="com.softwareag.apigateway.core.api.listener.PackageAPIListener"/>
+    <bean id="serviceRegistryApiListener" class="com.softwareag.apigateway.core.serviceRegistry.listener.ServiceRegistryApiListener"/>
+    <bean id="serviceRegistryPortListener" class="com.softwareag.apigateway.core.serviceRegistry.listener.ServiceRegistryPortListener"/>
+    <bean id="GlobalPolicyAPIListener" class="com.softwareag.apigateway.core.policy.GlobalPolicyAPIListener"/>
+    <bean id="MashupAPIListener" class="com.softwareag.apigateway.core.api.listener.MashupAPIListener"/>
+    <bean id="ValidateAPISpecAPIListener" class="com.softwareag.apigateway.core.api.listener.ValidateAPISpecAPIListener">
+        <property name="policyActionListener" ref="ValidateAPISpecPolicyActionListener"/>
+    </bean>
+    <bean id="OAuth2APIListener"
+          class="com.softwareag.apigateway.core.security.oauth2.OAuth2Listeners.OAuth2APIListener">
+        <property name="oAuth2Manager" ref="oAuth2Manager"></property>
+    </bean>
+
+    <bean id="assertionManager" class="com.softwareag.apigateway.core.manager.AssertionManager"/>
+    <bean id="kerberossettingsmanager" class="com.softwareag.apigateway.core.manager.KerberosSettingsManager">
+        <property name="isKerberosSettingsManger" ref="isKerberosSettingsManger"/>
+    </bean>
+    <bean id="outboundProxySettingsManager" class="com.softwareag.apigateway.core.manager.OutboundProxySettingsManager">
+        <property name="isOutboundProxySettingsManager" ref="isOutboundProxySettingsManager"/>
+    </bean>
+
+    <bean id="proxyBypassManager" class="com.softwareag.apigateway.core.manager.ProxyBypassManager">
+        <property name="isProxyBypassManager" ref="isProxyBypassManager"/>
+    </bean>
+
+    <bean id="searchManager" class="com.softwareag.apigateway.core.manager.SearchManager">
+        <property name="isSearchManager" ref="isSearchManager"/>
+    </bean>
+    <bean id="teamAssignmentRuleConfig" class="com.softwareag.apigateway.core.rule.TeamAssignmentRuleConfig">
+        <property name="attributeContextClassMap">
+            <util:map key-type="java.lang.String" value-type="java.lang.String">
+                <entry key="api" value="com.softwareag.apigateway.api.model.GatewayAPI"/>
+                <entry key="application" value="com.softwareag.apigateway.api.model.application.Application"/>
+                <entry key="package" value="com.softwareag.apigateway.packages.Package"/>
+                <entry key="plan" value="com.softwareag.apigateway.packages.Plan"/>
+            </util:map>
+        </property>
+        <property name="attributeMethodMap">
+            <util:map key-type="java.lang.String" value-type="java.lang.String">
+                <entry key="api.name" value="getApiName"/>
+                <entry key="api.description" value="getApiDescription"/>
+                <entry key="api.tags" value="getApiTags"/>
+                <entry key="application.name" value="getName"/>
+                <entry key="application.description" value="getDescription"/>
+                <entry key="package.name" value="getName"/>
+                <entry key="package.description" value="getDescription"/>
+                <entry key="plan.name" value="getName"/>
+                <entry key="plan.description" value="getDescription"/>
+            </util:map>
+        </property>
+        <property name="attributeDataStoreFieldMap">
+            <util:map key-type="java.lang.String" value-type="java.lang.String">
+                <entry key="api.name" value="apiName"/>
+                <entry key="api.description" value="apiDescription"/>
+                <entry key="application.name" value="name"/>
+                <entry key="application.description" value="description"/>
+                <entry key="package.name" value="name"/>
+                <entry key="package.description" value="description"/>
+                <entry key="plan.name" value="name"/>
+                <entry key="plan.description" value="description"/>
+            </util:map>
+        </property>
+        <property name="attributeOperatorMap">
+            <util:map key-type="java.lang.String" value-type="java.util.List">
+                <entry key="api.name">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="api.description">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="api.tags">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="application.name">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="application.description">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="package.name">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="package.description">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="plan.name">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+                <entry key="plan.description">
+                    <util:list>
+                        <value>equals</value><value>contains</value><value>startsWith</value><value>endsWith</value>
+                    </util:list>
+                </entry>
+            </util:map>
+        </property>
+    </bean>
+    <bean id="searchFactory" class="com.softwareag.apigateway.core.search.impl.SearchFactory">
+        <property name="defaultFields">
+            <util:map key-type="com.softwareag.apigateway.core.search.impl.SearchFactory.TYPES"
+                      value-type="java.util.List">
+                <entry key="API">
+                    <util:list>
+                        <value>id</value>
+                        <value>apiName</value>
+                        <value>apiDescription</value>
+                        <value>apiVersion</value>
+                        <value>type</value>
+                        <value>isActive</value>
+                        <value>tracingEnabled</value>
+                    </util:list>
+                </entry>
+                <entry key="APPLICATION">
+                    <util:list>
+                        <value>applicationID</value>
+                        <value>name</value>
+                        <value>description</value>
+                        <value>version</value>
+                    </util:list>
+                </entry>
+                <entry key="USERS">
+                    <util:list>
+                        <value>id</value>
+                        <value>loginId</value>
+                    </util:list>
+                </entry>
+                <entry key="GROUPS">
+                    <util:list>
+                        <value>id</value>
+                        <value>name</value>
+                    </util:list>
+                </entry>
+                <entry key="ACCESSPROFILES">
+                    <util:list>
+                        <value>id</value>
+                        <value>name</value>
+                    </util:list>
+                </entry>
+                <entry key="AUDIT_LOG">
+                    <util:list>
+                        <value>id</value>
+                        <value>objectType</value>
+                        <value>action</value>
+                        <value>object</value>
+                        <value>message</value>
+                        <value>user</value>
+                        <value>creationDate</value>
+                    </util:list>
+                </entry>
+            </util:map>
+        </property>
+        <property name="mandatoryFields">
+            <util:map key-type="com.softwareag.apigateway.core.search.impl.SearchFactory.TYPES"
+                      value-type="java.util.List">
+                <entry key="API">
+                    <util:list>
+                        <value>type</value>
+                    </util:list>
+                </entry>
+            </util:map>
+        </property>
+    </bean>
+
+    <bean id="reverseMapManager" class="com.softwareag.apigateway.core.manager.ReverseMapManager"/>
+
+    <bean id="appMeshManager" class="com.softwareag.apigateway.core.manager.AppMeshManager"/>
+    <bean id="policyManager" class="com.softwareag.apigateway.core.manager.PolicyManager">
+        <property name="runtimePolicyManager" ref="runtimePolicyManager"/>
+        <property name="templatesStore" ref="policyTemplatesStore"/>
+        <property name="scopeEvalutor" ref="scopeEvaluator"/>
+        <property name="apiManager" ref="apiManager"/>
+        <property name="policyActionValidators">
+            <set>
+                <bean class="com.softwareag.apigateway.core.validators.EntryProtocolValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.SOAPVersionValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.PayloadIdentificationParameterValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.DataMaskingValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.TransformationValidator"/>
+				<bean class="com.softwareag.apigateway.core.validators.EnableJmsORAmqpValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.ConditionalErrorProcessingValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.CustomExtensionValidator"/>
+                <bean class="com.softwareag.apigateway.core.validators.ThrottlePolicyActionValidator"/>
+            </set>
+        </property>
+
+        <property name="listeners">
+            <set>
+                <ref bean="lmtPolicyActionListener"/>
+                <ref bean="errorProcessingPolicyActionListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.TransportPolicyActionListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.LogInvocationListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.RampartPolicyActionListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.ServiceResultCacheListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.ThrottleListener"/>
+                <bean class="com.softwareag.apigateway.core.configuration.listeners.CustomDestinationListener"/>
+            </set>
+        </property>
+
+    </bean>
+    <bean id="policyActionManager" class="com.softwareag.apigateway.core.manager.PolicyActionManager">
+        <property name="runtimePolicyManager" ref="runtimePolicyManager"/>
+        <property name="apiManager" ref="apiManager"/>
+        <property name="listeners">
+            <set>
+                <ref bean="lmtPolicyActionListener"/>
+                <ref bean="errorProcessingPolicyActionListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.TransportPolicyActionListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.LogInvocationListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.RampartPolicyActionListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.ServiceResultCacheListener"/>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.ThrottleListener"/>
+                <bean class="com.softwareag.apigateway.core.configuration.listeners.CustomDestinationListener"/>
+            </set>
+        </property>
+    </bean>
+    <bean id="purgeManager" class="com.softwareag.apigateway.core.manager.PurgeManager">
+        <property name="purgePersistenceHandler" ref="purgePersistenceHandler"/>
+        <property name="eventPersistenceHandler" ref="eventPersistenceHandler"/>
+        <property name="archivePersistenceHandler" ref="archivePersistenceHandler"/>
+    </bean>
+
+
+    <bean id="restoreManager" class="com.softwareag.apigateway.core.manager.RestoreManager">
+        <property name="eventPersistenceHandler" ref="eventPersistenceHandler"/>
+        <property name="archivePersistenceHandler" ref="archivePersistenceHandler"/>
+    </bean>
+
+    <bean id="srcManager" class="com.softwareag.apigateway.core.manager.SRCManager">
+        <property name="srcPersistenceHandler" ref="srcPersistenceHandler"/>
+    </bean>
+    <bean id="transactionManager" class="com.softwareag.apigateway.core.manager.TransactionManager">
+        <property name="transactionPersistenceHandler" ref="transactionPersistenceHandler"/>
+    </bean>
+
+    <bean id="defaultAuthServerHelper" class="com.softwareag.apigateway.core.manager.helper.DefaultOAuth2StrategyHelper"/>
+    <bean id="aliasManager" class="com.softwareag.apigateway.core.manager.AliasManager"/>
+    <bean id="strategyManager" class="com.softwareag.apigateway.core.manager.StrategyManager"/>
+    <bean id="oauth2ScopeManager" class="com.softwareag.apigateway.core.manager.OAuth2ScopeManager"/>
+
+    <bean id="scopeManager" class="com.softwareag.apigateway.core.manager.GatewayScopeManager"/>
+
+    <bean id="stageManager" class="com.softwareag.apigateway.core.manager.StageManager"/>
+    <bean id="searchQueryManager" class="com.softwareag.apigateway.core.manager.SearchQueryManager"/>
+    <bean id="ruleManager" class="com.softwareag.apigateway.core.manager.RuleManager"/>
+    <bean id="promotionManager" class="com.softwareag.apigateway.core.manager.PromotionManager"/>
+    <bean id="promotionSetManager" class="com.softwareag.apigateway.core.manager.PromotionSetManager"/>
+    <bean id="rollbackManager" class="com.softwareag.apigateway.core.manager.RollbackManager"/>
+    <bean id="publishInfoManager" class="com.softwareag.apigateway.core.manager.PublishInfoManager"/>
+    <bean id="serviceRegistryManager" class="com.softwareag.apigateway.core.manager.ServiceRegistryManager"/>
+    <bean id="archiveManager" class="com.softwareag.apigateway.core.manager.ArchiveManager">
+    </bean>
+
+    <bean id="credentialManager" class="com.softwareag.apigateway.core.manager.CredentialManager">
+    </bean>
+
+    <bean id="dataspaceManager" class="com.softwareag.apigateway.core.manager.DataspaceManager"/>
+
+    <bean id="applicationManager" class="com.softwareag.apigateway.core.manager.ApplicationManager" depends-on="policygateway">
+        <property name="apiManager" ref="apiManager"/>
+        <property name="approvalManager" ref="approvalManager"/>
+        <property name="oAuth2Manager" ref="oAuth2Manager"/>
+        <property name="applicationListener">
+            <set>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.ApplicationListener"/>
+            </set>
+        </property>
+        <property name="registeredApplicationListener">
+            <set>
+                <bean class="com.softwareag.apigateway.runtime.provider.handlers.RegisteredApplicationListener"/>
+            </set>
+        </property>
+    </bean>
+    <bean id="orchestrationManager" class="com.softwareag.apigateway.core.manager.OrchestrationManager">
+        <property name="approvalManager" ref="approvalManager"/>
+        <property name="searchManager" ref="searchManager"/>
+        <property name="ownershipManagerMap">
+            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.core.manager.ChangeOwnershipManager">
+                <entry key="application" value-ref="applicationManager"/>
+                <entry key="api" value-ref="apiManager"/>
+                <entry key="plan" value-ref="planManager"/>
+                <entry key="package" value-ref="packageManager"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="groupManager" class="com.softwareag.apigateway.core.manager.GroupManager">
+        <property name="isGroupManager" ref="ISGroupManager"/>
+    </bean>
+    <bean id="userManager" class="com.softwareag.apigateway.core.manager.UserManager">
+        <property name="isUserManager" ref="ISUserManager"/>
+    </bean>
+    <bean id="accessControlListManager" class="com.softwareag.apigateway.core.manager.AccessControlListManager"/>
+    <bean id="traceSpanManager" class="com.softwareag.apigateway.core.manager.tracer.TraceSpanManager"/>
+    <bean id="mediatorTraceSpanManager" class="com.softwareag.apigateway.core.manager.MediatorTraceSpanManager"/>
+    <bean id="serverLogTraceSpanManager" class="com.softwareag.apigateway.core.manager.ServerLogTraceSpanManager"/>
+    <bean id="requestResponseTraceSpanManager" class="com.softwareag.apigateway.core.manager.RequestResponseTraceSpanManager"/>
+
+    <bean id="accessProfileManager" class="com.softwareag.apigateway.core.manager.AccessProfileManager">
+        <property name="isAccessProfileManager" ref="ISAccessProfileManager"/>
+    </bean>
+
+    <bean id="urlAliasesManager" class="com.softwareag.apigateway.core.manager.URLAliasesManager">
+        <property name="isURLAliasesManager" ref="ISURLAliasesManager"/>
+    </bean>
+	
+	  <bean id="jndiSettingsManager" class="com.softwareag.apigateway.core.manager.JNDISettingsManager">
+        <property name="isJNDIManager" ref="isJNDIManager"/>
+    </bean>
+	
+	  <bean id="jmsSettingsManager" class="com.softwareag.apigateway.core.manager.JMSSettingsManager">
+        <property name="isjmsManager" ref="isjmsManager"/>
+    </bean>
+	
+	  <bean id="jmsWebserviceEndpointManager" class="com.softwareag.apigateway.core.manager.JMSWebserviceEndpointManager">
+        <property name="isjmsProviderManager" ref="isjmsProviderManager"/>
+		<property name="isjmsTriggerManager" ref="isjmsTriggerManager"/>
+		<property name="isjmsConsumerManager" ref="isjmsConsumerManager"/>
+    </bean>
+	
+	
+	  <bean id="jmsTriggerManager" class="com.softwareag.apigateway.core.manager.JMSTriggerManager">
+        <property name="isjmsTriggerManager" ref="isjmsTriggerManager"/>
+    </bean>
+
+    <bean id="microGatewayRegistrationManager" class="com.softwareag.apigateway.core.microgateway.managers.MicroGatewayRegistrationManager">
+        <property name="microGatewayPersistentHandler" ref="microGatewayPersistentHandler"/>
+    </bean>
+
+    <bean id="isPackagesManager" class="com.softwareag.apigateway.core.manager.ISPackagesManager">
+        <property name="isPackageManager" ref="ISPackageManager"/>
+    </bean>
+
+    <bean id="keyStoreManager" class="com.softwareag.apigateway.core.manager.KeyStoreManager">
+        <property name="isKeyStoreManager" ref="ISKeyStoreManager"/>
+    </bean>
+
+    <bean id="passmanManager" class="com.softwareag.apigateway.core.manager.PassmanManager">
+    </bean>
+
+    <bean id="apiDocumentManager" class="com.softwareag.apigateway.core.manager.APIDocumentManager">
+    </bean>
+
+    <bean id="trustStoreManager" class="com.softwareag.apigateway.core.manager.TrustStoreManager">
+        <property name="isTrustStoreManager" ref="ISTrustStoreManager"/>
+    </bean>
+
+    <bean id="approvalManager" class="com.softwareag.apigateway.approval.manager.ApprovalManagerImpl">
+    </bean>
+    <bean id="extendedPropertiesObserver" class="com.softwareag.apigateway.core.observer.ExtendedPropertiesObserver"/>
+
+    <bean id="configManager" class="com.softwareag.apigateway.core.manager.ConfigurationManager">
+        <constructor-arg index="0">
+            <map key-type="java.lang.String" value-type="java.util.Map">
+                <entry key="loadBalancer">
+                    <map key-type="java.lang.String">
+                        <entry key="webAppUrl" value=""/>
+                        <entry key="httpUrls">
+                            <list/>
+                        </entry>
+                        <entry key="httpsUrls">
+                            <list/>
+                        </entry>
+                        <entry key="websocketUrls">
+                            <list/>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="whiteListingIPs">
+                    <map key-type="java.lang.String">
+                        <entry key="privateIPs">
+                            <list>
+                                <value>0.0.0.0/8</value>
+                                <value>10.0.0.0/8</value>
+                                <value>100.64.0.0/10</value>
+                                <value>127.0.0.0/8</value>
+                                <value>172.16.0.0/12</value>
+                                <value>192.168.0.0/16</value>
+                            </list>
+                        </entry>
+                        <entry key="privateV6IPs">
+                            <list>
+                                <value>fc00:0:0:0:0:0:0:0-fdff:ffff:ffff:ffff:ffff:ffff:ffff:ffff</value>
+                                <value>0:0:0:0:0:0:0:0-0:0:0:0:0:0:0:1</value>
+                            </list>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="keystore">
+                    <map key-type="java.lang.String">
+                        <entry key="keystoreName" value=""/>
+                        <entry key="signingAlias" value=""/>
+                        <entry key="truststoreName" value=""/>
+						<entry key="outboundKeystoreName" value=""/>
+                        <entry key="outboundKeyAlias" value=""/>
+                        <entry key="outboundTruststoreName" value=""/>
+                    </map>
+                </entry>
+                <entry key="mobileApp">
+                    <map key-type="java.lang.String">
+                        <entry key="mobileAppDeviceTypes">
+                            <list/>
+                        </entry>
+                        <entry key="mobileApplications">
+                            <list/>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="extended">
+                    <map key-type="java.lang.String">
+                        <entry key="apiKeyHeader" value="x-Gateway-APIKey"/>
+                        <entry key="apiKeyExpirationPeriod" value=""/>
+                        <entry key="pg_xslt_enableDOM" value="false"/>
+                        <entry key="transformerPoolSize" value="5"/>
+                        <entry key="pg_oauth2_isHTTPS" value="true"/>
+                        <entry key="pg_oauth2_createDefaultScopes" value="false"/>
+                        <entry key="apig_MENConfiguration_tickInterval" value="60"/>
+                        <entry key="pgmen.quotaSurvival.interval" value="1"/>
+                        <entry key="pgmen.quotaSurvival.addLostIntervals" value="true"/>
+                        <entry key="maxWindowSize" value="10000"/>
+                        <entry key="allowExceedMaxWindowSize" value="true"/>
+                        <entry key="esScrollTimeOut" value="60000"/>
+                        <entry key="portClusteringEnabled" value="true"/>
+                        <entry key="apig_schemaValidationPoolSize" value="10"/>
+                        <entry key="apiMaturityStatePossibleValues"
+                               value="Beta,Deprecated,Experimental,Production,Test"/>
+                        <entry key="apiGroupingPossibleValues"
+                               value="Finance Banking and Insurance,Sales and Ordering,Search,Transportation and Warehousing"/>
+                        <entry key="paginationPossibleValues"
+                               value="10,20,30,40,50,ALL"/>
+                        <entry key="apiDocumentsRestrictedExtension"
+                               value="exe,dll,bat,bin"/>
+                        <entry key="apiDocumentsUploadSizeLimitInMB"
+                               value="5"/>
+                        <entry key="backupSharedFileLocation" value=""/>
+                        <entry key="maxBackupsLimit" value="-1"/>
+                        <entry key="defaultEncoding" value="UTF-8"/>
+                        <entry key="apig_rest_service_redirect" value="false"/>
+                        <entry key="pg_OpenID_isHTTPS" value="true"/>
+                        <entry key="pg.cs.snmpTarget.connTimeout" value="0"/>
+                        <entry key="pg.cs.snmpTarget.retries" value="1"/>
+                        <entry key="pg.cs.snmpTarget.maxRequestSize" value="10485760"/>
+                        <entry key="pg.cs.snmpTarget.sendTimeOut" value="500"/>
+                        <entry key="pg.cs.snmpTarget.base64Encoded" value="false"/>
+                        <entry key="pg.uddiClient.uddiClientTimeout" value="15000"/>
+                        <entry key="pg.bulkhead.statusCode" value=""/>
+                        <entry key="pg.bulkhead.statusMessage" value=""/>
+                        <entry key="pg.uddiClient.publish.maxThreads" value="2"/>
+                        <entry key="pg.snmp.customTarget.connTimeout" value="0"/>
+                        <entry key="pg.3pSnmpSender.sendDelay" value="0"/>
+                        <entry key="pg.snmp.userTarget.retries" value="1"/>
+                        <entry key="pg.snmp.userTarget.sendTimeOut" value="500"/>
+                        <entry key="pg.snmp.userTarget.maxRequestSize" value="65535"/>
+                        <entry key="pg.snmp.communityTarget.base64Encoded" value="false"/>
+                        <entry key="pg.snmp.communityTarget.retries" value="1"/>
+                        <entry key="pg.snmp.communityTarget.sendTimeOut" value="500"/>
+                        <entry key="pg.snmp.communityTarget.maxRequestSize" value="65535"/>
+                        <entry key="pg.lb.failoverOnDowntimeErrorOnly" value="true"/>
+                        <entry key="pg_JWT_isHTTPS" value="true"/>
+                        <entry key="forwardInternalAPIsRequest" value="false"/>
+                        <entry key="forwardQueryParams" value="false"/>
+                        <entry key="invokeESB_asUser" value=""/>
+                        <entry key="pg_xslt_enableSecureProcessing" value="true"/>
+                        <entry key="pg_xslt_disableDoctypeDeclarations" value="true"/>
+                        <entry key="defaultLanguage" value="en"/>
+                        <entry key="sendClientRequestURI" value="false"/>
+                        <entry key="decodeAllDelimitersInURI" value="false"/>
+                        <entry key="pg_Cache_minCacheSize" value="1024"/>
+                        <entry key="pg_Cache_maxCacheSize" value="1048576"/>
+                        <entry key="pg_Cache_averageObjectSize" value="64"/>
+                        <entry key="pg_Cache_minCachePercent" value="20"/>
+                        <entry key="pg_Cache_autoScalerRunInterval" value="120"/>
+                        <entry key="pg_Cache_boundedCacheResizerRunInterval" value="30"/>
+                        <entry key="pg_Cache_statisticsProcessorRunInterval" value="15"/>
+                        <entry key="setDefaultContentType" value="true"/>
+                        <entry key="maxAllowedZipFileSize" value="100000000"/>
+                        <entry key="strictResourceMatching" value="true"/>
+                        <entry key="eventsRefreshInterval" value="10s"/>
+                        <entry key="allowEGInvokeOnly" value="false"/>
+                        <entry key="defaultSearchResultSize" value="1000"/>
+                        <entry key="disableRemoteEntityReference" value="true"/>
+                        <entry key="promotionListSortByTime" value="false"/>
+                        <entry key="pg.default.enable.oldVersion" value="false"/>
+                        <entry key="gatewayClientInvokingToken" value="apigateway"/>
+                        <entry key="useTypeInIndexNameForESDestination" value="true"/>
+                        <entry key="maxRegexLengthInSearchQuery" value="37000"/>
+                        <entry key="enableHotDeploy" value="true"/>
+                        <entry key="enableImportBackup" value="true"/>
+                        <entry key="saveAuditlogsWithPayload" value="true"/>
+						<entry key="events.collectionQueue.size" value="10000"/>
+						<entry key="events.reportingQueue.size" value="5000"/>
+						<entry key="events.collectionPool.minThreads" value="2"/>
+						<entry key="events.collectionPool.maxThreads" value="16"/>
+						<entry key="events.reportingPool.minThreads" value="4"/>
+						<entry key="events.reportingPool.maxThreads" value="8"/>
+                        <entry key="pg.endpoint.connectionTimeout" value="30"/>
+                        <entry key="pg.endpoint.readTimeout" value="30"/>
+                        <entry key="retainResponseStatus" value="false"/>
+                        <entry key="customCertificateHeader" value="X-Client-Cert"/>
+                        <entry key="pg.nativeServer.validatePrivateIPs" value="false"/>
+                        <entry key="enableTeamWork" value="false"/>
+                        <entry key="return408ForConnectionTimeout" value="true"/>
+			            <entry key="transferEncodingChunked_handleAsStream" value="false"/>
+                        <entry key="xmlToJSONConversion_keepString" value="true"/>
+                        <entry key="pg.suppress.IS.lcm" value="false"/>
+						<entry key="pg.MTOMStreaming.cachedFiles.delete.interval" value="3600"/>
+                        <entry key="pg.removeSSNID" value="true"/>
+                        <entry key="tagsTypeAheadSearchResultSize" value="10"/>
+                        <entry key="pg_Dataspace_GossipInterval" value="3" />
+                        <entry key="pg_Dataspace_TimeToFail" value="30"/>
+                        <entry key="pg_Dataspace_WarmupTime" value="300"/>
+                        <entry key="pg.soapToRest.typeConvertorEnabled" value="true"/>
+                        <entry key="pg.soapToRest.removeWhitespaces" value="true"/>
+                        <entry key="pg.security.honourPortAccessModeSettings" value="false"/>
+                        <entry key="startDayOfTheWeek" value="MONDAY"/>
+						<entry key="appMesh.microgateway.logLevel" value="ERROR"/>
+                        <entry key="clusterNotifierCacheStaleInterval" value="900"/>
+                        <entry key="storeBinaryPayloadInEvents" value="true"/>
+						<entry key="pg.overwrite.users.withsameloginid" value="true" />
+                        <entry key="purgeThrottle" value="1000" />
+                        <entry key="validateTransportProtocolAgainstEGPort" value="false"/>
+                        <entry key="pg.security.allowedhostnames" value=""/>
+						<entry key="wsdlPortLayout" value="service-port"/>
+                        <entry key="pg.schema.cacheOnDeploy" value="false"/>
+			             <entry key="wsdlPortLayout" value="service-port"/>
+                    </map>
+                </entry>
+                <entry key="samlsso">
+                    <map key-type="java.lang.String">
+                        <entry key="saml_enabled" value="false"/>
+                        <entry key="saml_redirect" value="/saml/sso/login"/>
+                        <entry key="saml_keystore_location" value=""/>
+                        <entry key="saml_keystore_type" value="JKS"/>
+                        <entry key="saml_keystore_pwd" value=""/>
+                        <entry key="saml_defaultkey_alias" value="default"/>
+                        <entry key="saml_defaultkey_pwd" value=""/>
+                        <entry key="saml_signkey_alias" value="sign"/>
+                        <entry key="saml_signkey_pwd" value=""/>
+                        <entry key="saml_encrypkey_alias" value="encrypt"/>
+                        <entry key="saml_encrypkey_pwd" value=""/>
+                        <entry key="saml_authreq_signed" value="true"/>
+                        <entry key="saml_assertion_signed" value="true"/>
+                        <entry key="saml_sp_id" value=""/>
+                        <entry key="saml_ldp_metadata_url" value=""/>
+                        <entry key="saml_sp_metadata_url" value=""/>
+                        <entry key="keystoreAlias" value=""/>
+                        <entry key="idpMetadataContent" value=""/>
+                        <entry key="useSSOLoginByDefault" value="false"/>
+                        <entry key="groupMapping">
+                            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.api.model.sso.GroupMapping"/>
+                        </entry>
+                        <entry key="userProfileMapping">
+                            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.api.model.sso.UserProfileMapping"/>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="misc">
+                    <map key-type="java.lang.String">
+                        <entry key="gateway_timeout" value="60"/>
+                        <entry key="log_level" value="off"/>
+                        <entry key="store_log" value="false"/>
+                        <entry key="log_storage_type" value=""/>
+                        <entry key="log_storage_interval" value=""/>
+                        <entry key="isUserPasswordChanged" value="false" />
+                    </map>
+                </entry>
+                <entry key="dashboard">
+                    <map key-type="java.lang.String">
+                        <entry key="dashboardInstance" value="http://&lt;localhost&gt;:9405"/>
+                    </map>
+                </entry>
+                <entry key="customContentTypes">
+                    <map key-type="java.lang.String">
+                    </map>
+                </entry>
+                <entry key="errorProcessing">
+                    <map key-type="java.lang.String">
+                        <entry key="fallbackErrorMessage"
+                               value="API Gateway encountered an error. Error Message: $ERROR_MESSAGE. Request Details: Service - $SERVICE, Operation - $OPERATION, Invocation Time:$TIME, Date:$DATE,  Client IP - $CLIENT_IP, User - $USER and Application:$CONSUMER_APPLICATION"/>
+                        <entry key="defaultErrorMessage"
+                               value="API Gateway encountered an error. Error Message: $ERROR_MESSAGE. Request Details: Service - $SERVICE, Operation - $OPERATION, Invocation Time:$TIME, Date:$DATE,  Client IP - $CLIENT_IP, User - $USER and Application:$CONSUMER_APPLICATION"/>
+                        <entry key="sendNativeProviderFault" value="false"/>
+                    </map>
+                </entry>
+                <entry key="downTimeDetector">
+                    <map key-type="java.lang.String">
+                        <entry key="patterns"
+                               value=".*ConnectException.*,.*MalformedURLException.*,.*NoRouteToHostException.*,.*ProtocolException.*,.*SocketTimeoutException.*,.*UnknownHostException.*,.*UnknownServiceException.*,.*Web Service not available.*,.*The service cannot be found.*"/>
+                    </map>
+                </entry>
+                <entry key="auditlogDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="name" value="API Gateway Transaction Logger"/>
+                        <entry key="enabled" value="false"/>
+                        <entry key="mode" value="synchronous"/>
+                        <entry key="guaranteed" value="false"/>
+                        <entry key="destination" value="file"/>
+                        <entry key="maximumQueueSize" value="100000"/>
+                        <entry key="maximumRetries" value="3"/>
+                        <entry key="waitBetweenRetries" value="5"/>
+                    </map>
+                </entry>
+                <entry key="gatewayDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendErrorEvent" value="true"/>
+                        <entry key="sendLifecycleEvent" value="true"/>
+                        <entry key="sendPolicyViolationEvent" value="true"/>
+                        <entry key="sendPerformanceMetrics" value="true"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                        <entry key="sendAuditlogAPIManagementEvent" value="true"/>
+                        <entry key="sendAuditlogPromotionManagementEvent" value="true"/>
+                        <entry key="sendAuditlogPolicyManagementEvent" value="true"/>
+                        <entry key="sendAuditlogAliasManagementEvent" value="true"/>
+                        <entry key="sendAuditlogApplicationManagementEvent" value="true"/>
+                        <entry key="sendAuditlogPackageManagementEvent" value="true"/>
+                        <entry key="sendAuditlogPlanManagementEvent" value="true"/>
+                        <entry key="sendAuditlogApprovalManagementEvent" value="true"/>
+                        <entry key="sendAuditlogUserManagementEvent" value="true"/>
+                        <entry key="sendAuditlogGroupManagementEvent" value="true"/>
+                        <entry key="sendAuditlogAccessProfileManagementEvent" value="true"/>
+                        <entry key="sendAuditlogRuntimeDataManagementEvent" value="true"/>
+                        <entry key="sendAuditlogAccessControlListManagementEvent" value="true"/>
+                        <entry key="sendAuditlogAdministrationEvent" value="true"/>
+                        <entry key="sendAuditlogRuleManagementEvent" value="true"/>
+                    </map>
+                </entry>
+                <entry key="cumulocityDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="endpointURL" value=""/>
+                        <entry key="tenantName" value=""/>
+                        <entry key="username" value=""/>
+                        <entry key="password" value=""/>
+                    </map>
+                </entry>
+                <entry key="jdbcDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                        <entry key="sendPerformanceMetrics" value="false"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                        <entry key="sendAuditlogPromotionManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAPIManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPolicyManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAliasManagementEvent" value="false"/>
+                        <entry key="sendAuditlogApplicationManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPackageManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPlanManagementEvent" value="false"/>
+                        <entry key="sendAuditlogApprovalManagementEvent" value="false"/>
+                        <entry key="sendAuditlogUserManagementEvent" value="false"/>
+                        <entry key="sendAuditlogGroupManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAccessProfileManagementEvent" value="false"/>
+                        <entry key="sendAuditlogRuntimeDataManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAccessControlListManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAdministrationEvent" value="false"/>
+                        <entry key="sendAuditlogRuleManagementEvent" value="false"/>
+                    </map>
+                </entry>
+                <entry key="desDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                        <entry key="sendPerformanceMetrics" value="false"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                        <entry key="sendAuditlogPromotionManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAPIManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPolicyManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAliasManagementEvent" value="false"/>
+                        <entry key="sendAuditlogApplicationManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPackageManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPlanManagementEvent" value="false"/>
+                        <entry key="sendAuditlogApprovalManagementEvent" value="false"/>
+                        <entry key="sendAuditlogUserManagementEvent" value="false"/>
+                        <entry key="sendAuditlogGroupManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAccessProfileManagementEvent" value="false"/>
+                        <entry key="sendAuditlogRuntimeDataManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAccessControlListManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAdministrationEvent" value="false"/>
+                        <entry key="sendAuditlogRuleManagementEvent" value="false"/>
+                    </map>
+                </entry>
+                <entry key="elasticsearchDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="protocol" value=""/>
+                        <entry key="hostName" value=""/>
+                        <entry key="port" value=""/>
+                        <entry key="indexName" value=""/>
+                        <entry key="userName" value=""/>
+                        <entry key="password" value=""/>
+                        <entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                        <entry key="sendPerformanceMetrics" value="false"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                        <entry key="sendAuditlogPromotionManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAPIManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPolicyManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAliasManagementEvent" value="false"/>
+                        <entry key="sendAuditlogApplicationManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPackageManagementEvent" value="false"/>
+                        <entry key="sendAuditlogPlanManagementEvent" value="false"/>
+                        <entry key="sendAuditlogApprovalManagementEvent" value="false"/>
+                        <entry key="sendAuditlogUserManagementEvent" value="false"/>
+                        <entry key="sendAuditlogGroupManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAccessProfileManagementEvent" value="false"/>
+                        <entry key="sendAuditlogRuntimeDataManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAccessControlListManagementEvent" value="false"/>
+                        <entry key="sendAuditlogAdministrationEvent" value="false"/>
+                        <entry key="sendAuditlogRuleManagementEvent" value="false"/>
+                        <entry key="keystoreName" value=""/>
+                        <entry key="keystoreAlias" value=""/>
+                        <entry key="truststoreName" value=""/>
+                    </map>
+                </entry>
+                <entry key="analyticsDataStoreDestinationConfig"><map key-type="java.lang.String"><entry key="protocol" value=""/><entry key="hostName" value=""/><entry key="port" value=""/><entry key="userName" value=""/><entry key="password" value=""/><entry key="keystoreName" value=""/><entry key="keystorePassword" value=""/><entry key="keystoreAlias" value=""/><entry key="truststoreName" value=""/><entry key="truststorePassword" value=""/><entry key="keepAlive" value="true"/><entry key="keepAliveMaxConnections" value="50"/><entry key="keepAliveMaxConnectionsPerRoute" value="15"/><entry key="connectionTimeout" value="10000"/><entry key="socketTimeout" value="30000"/><entry key="maxRetryTimeout" value="100000"/><entry key="httpsEnabled" value="false"/><entry key="outboundProxyEnabled" value=""/><entry key="outboundProxyAlias" value=""/><entry key="httpsEnforceHostnameVerification" value=""/><entry key="sniffEnabled" value="false"/><entry key="sniffTimeInterval" value="60000"/><entry key="clientHttpResponseSize" value="100"/><entry key="tenantId" value="is_5551"/></map></entry>
+                <entry key="snmpDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendTRAPs" value="false"/>
+                        <entry key="snmpTargetType" value=""/>
+                        <entry key="hostName" value=""/>
+                        <entry key="port" value=""/>
+                        <entry key="transport" value=""/>
+                        <entry key="userName" value=""/>
+                        <entry key="useAuth" value=""/>
+                        <entry key="authPassword" value=""/>
+                        <entry key="authProtocol" value="MD5"/>
+                        <entry key="usePrivacy" value=""/>
+                        <entry key="privacyPassword" value=""/>
+                        <entry key="privacyProtocol" value="DES"/>
+                        <entry key="communityName" value=""/>
+                        <entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                    </map>
+                </entry>
+                <entry key="emailDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="smtpServer" value=""/>
+                        <entry key="port" value=""/>
+                        <entry key="userName" value=""/>
+                        <entry key="password" value=""/>
+                        <entry key="tls" value=""/>
+                        <entry key="truststoreAlias" value=""/>
+                        <entry key="internalEmail" value=""/>
+                        <entry key="serviceEmail" value=""/>
+                        <entry key="fromEmail" value=""/>
+                        <entry key="defaultEmailCharset" value=""/>
+                        <entry key="testRecipient" value=""/>
+                        <entry key="logInvocationSubject" value=""/>
+                        <entry key="logInvocationContent" value=""/>
+                        <entry key="monitorSPSubject" value=""/>
+                        <entry key="monitorSPContent" value=""/>
+                        <entry key="monitorSLASubject" value=""/>
+                        <entry key="monitorSLAContent" value=""/>
+                        <entry key="throttlingSubject" value=""/>
+                        <entry key="throttlingContent" value=""/>
+                    </map>
+                </entry>
+                <entry key="apiPortalDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                        <entry key="sendPerformanceMetrics" value="false"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                    </map>
+                </entry>
+                <entry key="centraSiteDestinationCommunicationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="protocol" value=""/>
+                        <entry key="hostName" value=""/>
+                        <entry key="targetName" value=""/>
+                        <entry key="UDDIPort" value=""/>
+                        <entry key="userName" value=""/>
+                        <entry key="password" value=""/>
+                        <entry key="gatewayAssetId" value=""/>
+                    </map>
+                </entry>
+                <entry key="centraSiteDestinationSNMPConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendTRAPsToCentrasite" value="true"/>
+                        <entry key="hostName" value=""/>
+                        <entry key="port" value=""/>
+                        <entry key="transport" value=""/>
+                        <entry key="userName" value=""/>
+                        <entry key="authorizationPassword" value=""/>
+                        <entry key="authorizationProtocol" value=""/>
+                        <entry key="privacyPassword" value=""/>
+                        <entry key="privacyProtocol" value=""/>
+                    </map>
+                </entry>
+                <entry key="centraSiteDestinationEventsConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                        <entry key="sendPerformanceMetrics" value="false"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                    </map>
+                </entry>
+                <entry key="cloudConfig">
+                    <map key-type="java.lang.String">
+	                    <entry key="auth_cloud_redirect" value=""/>
+	                    <entry key="auth_cloud_enabled" value="false"/>
+						<entry key="cloud_assertion_endpoint" value=""/>
+						<entry key="integration_cloud_tenant_id" value=""/>
+						<entry key="apigw_packages_location" value=""/>
+						<entry key="apigw_home_page" value=""/>
+						<entry key="apigw_domain" value=""/>
+						<entry key="apigw_packages_upload_contract_approved" value="false"/>
+                        <entry key="provisioning_apiportal" value="false" />
+						<entry key="previous_version" value="" />
+						<entry key="fix_management_s3_bucket" value="" />
+						<entry key="build_source_s3_bucket" value="" />
+						<entry key="is_transaction_license_enabled" value="false"/>
+						<entry key="transaction_limit" value=""/>
+                        <entry key="sagcloud_client_secret" value=""/>
+                        <entry key="sagcloud_client_id" value=""/>
+                        <entry key="sagcloud_auth_server_url" value=""/>
+                        <entry key="type_of_deployment" value=""/>
+                        <entry key="sagcloud_home_page" value=""/>
+						<entry key="apigw_custom_smtp_enabled" value=""/>
+                        <entry key="doc_base_url" value="https://docs.webmethods.io"/>
+                    </map>
+                </entry>
+				<entry key="cloudPackages">
+                    <map key-type="java.lang.String">
+						 <entry key="apigw_installed_packages">
+                            <list/>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="jsonWebToken">
+                    <map key-type="java.lang.String">
+                        <entry key="issuer" value=""/>
+                        <entry key="algorithm" value=""/>
+                        <entry key="expiry" value=""/>
+                        <entry key="audience" value=""/>
+                        <entry key="keyStore" value=""/>
+                        <entry key="keyAlias" value=""/>
+                    </map>
+                </entry>
+                <entry key="activeOAuth2Server">
+                    <map key-type="java.lang.String">
+                        <entry key="aliasName" value=""/>
+                    </map>
+                </entry>
+                <entry key="samlIssuer">
+                    <map key-type="java.lang.String">
+                        <entry key="_dataType" value="alias"/>
+                    </map>
+                </entry>
+                <entry key="thirdpartyOAuth2">
+                    <map key-type="java.lang.String">
+                        <entry key="_dataType" value="alias"/>
+                    </map>
+                </entry>
+                <entry key="assertion">
+                    <map key-type="java.lang.String">
+                        <entry key="_dataType" value="assertion"/>
+                    </map>
+                </entry>
+                <entry key="openIDProvider">
+                    <map key-type="java.lang.String">
+                        <entry key="_dataType" value="alias"/>
+                    </map>
+                </entry>
+                <entry key="APIsAccessibleThroughExternalPort">
+                    <map key-type="java.lang.String">
+                        <entry key="APIURIs">
+                            <list value-type="java.lang.String">
+                                <value>pub.apigateway.oauth2:getAccessToken</value>
+								<value>pub.apigateway.oauth2/getAccessToken</value>
+                                <value>pub/apigateway/oauth2/getAccessToken</value>
+								<value>secure.apigateway.oauth2/approve</value>
+								<value>secure.apigateway.oauth2:approve</value>
+								<value>secure/apigateway/oauth2/approve</value>
+								<value>pub.apigateway.oauth2:authorize</value>
+								<value>pub.apigateway.oauth2/authorize</value>
+                                <value>pub/apigateway/oauth2/authorize</value>
+                                <value>pub/apigateway/openid/getOpenIDToken</value>
+                                <value>pub/apigateway/openid/openIDCallback</value>
+                                <value>pub/apigateway/jwt/getJsonWebToken</value>
+                                <value>pub.mediator.oauth2</value>
+                                <value>pub/mediator/oauth2</value>
+                                <value>/pub/apigateway/jwt/certs</value>
+                                <value>/pub/apigateway/jwt/configuration</value>
+                                <value>/pub/apigateway/jwt/thirdPartyConfiguration</value>
+                            </list>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="logConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="enableLogAggregation" value="false"/>
+                        <entry key="logDestination" value=""/>
+                        <entry key="protocol" value="HTTP"/>
+                        <entry key="hostName" value=""/>
+                        <entry key="port" value=""/>
+						<entry key="indexName" value=""/>
+                        <entry key="userName" value=""/>
+                        <entry key="password" value=""/>
+                        <entry key="apigatewayLogger" value=""/>
+                        <entry key="enableSecurityLogger" value=""/>
+                        <entry key="enableSessionLogger" value=""/>
+                        <entry key="elasticSearchLogger" value="info"/>
+                        <entry key="kibanaLogger" value=""/>
+                        <entry key="sagOsgiLogger" value="info"/>
+
+                    </map>
+                </entry>
+                <entry key="cumulocityDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="endpointURL" value=""/>
+                        <entry key="tenantName" value=""/>
+                        <entry key="username" value=""/>
+                        <entry key="password" value=""/>
+
+                    </map>
+                </entry>
+                <entry key="passwordRestrictions">
+                    <map key-type="java.lang.String">
+                        <entry key="enablePasswordChange" value=""/>
+                        <entry key="historyLength" value=""/>
+                        <entry key="maxIdenticalCharsInARow" value=""/>
+                        <entry key="maxLength" value=""/>
+                        <entry key="minDigits" value=""/>
+                        <entry key="minLength" value=""/>
+                        <entry key="minLowerChars" value=""/>
+                        <entry key="minSpecialChars" value=""/>
+                        <entry key="minUpperChars" value=""/>
+                        <entry key="mode" value=""/>
+                    </map>
+                </entry>
+                <entry key="passwordExpiry">
+                    <map key-type="java.lang.String">
+                        <entry key="isEnabled" value=""/>
+                        <entry key="expirationInterval" value=""/>
+                        <entry key="expiryEmailBefore" value=""/>
+                        <entry key="emailIds" value=""/>
+                        <entry key="applicableUsers" value=""/>
+                    </map>
+                </entry>
+                <entry key="accountLockSettings">
+                    <map key-type="java.lang.String">
+                        <entry key="isEnabled" value=""/>
+                        <entry key="maximumLoginAttempts" value=""/>
+                        <entry key="timeInterval" value=""/>
+                        <entry key="timeIntervalUnit" value=""/>
+                        <entry key="blockDuration" value=""/>
+                        <entry key="blockDurationUnit" value=""/>
+                        <entry key="appliesToUsers" value=""/>
+                        <entry key="restrictLoginForUsersInDefaultTeam" value="true"/>
+                    </map>
+                </entry>
+                <entry key="ldapConfig">
+                    <map key-type="java.lang.String"
+                         value-type="com.softwareag.apigateway.api.model.ldap.LDAPConfiguration"/>
+                </entry>
+                <entry key="denyByIPForFailedAuthConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="isEnabled" value="false"/>
+                        <entry key="maximumFailedAuthRequests" value=""/>
+                        <entry key="maximumFailedAuthRequestsDuration" value=""/>
+                        <entry key="whenLimitExceeds" value=""/>
+                        <entry key="blockIntervalInSeconds" value=""/>
+                        <entry key="deniedIPList">
+                            <list/>
+                        </entry>
+                    </map>
+                </entry>
+
+                <entry key="settings">
+                    <map key-type="java.lang.String"
+                         value-type="com.softwareag.apigateway.api.model.configuration.Settings"/>
+                </entry>
+
+                <entry key="cache">
+                    <map key-type="java.lang.String">
+                        <entry key="gatewayCacheConfigList">
+                            <list value-type="com.softwareag.apigateway.cache.GatewayCacheConfig"/>
+                        </entry>
+                    </map>
+                </entry>
+                <entry key="syncableWattKeys">
+                    <map key-type="java.lang.String">
+                        <entry key="watt.server.oauth.authServer.alias" value=""/>
+                        <entry key="watt.server.url.alias.partialMatching" value=""/>
+                        <entry key="watt.server.oauth.requireHTTPS" value=""/>
+                        <entry key="watt.security.ssl.client.ignoreEmptyAuthoritiesList" value=""/>
+                        <entry key="watt.security.ssl.ignoreExpiredChains" value=""/>
+                        <entry key="watt.net.http401.throwException" value=""/>
+                        <entry key="watt.net.http501-599.throwException" value=""/>
+                        <entry key="watt.server.SOAP.MTOMStreaming.enable" value=""/>
+                        <entry key="watt.server.http.Strict-Transport-Security" value=""/>
+                        <entry key="watt.server.rest.removeInputVariablesFromResponse" value=""/>
+                        <entry key="watt.server.coder.responseAsXML" value=""/>
+                        <entry key="watt.security.ssl.cacheClientSessions" value=""/>
+                        <entry key="watt.server.enterprisegateway.ignoreXForwardedForHeader" value=""/>
+                    </map>
+                </entry>
+                <entry key="externalJWTConfig">
+                    <map key-type="java.lang.String"
+                         value-type="com.softwareag.apigateway.api.model.jwt.ThirdPartyJWTConfiguration"/>
+                </entry>
+				<entry key="apiCallBackSettings">
+                    <map key-type="java.lang.String"
+                         value-type="com.softwareag.apigateway.api.model.administration.APICallbackSettings"/>
+                </entry>
+                <entry key="profileLogger">
+                    <map key-type="java.lang.String">
+                        <entry key="activate" value="false"/>
+                    </map>
+                </entry>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <list>
+                <value>extended</value>
+                <value>customContentTypes</value>
+                <value>cloudConfig</value>
+                <value>externalJWTConfig</value>
+				<value>apiCallBackSettings</value>
+            </list>
+        </constructor-arg>
+        <property name="observers">
+            <list>
+                <bean class="com.softwareag.apigateway.core.observer.PerformanceDataListener"></bean>
+                <bean class="com.softwareag.apigateway.is.security.ActiveAuthorizationServerListener"></bean>
+                <bean class="com.softwareag.apigateway.core.observer.CachePropertiesObserver"></bean>
+                <ref bean="extendedPropertiesObserver"></ref>
+				<bean class="com.softwareag.apigateway.is.managers.UserLocaleFinder"></bean>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="coreOAuth2Manager" class="com.softwareag.apigateway.core.manager.OAuth2Manager">
+        <property name="materializedTokenOAuth2PersistenceHandler" ref="materializedTokenOAuth2PersistenceHandler"/>
+        <property name="scopePersistenceHandler" ref="scopePersistenceHandler"/>
+        <property name="clientRegistrationPersistenceHandler" ref="clientRegistrationPersistenceHandler"/>
+        <property name="accessTokenPersistenceHandler" ref="accessTokenPersistenceHandler"/>
+        <property name="refreshTokenPersistenceHandler" ref="refreshTokenPersistenceHandler"/>
+        <property name="tokenPersistenceHandler" ref="tokenPersistenceHandler"/>
+    </bean>
+
+    <bean id="portManager" class="com.softwareag.apigateway.core.manager.PortManager">
+        <property name="observers">
+            <list>
+                <ref bean="portConfigurationListener"/>
+            </list>
+        </property>
+        <property name="isPortManager" ref="isPortManager"/>
+    </bean>
+
+    <bean id="packageManager" class="com.softwareag.apigateway.core.manager.PackageManager">
+        <constructor-arg index="0" ref="packagePersistanceHandler"/>
+        <constructor-arg index="1" ref="planManager"/>
+        <constructor-arg index="2" ref="apiManager"/>
+        <constructor-arg index="3" ref="packageDeploymentManager"/>
+    </bean>
+
+    <bean id="planManager" class="com.softwareag.apigateway.core.manager.PlanManager">
+        <constructor-arg index="0" ref="planPersistanceHandler"/>
+        <constructor-arg index="1" ref="packagePersistanceHandler"/>
+    </bean>
+
+    <bean id="webhookManager" class="com.softwareag.apigateway.core.manager.WebhookManager">
+        <constructor-arg ref="webhookPersistanceHandler"/>
+    </bean>
+
+    <bean id="quotaAccumulatorManager" class="com.softwareag.apigateway.core.manager.QuotaAccumulatorManager"/>
+
+    <bean id="accessTokenManager" class="com.softwareag.apigateway.managers.ApplicationPublisher">
+    </bean>
+    <bean id="applicationPublisher" class="com.softwareag.apigateway.managers.ApplicationPublisher">
+    </bean>
+
+    <bean id="subscriptionManager" class="com.softwareag.apigateway.core.manager.SubscriptionManager"
+          parent="applicationManager">
+        <property name="packageManager" ref="packageManager"/>
+        <property name="subscriptionPersistenceHandler" ref="subscriptionPersistenceHandler"/>
+    </bean>
+
+    <bean id="designTimeContextFactory" class="com.softwareag.apigateway.core.context.DesignTimeContextFactory">
+    </bean>
+
+    <bean id="policyTemplatesStore" class="com.softwareag.apigateway.runtime.provider.policy.PolicyTemplatesStore"
+          init-method="init">
+        <property name="storeLocation" value="resources/policy-store"/>
+        <property name="policyActionStoreLocation" value="/policyActions"/>
+        <property name="policyActionParameterStoreLocation" value="/policyActionParameters"/>
+    </bean>
+    <bean id="policyMigrationJSONConverter"
+          class="com.softwareag.apigateway.core.migration.PolicyMigrationJSONConverter" init-method="init"/>
+    <bean id="policyMigrationUtility" class="com.softwareag.apigateway.core.migration.PolicyMigrationUtility"/>
+
+    <bean id="scopeEvaluator" class="com.softwareag.apigateway.core.policy.scope.ScopeEvaluator">
+        <property name="apiManager" ref="apiManager"/>
+        <property name="serviceTypeVerifier" ref="serviceTypeVerifier"/>
+        <property name="attributeVerifier" ref="attributeVerifier"/>
+        <property name="skipPolicyActionParameter">
+            <list>
+                <value>soapVersion</value>
+            </list>
+        </property>
+        <property name="includedAPIFields">
+            <list>
+                <value>id</value>
+                <value>apiName</value>
+                <value>apiVersion</value>
+                <value>type</value>
+                <value>nativeEndpoint</value>
+                <value>apiDefinition.paths.*.tags</value>
+                <value>apiDefinition.operationsInfo.*.tags</value>
+                <value>apiDefinition.apiTags</value>
+                <value>apiDefinition.entityTypes</value>
+                <value>apiDefinition.functions</value>
+                <value>apiDefinition.batchMap</value>
+                <value>apiDefinition.actions</value>
+                <value>apiDefinition.type</value>
+            </list>
+        </property>
+        <property name="excludedAPIFields">
+            <list>
+                <value>referencedFiles</value>
+                <value>apiDefinition.paths.*.responses</value>
+                <value>apiDefinition.paths.*.requestBody</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="aliasReplacementController" class="com.softwareag.apigateway.core.alias.AliasReplacementControllerImpl">
+        <property name="replacers">
+            <map>
+                <entry key="com.softwareag.apigateway.api.model.alias.SimpleAlias" value-ref="siAliasTempReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.EndpointAlias" value-ref="epAliasTempReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.SOAPMessageSecurityAlias"
+                       value-ref="SOAPMessageSecurityAliasReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.SAMLIssuerAlias"
+                       value-ref="SAMLIssuerAliasReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.HTTPTransportSecurityAlias"
+                       value-ref="HTTPTrasnsportSecurityAliasReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.TransformationAlias"
+                       value-ref="TransformationAliasReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.WebmethodsAlias"
+                       value-ref="WebmethodsAliasReplacer"/>
+                <entry key="com.softwareag.apigateway.api.model.alias.ServiceRegistryModel"
+                       value-ref="ServiceRegistryAliasReplacer"/>
+				<entry key="com.softwareag.apigateway.api.model.alias.AWSConfigurationAlias"
+                       value-ref="AWSConfigurationAliasReplacer"/>
+            </map>
+        </property>
+        <property name="updateManagers">
+            <map>
+                <entry key="com.softwareag.apigateway.core.alias.policyaction.PolicyActionWrapper"
+                       value-ref="policyActionAliasUpdateManager"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="HTTPTrasnsportSecurityAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.HTTPTransportSecurityAliasReplacer"/>
+    <bean id="SOAPMessageSecurityAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.SOAPMsgSecurityAliasReplacer"/>
+    <bean id="SAMLIssuerAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.SAMLIssuerAliasReplacer"/>
+    <bean id="ServiceRegistryAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.replacers.ServiceRegistryAliasReplacer"/>
+	<bean id="AWSConfigurationAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.replacers.AWSConfigurationAliasReplacer"/>
+    <bean id="TransformationAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.TransformationAliasReplacer"/>
+    <bean id="WebmethodsAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.WebmethodsAliasReplacer"/>
+    <bean id="siAliasTempReplacer" class="com.softwareag.apigateway.core.alias.SimpleAliasTemplateReplacer">
+        <property name="replacers">
+            <map>
+                <entry key="com.softwareag.apigateway.core.alias.policyaction.PolicyActionWrapper"
+                       value-ref="policyActionSiAliasReplacer"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="epAliasTempReplacer" class="com.softwareag.apigateway.core.alias.EndpointAliasTemplateReplacer">
+        <property name="replacers">
+            <map>
+                <entry key="com.softwareag.apigateway.core.alias.policyaction.PolicyActionWrapper"
+                       value-ref="policyActionEpAliasReplacer"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="policyActionSiAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.PolicyActionSimpleAliasReplacer">
+        <property name="replacers">
+            <map>
+                <entry key="logInvocation">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.EmailDestinationSimpleAliasReplacer"/>
+                </entry>
+                <entry key="monitorServicePerformance">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.EmailDestinationSimpleAliasReplacer"/>
+                </entry>
+                <entry key="monitorSLA">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.EmailDestinationSimpleAliasReplacer"/>
+                </entry>
+                <entry key="throttle">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.EmailDestinationSimpleAliasReplacer"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="policyActionEpAliasReplacer"
+          class="com.softwareag.apigateway.core.alias.policyaction.PolicyActionEndpointAliasReplacer">
+        <property name="replacers">
+            <map>
+                <entry key="straightThroughRouting">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.StraightThroughRoutingEndpointAliasReplacer"/>
+                </entry>
+                <entry key="contentBasedRouting">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.ContentBasedRoutingEndpointAliasReplacer"/>
+                </entry>
+                <entry key="contextBasedRouting">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.ContextBasedRoutingEndpointAliasReplacer"/>
+                </entry>
+                <entry key="loadBalancerRouting">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.LoadBalancedRoutingEndpointAliasReplacer"/>
+                </entry>
+                <entry key="dynamicRouting">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.DynamicRoutingEndpointAliasReplacer"/>
+                </entry>
+                <entry key="customPolicy">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.CustomExtensionEndpointAliasReplacer"/>
+                </entry>
+                <entry key="customDestination">
+                    <bean class="com.softwareag.apigateway.core.alias.policyaction.replacers.CustomExtensionEndpointAliasReplacer"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="policyActionAliasUpdateManager"
+          class="com.softwareag.apigateway.core.alias.policyaction.PolicyActionAliasUpdateManager"/>
+
+    <bean id="defaultPolicyActionsCreator" class="com.softwareag.apigateway.core.policy.DefaultPolicyActionsCreator">
+    </bean>
+    <bean id="policyDependencyEvaluator" class="com.softwareag.apigateway.core.policy.PolicyDependencyEvaluator"/>
+    <bean id="apiPolicyActionsDependencyHandler"
+          class="com.softwareag.apigateway.core.handlers.APIPolicyActionAssociationHandler">
+        <property name="dependencyEvalautor" ref="policyDependencyEvaluator"/>
+        <property name="policyHandlers">
+            <map>
+                <entry key="rest" value-ref="restAPIPolicyHandler"/>
+                <entry key="odata" value-ref="odataAPIPolicyHandler"/>
+                <entry key="soap" value-ref="soapAPIPolicyHandler"/>
+                <entry key="websocket" value-ref="websocketAPIPolicyHandler"/>
+                <entry key="graphql" value-ref="graphqlAPIPolicyHandler"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="apiPolicyAssociationStore" class="com.softwareag.apigateway.runtime.provider.policy.APIPolicyAssociationStore"/>
+
+    <bean id="restToSoapCreationHandler" class="com.softwareag.apigateway.core.handlers.RESTToSOAPCreationHandler"/>
+    <bean id="APICreationUrlAliasHandler" class="com.softwareag.apigateway.core.alias.listeners.APICreationUrlAliasHandler"/>
+    <bean id="apiValidationHandler" class="com.softwareag.apigateway.core.handlers.APIValidationHandler"/>
+    <bean id="restAPIPolicyHandler" class="com.softwareag.apigateway.runtime.provider.service.rest.RestAPIPolicyHandler"/>
+    <bean id="odataAPIPolicyHandler" class="com.softwareag.apigateway.core.handlers.scope.ODataAPIPolicyHandler"/>
+    <bean id="soapAPIPolicyHandler" class="com.softwareag.apigateway.core.handlers.scope.SOAPAPIPolicyHandler"/>
+    <bean id="websocketAPIPolicyHandler"
+          class="com.softwareag.apigateway.core.handlers.scope.WebSocketAPIPolicyHandler"/>
+    <bean id="graphqlAPIPolicyHandler" class="com.softwareag.apigateway.runtime.provider.service.graphql.GraphQLAPIPolicyHandler"/>
+
+    <!-- Scope -->
+    <!-- applicable attribute list -->
+    <util:list id="allApiLevelAttributes" value-type="java.lang.String">
+        <value>API_NAME</value>
+        <value>API_DESCRIPTION</value>
+        <value>API_VERSION</value>
+        <value>API_TAG</value>
+        <value>RESOURCE_OPERATION_TAG</value>
+        <value>METHOD_TAG</value>
+    </util:list>
+    <util:list id="allStringApiLevelAttributes" value-type="java.lang.String">
+        <value>API_NAME</value>
+        <value>API_DESCRIPTION</value>
+        <value>API_TAG</value>
+        <value>RESOURCE_OPERATION_TAG</value>
+        <value>METHOD_TAG</value>
+    </util:list>
+    <util:list id="allIntApiLevelAttributes" value-type="java.lang.String">
+        <value>API_VERSION</value>
+    </util:list>
+    <util:list id="allOperationNotAllowedAttributes" value-type="java.lang.String">
+        <value>GET</value>
+        <value>PUT</value>
+        <value>PATCH</value>
+        <value>POST</value>
+        <value>DELETE</value>
+        <value>HEAD</value>
+    </util:list>
+    <bean name="attributeVerifier" class="com.softwareag.pg.policy.scope.filter.AttributeVerifier">
+        <property name="attributeFilterMap">
+            <map>
+                <entry key="API">
+                    <list>
+                        <value>API_NAME</value>
+                        <value>API_DESCRIPTION</value>
+                        <value>API_VERSION</value>
+                        <value>API_TAG</value>
+                        <value>RESOURCE_OPERATION_TAG</value>
+                        <value>METHOD_TAG</value>
+                    </list>
+                </entry>
+                <entry key="HTTP_METHOD">
+                    <list>
+                        <value>GET</value>
+                        <value>PUT</value>
+                        <value>POST</value>
+                        <value>PATCH</value>
+                        <value>DELETE</value>
+                        <value>HEAD</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+        <property name="attributeOperationMap">
+            <map>
+                <entry key="EQUALS" value-ref="allApiLevelAttributes"/>
+                <entry key="CONTAINS" value-ref="allStringApiLevelAttributes"/>
+                <entry key="NOT_CONTAINS" value-ref="allStringApiLevelAttributes"/>
+                <entry key="STARTS_WITH" value-ref="allStringApiLevelAttributes"/>
+                <entry key="NOT_STARTS_WITH" value-ref="allStringApiLevelAttributes"/>
+                <entry key="ENDS_WITH" value-ref="allStringApiLevelAttributes"/>
+                <entry key="LESS_THAN" value-ref="allIntApiLevelAttributes"/>
+                <entry key="GREATER_THAN" value-ref="allIntApiLevelAttributes"/>
+                <entry key="NOT_EQUALS" value-ref="allApiLevelAttributes"/>
+            </map>
+        </property>
+        <property name="operationNotAllowedAttributes" ref="allOperationNotAllowedAttributes">
+        </property>
+    </bean>
+    <bean name="serviceTypeVerifier" class="com.softwareag.pg.policy.scope.filter.ServiceTypeVerifier">
+        <property name="serviceTypeFilterMap">
+            <map>
+                <entry key="REST">
+                    <list>
+                        <value>HTTP_METHOD</value>
+                        <value>API</value>
+                    </list>
+                </entry>
+                <entry key="SOAP">
+                    <list>
+                        <value>HTTP_METHOD</value>
+                        <value>API</value>
+                    </list>
+                </entry>
+                <entry key="ODATA">
+                    <list>
+                        <value>HTTP_METHOD</value>
+                        <value>API</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="beanValidator" class="com.softwareag.apigateway.core.validators.esapi.ESAPIBeanValidator"/>
+    <bean id="commonLogConfigListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.CommonLogConfigListener">
+        <property name="isCommonLoggingManager" ref="isCommonLoggingManager"/>
+    </bean>
+    <bean id="analyticsDataStoreDestinationConfigListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.AnalyticsDataStoreDestinationConfigListener">
+    </bean>
+    <bean id="LDAPConfigListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.LDAPConfigListener">
+        <property name="isldapManager" ref="ISLDAPManager"/>
+    </bean>
+    <bean id="SSOConfigListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.SSOConfigListener">
+        <property name="ssoMetadataGenerator" ref="SSOMetadataGenerator"/>
+    </bean>
+    <bean id="WattPropertyListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.WattPropertyListener">
+        <property name="isWattPropertyManager" ref="ISWattPropertyManager"/>
+    </bean>
+
+    <bean id="PasswordRestrictionListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.PasswordRestrictionListener">
+        <property name="isPasswordManager" ref="ISPasswordManager"/>
+    </bean>
+
+    <bean id="PasswordExpiryListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.PasswordExpiryListener">
+        <property name="isPasswordManager" ref="ISPasswordManager"/>
+    </bean>
+    <bean id="AccountLockSettingListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.AccountLockSettingListener">
+        <property name="isPasswordManager" ref="ISPasswordManager"/>
+    </bean>
+    <bean id="EventsRefreshIntervalListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.EventsRefreshIntervalListener">
+    </bean>
+    <bean id="DenyByIPForFailedAuthFilterListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.DenyByIPForFailedAuthFilterListener">
+    </bean>
+
+
+    <bean id="thirdPartyOAuth2AliasListener"
+          class="com.softwareag.apigateway.core.alias.listeners.ThirdPartyOAuth2AliasListener">
+        <property name="thirdPartyOAuth2Manager" ref="oAuth2Manager"/>
+    </bean>
+
+    <bean id="gatewayCacheConfigListener"
+          class="com.softwareag.apigateway.core.configuration.listeners.GatewayCacheConfigListener">
+    </bean>
+
+    <bean id="defaultKeystoreTruststoreListener" class="com.softwareag.apigateway.core.configuration.listeners.DefaultKeystoreTruststoreListener"/>
+
+   <bean id="assetDeployer" class="com.softwareag.apigateway.core.acdl.APIGatewayAssetDeployer">
+        <property name="importHandlers">
+            <list>
+                <!--<ref bean="importAssetTransformationHandler"/>-->
+                <ref bean="assetImportValidateOverwriteHandler"/>
+                <ref bean="assetImportValidationHandler"/>
+            </list>
+        </property>
+   </bean>
+    <bean id="assetTransformer" class="com.softwareag.apigateway.core.migration.transformation.AssetTransformer">
+    </bean>
+    <bean id="assetImporterFactory" class="com.softwareag.apigateway.core.acdl.AssetImporterFactory"/>
+	
+	<bean id="exportHelper" class="com.softwareag.apigateway.core.acdl.AssetExporter" />
+
+    <!-- applicable attribute list -->
+    <!-- evaluators -->
+
+    <bean id="assetPayloadConverter" class="com.softwareag.apigateway.core.migration.transformation.AssetPayloadConverter">
+    </bean>
+
+    <bean id="apiGatewayVersionUtils" class="com.softwareag.apigateway.core.migration.transformation.APIGatewayVersionUtils" depends-on="GatewayIndexCreater">
+    </bean>
+
+    <bean id="importAssetTransformationHandler" class="com.softwareag.apigateway.core.migration.transformation.ImportAssetTransformationHandler"/>
+    <bean id="assetImportValidateOverwriteHandler" class="com.softwareag.apigateway.core.acdl.AssetImportValidateOverwriteHandler"/>
+	<bean id="assetImportValidationHandler" class="com.softwareag.apigateway.core.acdl.AssetImportValidationHandler"/>    
+    <bean id="policyTransformationHelper" class="com.softwareag.apigateway.core.migration.transformation.PolicyTransformationHelper"/>
+    <bean id="policyResponseTransformationHelper" class="com.softwareag.apigateway.core.migration.transformation.PolicyResponseTransformationHelper"/>
+
+    <bean id="k8ConfigConverter" class="com.softwareag.apigateway.core.appmesh.k8s.client.AppMeshConfigConverter">
+    </bean>
+    <bean id="appMeshClient" class="com.softwareag.apigateway.core.appmesh.k8s.client.APIGWK8Client"></bean>
+</beans>

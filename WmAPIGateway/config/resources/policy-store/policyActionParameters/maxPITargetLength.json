@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxPITargetLength",
+  "names" : [
+    {
+      "value" : "Maximum Processing Instruction Target Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Processing Instruction Target Length",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "statusCodeOptional",
+		"names" : [
+		   {
+			 "value" : "Code",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "HTTP Status Code",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

@@ -1,0 +1,18 @@
+ {
+		"templateKey" : "whiteList",
+		"names" : [
+		   {
+			 "value" : "Cache responses only for these values",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Cache responses only for these values",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+  }

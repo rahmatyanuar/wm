@@ -1,0 +1,7 @@
+<#assign applicationTransformation='com.softwareag.apigateway.core.migration.transformation.application.Application102to103Transformation'?new()/>
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#if transformationMode?? && (transformationMode?length>0) && transformationMode != "MIGRATION">
+  ${applicationTransformation(doc, transformationMode, httpMethod, importProperties)}
+<#else>
+ ${printJsonPayload(doc)}
+</#if>

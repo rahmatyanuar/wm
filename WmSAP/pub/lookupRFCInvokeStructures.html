@@ -1,0 +1,35 @@
+		  <table class="tableInline" cellspacing="1">
+		    <tr>
+		      <!-- %loop fields% -->
+		      <td class="oddrowdata">%value name%</td>
+		      <!-- %endloop% -->
+		    </tr>
+		    <tr>
+		      <!-- %loop fields% -->
+		         <!-- %ifvar fields%%comment% again structure or table %endcomment% -->
+		      <td class="evenrowdata" valign="top" style="padding: 0px;">
+		           %include lookupRFCInvokeStructures.html%
+		      </td>
+		         <!-- %else%%comment% a structure again ... %endcomment% -->
+		           <!-- %ifvar entries%%comment% a table in a structure ... %endcomment% -->
+		      <td class="evenrowdata">
+		        <input type="hidden" name="$T_%value /$rfcname%:%value fullName%" value=""></input>
+		             <!-- %ifvar entries equals('1')% -->
+		       &nbsp;1&nbsp;<a href="sapRFCLookupInvokeEditTable.dsp?tableName=%value -urlencode /$rfcname%:%value -urlencode fullName%&amp;fullName=%value -urlencode fullName%&amp;$rfcname=%value -urlencode /$rfcname%&amp;systemId=%value -urlencode /systemId%">entry</a>
+		             <!-- %else% -->
+		       &nbsp;%value entries%&nbsp;<a href="sapRFCLookupInvokeEditTable.dsp?tableName=%value -urlencode /$rfcname%:%value -urlencode fullName%&amp;fullName=%value -urlencode fullName%&amp;$rfcname=%value -urlencode /$rfcname%&amp;systemId=%value -urlencode /systemId%">entries</a>
+		             <!-- %endif% -->
+		      </td>
+		           <!-- %else%%comment% and this is a simple field ... %endcomment% -->
+		      <td class="evenrowdata">
+		             <!-- %ifvar maxlength equals(-1)%%comment% STRING or XSTRING no length limit %endcomment% -->
+			         <input name="%value fullName%" size="42" value="%value default%"></input>
+		             <!-- %else%%comment% other scalars  %endcomment% -->
+			         <input name="%value fullName%" maxlength="%value maxlength%" size="%value maxlength%" value="%value default%"></input>
+		             <!-- %endif% -->
+		      </td>
+		           <!-- %endif% -->
+		         <!-- %endif% -->
+		      <!-- %endloop% -->
+		    </tr>
+		  </table>

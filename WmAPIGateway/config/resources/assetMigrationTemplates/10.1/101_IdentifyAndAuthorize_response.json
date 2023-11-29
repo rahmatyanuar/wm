@@ -1,0 +1,95 @@
+{
+        <#if doc.id??>
+        "id": "${doc.id}",
+        </#if>
+        "names": [{
+              "value": "Identify & Authorize Application",
+              "locale": "en"
+        }],
+        "templateKey": "evaluatePolicy",
+        "parameters": [
+        <#assign addComma="false"/>
+        <#list doc.parameters as parameter>
+        <#if parameter.templateKey != "IdentificationRule">
+              <#if addComma=="true">
+              ,
+              </#if>
+              <#assign addComma="true"/>
+              ${printJsonPayload(parameter)}
+        <#else>
+              <#assign isPayloadRule = "false"/>
+              <#list parameter.parameters as identificationRuleParameter>
+                  <#if identificationRuleParameter.templateKey == "identificationType">
+                      <#if identificationRuleParameter.values[0] == "payloadElement">
+                          <#assign isPayloadRule = "true"/>
+                          <#break>
+                      </#if>
+                  </#if>
+              </#list>
+              <#if isPayloadRule == "false">
+                  <#if addComma=="true">
+                  ,
+                  </#if>
+                  <#assign addComma="true"/>
+                  ${printJsonPayload(parameter)}
+              <#else>
+                  <#assign isXpathAvailable = "false"/>
+                      <#list parameter.parameters as payloadIdentifier>
+                              <#if payloadIdentifier.templateKey == "payloadIdentifier">
+                                  <#list payloadIdentifier.parameters as xpathParam>
+                                        <#if xpathParam.templateKey == "expressionType">
+                                            <#if xpathParam.values[0] == "xpath">
+                                                  <#assign xpathElement = payloadIdentifier/>
+                                                  <#assign isXpathAvailable="true"/>
+                                            </#if>
+                                        <#break>
+                                        </#if>
+                                  </#list>
+                                  <#break>
+                              </#if>
+                      </#list>
+                  <#if isXpathAvailable == "true">
+                            <#if addComma=="true">
+                            ,
+                            </#if>
+                            <#assign addComma="true"/>
+                  {
+                          "templateKey" : "IdentificationRule",
+                          "parameters"  : [
+                                <#list parameter.parameters as payloadParameter>
+                                <#if payloadParameter.templateKey != "payloadIdentifier">
+                                    ${printJsonPayload(payloadParameter)},
+                                </#if>
+                                </#list>
+                                {
+                                    "templateKey": "identificationQuery",
+                                    "parameters" : [
+                                        <#assign addXpathParamComma="false"/>
+                                        <#list xpathElement.parameters as param>
+                                        <#if param.templateKey == "namespace">
+                                        <#if addXpathParamComma == "true">,
+                                        </#if>
+                                        <#assign addXpathParamComma = "true"/>
+                                        ${printJsonPayload(param)}
+                                        <#elseif param.templateKey == "expression">
+                                        <#if addXpathParamComma == "true">,
+                                        </#if>
+                                        <#assign addXpathParamComma = "true"/>
+                                        {
+                                            "templateKey": "queryExpression",
+                                            "values": ["${param.values[0]}"]
+                                        }
+                                        </#if>
+                                        </#list>
+                                    ]
+                                }
+                          ]
+                  }
+                  <#assign isXpathAvailable="false"/>
+                  </#if>
+              </#if>
+            </#if>
+            </#list>
+        ],
+        "active":  ${doc.active?c}
+}

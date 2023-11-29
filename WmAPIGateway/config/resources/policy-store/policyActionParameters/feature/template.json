@@ -1,0 +1,19 @@
+  {
+		"templateKey" : "feature",
+		"names" : [
+		   {
+			 "value" : "XSLT Features",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Calls the ESB service specified by name in policy gateway.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  [  "featureName.json","featureValue.json"]
+  }

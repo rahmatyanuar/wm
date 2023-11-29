@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "users",
+		"names" : [
+		   {
+			 "value" : "List of Users",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "A List of users against which the request user will have to be authorized against",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+  }

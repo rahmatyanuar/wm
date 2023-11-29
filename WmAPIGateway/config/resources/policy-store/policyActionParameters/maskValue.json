@@ -1,0 +1,21 @@
+{
+		"templateKey" : "maskValue",
+		"names" : [
+		   {
+			 "value" : "Mask Value",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Mask Value",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+	"defaultValues" : [
+		"********"
+	]
+}

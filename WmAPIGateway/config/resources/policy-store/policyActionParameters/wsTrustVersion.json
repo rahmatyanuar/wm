@@ -1,0 +1,41 @@
+{
+				"templateKey" : "wsTrustVersion",
+				"names" : [
+				   {
+					 "value" : "WS-Trust Version",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "WS-Trust Version",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+					"WS-Trust_1.3"
+				],						
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "WS-Trust 1.0",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "WS-Trust_1.0"
+					},
+					{
+						"names" : [
+						{
+							"value" : "WS-Trust 1.3",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "WS-Trust_1.3"
+					}
+				]
+}

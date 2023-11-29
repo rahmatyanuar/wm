@@ -1,0 +1,123 @@
+{
+    "templateKey": "destinationType",
+    "names": [
+    {
+            "value": "Desired Destination",
+            "locale": "en_US"
+    }
+    ],
+    "descriptions": [
+    {
+            "value": "Destination to send Event",
+            "locale": "en_US"
+    }
+    ],
+    "type": "STRING",
+    "isArray": false,
+    "isRequired": true,
+    "defaultValues": ["GATEWAY"],
+	"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "API Gateway",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "GATEWAY"
+					},
+					{
+						"names" : [
+						{
+							"value" : "API Portal",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "APIPORTAL"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Audit Log",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "AUDITLOG"
+					},
+					{
+						"names" : [
+						{
+							"value" : "CentraSite",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "CENTRASITE"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Digital Events",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "DES"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Elasticsearch",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "ELASTICSEARCH"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Email",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SMTP"
+					},
+					{
+						"names" : [
+						{
+							"value" : "JDBC",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "JDBC"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Local Log",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "localLog"
+					},
+					{
+						"names" : [
+							{
+								"value" : "CUSTOM",
+								"locale" : "en"
+							}
+						],
+						"value" :  "CUSTOM"
+					},
+					{
+						"names" : [
+						{
+							"value" : "SNMP",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SNMP"
+					}
+
+
+
+		]
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.0" CLEANUP="true">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<INVOKE TIMEOUT="" SERVICE="apigateway.applications:registerApplication" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+  <COMMENT></COMMENT>
+
+  <!-- nodes -->
+
+<MAP MODE="OUTPUT">
+
+  <!-- nodes -->
+
+<MAPDELETE FIELD="/$resourceID;1;0">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/$path;1;0">
+</MAPDELETE>
+
+<MAPDELETE FIELD="/apiIDs;1;1">
+</MAPDELETE>
+</MAP>
+</INVOKE>
+</FLOW>

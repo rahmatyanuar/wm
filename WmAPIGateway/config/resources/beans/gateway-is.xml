@@ -1,0 +1,2797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+    <bean id="serverManager" class="com.softwareag.apigateway.is.managers.ISServerManager"/>
+    <bean id="ILoggerSettingsManager" class="com.softwareag.apigateway.is.rest.resource.handler.is.logger.settings.ISLoggerSettingsManager"/>
+    <bean id="ISGroupManager" class="com.softwareag.apigateway.is.managers.ISGroupManagerImpl"/>
+    <bean id="ISUserManager" class="com.softwareag.apigateway.is.managers.ISUserManagerImpl"/>
+    <bean id="ISPasswordManager" class="com.softwareag.apigateway.is.managers.ISPasswordManagerImpl"/>
+    <bean id="ISLDAPManager" class="com.softwareag.apigateway.is.managers.ISLDAPManagerImpl"/>
+    <bean id="SSOMetadataGenerator" class="com.softwareag.apigateway.is.managers.SSOMetadataGeneratorImpl"/>
+    <bean id="ISWattPropertyManager" class="com.softwareag.apigateway.is.managers.ISWattPropertyManagerImpl">
+        <property name="blackList">
+            <list>
+                <value>watt.server.auth.skipForMediator</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="QuiesceModeManager" class="com.softwareag.apigateway.is.managers.ISQuiesceModeManager" depends-on="QuiesceModeProcessor">
+        <constructor-arg ref="QuiesceModeProcessor"/>
+        <property name="dataFlushers">
+            <map>
+                <entry key="PERFORMANCE_METRICS">
+                    <bean class="com.softwareag.apigateway.quiesce.QuiesceModePerformanceMetricsFlusher">
+                        <property name="waitingInterval" value="1"/>
+                    </bean>
+                </entry>
+                <entry key="SUBSCRIPTION_QUOTA">
+                    <bean class="com.softwareag.apigateway.quiesce.QuiesceModeSubscriptionQuotaFlusher"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="QuiesceModeProcessor" class="com.softwareag.pg.http.QuiesceModeProcessorImpl">
+        <property name="whitelist">
+            <map>
+                <entry key="/rest/apigateway/quiescemode">
+                    <list/>
+                </entry>
+                <entry key="/rest/apigateway/search">
+                    <list/>
+                </entry>
+                <entry key="/rest/facade/apigateway/searchApis">
+                    <list/>
+                </entry>
+                <entry key="/rest/apigateway/migrate">
+                    <list/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+	<bean id="isJmsAmqpDeploymentHandler" class="com.softwareag.apigateway.is.provider.handlers.ISJmsAmqpDeploymentHandlerImpl"/>
+    <bean id="isUtilities" class="com.softwareag.apigateway.is.util.ISUtilitiesImpl"/>
+    <bean id="isUtils" class="com.softwareag.apigateway.is.util.ISUtilitiesImpl"/>
+	 <bean id="isJNDIManager" class="com.softwareag.apigateway.is.managers.ISJNDIManagerImpl"/>
+	 <bean id="isjmsManager" class="com.softwareag.apigateway.is.managers.ISJMSManagerImpl"/>
+	 <bean id="isjmsProviderManager" class="com.softwareag.apigateway.is.managers.ISJMSProviderManagerImpl"/>
+	 <bean id="isjmsConsumerManager" class="com.softwareag.apigateway.is.managers.ISJMSConsumerManagerImpl"/>
+	 <bean id="isjmsTriggerManager" class="com.softwareag.apigateway.is.managers.ISJMSTriggerManagerImpl"/>
+    <bean id="ISURLAliasesManager" class="com.softwareag.apigateway.is.managers.ISURLAliasesManagerImpl"/>
+    <bean id="ISPackageManager" class="com.softwareag.apigateway.is.managers.ISPackagesManagerImpl"/>
+    <bean id="isKerberosSettingsManger" class="com.softwareag.apigateway.is.managers.ISKerberosSettingsManagerImpl"/>
+    <bean id="isOutboundProxySettingsManager"
+          class="com.softwareag.apigateway.is.managers.ISOutboundProxySettingsManagerImpl"/>
+    <bean id="isProxyBypassManager"
+          class="com.softwareag.apigateway.is.managers.ISProxyBypassManagerImpl"/>
+    <bean id="isPortManager"
+          class="com.softwareag.apigateway.is.managers.ISPortManagerImpl"/>
+    <bean id="ISKeyStoreManager" class="com.softwareag.apigateway.is.managers.ISKeyStoreManagerImpl"/>
+    <bean id="ISTrustStoreManager" class="com.softwareag.apigateway.is.managers.ISTrustStoreManagerImpl"/>
+    <bean id="ISAccessProfileManager" class="com.softwareag.apigateway.is.managers.ISAccessProfileManagerImpl"/>
+    <bean id="serviceManager" class="com.softwareag.apigateway.is.managers.ISServiceManager"/>
+    <bean id="oAuth2Manager" class="com.softwareag.pg.oauth2.ISOAuth2Manager"/>
+    <bean id="isAssetManager" class="com.softwareag.apigateway.is.managers.ISAssetManager"/>
+    <bean id="isSearchManager" class="com.softwareag.apigateway.is.managers.ISSearchManager"/>
+    <bean id="isSMTPManager" class="com.softwareag.apigateway.is.managers.ISSMTPManager"/>
+	<bean id="userLocaleFinder" class="com.softwareag.apigateway.is.managers.UserLocaleFinder"/>
+    <bean id="isAuditlogManager" class="com.softwareag.apigateway.is.managers.ISAuditlogManager"/>
+    <bean id="esManager" class="com.softwareag.apigateway.is.managers.ISESManager"/>
+    <bean id="centraSiteMetricsSender" class="com.softwareag.apigateway.is.events.sender.CentraSiteMetricsSender"/>
+    <bean id="customDestinationManager" class="com.softwareag.apigateway.is.managers.ISCustomDestinationManager"/>
+    <bean id="sslTransport" class="com.softwareag.pg.axis2.transports.ISSSLTransport"/>
+    <bean id="authenticationManager" class="com.softwareag.pg.security.ISAuthenticationManager"/>
+    <bean id="authorizationManager" class="com.softwareag.pg.security.ISAuthorizationManager"/>
+    <bean id="httpURLConnectionManager" class="com.softwareag.pg.security.ISHttpURLConnectionManager"/>
+	<bean id="authFilter" class="com.softwareag.pg.security.AuthFilter"/>
+    <bean id="OutboundSecurityISHandler" class="com.softwareag.pg.security.ISOutboundSecurityHandler"/>
+    <bean id="requireHTTPAuthenticator" class="com.softwareag.pg.mediators.RequireHTTPAuthenticator"/>
+    <bean id="passman" class="com.softwareag.pg.security.ISPassMan" factory-method="getInstance"/>
+    <bean id="keystore" class="com.softwareag.pg.security.ISPGKeystoreManager">
+        <property name="passman" ref="passman"/>
+    </bean>
+    <bean id="isPassmanDataManager" class="com.softwareag.apigateway.is.managers.ISPassmanDataManager"/>
+    <bean id="apisBulkOpertaionManager" class="com.softwareag.apigateway.facade.managers.APIsBulkOperationManager"/>
+    <bean id="vsdTransformer" class="com.softwareag.apigateway.is.deployment.VSTransformer">
+        <property name="xslFilePath" value="resources/transform/pg-vsd-transformer.xsl"/>
+    </bean>
+
+    <bean id="jmsTransportListener" class="com.softwareag.pg.axis2.transports.PGJMSTransportListener"
+          depends-on="policygateway" destroy-method="stop"/>
+
+    <bean id="configStoreFactory" class="com.softwareag.pg.oauth2.ConfigStoreFactory"
+          init-method="initializeLocalConfigurationPersistor"/>
+
+    <bean id="apiGatewaySender" class="com.softwareag.pg.http.APIGatewaySender"/>
+	<bean id="jmsSender" class="com.softwareag.pg.jms.JMSSender"/>
+
+    <bean id="apiGatewayProtocolConvertor" class="com.softwareag.pg.http.APIGatewayProtocolCovertor"/>
+	<bean id="protocolConvertorFactory" class="com.softwareag.pg.protocol.ProtocolConvertorFactory"/>
+
+    <bean id="localTransportSender" class="com.softwareag.pg.axis2.transports.PGLocalTransportSender"
+          depends-on="policygateway" destroy-method="stop"/>
+
+    <bean id="jmsTransportSender" class="com.softwareag.pg.axis2.transports.PGJMSTransportSender"
+          depends-on="policygateway" destroy-method="stop"/>
+
+    <bean id="restAPIDataConvertor" class="com.softwareag.pg.http.RestAPIDataConvertor"/>
+	<bean id="jmsDataConvertor" class="com.softwareag.pg.jms.JMSDataConvertor"/>
+
+    <bean id="policyRequestAuthorizer" class="com.softwareag.pg.security.PolicyRequestAuthorizer">
+        <property name="policyScopePermissionMap">
+            <map>
+                <entry key="global">
+                    <list>
+                        <value>Administrators</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="restAPIWhitelistConfig" class="com.softwareag.apigateway.is.rest.RestAPIWhitelistConfiguration">
+        <property name="whitelistConfigMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>apitransactions_delete</value>
+                    </key>
+                    <list>
+                        <value>localhost</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apitransactions_post</value>
+                    </key>
+                    <list>
+                        <value>localhost</value>
+                    </list>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="authConfig" class=" com.softwareag.pg.security.AuthConfiguration">
+        <property name="authMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>umc_post</value>
+                    </key>
+                    <list>
+                        <value>18</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>umc_put</value>
+                    </key>
+                    <list>
+                        <value>18</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>umc_patch</value>
+                    </key>
+                    <list>
+                        <value>18</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>umc_delete</value>
+                    </key>
+                    <list>
+                        <value>18</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>umc_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>accesstokens_post</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>accesstokens_put</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>accesstokens_patch</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>accesstokens_delete</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>accesstokens_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>acls_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>alias_post</value>
+                    </key>
+                    <list>
+                        <value>23</value>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>alias_put</value>
+                    </key>
+                    <list>
+                        <value>23</value>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>alias_patch</value>
+                    </key>
+                    <list>
+                        <value>23</value>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>alias_delete</value>
+                    </key>
+                    <list>
+                        <value>23</value>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>alias_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apis_post</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>1</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apis_put</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>1</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apis_patch</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>1</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apis_delete</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>1</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apis_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>stages_post</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>stages_put</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>stages_delete</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>stages_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>searchquery_post</value>
+                    </key>
+                    <list>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>searchquery_put</value>
+                    </key>
+                    <list>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>searchquery_delete</value>
+                    </key>
+                    <list>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>searchquery_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>promotion_post</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>promotion_delete</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>promotion_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>promotionset_post</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                        <value>12</value>
+                    </list>
+                </entry>
+				<entry>
+                    <key>
+                        <value>promotionset_put</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                        <value>12</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>promotionset_delete</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                        <value>12</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>promotionset_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>rollback_put</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>rollback_delete</value>
+                    </key>
+                    <list>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>rollback_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>applications_post</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>applications_put</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>applications_patch</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>applications_delete</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>applications_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>strategies_post</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>strategies_put</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>strategies_patch</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>strategies_delete</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>strategies_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>registeredapplications_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvalconfigurations_post</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvalconfigurations_put</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvalconfigurations_patch</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvalconfigurations_delete</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvalconfigurations_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvals_post</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvals_put</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvals_patch</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvals_delete</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>approvals_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>archive_post</value>
+                    </key>
+                    <list>
+                        <value>11</value>
+                        <value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>archive_get</value>
+                    </key>
+                    <list>
+                        <value>12</value>
+						<value>21</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>securityconfigurations_post</value>
+                    </key>
+                    <list>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>securityconfigurations_put</value>
+                    </key>
+                    <list>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>securityconfigurations_patch</value>
+                    </key>
+                    <list>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>securityconfigurations_delete</value>
+                    </key>
+                    <list>
+                        <value>15</value>
+                        <value>3</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>securityconfigurations_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>configurations_put</value>
+                    </key>
+                    <list>
+                        <value>7</value>
+                        <value>14</value>
+                        <value>15</value>
+                        <value>16</value>
+                        <value>17</value>
+                        <value>18</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>configurations_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>generalconfigurations_post</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>generalconfigurations_put</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>generalconfigurations_patch</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>generalconfigurations_delete</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>generalconfigurations_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>destinationconfigurations_post</value>
+                    </key>
+                    <list>
+                        <value>16</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>destinationconfigurations_put</value>
+                    </key>
+                    <list>
+                        <value>16</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>destinationconfigurations_delete</value>
+                    </key>
+                    <list>
+                        <value>16</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>destinationconfigurations_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>threatprotection_post</value>
+                    </key>
+                    <list>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>threatprotection_put</value>
+                    </key>
+                    <list>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>threatprotection_patch</value>
+                    </key>
+                    <list>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>threatprotection_delete</value>
+                    </key>
+                    <list>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>threatprotection_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>events_post</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>events_put</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>events_patch</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>events_delete</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>events_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>eventarchives_get</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apitransactions_post</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apitransactions_delete</value>
+                    </key>
+                    <list>
+                        <value>19</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>apitransactions_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>deploy_post</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>deploy_put</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>deploy_patch</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>deploy_delete</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>deploy_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>serverinfo_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>security_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>packages_post</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>packages_put</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>packages_patch</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>packages_delete</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>packages_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>plans_post</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>plans_put</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>plans_patch</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>plans_delete</value>
+                    </key>
+                    <list>
+                        <value>8</value>
+                        <value>9</value>
+                        <value>10</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>plans_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policies_post</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                        <value>8</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policies_put</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                        <value>8</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policies_patch</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                        <value>8</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policies_delete</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                        <value>8</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policies_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policyactions_post</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policyactions_put</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policyactions_patch</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policyactions_delete</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>4</value>
+                        <value>5</value>
+                        <value>6</value>
+                        <value>7</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policyactions_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policyactiontemplates_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>policystages_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>search_post</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>serviceresultcache_get</value>
+                    </key>
+                    <list>
+                        <value>20</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>serviceresultcache_delete</value>
+                    </key>
+                    <list>
+                        <value>20</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>serviceresultcache_delete</value>
+                    </key>
+                    <list>
+                        <value>20</value>
+                    </list>
+                </entry>
+				<entry>
+                    <key>
+                        <value>installedlanguages_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>logaggregation_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>cluster_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>cluster_put</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>dataspace_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>dataspace_put</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+
+                <entry>
+                    <key>
+                        <value>dataspace_patch</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>lockedaccounts_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>lockedaccounts_put</value>
+                    </key>
+                    <list>
+                        <value>18</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>license_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>license_put</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>serviceregistry_put</value>
+                    </key>
+                    <list>
+                        <value>22</value>
+                    </list>
+                </entry>
+                <entry>
+                <key>
+                    <value>serviceregistry_get</value>
+                </key>
+                <list>
+                    <value>22</value>
+                </list>
+            </entry>
+            <entry>
+                <key>
+                    <value>integrationserver_put</value>
+                </key>
+                <list>
+                    <value>0</value>
+                </list>
+            </entry>
+            <entry>
+                <key>
+                    <value>integrationserver_get</value>
+                </key>
+                <list>
+                    <value>0</value>
+                </list>
+            </entry>
+
+                <entry>
+                    <key>
+                        <value>microgateways_get</value>
+                    </key>
+                    <list>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>microgateways_post</value>
+                    </key>
+                    <list>
+                        <value>24</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>microgateways_delete</value>
+                    </key>
+                    <list>
+                        <value>24</value>
+                    </list>
+                </entry>
+                 <entry>
+                    <key>
+                        <value>health_externalservices_get</value>
+                    </key>
+                    <list><value>13</value></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>health_all_get</value>
+                    </key>
+                    <list><value>13</value></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>health_admin_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+			    <entry>
+                    <key>
+                        <value>health_engine_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>assets_post</value>
+                    </key>
+                    <list>
+                        <value>25</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>administration_get</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>administration_post</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>administration_put</value>
+                    </key>
+
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>administration_delete</value>
+                    </key>
+
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>scopes_delete</value>
+                    </key>
+
+                    <list>
+                        <value>26</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>scopes_post</value>
+                    </key>
+
+                    <list>
+                        <value>26</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>scopes_put</value>
+                    </key>
+
+                    <list>
+                        <value>26</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>scopes_get</value>
+                    </key>
+
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>caches_put</value>
+                    </key>
+
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>migration_post</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>migration_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>quiescemode_put</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>quiescemode_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>webhooks_post</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>webhooks_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>webhooks_put</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>webhooks_delete</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>tracer_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>tracer_post</value>
+                    </key>
+                    <list>
+                        <value>0</value>
+                        <value>1</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>tags_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+
+                <entry>
+                    <key>
+                        <value>appmesh_get</value>
+                    </key>
+
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>appmesh_put</value>
+                    </key>
+
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>appmesh_post</value>
+                    </key>
+
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>appmesh_delete</value>
+                    </key>
+
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>shutdown_post</value>
+                    </key>
+                    <list>
+                        <value>14</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>subscriptions_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>subscriptions_post</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>subscriptions_put</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>subscriptions_delete</value>
+                    </key>
+                    <list>
+                        <value>2</value>
+                    </list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>migrate_post</value>
+                    </key>
+                    <list></list>
+                </entry>
+                <entry>
+                    <key>
+                        <value>migrate_get</value>
+                    </key>
+                    <list></list>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+    <bean id="converterFactory" class="com.softwareag.apigateway.is.converter.ConverterFactory">
+        <constructor-arg index="0">
+            <map key-type="com.softwareag.apigateway.is.ResourceType"
+                 value-type="com.softwareag.apigateway.is.converter.Converter">
+                <entry key="CONFIGURATION" value-ref="configConverter"/>
+                <entry key="APPLICATION" value-ref="applicationConverter"/>
+                <entry key="ALIAS" value-ref="aliasConverter"/>
+                <entry key="STRATEGY" value-ref="strategyConverter"/>
+                <entry key="GATEWAY_SCOPE" value-ref="scopeConverter"/>
+                <entry key="POLICYACTION" value-ref="policyActionConverter"/>
+                <entry key="POLICYSTAGE" value-ref="policyStageConverter"/>
+                <entry key="POLICYACTIONTEMPLATE" value-ref="policyActionTemplateConverter"/>
+                <entry key="POLICY" value-ref="policyConverter"/>
+                <entry key="API" value-ref="apiConverter"/>
+                <entry key="STAGE" value-ref="stageConverter"/>
+                <entry key="SEARCH_QUERY" value-ref="searchQueryConverter"/>
+                <entry key="RULE" value-ref="ruleConverter"/>
+                <entry key="PROMOTION" value-ref="promotionConverter"/>
+				<entry key="PROMOTIONSET" value-ref="promotionSetConverter"/>
+                <entry key="ROLLBACK" value-ref="rollbackConverter"/>
+                <entry key="USER" value-ref="userConverter"/>
+                <entry key="GROUP" value-ref="groupConverter"/>
+                <entry key="ACCESS_PROFILE" value-ref="accessProfileConverter"/>
+                <entry key="API_FORMAT" value-ref="apiFormatConverter"/>
+                <entry key="PORTALGATEWAY" value-ref="portalGatewayConverter"/>
+                <entry key="PACKAGE" value-ref="packageConverter"/>
+                <entry key="PLAN" value-ref="planConverter"/>
+                <entry key="PORT" value-ref="portConverter"/>
+                <entry key="ACCESSTOKEN" value-ref="accessTokenConverter"/>
+                <entry key="ASSERTION" value-ref="assertionConvertor"/>
+                <entry key="SEARCH" value-ref="searchConverter"/>
+                <entry key="TRANSACTIONS" value-ref="transactionConvertor"/>
+                <entry key="SUBSCRIPTION" value-ref="subscriptionConverter"/>
+                <entry key="APPROVAL" value-ref="approvalRequestConvertor"/>
+                <entry key="APPROVAL_CONFIG" value-ref="approvalConfigConvertor"/>
+                <entry key="CS_COMMUNICATION" value-ref="csCommunicationConvertor"/>
+                <entry key="SNMP_PROPERTIES" value-ref="snmpPropertiesConvertor"/>
+                <entry key="ADMINISTRATION_KEYSTORE" value-ref="keyStoreConvertor"/>
+                <entry key="ADMINISTRATION_TRUSTSTORE" value-ref="trustStoreConvertor"/>
+                <entry key="CLUSTER_SETTINGS" value-ref="clusterSettingsConvertor"/>
+                <entry key="OUTBOUNDPROXY_SETTINGS" value-ref="outboundProxySettingsConvertor"/>
+                <entry key="URLALIAS_SETTINGS" value-ref="urlAliasSettingsConvertor"/>
+                <entry key="MICRO_GATEWAY_REG" value-ref="microGatewayConvertor"/> 
+				  <entry key="JNDI_SETTINGS" value-ref="jndiSettingsConvertor"/>
+				 <entry key="JMS_SETTINGS" value-ref="jmsSettingsConvertor"/>
+                <entry key="JMS_WEBSERVICE_ENDPOINT" value-ref="jmsWebserviceEndpointConvertor"/>
+				 <entry key="JMS_TRIGGER" value-ref="jmsTriggerConvertor"/>
+                <entry key="ADMINISTRATION_PACKAGES" value-ref="isPackageConvertor"/>
+                <entry key="ADMINISTRATION_KERBEROS" value-ref="kerberosSettingsConvertor"/>
+                <entry key="API_DOCUMENT" value-ref="apiDocumentConvertor"/>
+                <entry key="SERVICE_REGISTRY_PUBLISH" value-ref="serviceRegistryPublishConverter"/>
+                <entry key="SERVICE_REGISTRY_UNPUBLISH" value-ref="serviceRegistryUnpublishConverter"/>
+                <entry key="INTEGRATION_SERVER_PUBLISH" value-ref="integrationServerPublishConverter"/>
+                <entry key="INTEGRATION_SERVER_UNPUBLISH" value-ref="integrationServerUnpublishConverter"/>
+                <entry key="PUBLISH_APIS" value-ref="publishUnpublishAPIsConvertor"/>
+                <entry key="UNPUBLISH_APIS" value-ref="publishUnpublishAPIsConvertor"/>
+                <entry key="PUBLISH_UNPUBLISH_STATUS" value-ref="publishUnpublishStatusConvertor"/>
+                <entry key="TAGS" value-ref="tagsConverter"/>
+                <entry key="WEBHOOK" value-ref="webhookConvertor"/>
+                <entry key="QUIESCEMODE" value-ref="quiesceModeConvertor"/>
+                <entry key="MIGRATION" value-ref="migrationConfigConvertor"/>
+                <entry key="DASHBOARD" value-ref="dashboardConverter"/>
+                <entry key="SHUTDOWN" value-ref="shutdownConvertor"/>
+                <entry key="LOGGER_SETTINGS" value-ref="loggerSettingsConverter"/>
+                <entry key="MIGRATIONV2_REQUEST" value-ref="migrationv2RequestConverter"/>
+                <entry key="MIGRATIONV2_STATUS_RESPONSE" value-ref="migrationv2StatusResponseConverter"/>
+
+                <!--				<entry key="IMPORTERCONTEXT" value-ref="importerContextConverter"/>
+                                <entry key="APIRESPONSE" value-ref="apiResponseConverter"/>		-->
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="tagsConverter" class="com.softwareag.apigateway.is.converter.TagsConverter"/>
+    <bean id="webhookConvertor" class="com.softwareag.apigateway.is.converter.WebhookConvertor">
+        <property name="validators">
+            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.is.validator.IInputValidator">
+                <entry key="webhook">
+                    <bean class="com.softwareag.apigateway.is.validator.WebhookValidator"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="quiesceModeConvertor" class="com.softwareag.apigateway.is.converter.QuiesceModeConvertor">
+        <property name="validators">
+            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.is.validator.IInputValidator">
+                <entry key="quiescemode">
+                    <bean class="com.softwareag.apigateway.is.validator.QuiesceModeValidator"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="shutdownConvertor" class="com.softwareag.apigateway.is.converter.ShutdownConvertor">
+        <property name="validators">
+            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.is.validator.IInputValidator">
+                <entry key="shutdown">
+                    <bean class="com.softwareag.apigateway.is.validator.ShutdownValidator"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="migrationConfigConvertor" class="com.softwareag.apigateway.is.converter.MigrationConfigConvertor">
+        <property name="validators">
+            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.is.validator.IInputValidator">
+                <entry key="webhook">
+                    <bean class="com.softwareag.apigateway.is.validator.MigrationConfigValidator"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <bean id="dashboardConverter" class="com.softwareag.apigateway.is.converter.DashboardConverter"/>
+    <bean id="configConverter" class="com.softwareag.apigateway.is.converter.ConfigurationConverter">
+        <constructor-arg index="0">
+            <set>
+                <value>configId</value>
+                <value>$resourceID</value>
+                <value>$path</value>
+            </set>
+        </constructor-arg>
+        <property name="validators">
+            <map key-type="java.lang.String" value-type="com.softwareag.apigateway.is.validator.IInputValidator">
+                <entry key="keystore">
+                    <bean class="com.softwareag.apigateway.is.validator.config.KeystoreValidator"/>
+                </entry>
+                <entry key="customContentTypes">
+                    <bean class="com.softwareag.apigateway.is.validator.config.CustomContentTypesValidator"/>
+                </entry>
+                <entry key="loadBalancer">
+                    <bean class="com.softwareag.apigateway.is.validator.config.LoadbalanceURLValidator"/>
+                </entry>
+                <entry key="jsonWebToken">
+                    <bean class="com.softwareag.apigateway.is.validator.config.JwtConfigValidator"/>
+                </entry>
+                <entry key="samlsso">
+                    <bean class="com.softwareag.apigateway.is.validator.config.SSOConfigurationValidator"/>
+                </entry>
+                <entry key="externalJWTConfig">
+                    <bean class="com.softwareag.apigateway.is.validator.config.ThirdPartyJWTValidator"/>
+                </entry>
+                <entry key="denyByIPForFailedAuthConfig">
+                    <bean class="com.softwareag.apigateway.is.validator.config.DenyByIPForFailedAuthConfigValidator"/>
+                </entry>
+                <entry key="passwordExpiry">
+                    <bean class="com.softwareag.apigateway.is.validator.config.PwdExpirySettingsValidator"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="loggerSettingsConverter" class="com.softwareag.apigateway.is.converter.LoggerSettingsConverter"/>
+
+    <bean id="portConverter" class="com.softwareag.apigateway.is.converter.PortConverter">
+    </bean>
+
+    <bean id="applicationConverter" class="com.softwareag.apigateway.is.converter.ApplicationConverter">
+    </bean>
+
+    <bean id="assertionConvertor" class="com.softwareag.apigateway.is.converter.AssertionConvertor">
+    </bean>
+
+    <bean id="aliasConverter" class="com.softwareag.apigateway.is.converter.AliasConverter">
+    </bean>
+
+    <bean id="strategyConverter" class="com.softwareag.apigateway.is.converter.StrategyConverter">
+    </bean>
+    
+    <bean id="scopeConverter" class="com.softwareag.apigateway.is.converter.DefaultConverter.GatewayScopeConverter">
+    </bean>
+
+    <bean id="stageConverter" class="com.softwareag.apigateway.is.converter.StageConverter">
+    </bean>
+
+    <bean id="searchQueryConverter" class="com.softwareag.apigateway.is.converter.SearchQueryConverter">
+    </bean>
+
+    <bean id="ruleConverter" class="com.softwareag.apigateway.is.converter.RuleConverter"/>
+    <bean id="ruleResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.rule.RuleResourceHandler"/>
+
+    <bean id="promotionConverter" class="com.softwareag.apigateway.is.converter.PromotionConverter">
+    </bean>
+	<bean id="promotionSetConverter" class="com.softwareag.apigateway.is.converter.PromotionSetConverter">
+    </bean>
+
+    <bean id="rollbackConverter" class="com.softwareag.apigateway.is.converter.RollbackConverter">
+    </bean>
+
+    <bean id="policyActionConverter" class="com.softwareag.apigateway.is.converter.PolicyActionConverter">
+    </bean>
+
+    <bean id="userConverter" class="com.softwareag.apigateway.is.converter.UserConverter">
+    </bean>
+
+    <bean id="urlAliasSettingsConvertor" class="com.softwareag.apigateway.is.converter.URLAliasSettingsConvertor">
+    </bean>
+
+   <bean id="microGatewayConvertor" class="com.softwareag.apigateway.is.converter.MicroGatewayConvertor">
+    </bean> 
+
+	 <bean id="jndiSettingsConvertor" class="com.softwareag.apigateway.is.converter.JNDISettingsConvertor">
+    </bean>
+	
+	<bean id="jmsSettingsConvertor" class="com.softwareag.apigateway.is.converter.JMSSettingsConvertor">
+    </bean>
+	
+	<bean id="jmsTriggerConvertor" class="com.softwareag.apigateway.is.converter.JMSTriggerConvertor">
+    </bean>
+	
+	<bean id="jmsWebserviceEndpointConvertor" class="com.softwareag.apigateway.is.converter.JMSWebserviceEndpointConvertor">
+    </bean>
+	
+
+    <bean id="isPackageConvertor" class="com.softwareag.apigateway.is.converter.ISPackagesConverter">
+    </bean>
+
+    <bean id="groupConverter" class="com.softwareag.apigateway.is.converter.GroupConverter">
+    </bean>
+
+    <bean id="accessProfileConverter" class="com.softwareag.apigateway.is.converter.AccessProfileConverter">
+    </bean>
+
+    <bean id="policyStageConverter" class="com.softwareag.apigateway.is.converter.PolicyStageConverter">
+    </bean>
+
+    <bean id="policyActionTemplateConverter"
+          class="com.softwareag.apigateway.is.converter.PolicyActionTemplateConverter">
+    </bean>
+
+    <bean id="policyConverter" class="com.softwareag.apigateway.is.converter.PolicyConverter">
+    </bean>
+
+    <bean id="apiConverter" class="com.softwareag.apigateway.is.converter.APIConverter">
+    </bean>
+
+    <bean id="apiFormatConverter" class="com.softwareag.apigateway.is.converter.APIFormatConverter"/>
+
+    <bean id="portalGatewayConverter" class="com.softwareag.apigateway.is.converter.PortalGatewayConverter"/>
+
+    <bean id="packageConverter" class="com.softwareag.apigateway.is.converter.PackageConverter"></bean>
+
+    <bean id="planConverter" class="com.softwareag.apigateway.is.converter.PlanConverter"></bean>
+
+    <bean id="accessTokenConverter" class="com.softwareag.apigateway.is.converter.AccessTokenConverter"></bean>
+    <bean id="subscriptionConverter" class="com.softwareag.apigateway.is.converter.SubscriptionConverter"></bean>
+    <bean id="searchConverter" class="com.softwareag.apigateway.is.converter.SearchConverter">
+        <property name="responseProcessors">
+            <list value-type="com.softwareag.apigateway.is.converter.IResponseProcessor">
+                <ref bean="userResponseProcessor"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="transactionConvertor" class="com.softwareag.apigateway.is.converter.TransactionConvertor"></bean>
+    <bean id="approvalRequestConvertor" class="com.softwareag.apigateway.is.converter.ApprovalRequestConverter"></bean>
+    <bean id="approvalConfigConvertor" class="com.softwareag.apigateway.is.converter.ApprovalConfigConverter"></bean>
+    <!--	<bean id="importerContextConverter" class="com.softwareag.apigateway.is.converter.ImporterContextConverter">
+        </bean>
+
+        <bean id="apiResponseConverter" class="com.softwareag.apigateway.is.converter.APIResponseConverter">
+        </bean>		-->
+    <bean id="oauthIntrospectionConverter" class="com.softwareag.apigateway.is.converter.OAuthIntrospectionConverter">
+        <property name="user" value=""/>
+    </bean>
+
+    <bean id="migrationv2RequestConverter" class="com.softwareag.apigateway.is.converter.Migrationv2RequestConverter"/>
+    <bean id="migrationv2StatusResponseConverter" class="com.softwareag.apigateway.is.converter.Migrationv2StatusResponseConverter"/>
+
+    <bean id="portConfigurationListener"
+          class="com.softwareag.apigateway.is.rest.resource.handler.port.PortConfigurationListener">
+    </bean>
+
+
+    <bean id="restResourceHandlerFactory"
+          class="com.softwareag.apigateway.is.rest.resource.handler.RestResourceHandlerFactory">
+        <property name="resourceHandlerMap">
+            <map key-type="com.softwareag.apigateway.is.ResourceType"
+                 value-type="com.softwareag.apigateway.is.rest.resource.handler.IResourceHandler">
+                <entry key="APPLICATION" value-ref="applicationResourceHandler"/>
+                <entry key="REGISTERED_APPLICATION" value-ref="regApplicationResourceHandler"/>
+                <entry key="ALIAS" value-ref="aliasResourceHandler"/>
+			    <entry key="AUTHENTICATE" value-ref="authenticateResourceHandler"/>
+                <entry key="THIRDPARTYCALL" value-ref="thirdPartyCallResourceHandler"/>
+                <entry key="SECURITY" value-ref="oauth2VerificationResourceHander"/>
+                <entry key="POLICYACTION" value-ref="policyActionResourceHandler"/>
+                <entry key="POLICYACTIONTEMPLATE" value-ref="policyActionTemplateResourceHandler"/>
+                <entry key="POLICYSTAGE" value-ref="policyStageResourceHandler"/>
+                <entry key="POLICY" value-ref="policyResourceHandler"/>
+                <entry key="API" value-ref="apiResourceHandler"/>
+                <entry key="STAGE" value-ref="stageResourceHandler"/>
+                <entry key="SEARCH_QUERY" value-ref="searchQueryResourceHandler"/>
+                <entry key="RULE" value-ref="ruleResourceHandler"/>
+                <entry key="PROMOTION" value-ref="promotionResourceHandler"/>
+				<entry key="PROMOTIONSET" value-ref="promotionSetResourceHandler"/>
+                <entry key="ROLLBACK" value-ref="rollbackResourceHandler"/>
+                <entry key="GROUP" value-ref="groupResourceHandler"/>
+                <entry key="USER" value-ref="userResourceHandler"/>
+                <entry key="DOWNLOAD_LOGS" value-ref="downloadLogsResourceHandler"/>
+                <entry key="CLUSTER" value-ref="clusterResourceHandler"/>
+                <entry key="LOCKED_ACCOUNTS" value-ref="LockedAccountsResourceHandler"/>
+                <entry key="LICENSE" value-ref="licenseDetailsResourceHandler"/>
+                <entry key="ACCESS_PROFILE" value-ref="accessProfileResourceHandler"/>
+                <entry key="PORT" value-ref="portResourceHandler"/>
+                <entry key="PORTS_IP_ACCESS_MODE_FACADE" value-ref="facadeIPAccessModePortsResourceHandler"/>
+                <entry key="PORTS_ACCESS_MODE_FACADE" value-ref="facadeAccessModePortsResourceHandler"/>
+                <entry key="PORTS_FACADE" value-ref="facadePortsResourceHandler" />
+                <entry key="PORTALGATEWAY" value-ref="portalGatewayResourceHandler"/>
+                <entry key="PACKAGE" value-ref="packageResourceHandler"/>
+                <entry key="PLAN" value-ref="planResourceHandler"/>
+                <entry key="ACCESSTOKEN" value-ref="accessTokenResourceHandler"/>
+                <entry key="SUBSCRIPTION" value-ref="subscriptionResourceHandler"/>
+                <entry key="ASSERTION" value-ref="assertionResoruceHandler"/>
+                <entry key="ARCHIVE" value-ref="archiveResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_API" value-ref="businessServiceAPIResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_POLICY" value-ref="businessServicePolicyResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_ACCESS_PROFILE" value-ref="businessServiceAccessProfileResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_GLOBAL_TEAM_ASSIGNMENTS" value-ref="businessServiceGlobalTeamAssignmentsResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_GROUP" value-ref="businessServiceGroupResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_USER" value-ref="businessServiceUserResourceHandler"/>
+                <entry key="TRANSACTIONS" value-ref="transactionsResourceHandler"/>
+                <entry key="CONFIGURATION" value-ref="configurationsResourceHandler"/>
+                <entry key="CONFIGURATION_FACADE" value-ref="facadeConfigurationsResourceHandler"/>
+                <entry key="SEARCH" value-ref="searchResourceHandler"/>
+                <entry key="SEARCH_APIS_FACADE" value-ref="facadeSearchApisResourceHandler"/>
+                <entry key="SEARCH_FACADE" value-ref="facadeSearchResourceHandler"/>
+                <entry key="SERVICE_RESULT_CACHE" value-ref="srcResourceHandler"/>
+                <entry key="EVENTS" value-ref="eventsResourceHandler"/>
+                <entry key="EVENT_ARCHIVES" value-ref="eventArchivesResourceHandler"/>
+                <entry key="API_TRANSACTIONS" value-ref="apiTransactionsResourceHandler"/>
+                <entry key="ARCHIVES" value-ref="archivesResourceHandler"/>
+                <entry key="TYPE_DEFINITIONS" value-ref="typeDefinitionsResourceHandler"/>
+                <entry key="JOBS" value-ref="jobsResourceHandler"/>
+                <entry key="DENIED_IPS" value-ref="deniedIPsResourceHandler"/>
+                <entry key="ACLS" value-ref="aclsResourceHandler"/>
+                <entry key="SERVER_INFO" value-ref="serverInfoResourceHandler"/>
+                <entry key="APPROVAL" value-ref="approvalRequestResourceHandler"/>
+                <entry key="APPROVAL_FACADE" value-ref="facadeApprovalRequestResourceHandler"/>
+                <entry key="APPROVAL_CONFIG" value-ref="approvalConfigResourceHandler"/>
+                <entry key="APPROVAL_CONFIG_FACADE" value-ref="facadeApprovalConfigResourceHandler"/>
+                <entry key="CS_COMMUNICATION" value-ref="csCommunicationResourceHandler"/>
+                <entry key="TEST_EMAIL_CONFIG" value-ref="testConfigResourceHandler"/>
+                <entry key="TEST_ES_CONFIG" value-ref="testESConfigResourceHandler"/>
+				<entry key="TEST_IS_CONFIG" value-ref="testISConfigResourceHandler"/>
+                <entry key="TENANT_INFO" value-ref="tenantInformationResourceHandler"/>
+                <entry key="OPENID_TOKEN" value-ref="openIDTokenResourceHandler"/>
+                <entry key="OPENID_CALLBACK" value-ref="openIDCallbackResourceHandler"/>
+                <entry key="ADMINISTRATION_KEYSTORE" value-ref="keyStoreResourceHandler"/>
+                <entry key="ADMINISTRATION_TRUSTSTORE" value-ref="trustStoreResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_KEYSTORES" value-ref="facadeKeyStoreResourceHandler"/>
+                <entry key="BUSINESS_SERVICE_TRUSTSTORES" value-ref="facadeTrustStoreResourceHandler"/>
+                <entry key="OUTBOUNDPROXY_SETTINGS" value-ref="outboundProxyResourceHandler"/>
+                <entry key="PROXY_BYPASS" value-ref="proxyBypassResourceHandler"/>
+                <entry key="ADMINISTRATION_KERBEROS" value-ref="kerberosSettingsResourceHandler"/>
+                <entry key="URLALIAS_SETTINGS" value-ref="urlAliasesResourceHandler"/>
+                <entry key="JNDI_SETTINGS" value-ref="jndiSettingsResourceHandler"/>
+                <entry key="MICRO_GATEWAY_REG" value-ref="microGatewayResourceHandler"/>
+                <entry key="HEALTH_CHECK" value-ref="healthCheckResourceHandler"/> 
+                <entry key="CLUSTER_HEALTH_CHECK" value-ref="clusterHealthCheckResourceHandler"/>
+				 <entry key="JMS_SETTINGS" value-ref="jmsSettingsResourceHandler"/>
+				 <entry key="JMS_TRIGGER" value-ref="jmsTriggerResourceHandler"/>
+				 <entry key="JMS_WEBSERVICE_ENDPOINT" value-ref="jmsWebserviceEndpointResourceHandler"/>
+                <entry key="ADMINISTRATION_PACKAGES" value-ref="isPackagesResourceHandler"/>
+                <entry key="JSON_WEB_TOKEN" value-ref="jwtResourceHandler"/>
+				<entry key="SERVICE_REGISTRY_PUBLISH" value-ref="serviceRegistryPublishResourceHandler"/>
+                <entry key="SERVICE_REGISTRY_UNPUBLISH" value-ref="serviceRegistryUnpublishResourceHandler"/>
+                <entry key="INTEGRATION_SERVER_PUBLISH" value-ref="integrationServerPublishResourceHandler"/>
+                <entry key="INTEGRATION_SERVER_UNPUBLISH" value-ref="integrationServerUnpublishResourceHandler"/>
+                <entry key="MASTER_PASSWORD" value-ref="passwordResourceHandler"/>
+                <entry key="INSTALLED_LANGUAGES" value-ref="languagesResourceHandler"/>
+				<entry key="PASSWORD_SETTINGS" value-ref="passwordSettingsResourceHandler"/>
+                <entry key="API_DOCUMENT" value-ref="apiDocumentResourceHandler"/>
+                <entry key="PUBLISH_APIS" value-ref="publishApisResourceHandler"/>
+                <entry key="UNPUBLISH_APIS" value-ref="unpublishApisResourceHandler"/>
+                <entry key="PUBLISH_UNPUBLISH_STATUS" value-ref="publishUnpublishApisStatusResourceHandler"/>
+                <entry key="LOGIN" value-ref="loginResourceHandler"/>
+				<entry key="FIX_MANAGEMENT" value-ref="fixManagementResourceHandler"/>
+                <entry key="STRATEGY" value-ref="strategyResourceHandler"/>
+                <entry key="GATEWAY_SCOPE" value-ref="scopeResourceHandler"/>
+                <entry key="ASSET" value-ref="assetResourceHandler"/>
+                <entry key="ADMINISTRATION_SETTINGS" value-ref="administrationResourceHandler"/>
+                <entry key="CACHE" value-ref="cacheResourceHandler"/>
+                <entry key="DATASPACE" value-ref="dataspaceResourceHandler"/>
+                <entry key="MIGRATION" value-ref="migrationResourceHandler"/>
+                <entry key="QUIESCEMODE" value-ref="quiesceModeResourceHandler"/>
+                <entry key="TRACER" value-ref="tracerResourceHandler" />
+                <entry key="TAGS" value-ref="tagsResourceHandler"/>
+                <entry key="WEBHOOK" value-ref="webhookResourceHandler"/>
+                <entry key="APPMESH" value-ref="appMeshResourceHandler"/>
+                <entry key="DASHBOARD" value-ref="dashboardResourceHandler"/>
+                <entry key="SHUTDOWN" value-ref="shutdownResourceHandler"/>
+                <entry key="LOGGER_SETTINGS" value-ref="loggerSettingsResourceHandler"/>
+                <entry key="MIGRATIONV2_CORE" value-ref="migrationv2CoreResourceHandler"/>
+                <entry key="MIGRATIONV2_EVENTS_AND_LOGS" value-ref="migrationv2EventsAndLogsResourceHandler"/>
+                <entry key="MIGRATIONV2_ROLLBACK" value-ref="migrationv2RollbackResourceHandler"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="tagsResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.tags.TagsResourceHandler"/>
+
+    <bean id="appMeshResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.appmesh.AppMeshResourceHandler"/>
+
+    <bean id="appMeshConverter" class="com.softwareag.apigateway.is.converter.AppMeshConverter"></bean>
+    <bean id="assetResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.assets.AssetsResourceHandler">
+    </bean>
+    <bean id="strategyResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.strategy.StrategyResourceHandler">
+    </bean>
+    <bean id="facadeSearchResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.search.SearchFacadeResourceHandler">
+    </bean>
+
+    <bean id="scopeResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.scope.GatewayScopeResourceHandler">
+    </bean>
+
+	 <bean id="fixManagementResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.cloud.fixmanagement.FixManagementResourceHandler">
+    </bean>
+
+	<bean id="passwordSettingsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.PasswordSettingsResourceHandler">
+    </bean>
+	
+    <bean id="apiDocumentResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.apidocuments.APIDocumentResourceHandler">
+    </bean>
+
+    <bean id="publishApisResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.api.PublishAPIsResourceHandler">
+    </bean>
+
+    <bean id="unpublishApisResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.api.UnpublishAPIsResourceHandler">
+    </bean>
+
+    <bean id="publishUnpublishApisStatusResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.api.PublishUnpublishAPIsStatusResourceHandler">
+    </bean>
+
+    <bean id="languagesResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.LanguagesResourceHandler">
+    </bean>
+
+    <bean id="passwordResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.password.PasswordResourceHandler">
+    </bean>
+
+    <bean id="jwtResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.jwt.JwtResourceHandler">
+    </bean>
+
+    <bean id="serviceRegistryPublishResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.serviceRegistry.ServiceRegistryPublishResourceHandler">
+    </bean>
+    <bean id="serviceRegistryUnpublishResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.serviceRegistry.ServiceRegistryUnpublishResourceHandler">
+    </bean>
+
+    <bean id="integrationServerPublishResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.integrationServer.IntegrationServerPublishResourceHandler">
+    </bean>
+    <bean id="integrationServerUnpublishResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.integrationServer.IntegrationServerUnpublishResourceHandler">
+    </bean>
+
+    <bean id="approvalRequestResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.approval.ApprovalRequestResourceHandler"/>
+    <bean id="facadeSearchApisResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.api.SearchAPIsResourceHandler"/>
+    <bean id="facadeApprovalRequestResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.approval.ApprovalRequestResourceHandler"/>
+    <bean id="userResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.UserResourceHandler"/>
+    <bean id="downloadLogsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.logAggregation.DownloadLogsResourceHandler"/>
+    <bean id="licenseDetailsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.license.LicenseDetailsResourceHandler"/>
+    <bean id="clusterResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.cluster.ClusterResourceHandler"/>
+    <bean id="LockedAccountsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.LockedAccountsResourceHandler"/>
+
+
+    <bean id="urlAliasesResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.urlaliases.URLAliasesResourceHandler"/>
+
+     <bean id="microGatewayResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.microgateway.MicroGatewayResourceHandler"/> 
+
+     <bean id="healthCheckResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.healthcheck.HealthCheckResourceHandler"/> 
+    <bean id="clusterHealthCheckResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.healthcheck.ClusterHealthCheckResourceHandler"/>
+          
+	<bean id="jndiSettingsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.jms.JNDISettingsResourceHandler"/>
+	
+    <bean id="jmsSettingsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.jms.JMSSettingsResourceHandler"/>	
+		  
+   <bean id="jmsTriggerResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.jms.JMSTriggerResourceHandler"/>
+  
+   <bean id="jmsWebserviceEndpointResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.jms.JMSWebserviceEndpointResourceHandler"/>
+		  
+    <bean id="isPackagesResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.is.packages.ISPackagesResourceHandler"/>
+    <bean id="groupResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.GroupResourceHandler"/>
+    <bean id="accessProfileResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.AccessProfileResourceHandler"/>
+    <bean id="approvalConfigResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.approval.ApprovalConfigResourceHandler"/>
+    <bean id="facadeApprovalConfigResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.approval.ApprovalConfigResourceHandler"/>
+    <bean id="searchResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.search.SearchResourceHandler"/>
+    <bean id="deniedIPsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.eg.DeniedIPResourceHandler"/>
+    <bean id="serverInfoResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.iswrapper.ServerInfoResourceHandler"/>
+    <bean id="aclsResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.acls.ACLResourceHandler"/>
+    <bean id="applicationResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.application.ApplicationResourceHandler">
+    </bean>
+    <bean id="regApplicationResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.regapplns.RegisteredApplicationResourceHandler">
+    </bean>
+    <bean id="administrationResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.administration.AdministrationResourceHandler">
+    </bean>
+    <bean id="aliasResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.alias.AliasResourceHandler">
+    </bean>
+	<bean id="authenticateResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.umc.AuthenticateResourceHandler">
+    </bean>
+    <bean id="APIGInvokeDecider" class="com.softwareag.apigateway.is.enterprisegateway.APIGInvokeDeciderImpl">
+    </bean>
+    <bean id="thirdPartyCallResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.thirdpartycall.ThirdPartyCallResourceHandler">
+    </bean>
+    <bean id="oauth2VerificationResourceHander"
+          class="com.softwareag.apigateway.is.rest.resource.handler.security.OAuth2VerificationResourceHandler"/>
+    <bean id="policyActionResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.policy.PolicyActionResourceHandler">
+    </bean>
+    <bean id="policyActionTemplateResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.policy.PolicyActionTemplateResourceHandler">
+    </bean>
+    <bean id="policyStageResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.policy.PolicyStageResourceHandler">
+    </bean>
+    <bean id="policyResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.policy.PolicyResourceHandler">
+    </bean>
+    <bean id="apiResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.api.APIResourceHandler">
+    </bean>
+    <bean id="stageResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.promotion.StageResourceHandler">
+    </bean>
+    <bean id="searchQueryResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.searchQuery.SearchQueryResourceHandler">
+    </bean>
+    <bean id="promotionResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.promotion.PromotionResourceHandler">
+    </bean>
+	<bean id="promotionSetResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.promotion.PromotionSetResourceHandler">
+    </bean>
+    <bean id="rollbackResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.promotion.RollbackResourceHandler">
+    </bean>
+    <bean id="portResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.port.PortResourceHandler">
+    </bean>
+    <bean id="facadeIPAccessModePortsResourceHandler" class="com.softwareag.apigateway.facade.rest.resource.handler.ports.IPAccessModeResourceHandler">
+    </bean>
+    <bean id="facadeAccessModePortsResourceHandler" class="com.softwareag.apigateway.facade.rest.resource.handler.ports.AccessModeResourceHandler">
+    </bean>
+    <bean id="facadePortsResourceHandler" class="com.softwareag.apigateway.facade.rest.resource.handler.ports.PortsResourceHandler" />
+
+    <bean id="portalGatewayResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.portalgateway.PortalGatewayResourceHandler"/>
+
+    <bean id="packageResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.packages.PackageResourceHandler">
+    </bean>
+    <bean id="planResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.packages.PlanResourceHandler">
+    </bean>
+    <bean id="webhookResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.webhooks.WebhookResourceHandler">
+    </bean>
+    <bean id="shutdownResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.shutdown.ShutdownResourceHandler">
+    </bean>
+    <bean id="accessTokenResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.accesstoken.PortalRequestDispatcher">
+    </bean>
+    <bean id="subscriptionResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.packages.SubscriptionResourceHandler">
+    </bean>
+    <bean id="assertionResoruceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.policy.AssertionResourceHandler">
+    </bean>
+
+    <bean id="archiveResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.archive.ArchiveResourceHandler">
+    </bean>
+    <bean id="businessServiceAPIResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.api.APIResourceHandler">
+    </bean>
+    <bean id="businessServicePolicyResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.policy.PolicyResourceHandler">
+    </bean>
+    <bean id="businessServiceAccessProfileResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.umc.AccessProfileResourceHandler">
+    </bean>
+    <bean id="businessServiceGlobalTeamAssignmentsResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.umc.GlobalTeamAssignmentsResourceHandler">
+    </bean>
+    <bean id="businessServiceGroupResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.umc.GroupResourceHandler">
+    </bean>
+    <bean id="businessServiceUserResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.umc.UserResourceHandler">
+    </bean>
+    <bean id="transactionsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.transactions.TransactionsResourceHandler">
+    </bean>
+
+    <bean id="facadeConfigurationsResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.configurations.ConfigurationsResourceHandler">
+    </bean>
+
+    <bean id="configurationsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.configurations.ConfigurationsResourceHandler">
+    </bean>
+
+
+    <bean id="srcResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.serviceresultcache.SRCResourceHandler">
+    </bean>
+    <bean id="eventsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.events.EventsResourceHandler">
+    </bean>
+    <bean id="eventArchivesResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.eventarchives.EventArchivesResourceHandler">
+    </bean>
+    <bean id="jobsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.apitransactions.JobsResourceHandler">
+    </bean>
+    <bean id="typeDefinitionsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.apitransactions.TypeDefinitionsResourceHandler">
+    </bean>
+    <bean id="apiTransactionsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.apitransactions.APITransactionsResourceHandler">
+    </bean>
+    <bean id="archivesResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.apitransactions.ArchivesResourceHandler">
+    </bean>
+
+    <bean id="testConfigResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.configurations.TestConfigurationResourceHandler">
+    </bean>
+    <bean id="tenantInformationResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.tenantInformation.TenantInformationResourceHandler">
+    </bean>
+    <bean id="keyStoreResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.keystore.KeyStoreResourceHandler">
+    </bean>
+    <bean id="trustStoreResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.truststore.TrustStoreResourceHandler">
+    </bean>
+    <bean id="facadeKeyStoreResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.keystore.KeyStoreResourceHandler">
+    </bean>
+    <bean id="facadeTrustStoreResourceHandler"
+          class="com.softwareag.apigateway.facade.rest.resource.handler.truststore.TrustStoreResourceHandler">
+    </bean>
+    <bean id="outboundProxyResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.outboundproxy.OutboundProxyResourceHandler">
+    </bean>
+    <bean id="proxyBypassResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.proxybypass.ProxyBypassResourceHandler">
+    </bean>
+    <bean id="kerberosSettingsResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.kerberos.KerberosResourceHandler">
+    </bean>
+    <bean id="testESConfigResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.configurations.TestESConfigurationResourceHandler">
+    </bean>
+	<bean id="testISConfigResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.configurations.TestISConfigurationResourceHandler">
+    </bean>
+    <bean id="openIDTokenResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.security.OpenIDTokenResourceHandler">
+    </bean>
+    <bean id="openIDCallbackResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.security.OpenIDCallbackResourceHandler">
+    </bean>
+	
+	<bean id="loginResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.login.LoginResourceHandler">
+    </bean>
+
+    <bean id="cacheResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.cache.CacheResourceHandler">
+    </bean>
+    <bean id="migrationResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.migration.MigrationResourceHandler">
+    </bean>
+    <bean id="quiesceModeResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.quiescemode.QuiesceModeResourceHandler">
+    </bean>
+    <bean id="dataspaceResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.dataspace.DataspaceResourceHandler">
+    </bean>
+    <bean id="tracerResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.tracer.TraceResourceHandler">
+    </bean>
+    <bean id="dashboardResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.dashboard.DashboardResourceHandler">
+        <property name="defaultDashboards">
+            <list>
+                <value>Threat-protection-dashboard</value>
+                <value>Overall-trends-dashboard</value>
+                <value>Package-dashboard</value>
+                <value>API-specific-dashboard</value>
+                <value>Overall-application-dashboard</value>
+                <value>Overall-summary-dashboard</value>
+                <value>Websocket-dashboard</value>
+                <value>GraphQL-API-specific-dashboard</value>
+                <value>gatewayAuditlogs</value>
+                <value>AWGS0dT8RYi15YTcJ5g1</value>
+                <value>AWTQIXl-q_ZIBgFc-XYI</value>
+                <value>AWiDdJef1Si8cYC_ZJWW</value>
+                <value>Microgateway-group-dashboard</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="serverBean" class="com.softwareag.apigateway.is.init.ISServerBean"/>
+    <bean id="startupHandler" class="com.softwareag.apigateway.is.init.handler.StartupHandler">
+        <property name="initializers">
+            <list value-type="com.softwareag.apigateway.core.init.Initializer">
+                <ref bean="DefaultSupplierContextInitializer"/>
+                <ref bean="ESMappingInitializer"/>
+                <ref bean="KibanaInitializer"/>
+                <ref bean="PersistenceHandlerFactoryInitializer"/>
+                <ref bean="MediatorMigrationHandler"/>
+                <ref bean="SystemPolicyInitializer"/>
+                <ref bean="PassmanInitializer"/>
+                <ref bean="CacheLoader"/>
+                <ref bean="ReverseMapInitializer"/>
+                <ref bean="URLAliasesIntializer"/>
+                <ref bean="KeystoreIntializer"/>
+                <ref bean="UMCInitializer"/>
+                <ref bean="ApplicationInitializer"/>
+                <ref bean="AssertionInitializer"/>
+                <ref bean="AliasInitializer"/>
+                <ref bean="CustomDestinationInitializer"/>
+                <ref bean="EGInitializer"/>
+                <ref bean="ApprovalInitializer"/>
+                <ref bean="APIInitializer"/>
+                <ref bean="PackageInitializer"/>
+                <ref bean="CloudInitializer"/>
+                <ref bean="QuotaSurvivalInitializer"/>
+                <ref bean="ConfigurationInitializer"/>
+                <ref bean="apiPolicyActionsDependencyHandler"/>
+                <ref bean="JAASConfigInitializer"/>
+                <ref bean="OAuth2Initializer"/>
+                <ref bean="TrustStoreInitializer"/>
+                <ref bean="OutboundProxyInitializer"/>
+                <ref bean="proxyBypassInitializer"/>
+                <ref bean="KerberosSettingsInitializer"/>
+                <ref bean="UserSyncIntializer"/>
+                <ref bean="ISPackageIntializer"/>
+                <ref bean="CacheScalingWorkerInitializer"/>
+                <ref bean="ServiceRegistryInitializer"/>
+                <ref bean="PortInitializer" />
+			    <ref bean="JMSConfigurationsIntializer" />
+                <ref bean="fieldTypeInitializer"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="MediatorMigrationHandler"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.MediatorMigrationHandler">
+        <property name="migrateTasks">
+            <list value-type="com.softwareag.apigateway.is.init.handler.mediator.migration.MediatorMigrateTask">
+                <ref bean="ESMigrateTask"/>
+                <ref bean="LBMigrateTask"/>
+                <ref bean="EMailMigrateTask"/>
+                <ref bean="SNMPMigrateTask"/>
+                <ref bean="KeyStoreMigrationTask"/>
+                <ref bean="ExtendedSettingsMigrateTask"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="KeyStoreMigrationTask" name="KeyStoreMigrationTask"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.KeyStoreMigrationTask">
+        <property name="mediatorKeyGatewayKeyMap">
+            <map>
+                <entry key="pg.keystore.keyStoreHandle" value="keystoreName"/>
+                <entry key="pg.rampartdeploymenthandler.signingCertAlias" value="signingAlias"/>
+                <entry key="pg.keystore.trustStoreHandle" value="truststoreName"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="ESMigrateTask" name="ESMigrateTask"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.ESMigrateTask">
+        <property name="mediatorKeyGatewayKeyMap">
+            <map>
+                <entry key="pg.es.protocol" value="protocol"/>
+                <entry key="pg.es.hostName" value="hostName"/>
+                <entry key="pg.es.port" value="port"/>
+                <entry key="pg.es.userName" value="userName"/>
+                <entry key="pg.es.password" value="password"/>
+                <entry key="pg.es.PgMenConfiguration.publishLifeCycleEvents" value="sendLifecycleEvent"/>
+                <entry key="pg.es.PgMenConfiguration.publishErrorEvents" value="sendErrorEvent"/>
+                <entry key="pg.es.PgMenConfiguration.publishPolicyViolationEvents" value="sendPolicyViolationEvent"/>
+                <entry key="pg.es.PgMenConfiguration.perfDataEnabled" value="sendPerformanceMetrics"/>
+                <entry key="pg.es.PgMenConfiguration.reportInterval" value="metricsPublishInterval"/>
+                <entry key="pg.es.indexName" value="indexName"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="EMailMigrateTask" name="EMailMigrateTask"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.EmailMigrateTask">
+        <property name="mediatorKeyGatewayKeyMap">
+            <map>
+                <entry key="pg.email.smtpHost" value="smtpServer"/>
+                <entry key="pg.email.smtpPort" value="port"/>
+                <entry key="pg.email.from" value="fromEmail"/>
+                <entry key="pg.email.userName" value="userName"/>
+                <entry key="pg.email.password" value="password"/>
+                <entry key="pg.email.charSet" value="defaultEmailCharset"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="LBMigrateTask" name="LBMigrateTask"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.LBMigrateTask">
+        <property name="mediatorKeyGatewayKeyMap">
+            <map>
+                <entry key="pg.lb.http.url" value="httpUrls"/>
+                <entry key="pg.lb.https.url" value="httpsUrls"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="SNMPMigrateTask" name="SNMPMigrateTask"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.SNMPMigrateTask">
+        <property name="mediatorKeyGatewayKeyMap">
+            <map>
+                <entry key="pg.snmp.customTarget" value="snmpTargetType"/>
+                <entry key="pg.snmp.customTarget.sendTraps" value="sendTRAPs"/>
+                <entry key="pg.snmp.communityTarget.communityName" value="communityName"/>
+                <entry key="pg.snmp.communityTarget.transportProtocol" value="transport"/>
+                <entry key="pg.snmp.communityTarget.ipAddress" value="hostName"/>
+                <entry key="pg.snmp.communityTarget.port" value="port"/>
+                <entry key="pg.snmp.userTarget.userName" value="userName"/>
+                <entry key="pg.snmp.userTarget.authKey" value="authPassword"/>
+                <entry key="pg.snmp.userTarget.useAuth" value="useAuth"/>
+                <entry key="pg.snmp.userTarget.authProtocol" value="authProtocol"/>
+                <entry key="pg.snmp.userTarget.usePrivacy" value="usePrivacy"/>
+                <entry key="pg.snmp.userTarget.privProtocol" value="privacyProtocol"/>
+                <entry key="pg.snmp.userTarget.privKey" value="privacyPassword"/>
+                <entry key="pg.snmp.userTarget.transportProtocol" value="transport"/>
+                <entry key="pg.snmp.userTarget.ipAddress" value="hostName"/>
+                <entry key="pg.snmp.userTarget.port" value="port"/>
+                <entry key="pg.PgMenConfiguration.publishLifeCycleEvents" value="sendLifecycleEvent"/>
+                <entry key="pg.PgMenConfiguration.publishErrorEvents" value="sendErrorEvent"/>
+                <entry key="pg.PgMenConfiguration.publishPolicyViolationEvents" value="sendPolicyViolationEvent"/>
+            </map>
+        </property>
+        <property name="mediatorValueGatewayValueMap">
+            <map>
+                <entry key="snmpTargetType.communityTarget" value="community"/>
+                <entry key="snmpTargetType.userTarget" value="user"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="ExtendedSettingsMigrateTask" name="ExtendedSettingsMigrateTask"
+          class="com.softwareag.apigateway.is.init.handler.mediator.migration.ExtendedSettingsMigrateTask">
+        <property name="mediatorKeyGatewayKeyMap">
+            <map>
+                <entry key="pg.xslt.enableDOM" value="pg_xslt_enableDOM"/>
+                <entry key="pg.oauth2.isHTTPS" value="pg_oauth2_isHTTPS"/>
+                <entry key="pg.PgMenConfiguration.tickInterval" value="apig_MENConfiguration_tickInterval"/>
+                <entry key="pg.mediator.rest-service-redirect" value="apig_rest_service_redirect"/>
+                <entry key="pg.cs.snmpTarget.connTimeout" value="pg.cs.snmpTarget.connTimeout"/>
+                <entry key="pg.cs.snmpTarget.retries" value="pg.cs.snmpTarget.retries"/>
+                <entry key="pg.cs.snmpTarget.maxRequestSize" value="pg.cs.snmpTarget.maxRequestSize"/>
+                <entry key="pg.cs.snmpTarget.sendTimeOut" value="pg.cs.snmpTarget.sendTimeOut"/>
+                <entry key="pg.cs.snmpTarget.base64Encoded" value="pg.cs.snmpTarget.base64Encoded"/>
+                <entry key="pg.uddiClient.uddiClientTimeout" value="pg.uddiClient.uddiClientTimeout"/>
+                <entry key="pg.uddiClient.publish.maxThreads" value="pg.uddiClient.publish.maxThreads"/>
+                <entry key="pg.snmp.customTarget.connTimeout" value="pg.snmp.customTarget.connTimeout"/>
+                <entry key="pg.3pSnmpSender.sendDelay" value="pg.3pSnmpSender.sendDelay"/>
+                <entry key="pg.snmp.userTarget.retries" value="pg.snmp.userTarget.retries"/>
+                <entry key="pg.snmp.userTarget.sendTimeOut" value="pg.snmp.userTarget.sendTimeOut"/>
+                <entry key="pg.snmp.userTarget.maxRequestSize" value="pg.snmp.userTarget.maxRequestSize"/>
+                <entry key="pg.snmp.communityTarget.base64Encoded" value="pg.snmp.communityTarget.base64Encoded"/>
+                <entry key="pg.snmp.communityTarget.retries" value="pg.snmp.communityTarget.retries"/>
+                <entry key="pg.snmp.communityTarget.sendTimeOut" value="pg.snmp.communityTarget.sendTimeOut"/>
+                <entry key="pg.snmp.communityTarget.maxRequestSize" value="pg.snmp.communityTarget.maxRequestSize"/>
+                <entry key="pg.lb.failoverOnDowntimeErrorOnly" value="pg.lb.failoverOnDowntimeErrorOnly"/>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean name="UMCInitializer" id="UMCInitializer" class="com.softwareag.apigateway.is.init.handler.UMCInitializer">
+    </bean>
+    <bean name="ACLInitializer" id="ACLInitializer" class="com.softwareag.apigateway.is.init.handler.ACLInitializer">
+        <property name="valueSeperator" value=","/>
+        <property name="groupUsersMap">
+            <map>
+                <entry key="API-Gateway-Administrators" value="Administrator"/>
+                <entry key="API-Gateway-Providers" value=""/>
+            </map>
+        </property>
+        <property name="aclGroupsMap">
+            <map>
+                <entry key="Administrators" value="API-Gateway-Administrators"/>
+                <entry key="API-Gateway-Providers" value="API-Gateway-Providers"/>
+            </map>
+        </property>
+
+    </bean>
+    <bean name="DefaultSupplierContextInitializer" class="com.softwareag.apigateway.is.init.handler.DefaultSupplierContextInitializer"/>
+    <bean name="PersistenceHandlerFactoryInitializer" class="com.softwareag.apigateway.is.init.handler.PersistenceHandlerFactoryInitializer"/>
+    <bean name="CacheLoader" class="com.softwareag.apigateway.is.init.handler.CacheLoader"/>
+    <bean name="APIInitializer" id="APIInitializer" class="com.softwareag.apigateway.is.init.handler.APIInitializer">
+    </bean>
+    <bean name="fieldTypeInitializer" id="fieldTypeInitializer" class="com.softwareag.apigateway.is.init.handler.FieldTypeInitializer" depends-on="searchFactory">
+        <property name="types">
+              <list value-type="com.softwareag.apigateway.core.search.impl.SearchFactory.TYPES">
+                  <value>API</value>
+                  <value>APPLICATION</value>
+                  <value>ALIAS</value>
+                  <value>PACKAGE</value>
+                  <value>PLAN</value>
+                  <value>POLICY</value>
+                  <value>POLICY_ACTION</value>
+                  <value>APPROVAL_CONFIGURATION</value>
+                  <value>OUTBOUND_PROXY</value>
+                  <value>URL_ALIAS</value>
+                  <value>JNDI_PROVIDER_ALIAS</value>
+                  <value>JMS_CONNECTION_ALIAS</value>
+                  <value>WEB_SERVICE_ENDPOINT_ALIAS</value>
+                  <value>KEYSTORE</value>
+                  <value>TRUSTSTORE</value>
+                  <value>KERBEROS_SETTING</value>
+                  <value>USERS</value>
+                  <value>GROUPS</value>
+                  <value>ACCESSPROFILES</value>
+                  <value>RULE</value>
+                  <value>GATEWAY_SCOPE</value>
+              </list>
+          </property>
+         <property name="fieldNames">
+             <list value-type="java.lang.String">
+                 <value>apiName</value>
+                 <value>apiDescription</value>
+                 <value>apiVersion</value>
+                 <value>maturityState</value>
+                 <value>apiGroups</value>
+                 <value>scopes.name</value>
+                 <value>apiDefinition.tags.name</value>
+                 <value>scopes.description</value>
+                 <value>apiDefinition.operationsInfo.name</value>
+                 <value>apiDefinition.operationsInfo.restEnabledPath.invokePath</value>
+                 <value>name</value>
+                 <value>description</value>
+                 <value>identifiers.namedValues.values</value>
+                 <value>names.value</value>
+                 <value>id</value>
+                 <value>eventType</value>
+                 <value>proxyAlias</value>
+                 <value>jndiAliasName</value>
+                 <value>aliasName</value>
+                 <value>alias</value>
+                 <value>keyStoreName</value>
+                 <value>keyStoreDescription</value>
+                 <value>keyStoreType</value>
+                 <value>kerberosRealm</value>
+                 <value>kerberosKDC</value>
+                 <value>entityId</value>
+                 <value>loginId</value>
+                 <value>firstName</value>
+                 <value>lastName</value>
+                 <value>scopeName</value>
+                 <value>scopeDescription</value>
+                 <value>parameters.values</value>
+             </list>
+         </property>
+    </bean>
+    <bean name="AssertionInitializer" id="AssertionInitializer"
+          class="com.softwareag.apigateway.is.init.handler.AssertionInitializer">
+    </bean>
+    <bean name="ApplicationInitializer" id="ApplicationInitializer"
+                 class="com.softwareag.apigateway.is.init.handler.ApplicationInitializer">
+    </bean>
+    <bean name="ReverseMapInitializer" id="ReverseMapInitializer"
+          class="com.softwareag.apigateway.is.init.handler.ReverseMapInitializer">
+    </bean>
+    <bean name="AliasInitializer" id="AliasInitializer"
+          class="com.softwareag.apigateway.is.init.handler.AliasInitializer">
+    </bean>
+    <bean name="CustomDestinationInitializer" id="CustomDestinationInitializer"
+          class="com.softwareag.apigateway.is.init.handler.CustomDestinationInitializer">
+    </bean>
+    <bean name="PassmanInitializer" id="PassmanInitializer"
+          class="com.softwareag.apigateway.is.init.handler.PassmanSyncIntializer">
+    </bean>
+    <bean name="OAuth2Initializer" id="OAuth2Initializer"
+          class="com.softwareag.apigateway.is.init.handler.OAuth2Initializer">
+    </bean>
+    <bean name="ESMappingInitializer" id="ESMappingInitializer"
+          class="com.softwareag.apigateway.is.init.handler.ESMappingInitializer">
+    </bean>
+    <bean name="CacheScalingWorkerInitializer" id="CacheScalingWorkerInitializer"
+        class="com.softwareag.apigateway.is.init.handler.CacheScalingWorkerInitializer">
+    </bean>
+    <bean id="EGInitializer" class="com.softwareag.apigateway.is.init.handler.EGInitializer"/>
+
+    <bean id="ApprovalInitializer" class="com.softwareag.apigateway.is.init.handler.ApprovalInitializer"/>
+
+    <bean name="ConfigurationInitializer" id="ConfigurationInitializer"
+          class="com.softwareag.apigateway.is.init.handler.ConfigurationInitializer">
+        <constructor-arg ref="configManager"/>
+    </bean>
+    <bean name="KibanaInitializer" id="KibanaInitializer"
+          class="com.softwareag.apigateway.is.init.handler.KibanaInitializer" depends-on="elasticSearchClient"
+          parent="gatewayESRepository">
+        <property name="numberOfShards" value="5"/>
+    </bean>
+    <bean name="CloudInitializer" id="CloudInitializer"
+          class="com.softwareag.apigateway.is.init.handler.CloudInitializer"
+          depends-on="elasticSearchClient,configManager,stageManager"
+          parent="gatewayESRepository">
+        <property name="configMgr" ref="configManager"/>
+        <property name="stageManager" ref="stageManager"/>
+    </bean>
+    <bean name="URLAliasesIntializer" id="URLAliasesIntializer"
+          class="com.softwareag.apigateway.is.init.handler.URLAliasesIntializer">
+    </bean>
+    <bean name="KeystoreIntializer" id="KeystoreIntializer"
+          class="com.softwareag.apigateway.is.init.handler.KeystoreIntializer">
+    </bean>
+
+    <bean name="TrustStoreInitializer" id="TrustStoreInitializer"
+          class="com.softwareag.apigateway.is.init.handler.TrustStoreInitializer">
+    </bean>
+    <bean name="OutboundProxyInitializer" id="OutboundProxyInitializer"
+          class="com.softwareag.apigateway.is.init.handler.OutboundProxyInitializer">
+    </bean>
+    <bean name="proxyBypassInitializer" id="proxyBypassInitializer"
+          class="com.softwareag.apigateway.is.init.handler.ProxyBypassInitializer">
+    </bean>
+    <bean name="KerberosSettingsInitializer" id="KerberosSettingsInitializer"
+          class="com.softwareag.apigateway.is.init.handler.KerberosSettingsInitializer">
+    </bean>
+    <bean name="UserSyncIntializer" id="UserSyncIntializer"
+          class="com.softwareag.apigateway.is.init.handler.UserSyncIntializer">
+    </bean>
+    <bean name="ISPackageIntializer" id="ISPackageIntializer"
+          class="com.softwareag.apigateway.is.init.handler.ISPackageInitializer">
+    </bean>
+    <bean name="SystemPolicyInitializer" id="SystemPolicyInitializer"
+          class="com.softwareag.apigateway.is.init.handler.SystemConfigurationsInitializer"
+          depends-on="elasticSearchClient"
+          parent="gatewayESRepository">
+    </bean>
+    <bean name="ServiceRegistryInitializer" id="ServiceRegistryInitializer"
+          class="com.softwareag.apigateway.is.init.handler.ServiceRegistryInitializer">
+    </bean>
+    <bean name="PortInitializer" id="PortInitializer"
+          class="com.softwareag.apigateway.is.init.handler.PortInitializer">
+    </bean>
+    <bean name="JAASConfigInitializer" id="JAASConfigInitializer"
+          class="com.softwareag.apigateway.is.init.handler.JAASConfigInitializer">
+    </bean>
+    <bean id="delayedRefresher"
+          class="com.softwareag.apigateway.is.init.ISDelayedRefresher"
+          init-method="refresh"
+          depends-on="APIInitializer">
+
+        <property name="napMillis" value="1000"/> <!--"${pg.delayedRefresher.napMillis}"/>-->
+    </bean>
+    <bean name="PackageInitializer" class="com.softwareag.apigateway.is.init.handler.PackageInitializer">
+        <property name="packagePersistenceHandler" ref="packagePersistanceHandler"/>
+    </bean>
+	
+	 <bean name="JMSConfigurationsIntializer" id="JMSConfigurationsIntializer"
+          class="com.softwareag.apigateway.is.init.handler.JMSConfigurationsIntializer">
+    </bean>
+	
+    <bean name="QuotaSurvivalInitializer" class="com.softwareag.apigateway.is.init.handler.QuotaSurvivalInitializer"/>
+    <bean id="webSocketMessageContextFactory"
+          class="com.softwareag.apigateway.is.websocket.WebSocketMessageContextFactory">
+    </bean>
+    <bean id="webSocketAPIDeploymentHandler" class="com.softwareag.apigateway.is.websocket.APIDeploymentHandler">
+    </bean>
+    <bean id="restMessageContextFactory" class="com.softwareag.pg.http.RestMessageContextFactory">
+        <!--TODO Read the directive from the properties-->
+        <property name="serviceFinder" ref="restServiceFinder"/>
+    </bean>
+    <bean id="graphqlMessageContextFactory" class="com.softwareag.pg.http.GraphQLMessageContextFactory">
+        <property name="serviceFinder" ref="graphqlServiceFinder"/>
+    </bean>
+    <bean id="EGPolicyManager" class="com.softwareag.apigateway.is.enterprisegateway.EGPolicyManager"/>
+
+    <bean id="rgHandler" class="com.softwareag.pg.config.ISRGHandler"/>
+    <bean id="isPortalEventManager" class="com.softwareag.apigateway.is.managers.ISPortalEventManager"/>
+    <bean id="approvalStateHandlerImpl" class="com.softwareag.apigateway.is.approval.handler.ApprovalStateHandlerImpl"/>
+    <bean id="ServiceOrgAssociationStore"
+          class="com.softwareag.pg.service.organization.store.ServiceOrgAssociationStore">
+        <property name="dataSource" ref="EventJdbcDataSource"/>
+        <property name="tableName" value="AGW_SERVICE_ORG_ASSN"/>
+        <property name="dataSourceErrorCodeMsgs">
+            <list>
+                <bean class="com.softwareag.pg.service.organization.DataSourceErrorCodeMsg">
+                    <property name="errorCode" value="1"/>
+                    <property name="statusCode" value="409"/>
+                    <property name="messageKey" value="0010.0475"/>
+                </bean>
+                <bean class="com.softwareag.pg.service.organization.DataSourceErrorCodeMsg">
+                    <property name="errorCode" value="1400"/>
+                    <property name="statusCode" value="400"/>
+                    <property name="messageKey" value="0010.0474"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+    <bean id="httpResponseCodeCallback" class="com.softwareag.pg.axis2.transports.ISHTTPResponseCodeCallback">
+    </bean>
+    <bean id="csCommunicationResourceHandler"
+          class="com.softwareag.apigateway.is.rest.resource.handler.centrasite.CSCommunicationResourceHandler">
+    </bean>
+    <bean id="csCommunicationConvertor"
+          class="com.softwareag.apigateway.is.converter.centrasite.CSCommunicationConverter"></bean>
+    <bean id="snmpPropertiesConvertor"
+          class="com.softwareag.apigateway.is.converter.centrasite.SNMPPropertiesConverter"></bean>
+    <bean id="keyStoreConvertor" class="com.softwareag.apigateway.is.converter.KeyStoreConvertor"></bean>
+    <bean id="trustStoreConvertor" class="com.softwareag.apigateway.is.converter.TrustStoreConvertor"></bean>
+    <bean id="clusterSettingsConvertor" class="com.softwareag.apigateway.is.converter.ClusterSettingsConvertor"></bean>
+    <bean id="outboundProxySettingsConvertor"
+          class="com.softwareag.apigateway.is.converter.OutboundProxySettingsConvertor"></bean>
+    <bean id="kerberosSettingsConvertor"
+          class="com.softwareag.apigateway.is.converter.KerberosSettingsConvertor"></bean>
+    <bean id="apiDocumentConvertor"
+          class="com.softwareag.apigateway.is.converter.APIDocumentConverter"></bean>
+    <bean id="serviceRegistryPublishConverter"
+          class="com.softwareag.apigateway.is.converter.ServiceRegistryPublishConverter"></bean>		  
+	<bean id="serviceRegistryUnpublishConverter"
+          class="com.softwareag.apigateway.is.converter.ServiceRegistryUnpublishConverter"></bean>
+    <bean id="integrationServerPublishConverter"
+          class="com.softwareag.apigateway.is.converter.ServiceRegistryPublishConverter"></bean>
+    <bean id="integrationServerUnpublishConverter"
+          class="com.softwareag.apigateway.is.converter.ServiceRegistryUnpublishConverter"></bean>
+    <bean id="publishUnpublishAPIsConvertor"
+          class="com.softwareag.apigateway.facade.converter.PublishUnpublishAPIsConverter"></bean>
+    <bean id="publishUnpublishStatusConvertor"
+          class="com.softwareag.apigateway.facade.converter.PublishUnpublishStatusConverter"></bean>
+    <bean id="WSEndpointAliasValidator" class="com.softwareag.apigateway.is.validator.WSEndpointAliasValidator"/>
+
+    <bean id="JMSMessageService" class="com.softwareag.pg.jms.JMSMessageServiceImpl"/>
+
+    <bean id="apiDeployer" class="com.softwareag.apigateway.is.deployment.deployer.APIDeployer"/>
+    <bean id="applicationDeployer" class="com.softwareag.apigateway.is.deployment.deployer.ApplicationDeployer"/>
+    <bean id="registeredConsumerNamesDeployer"
+          class="com.softwareag.apigateway.is.deployment.deployer.RegisteredConsumerNamesDeployer"/>
+    <bean id="apiKeysDeployer" class="com.softwareag.apigateway.is.deployment.deployer.ApiKeysDeployer"/>
+    <bean id="oAuth2Deployer" class="com.softwareag.apigateway.is.deployment.deployer.OAuth2Deployer"/>
+    <bean id="aliasDeployer" class="com.softwareag.apigateway.is.deployment.deployer.alias.AliasDeployer"/>
+    <bean id="jwtManager" class="com.softwareag.apigateway.is.managers.ISJWTManagerImpl"/>
+    <bean id="isCommonLoggingManager" class="com.softwareag.apigateway.is.managers.ISCommonLoggingManagerImpl"/>
+    <bean id="gatewayEhCacheConfigBuilder" class="com.softwareag.apigateway.is.cache.GatewayEhCacheConfigBuilder"/>
+	
+	<bean id="MediatorHttpHandler" class="com.softwareag.pg.http.MediatorHttpHandler"/>
+
+    <bean id="userResponseProcessor" class="com.softwareag.apigateway.is.converter.UserResponseProcessor"/>
+    <bean id="webhookNotificationManager" class="com.softwareag.apigateway.is.managers.WebhookNotificationManagerImpl"/>
+    <bean id="loggerSettingsResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.is.logger.settings.LoggerSettingsResourceHandler">
+        <property name="loggerSettingsManager" ref="ILoggerSettingsManager"/>
+    </bean>
+    
+    <bean id="prometheusStatsProviderApiGateway" class="com.softwareag.apigateway.is.metrics.PrometheusStatsProviderApiGateway">
+        <property name="availabilityMetricsCollector" ref="availabilityMetricsCollector"/>
+    </bean>
+    <bean id="migrationv2CoreManager" class="com.softwareag.apigateway.is.migration.manager.CoreMigrationManager"/>
+    <bean id="migrationv2EventsAndLogsManager" class="com.softwareag.apigateway.is.migration.manager.EventsAndLogsMigrationManager"/>
+    <bean id="migrationv2RollbackManager" class="com.softwareag.apigateway.is.migration.manager.RollbackMigrationManager"/>
+    <bean id="migrationv2CoreResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.migrationv2.MigrationCoreResourceHandler">
+        <property name="migrationManager" ref="migrationv2CoreManager"/>
+    </bean>
+    <bean id="migrationv2EventsAndLogsResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.migrationv2.MigrationEventsAndLogsResourceHandler">
+        <property name="migrationManager" ref="migrationv2EventsAndLogsManager"/>
+    </bean>
+    <bean id="migrationv2RollbackResourceHandler" class="com.softwareag.apigateway.is.rest.resource.handler.migrationv2.MigrationRollbackResourceHandler">
+        <property name="migrationManager" ref="migrationv2RollbackManager"/>
+    </bean>
+    <bean id="migrationTaskFactory" class="com.softwareag.apigateway.is.migration.task.MigrationTaskFactory">
+        <constructor-arg index="0">
+            <map key-type="com.softwareag.apigateway.is.migration.model.MigrationWorkFlowTaskType"
+                 value-type="com.softwareag.apigateway.is.migration.task.MigrationTask">
+                <entry key="RUN_INITIALIZER_TASK" value-ref="runInitializerTask"/>
+                <entry key="SET_QUIESCE_MODE_TASK" value-ref="setQuiesceModeTask"/>
+                <entry key="FIX_MANAGEMENT_TASK" value-ref="fixManagementTask"/>
+                <entry key="SANITY_REPORT_TASK" value-ref="sanityReportTask"/>
+                <entry key="PRE_MIGRATION_CHECK_TASK" value-ref="preMigrationCheckTask"/>
+                <entry key="TRANSFORM_ASSETS_TASK" value-ref="transformAssetsTask"/>
+                <entry key="GENERATE_SNAPSHOT_TASK" value-ref="generateSnapshotTask"/>
+                <entry key="IMPORT_DATA_TASK" value-ref="importDataTask"/>
+                <entry key="CLEANUP_ES_TASK" value-ref="cleanupESTask"/>
+                <entry key="FLUSH_IN_MEMORY_DATA_TASK" value-ref="flushInMemoryDataTask"/>
+                <entry key="CLEANUP_STATUS_LOG_TASK" value-ref="cleanupStatusLogTask"/>
+            </map>
+        </constructor-arg>
+    </bean>
+    <bean id="runInitializerTask" class="com.softwareag.apigateway.is.migration.task.RunInitializerTask"/>
+    <bean id="setQuiesceModeTask" class="com.softwareag.apigateway.is.migration.task.SetQuiesceModeTask"/>
+    <bean id="fixManagementTask" class="com.softwareag.apigateway.is.migration.task.FixManagementTask"/>
+    <bean id="sanityReportTask" class="com.softwareag.apigateway.is.migration.task.SanityReportTask"/>
+    <bean id="preMigrationCheckTask" class="com.softwareag.apigateway.is.migration.task.PreMigrationCheckTask"/>
+    <bean id="transformAssetsTask" class="com.softwareag.apigateway.is.migration.task.TransformAssetsTask"/>
+    <bean id="generateSnapshotTask" class="com.softwareag.apigateway.is.migration.task.GenerateSnapshotTask"/>
+    <bean id="importDataTask" class="com.softwareag.apigateway.is.migration.task.importdatatask.ImportDataTask"/>
+    <bean id="cleanupESTask" class="com.softwareag.apigateway.is.migration.task.CleanupESTask"/>
+    <bean id="flushInMemoryDataTask" class="com.softwareag.apigateway.is.migration.task.FlushInMemoryDataTask"/>
+    <bean id="cleanupStatusLogTask" class="com.softwareag.apigateway.is.migration.task.CleanupStatusLogTask"/>
+    <bean id="quotaAccPreprocessorTask" class="com.softwareag.apigateway.is.migration.task.importdatatask.QuotaAccPreprocessorTask"/>
+    <bean id="quotaAccPostprocessorTask" class="com.softwareag.apigateway.is.migration.task.importdatatask.QuotaAccPostprocessorTask"/>
+    <bean id="iAuthServerAliasManager" class="com.softwareag.apigateway.is.managers.ISAuthServerAliasManager"/>
+    <bean id="iConfig" class="com.softwareag.apigateway.is.managers.ISConfig"/>
+    <bean id="iStatistics" class="com.softwareag.pg.ISStatistics"/>
+</beans>

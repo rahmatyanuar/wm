@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "sourceName",
+		"names" : [
+		   {
+			 "value" : "Input Source Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Input Source Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

@@ -1,0 +1,71 @@
+<#if isEvaluatePolicyExists>
+{
+"names": [
+      {
+        "value": "Identify & Authorize Application",
+        "locale": "en"
+      }
+    ],
+"templateKey": "evaluatePolicy",
+"parameters": [
+  {
+	"templateKey": "logicalConnector",
+	"values": [
+		<#if expression[1]??>
+			"OR"
+		<#else>
+			"AND"
+		</#if>
+	]
+  },
+  {
+	"templateKey": "allowAnonymous",
+	"values": [
+	  "${allowAnon}"
+	]
+  },
+  <#list expression as expressionElement>
+	<#assign comma=false>
+	<#list expressionElement.params as param>
+	  <#if param.@identify != "donotidentify" || param.@type == "oAuth2Token">  
+		<#assign comma=true>
+		{
+		  "templateKey": "IdentificationRule",
+		  "parameters": [
+		    {
+			  "templateKey": "applicationLookup",
+			  "values": [
+				<#if param.@type == "oAuth2Token">
+					"strict"
+				<#else>
+					"${param.@identify}"
+				</#if>
+			  ]
+		    },
+		    {
+			  "templateKey": "identificationType",
+			  "values": [
+				<#if param.@type == "xpathAddress">
+				  "payloadElement"
+				<#elseif param.@type == "kerberosAuth">
+				  "kerberosToken"
+				<#else>
+				  "${param.@type}"
+			    </#if>
+			  ]
+		    }
+			<#if param.@type == "xpathAddress">
+				<#include "xpath.json"/>
+			</#if>
+		  ]
+		}
+	    <#sep>,</#sep> 
+	  </#if>
+	</#list>
+	<#if comma=true>
+	  <#sep>,</#sep>
+    </#if>
+  </#list>
+]
+}
+</#if>

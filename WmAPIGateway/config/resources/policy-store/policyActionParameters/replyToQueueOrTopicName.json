@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "replyToQueueOrTopicName",
+		"names" : [
+		   {
+			 "value" : "ReplyTo Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "ReplyTo Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

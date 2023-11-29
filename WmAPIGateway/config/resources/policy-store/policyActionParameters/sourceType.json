@@ -1,0 +1,42 @@
+{
+	"templateKey" : "sourceType",
+	"names" : [
+	   {
+		 "value" : "Input Source Type",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Indicates the Input Source Type",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"true",
+	"isArray" : "false",
+	"defaultValues" : [
+		  "QUEUE"
+	],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "QUEUE",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "QUEUE"
+		},
+		{
+			"names" : [
+				{
+					"value" : "TOPIC",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "TOPIC"
+		}
+	],
+	"applicableServiceTypes" : ["REST","ODATA"]
+}

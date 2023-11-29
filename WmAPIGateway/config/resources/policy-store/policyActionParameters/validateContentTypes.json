@@ -1,0 +1,19 @@
+{
+		"templateKey" : "validateContentTypes",
+		"names" : [
+		   {
+			 "value" : "Content Types",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Evaluate that the request has valid Content Types",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"]
+}

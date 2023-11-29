@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "headerValue",
+		"names" : [
+		   {
+			 "value" : "Header Value",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "HTTP Header Value to be matched.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+  }

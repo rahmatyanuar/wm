@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxAttributeCountPerElement",
+  "names" : [
+    {
+      "value" : "Maximum Attribute Count Per Element",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum number of attributes per element",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

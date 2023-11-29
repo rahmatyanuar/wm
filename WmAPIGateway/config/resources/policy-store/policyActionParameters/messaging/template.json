@@ -1,0 +1,20 @@
+{
+ "templateKey" : "messaging",
+ "names" : [
+   {
+     "value" : "Messaging",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["connectionAlias.json","destinationQueueOrTopicName.json","destinationQueueOrTopicType.json","replyToQueueOrTopicName.json",
+		"replyToQueueOrTopicType.json","timeToLive.json","timeToWait.json","deliveryMode.json"]
+}

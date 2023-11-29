@@ -1,0 +1,21 @@
+   {
+		"templateKey" : "copyEntireResponse",
+		"names" : [
+		   {
+			 "value" : "Copy entire response",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Copy Entire response",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+		  false
+		]
+  }

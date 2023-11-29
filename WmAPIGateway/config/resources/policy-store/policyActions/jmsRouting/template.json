@@ -1,0 +1,25 @@
+{
+    "templateKey": "jmsRouting",
+    "names": [
+        {
+            "value": "JMS/AMQP SOAP Routing",
+            "locale": "en"
+        }
+    ],
+    "descriptions": [
+        {
+            "value": "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+            "locale": "en"
+        }
+    ],
+    "parameterTemplatesReference": [
+        "connectionUrl.json","replyToName.json","priority.json","timeToLive.json","deliveryMode.json"
+    ],
+	"occurence" : "once",
+	"applicableServiceTypes" : ["SOAP"],
+	"order" :  {
+		"sequence" : ["insequence"],
+		"orderPosition" : "last"
+	},
+	"mutuallyExclusiveActions" : ["straightThroughRouting","contextBasedRouting","dynamicRouting","contentBasedRouting","loadBalancerRouting"]    
+}

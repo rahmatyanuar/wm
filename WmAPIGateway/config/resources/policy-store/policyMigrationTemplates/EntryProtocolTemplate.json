@@ -1,0 +1,36 @@
+{
+	"names": 
+	[
+		{
+			"value": "Require HTTP / HTTPS",
+			"locale": "en"
+		}
+	],
+	"templateKey": "entryProtocolPolicy",
+    "parameters": 
+    [
+		{
+			"templateKey": "protocol",
+			"values": 
+			[
+				<#assign transports=doc.service.@transports?split(",")>
+                <#list transports as t>"${t}"<#sep>, </#list>
+			]
+ 		}
+ 		<#if doc.service.resources.D\:wsdl.wsdl\:definitions[0]??>
+		<#assign wsdlDef=doc.service.resources.D\:wsdl.wsdl\:definitions[0]/>
+ 		,{
+			"templateKey": "soapVersion",
+			"values": 
+			[
+				<#if wsdlDef.wsdl\:service.wsdl\:port.soap\:address[0]??>
+					"soap"
+				<#elseif wsdlDef.wsdl\:service.wsdl\:port.soap12\:address[0]??>
+					"soap12"
+				</#if>			
+			]
+        }
+		</#if>        
+	],
+	"active": false
+}

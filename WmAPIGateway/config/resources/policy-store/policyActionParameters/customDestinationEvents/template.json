@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "customDestinationEvents",
+		"names" : [
+		   {
+			 "value" : "Events",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Configure event details for Custom Extension",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"customDestinationEventTypes","customDestinationPerformanceMetricsData","customDestinationAuditLogData"
+		]	
+
+   }

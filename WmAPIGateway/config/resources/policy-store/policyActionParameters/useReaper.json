@@ -1,0 +1,38 @@
+{
+  "templateKey": "useReaper",
+  "names": [
+    {
+      "value": "Use Reaper",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Specifies whether to use the {@link IdleConnectionReaper} to manage stale connections. A reason for not running the {@link IdleConnectionReaper} can be if running in an environment where the modifyThread and modifyThreadGroup permissions are not allowed.",
+      "locale": "en_US"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "possibleValues" :[
+	{
+		"names" : [
+			{
+				"value" : "True",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "true"
+	},
+	{
+		"names" : [
+			{
+				"value" : "False",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "false"
+	}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+		"templateKey" : "signAndEncryptConfig",
+		"names" : [
+		   {
+			 "value" : "Signing/Encryption Configurations",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Keystore and trustore details for signing and encryption",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  [  "keyStoreAlias.json","keyAlias.json","truststoreAlias.json","certificateAlias.json"]
+}

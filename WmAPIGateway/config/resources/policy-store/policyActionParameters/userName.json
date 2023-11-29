@@ -1,0 +1,19 @@
+{
+				"templateKey" : "userName",
+				"names" : [
+				   {
+					 "value" : "User Name",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "User Name for the Basic Authentication",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}
+

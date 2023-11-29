@@ -1,0 +1,19 @@
+{
+		"templateKey" : "cacheCriteria",
+		"names" : [
+		   {
+			 "value" : "Cache Criteria",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  ["httpHeader","XPATH","queryParam"]
+}

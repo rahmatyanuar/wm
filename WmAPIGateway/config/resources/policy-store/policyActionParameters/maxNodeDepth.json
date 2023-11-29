@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxNodeDepth",
+  "names" : [
+    {
+      "value" : "Maximum Node Depth",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Node Depth allowed",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

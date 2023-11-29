@@ -1,0 +1,24 @@
+{
+ "templateKey" : "enableJmsORAmqp",
+ "names" : [
+   {
+     "value" : "Enable JMS/AMQP",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "JMS/AMQP policy enables the API to communicate over AMQP protocol or any JMS compliant asynchronous protocols",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"connectionAlias.json","jmsOrAmqpSourceDetails"
+ ],
+ "occurence" : "once",
+ "applicableServiceTypes" : ["REST"],
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ }
+}

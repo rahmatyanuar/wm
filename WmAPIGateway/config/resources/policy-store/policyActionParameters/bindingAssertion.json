@@ -1,0 +1,18 @@
+{
+		"templateKey" : "bindingAssertion",
+		"names" : [
+		   {
+			 "value" : "Binding Assertion",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The Binding assertion that describes the communication between Reciepient and initiator",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

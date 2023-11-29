@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxTextLength",
+  "names" : [
+    {
+      "value" : "Maximum Text Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Text Length",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

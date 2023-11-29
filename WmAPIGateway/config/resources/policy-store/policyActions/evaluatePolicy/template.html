@@ -1,0 +1,184 @@
+<#list keys as key>
+    <#if key=='apiKey'>
+        <table>
+            <br/>
+            <tr>
+                <b>Require API Key Check</b>
+                <br/> The API requires the usage of API Keys for Authentication and Authorization. There are 2 variants of passing
+                along the API Keys. </tr>
+            <br />
+            <tr>
+                <td valign="top"></td>
+                <td align="right" width="185px" valign="top">
+                    <b>API Key as HTTP Header</b>
+                </td>
+                <td width="12px" />
+                <td> Pass along the API key as ${apiKeyHeader} </td>
+            </tr>
+            <tr>
+                <td />
+                <td align="right" valign="top">
+                    <b> Details</b>
+                </td>
+                <td width="12px" />
+                <td> ${apiKeyHeader}:api-key-value </td>
+            </tr>
+            <tr>
+                <td />
+                <td align="right" valign="top">
+                    <b>Example</b>
+                </td>
+                <td width="12px" />
+                <td>${apiKeyHeader}:fsffsfsd-fsfsdfsd-ewwerwe-fsdsad</td>
+            </tr>
+            <tr>
+                <td valign="top"></td>
+                <td align="right" valign="top">
+                    <b>API Key as Query Param</b>
+                </td>
+                <td width="12px" />
+                <td>Pass along the API key as URL query parameter - APIKey</td>
+            </tr>
+            <tr>
+                <td />
+                <td align="right" valign="top">
+                    <b>Details</b>
+                </td>
+                <td width="12px" />
+                <td>APIKey=api-key-value</td>
+            </tr>
+            <tr>
+                <td />
+                <td align="right" valign="top">
+                    <b>Example</b>
+                </td>
+                <td width="12px" />
+                <td>http://{host_name}:{port}/ws/SomeAPI/resource?APIKey=fsffsfsd-fsfsdfsd-ewwerwe-fsdsad</td>
+            </tr>
+        </table>
+        <#elseif key=='oAuth2Token'>
+            <table>
+                <br/>
+                <tr>
+                    <b> Evaluate OAuth2 Token</b>
+                    <br/>The API requires OAuth2 token authentication to allow access. To obtain access the following steps must
+                    be taken:
+                    <br/> 1. Register to consume the API. A email will be sent once the consumption has been approved.
+                    <br/>2. The email will contain details how to create a OAuth2 token.
+                    <br/>3. After creation of the OAuth2 token, the token must be provided in the header of each API call. The
+                    header will look like:
+                    <br/>
+                </tr>
+                <tr>
+                    <td width="132px" />
+                    <td align="right" valign="top">
+                        <b>Details</b>
+                    </td>
+                    <td />
+                    <td>Authorization: Bearer {OAuth2 token}</td>
+                </tr>
+                <tr>
+                    <td />
+                    <td align="right" valign="top">
+                        <b>Example</b>
+                    </td>
+                    <td width="12px" />
+                    <td>Authorization: Bearer 0a9563286896432</td>
+                </tr>
+            </table>
+            <#elseif key=='jwtClaims'>
+                <table>
+                    <br/>
+                    <tr>
+                        <b> Evaluate JWT</b><br/>The API requires JWT authentication token to allow access. Obtain a JWT token from the JWT Token
+                        provider and the token must be provided in the header of each API call. The header will look like:</tr>
+                    <br/>
+                    <tr>
+                        <td width="132px" />
+                        <td align="right" valign="top">
+                            <b>Details</b>
+                        </td>
+                        <td />
+                        <td>Authorization: Bearer {JWT token}</td>
+                    </tr>
+                    <tr>
+                        <td />
+                        <td align="right" valign="top">
+                            <b>Example</b>
+                        </td>
+                        <td width="12px" />
+                        <td>Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiJ2YWwiLCJpYXQiOjE0MjI2MDU0NDV9.eUiabuiKv-8PYk2AkGY4Fb5KMZeorYBLw261JPQD5lM</td>
+                    </tr>
+                </table>
+                <#elseif key=='openIdClaims'>
+                    <table>
+                        <br/>
+                        <tr>
+                            <b> Evaluate OpenId Connect</b>
+                            <br/>The API requires OpenId Connect authentication to allow access.</tr>
+                    </table>
+                    <#elseif key=='httpsCertificate'>
+                        <table>
+                            <br/>
+                            <tr>
+                                <b>Evaluate Client Certificate for SSL connectivity</b>
+                                <br/>The API requires the usage of SSL with client certificates to allow access. When using this
+                                API, the API provider will provide details about the certificate usage.</tr>
+                        </table>
+                        <#elseif key=='httpBasicAuth'>
+                            <table>
+                                <br/>
+                                <tr>
+                                    <b>Evaluate HTTP Basic Authentication</b>
+                                    <br/>The API requires the usage of HTTP Basic authentication header to allow access. The HTTP header should be passed in the following format:<br/>
+                                </tr>
+                                <tr>
+                                    <td width="132px" />
+                                    <td align="right" valign="top">
+                                        <b>Details</b>
+                                    </td>
+                                    <td />
+                                    <td>Authorization: Basic {Base64 hash of username:password}</td>
+                                </tr>
+                                <tr>
+                                    <td />
+                                    <td align="right" valign="top">
+                                        <b>Example</b>
+                                    </td>
+                                    <td width="12px" />
+                                    <td>Authorization: Basic U29mdHdhcmVhZzpTb2Z0d2FyZWFn</td>
+                                </tr>
+                            </table>
+                            <#elseif key=='ipAddressRange'>
+                                <table>
+                                    <br/>
+                                    <tr>
+                                        <b>Evaluate IP Address</b>
+                                        <br/>The API requires that the IP address of the client matches against a trusted set.
+                                        When using this API, please provide the API provider with details about the clients
+                                        that will be accessing the API such that they can be added to the trusted set.
+                                        <br/>
+                                    </tr>
+                                </table>
+                                <#elseif key=='payloadElement'>
+                                    <table>
+                                        <br/>
+                                        <tr>
+                                            <b>Evaluate XPath Expression</b>The API requires the usage of a element or attribute
+                                            within the SOAP header or message to verify or route the message appropriately.
+                                            When using this API, the API provider will give details on how the SOAP header
+                                            or message will be interpreted.</tr>
+                                    </table>
+                                    <#elseif key=='hostNameAddress'>
+                                        <table>
+                                            <br/>
+                                            <tr>
+                                                <b>Evaluate Hostname</b>
+                                                <br/>The API requires that the hostname of the client matches against a trusted
+                                                set. The HTTP header HOSTNAME is used to verify the hostname against the
+                                                trusted set. When using this API, please provide the API provider with details
+                                                about the clients that will be accessing the API such that they can be added
+                                                to the trusted set.</tr>
+                                        </table>
+    </#if>
+</#list>

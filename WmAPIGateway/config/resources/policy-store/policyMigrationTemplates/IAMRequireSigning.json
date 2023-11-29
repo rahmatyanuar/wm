@@ -1,0 +1,89 @@
+<#assign signedElements=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All.sp\:SignedElements/>
+<#assign signedParts=policy.wsp\:Policy.wsp\:ExactlyOne.wsp\:All.sp\:SignedParts/>
+<#if signedElements[0]?? || signedParts[0]??>
+,
+{
+	"templateKey": "requireSignature",
+	"parameters": [
+		<#if signedElements[0]??>
+				<#list signedElements.sp\:XPath as xpath>
+					{
+						"templateKey": "signedElements",
+						"parameters": [
+							{
+							  "templateKey": "xpath",
+							  "values": [
+								"${xpath}"
+							  ]
+							}
+							<#if xpath.@@[0]??>
+								,
+								<#list xpath.@@ as attr>
+									{
+									  "templateKey": "namespace",
+									  "parameters": [
+										{
+										  "templateKey": "prefix",
+										  "values": [
+											"${attr?node_name}"
+										  ]
+										},
+										{
+										  "templateKey": "uri",
+										  "values": [
+											"${attr}"
+										  ]
+										}
+									  ]
+									}
+									<#sep>,</#sep>
+								</#list>
+							</#if>
+						]
+					}
+					<#sep>,</#sep>
+				</#list>
+		</#if>
+		<#if signedElements[0]?? && signedParts[0]??>,</#if>
+		<#if signedParts[0]??>
+		<#list signedParts as part>
+			{
+			  "templateKey": "signedParts",
+			  "parameters": [
+				  {
+					"templateKey": "entireBody",
+					"values": [
+					  <#if part.sp\:Body[0]??>"true"<#else>"false"</#if>
+					]
+				  },
+				  {
+					"templateKey": "entireAttachments",
+					"values": [
+					  "false"
+					]
+				  }
+				  <#list part.sp\:Header as header>
+					,
+					{
+					  "templateKey": "headerToSecure",
+					  "parameters": [
+						<#list header.@@ as attr>
+							{
+							  "templateKey": <#if attr?node_name == "Name">"headerName"<#else>"headerNamespace"</#if>,
+							  "values": [
+								"${attr}"
+							  ]
+							}
+							<#sep>,</#sep>
+						</#list>
+					  ]
+					}
+				</#list>
+			  ]
+			}
+			<#sep>,</#sep>
+	</#list>
+	</#if>
+	]
+}
+</#if>

@@ -1,0 +1,18 @@
+			{
+				"templateKey" : "keyAlias",
+				"names" : [
+				   {
+					 "value" : "Key Alias",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "The client's private key to be used for performing SSL client authentication.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+			}

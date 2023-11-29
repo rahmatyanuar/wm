@@ -1,0 +1,2 @@
+<#assign transformStrategyResponse='com.softwareag.apigateway.core.migration.transformation.strategy.Strategy107to105Transformation'?new()/>
+${transformStrategyResponse(doc, transformationMode, httpMethod)}

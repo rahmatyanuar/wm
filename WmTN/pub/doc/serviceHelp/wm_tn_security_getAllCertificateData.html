@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <meta name="Creator" content="stat17_update_1516_0241" />
+    <title>wm.tn.security:getAllCertificateData</title>
+    <link rel="StyleSheet" href="css/_trading_networks_bis_reference_diba2.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <div class="Heading_2"><a name="ID0EU3OR">wm.tn.security:getAllCertificateData</a></div>
+    <div class="Body"><a name="ID0E54OR">Retrieves information about active and inactive certificates for a given combination of owner, partner, and usage.</a></div>
+    <div class="Section_Title"><a name="ID0EN5OR">Input Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 25%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EY6OR">ownerID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 75%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EEAPR">String</a></span> The internal partner ID of the owner of the certificates.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EVAPR">partnerID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EBBPR">String</a></span> (optional) The internal partner ID of the certificate owner’s partner.</div>
+          <div class="Table_Cell"><a name="ID0EMBPR">See the Usage Notes at the end of this service’s description for information about how the certificate data is used if </a><span class="varname">partnerID</span> is not specified.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E4BPR">usage</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EJCPR">String</a></span> Specify one of the following values:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0E1CPR">sign</a></span> - The private key is used as a signing key for the owner to send digitally signed documents to the partner. The public key is used by the partner to verify the signed document.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0ERDPR">decrypt</a></span> - The private key is used to decrypt the encrypted document sent to the owner from the partner. Public certificates are used to encrypt the document by the partner.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0EIEPR">ssl</a></span> - The certificate is used as a client SSL certificate for the owner to establish an SSL connection to the partner's secure server.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0ENFPR">Output Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 19.9%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E6GPR">certIData</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 80%" colspan="2">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0ELHPR">Document List</a></span> An array of IData objects each with the following fields:</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 19.9%"></td>
+        <td class="internalheadrule" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 24%">
+          <div class="internalheadrule"><a name="ID0EEIPR">Key</a></div>
+        </td>
+        <td class="internalheadrule" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 55.9%">
+          <div class="internalheadrule"><a name="ID0EKIPR">Description</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E2IPR">certID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EHJPR">String</a></span> The internal ID that uniquely identifies the certificate data that is retrieved. If the input parameter <span class="varname">certID</span> is specified, the same <span class="varname">certID</span> appears in the output pipeline.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EIKPR">ownerID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EUKPR">String</a></span> The internal partner ID of the owner of the certificate.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ELLPR">partnerID</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EXLPR">String</a></span> The internal partner ID of the certificate owner’s partner.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EOMPR">usage</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E1MPR">String</a></span> Indicates how the certificate is used:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0ELNPR">sign</a></span> - The private key is used as a signing key for the owner to send digitally signed documents to the partner. The public key is used by the partner to verify the signed document.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0ECOPR">decrypt</a></span> - The private key is used to decrypt the encrypted document sent to the owner from the partner. Public certificates are used by the partner to encrypt the document.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0EZOPR">ssl</a></span> - The certificate is used as a client SSL certificate for the owner to establish an SSL connection to the partner's secure server.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E4PPR">chainBytes</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EJQPR">Object</a></span> An array of byte arrays. Each byte array represents a java.security.cert.X509Certificate. The certificates are in node-to-root order. The first certificate in the array is the sign/decrypt/SSL client certificate. Each subsequent certificate is the certificate that was used to sign the previous certificate in the array.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EARPR">keyBytes</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EMRPR">Object</a></span> A byte array that represents the private key that is used to generate the certificate.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EDSPR">expirationDate</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EPSPR">String</a></span> The expiration date of the certificate.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EGTPR">priority</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0ESTPR">String</a></span> Identifies whether the certificate is the primary or secondary certificate, as follows:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0EDUPR">0</a></span> - The certificate is the primary (active) certificate.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="asis"><a name="ID0E1UPR">1</a></span> - The certificate is the secondary (inactive) certificate.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0E6VPR">keyStoreAlias</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0ELWPR">String</a></span> Alias for the keystore file associated with the certificate.</div>
+          <div class="Note">
+            <span class="Bold">Note:<br /></span><a name="ID0EWWPR">Keystores apply only to Enterprise profiles. If you are adding certificate data for your Enterprise profile, supply a value for this parameter. If you are adding certificate data for a partner profile, leave this parameter blank.</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top"></td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EYXPR">keyAlias</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EEYPR">String</a></span> Configured private key alias in the specified keystore.</div>
+          <div class="Note">
+            <span class="Bold">Note:<br /></span><a name="ID0EPYPR">Key aliases apply only to Enterprise profiles. If you are adding certificate data for a partner profile, specify the private key using </a><span class="varname">keyBytes</span>, not <span class="varname">keyAlias</span>.</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0E3ZPR">Usage Notes</a></div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EH1PR">If both </a><span class="varname">ownerID</span> and <span class="varname">partnerID</span> are specified, the certificate data is used for the purpose you specify in <span class="varname">usage</span>. If <span class="varname">partnerID</span> is not specified (or no specific alternative certificate data is defined by the owner and the specified partner for the purpose you specify in <span class="varname">usage</span>), the certificate data is used as a default certificate set for the owner and all of the owner’s partners.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- SQ/SAG: insert custom footer -->
+    <br />
+    <hr style="border:1px solid; border-color: #1776BF; " />
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 10px; margin-top: 6px; margin-bottom: 6px; text-align: center;">
+      Copyright © 2007-2022 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors</div>
+    <!-- SQ old code:
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 12px; color: #0899cc; margin-top: 12px; padding-bottom: 6px; text-align: left; text-decoration: underline;">
+	Copyright &#169; <span wwpage:content="wwvars:versionfirst">First cpyr from map</span><span wwpage:content="wwvars:versionlast">Last cpyr from map</span><span wwpage:content="copyright-first-b">First cpyr from book</span><span wwpage:content="copyright-last-b">Last cpyr from book</span>
+		</div>
+    -->
+    <!-- SQ Variablen ausgeblendet
+    <!-\- Copyright Test -\->
+    <div style="text-decoration: underline">Copyright Import Test:</div>
+    <wwpage:Import wwpage:content-from-file="Copyright/copyright_en.asp" />
+    <br></br>
+    
+    <!-\- SQ Variables - Information from xresources-\->
+    <div style="text-decoration: underline">From xresources:</div>
+    <div>sag:organization-id == <span wwpage:content="sag:organization-id"></span></div>
+    <div>sag:organization-name == <span wwpage:content="sag:organization-name"></span></div>
+    <div>sag:organization-copyrholder == <span wwpage:content="sag:organization-copyrholder"></span></div>
+    <div>sag:organization-url == <span wwpage:content="sag:organization-url"></span></div>
+    
+    <div>sag:family-id == <span wwpage:content="sag:family-id"></span></div>
+    <div>sag:family-name == <span wwpage:content="sag:family-name"></span></div>
+    <div>sag:family-organization == <span wwpage:content="sag:family-organization"></span></div>
+    
+    <div>sag:product-id == <span wwpage:content="sag:product-id"></span></div>
+    <div>sag:product-name == <span wwpage:content="sag:product-name"></span></div>
+    <div>sag:product-copyrfirst == <span wwpage:content="sag:product-copyrfirst"></span></div>
+    <div>sag:product-family == <span wwpage:content="sag:product-family"></span></div>
+    
+    <!-\- SQ Variables - Values from DITA-Map-\->
+    <br></br>
+    <div style="text-decoration: underline">From DITA/Book-Map:</div>
+    <div>ProdInfo Prodname == <span wwpage:replace="wwvars:ProdInfoProdName"></span></div>
+    <div>ProdInfo Mod First == <span wwpage:replace="wwvars:ProdInfoModFirst"></span></div>
+    <div>ProdInfo Mod Last == <span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>ProdInfo Rel First == <span wwpage:replace="wwvars:ProdInfoRelFirst"></span></div>
+    <div>ProdInfo Rel Last == <span wwpage:replace="wwvars:ProdInfoRelLast"></span></div>
+    <div>ProdInfo Vers First == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span></div>
+    <div>ProdInfo Vers Last == <span wwpage:replace="wwvars:ProdInfoVersLast"></span></div>
+    <div>ProdInfo vrm vers.rel.mod == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span>.<span wwpage:replace="wwvars:ProdInfoRelLast"></span>.<span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>BookID PartNo == <span wwpage:replace="wwvars:BookPartNo"></span></div>
+    <div>othermeta release-version == <span wwpage:replace="wwvars:ReleaseVersion"></span></div>
+    <div>othermeta release-date == <span wwpage:replace="wwvars:ReleaseDate"></span></div>
+    <div>othermeta release-edition == <span wwpage:replace="wwvars:ReleaseEdition"></span></div>
+    <div>othermeta product == <span wwpage:replace="wwvars:Product"></span></div>
+    <br></br>
+    <div style="text-decoration: underline">Reserve:</div>
+    <div>organization == <span wwpage:content="organization"></span></div>
+    <div>product-name == <span wwpage:content="product-name"></span></div>
+    <div>copyright-first == <span wwpage:content="copyright-first"></span></div>
+    <div>copyright-last == <span wwpage:content="copyright-last"></span></div>
+    <div>copyright-first-b == <span wwpage:content="wwvars:copyright-first-b"></span></div>
+    <div>copyright-last-b == <span wwpage:content="copyright-last-b"></span></div>
+    <div>doc-id-one == <span wwpage:content="doc-id-one"></span></div>
+    <div>doc-id-two == <span wwpage:content="doc-id-two"></span></div>-->
+  </body>
+</html>

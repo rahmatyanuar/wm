@@ -1,0 +1,25 @@
+{
+ "templateKey" : "contentBasedRouting",
+ "names" : [
+   {
+     "value" : "Content-based Routing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"routeTo", "contentRules"
+ ],
+ "occurence" : "once",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ },
+ "applicableServiceTypes" : ["REST","SOAP","ODATA"],
+ "mutuallyExclusiveActions" : ["contextBasedRouting","loadBalancerRouting","dynamicRouting","straightThroughRouting","jmsRouting"]
+}

@@ -1,0 +1,19 @@
+{
+		"templateKey" : "isDOSEnabled",
+		"names" : [
+		   {
+			 "value" : "Enabled",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Flag to activate Denial of Service",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["false"]
+}

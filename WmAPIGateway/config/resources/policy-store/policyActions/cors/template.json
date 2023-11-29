@@ -1,0 +1,24 @@
+{
+ "templateKey" : "cors",
+ "names" : [
+   {
+     "value" : "CORS",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Enable CORS response headers in response",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"corsAttributes"
+ ],
+ "occurence" : "once",
+ "order" :  {
+ "sequence" : ["outsequence"],
+   "orderPosition" : "last"
+ },
+  "applicableServiceTypes" : ["REST","ODATA","SOAP"]
+}

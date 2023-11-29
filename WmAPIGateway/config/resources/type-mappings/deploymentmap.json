@@ -1,0 +1,22 @@
+{
+  "deploymentmap": {
+    "properties": {
+      "apigatewayId": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "id": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "portalRefId": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "providerRefId": {
+        "type": "string",
+        "index": "not_analyzed"
+      }
+    }
+  }
+}

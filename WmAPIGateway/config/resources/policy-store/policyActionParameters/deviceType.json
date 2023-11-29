@@ -1,0 +1,18 @@
+{
+		"templateKey" : "deviceType",
+		"names" : [
+		   {
+			 "value" : "Device Type",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Device Type",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

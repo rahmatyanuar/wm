@@ -1,0 +1,48 @@
+{
+"templateKey" : "identificationQueryType",
+				"names" : [
+				   {
+					 "value" : "Identification Query ype",
+					 "locale" : "en"
+				   } 
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denoted how the identification should occur.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"true",
+				"isArray" : "false",
+				"possibleValues" :[
+     				{
+					"names" : [
+					   {
+						 "value" : "XPath",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "xpath"
+					},
+					{
+					"names" : [
+					   {
+						 "value" : "JSON Path",
+						 "locale" : "en"
+					   } 
+					],
+					"value" :  "jpath"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Text",
+								"locale" : "en"
+							}
+						],
+						"value" :  "regex"
+					}
+				]
+}
+}

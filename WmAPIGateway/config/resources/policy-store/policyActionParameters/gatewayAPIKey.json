@@ -1,0 +1,18 @@
+{
+  "templateKey": "gatewayAPIKey",
+  "names": [
+    {
+      "value": "API Gateway API",
+      "locale": "en"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "",
+      "locale": "en"
+    }
+  ],
+  "type": "STRING",
+  "isRequired": "true",
+  "isArray": "false"
+}

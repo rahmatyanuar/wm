@@ -1,0 +1,25 @@
+{
+ "templateKey" : "setMediaType",
+ "names" : [
+   {
+     "value" : "Set Media Type",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "This policy is used to configure the default media type values for Content-Type and Accept headers. These values shall be used as the Content-Type or Accept-Header respectively, if no Content-Type or Accept-Header is specified in the run-time invoke request.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"defaultContentType.json", "defaultAccept.json"
+ ],
+ "occurence" : "once",
+ "order" :  {
+	"sequence" : ["insequence"],
+	"orderPosition" : "last"
+ },
+ "dependentActions":[],
+ "applicableServiceTypes" : ["REST","ODATA"]
+}

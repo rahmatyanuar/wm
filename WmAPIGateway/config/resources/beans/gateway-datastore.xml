@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+
+
+    <context:component-scan base-package="com.softwareag.apigateway.api.model"/>
+    <tx:annotation-driven/>
+
+
+    <bean id="gatewayESRepository" class="com.softwareag.apigateway.core.datastore.GatewayElasticsearchRepository"
+          depends-on="elasticSearchClient" abstract="true">
+        <property name="esClient" ref="elasticSearchClient"/>
+        <property name="analyticsDataStoreClient" ref="analyticsDataStoreClient"/>
+    </bean>
+
+    <bean id="configRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ConfigurationRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.configuration.Configuration"/>
+    </bean>
+
+    <!-- Bean definitions for Repository and Persistance Handler for Apis-->
+    <bean id="apiRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.GatewayAPIRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.core.api.apis.BaseGatewayAPI"/>
+    </bean>
+
+    <bean id="assertionRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.AssertionRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.policy.AssertionConfiguration"/>
+    </bean>
+    <bean id="kerberossettingsRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.KerberossettingsRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.KerberosSettings"/>
+    </bean>
+
+    <bean id="outboundProxySettingsRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OutboundProxySettingsRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.OutboundProxySettings"/>
+    </bean>
+
+    <bean id="proxyBypassRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ProxyBypassRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.ProxyBypass"/>
+    </bean>
+
+    <bean id="apiDocumentRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.APIDocumentsRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.APIDocument"/>
+    </bean>
+
+
+    <bean id="microGatewayPersistentHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.microgateway.MicroGatewayPersistentHandler">
+        <property name="microGatewayAssetsRepository" ref="microGatewayAssetsRepository"/>
+        <property name="microGatewayRegistrationInfoRepository" ref="microGatewayRegistrationInfoRepository"/>
+    </bean>
+
+    <bean id="eventPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.EventPersistenceHandler">
+        <property name="txnEventRepository" ref="txnEventRepository"/>
+        <property name="lcmEventRepository" ref="lcmEventRepository"/>
+        <property name="metricsEventRepository" ref="metricsEventRepository"/>
+        <property name="monitorEventRepository" ref="monitorEventRepository"/>
+        <property name="policyViolationEventRepository" ref="policyViolationEventRepository"/>
+        <property name="errorEventRepository" ref="errorEventRepository"/>
+        <property name="egViolationRepository" ref="egViolationRepository"/>
+		<property name="gatewayAuditlogRepository" ref="gatewayAuditlogRepository"/>
+    </bean>
+
+    <bean id="approvalPersistenceHandlerImpl"
+          class="com.softwareag.apigateway.core.approval.handlers.ApprovalPersistanceHandlerImpl">
+        <property name="approvalConfigRepository" ref="approvalConfigRepository"/>
+        <property name="approvalRepository" ref="approvalRepository"/>
+    </bean>
+
+    <bean id="approvalConfigRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ApprovalConfigRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.approval.model.ApprovalConfiguration"/>
+    </bean>
+    <bean id="approvalRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ApprovalRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.approval.model.ApprovalRequest"/>
+    </bean>
+
+
+    <bean id="archivePersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.ArchivePersistentHandler">
+		   <property name="batchSize" value="10000"/>
+    </bean>
+
+
+    <bean id="txnEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.TransactionEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.TransactionEvent"/>
+    </bean>
+
+    <bean id="lcmEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.LifecycleEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.LifecycleEvent"/>
+    </bean>
+
+    <bean id="egViolationRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.EGViolationEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.EGAlertInfo"/>
+    </bean>
+
+    <bean id="metricsEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PerformanceMetricsRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.PerformanceMetrics"/>
+    </bean>
+
+    <bean id="monitorEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.MonitorEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.MonitorEvent"/>
+    </bean>
+
+    <bean id="policyViolationEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PolicyViolationEventRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.PolicyViolationEvent"/>
+    </bean>
+
+    <bean id="errorEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ErrorEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.ErrorEvent"/>
+    </bean>
+
+    <bean id="purgeRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PurgeRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.purge.PurgeData"/>
+    </bean>
+
+    <bean id="purgePersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.PurgePersistenceHandler"
+          depends-on="purgeRepository">
+        <constructor-arg ref="purgeRepository"/>
+    </bean>
+
+
+
+    <bean id="srcPersistenceHandler" class="com.softwareag.apigateway.core.persistence.handlers.SRCPersistenceHandler"/>
+
+    <bean class="com.softwareag.apigateway.core.datastore.repo.TransactionRepository" depends-on="elasticSearchClient"
+          id="transactionRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.TransactionEvent"/>
+    </bean>
+
+    <bean class="com.softwareag.apigateway.core.persistence.handlers.TransactionPersistenceHandler"
+          depends-on="transactionRepository" id="transactionPersistenceHandler">
+        <constructor-arg ref="transactionRepository"/>
+    </bean>
+
+    <bean class="com.softwareag.apigateway.core.datastore.repo.EgPolicyListsRepository" depends-on="elasticSearchClient"
+          id="egPolicyListsRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.policy.EGPolicyIndexRepo"/>
+    </bean>
+
+    <bean class="com.softwareag.apigateway.core.persistence.handlers.EGPolicyIndexRepoPersistanceHandler"
+          depends-on="egPolicyListsRepository" id="egPolicyIndexRepoPersistanceHandler">
+        <constructor-arg ref="egPolicyListsRepository"/>
+    </bean>
+
+    <bean id="aliasRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.AliasRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.alias.Alias"/>
+    </bean>
+
+    <bean id="strategyRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.StrategyRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.security.strategy.BaseStrategy"/>
+    </bean>
+    <bean id="gatewayScopeRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.GatewayScopeRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.solution.GatewayScope"/>
+    </bean>
+
+    <bean id="oauth2ScopeRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2ScopeRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.oauth2.OAuth2Scope"/>
+    </bean>
+
+    <bean id="stageRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.StageRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.stage.Stage"/>
+    </bean>
+
+    <bean id="searchQueryRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.SearchQueryRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.searchQuery.SearchQuery"/>
+    </bean>
+
+    <bean id="ruleRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.RuleRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.rule.Rule"/>
+    </bean>
+
+    <bean id="promotionRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PromotionRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.stage.Promotion"/>
+    </bean>
+	<bean id="promotionSetRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PromotionSetRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.stage.PromotionSet"/>
+    </bean>
+
+    <bean id="rollbackRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.RollbackRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.stage.Rollback"/>
+    </bean>
+
+    <!-- Bean definitions for Application and related objects -->
+    <bean id="applicationRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ApplicationRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.application.Application"/>
+    </bean>
+
+    <bean id="groupRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.GroupRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.umc.Group"/>
+    </bean>
+
+    <bean id="userRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.UserRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.umc.User"/>
+    </bean>
+
+    <bean id="accessControlListRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.AccessControlListRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.team.AccessControlList"/>
+    </bean>
+
+    <bean id="mediatorTraceSpanRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.MediatorTraceSpanRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.tracer.MediatorTraceSpan"/>
+    </bean>
+
+    <bean id="serverLogTraceSpanRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ServerLogTraceSpanRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.tracer.ServerLogTraceSpan"/>
+    </bean>
+    <bean id="requestResponseTraceSpanRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.RequestResponseTraceSpanRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.tracer.RequestResponseTraceSpan"/>
+    </bean>
+    <bean id="urlAliasesRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.URLAlaisesRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.URLAliasSettings"/>
+    </bean>
+
+
+    <bean id="microGatewayRegistrationInfoRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.MicroGatewayRegistrationInfoRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.microgateway.MicroGatewayRegistrationInfo"/>
+    </bean>
+
+    <bean id="microGatewayAssetsRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.MicroGatewayAssetsRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.microgateway.MicroGatewayAssets"/>
+    </bean>
+
+    <bean id="jndiSettingsRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.JNDISettingsRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.jms.JNDIProviderAlias"/>
+    </bean>
+	
+	<bean id="jmsSettingsRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.JMSSettingsRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.jms.JMSConnectionAlias"/>
+    </bean>
+	
+	<bean id="jmsTriggerRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.JMSTriggerRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.jms.JMSTrigger"/>
+    </bean>
+		
+		<bean id="jmsWebserviceEndpointRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.WebserviceEndpointAliasRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.jms.WebserviceEndpointAlias"/>
+    </bean>
+
+
+    <bean id="isPackagesRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ISPackagesRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.ISPackages"/>
+    </bean>
+
+    <bean id="keyStoreRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.KeyStoreRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.KeyStore"/>
+    </bean>
+
+    <bean id="passmanRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PassmanRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.PassmanData"/>
+    </bean>
+
+    <bean id="dashboardRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.DashboardRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.dashboard.Dashboard"/>
+    </bean>
+
+    <bean id="trustStoreRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.TrustStoreRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.administration.TrustStore"/>
+    </bean>
+
+    <bean id="accessProfileRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.AccessProfileRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.umc.AccessProfile"/>
+    </bean>
+
+    <!-- Bean definitions for RegisteredApplication and related objects -->
+    <bean id="registeredApplicationRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.RegisteredApplicationRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.application.RegisteredApplication"/>
+    </bean>
+
+    <!-- Bean definition for PublishInfo -->
+    <bean id="publishInfoRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PublishInfoRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.publishApi.PublishInfo"/>
+    </bean>
+
+    <!--  Bean definitions for OAuth2  -->
+    <bean id="materializedTokenRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.oauth2.MaterializedToken"/>
+    </bean>
+
+    <bean id="authCodeRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.oauth2.AuthCode"/>
+    </bean>
+
+    <bean id="materializedTokenOAuth2PersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.oauth2.OAuth2PersistenceHandler"
+          depends-on="materializedTokenRepository">
+        <constructor-arg ref="materializedTokenRepository"/>
+    </bean>
+
+    <bean id="accessTokenRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value=" com.softwareag.apigateway.api.model.oauth2.AccessToken"/>
+    </bean>
+
+    <bean id="accessTokenPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.oauth2.OAuth2PersistenceHandler"
+          depends-on="accessTokenRepository">
+        <constructor-arg ref="accessTokenRepository"/>
+    </bean>
+
+    <bean id="refreshTokenRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value=" com.softwareag.apigateway.api.model.oauth2.RefreshToken"/>
+    </bean>
+
+    <bean id="refreshTokenPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.oauth2.OAuth2PersistenceHandler"
+          depends-on="refreshTokenRepository">
+        <constructor-arg ref="refreshTokenRepository"/>
+    </bean>
+
+    <bean id="tokenRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.oauth2.Token"/>
+    </bean>
+
+    <bean id="tokenPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.oauth2.OAuth2PersistenceHandler"
+          depends-on="tokenRepository">
+        <constructor-arg ref="tokenRepository"/>
+    </bean>
+
+
+    <bean id="scopeRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.oauth2.ScopeData"/>
+    </bean>
+
+    <bean id="scopePersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.oauth2.OAuth2PersistenceHandler"
+          depends-on="scopeRepository">
+        <constructor-arg ref="scopeRepository"/>
+    </bean>
+
+
+    <bean id="clientRegistrationRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.OAuth2Repository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.oauth2.ClientRegistration"/>
+    </bean>
+
+    <bean id="clientRegistrationPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.oauth2.OAuth2PersistenceHandler"
+          depends-on="clientRegistrationRepository">
+        <constructor-arg ref="clientRegistrationRepository"/>
+    </bean>
+
+
+    <!-- Bean definitions for Policy and related objects -->
+    <bean id="policyActionRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PolicyActionRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.policy.PolicyAction"/>
+    </bean>
+
+    <bean id="policyRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PolicyRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.policy.Policy"/>
+    </bean>
+
+
+    <bean id="packagePersistanceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.PackagePersistanceHandler"
+          depends-on="packageRepository">
+        <constructor-arg ref="packageRepository"></constructor-arg>
+    </bean>
+
+    <bean id="packageRepository"
+          class="com.softwareag.apigateway.core.datastore.repo.PackageRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.packages.Package"/>
+    </bean>
+
+    <bean id="planPersistanceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.PlanPersistanceHandler"
+          depends-on="planRepository">
+        <constructor-arg ref="planRepository"></constructor-arg>
+    </bean>
+
+    <bean id="planRepository"
+          class="com.softwareag.apigateway.core.datastore.repo.PlanRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.packages.Plan"/>
+    </bean>
+
+    <bean id="webhookPersistanceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.WebhookPersistanceHandler"
+          depends-on="webhookRepository">
+        <constructor-arg ref="webhookRepository"/>
+    </bean>
+
+    <bean id="webhookRepository"
+          class="com.softwareag.apigateway.core.datastore.repo.WebhookRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.webhook.Webhook"/>
+    </bean>
+
+    <bean id="reverseMapRepository"
+          class="com.softwareag.apigateway.core.datastore.repo.ReverseMapRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass"
+                  value="com.softwareag.apigateway.api.model.cache.ReverseMapEntry"/>
+    </bean>
+    <bean id="cacheStatisticsRepository"
+          class="com.softwareag.apigateway.core.persistence.handlers.base.CacheStatisticsProcessor.Repository"
+          parent="gatewayESRepository">
+        <property name="entityClass"
+                  value="com.softwareag.apigateway.cache.GatewayCacheStatistics"/>
+    </bean>
+    <bean id="subscriptionPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.SubscriptionPersistenceHandler"
+          depends-on="subscriptionRepository">
+        <constructor-arg ref="subscriptionRepository"></constructor-arg>
+    </bean>
+
+    <bean id="subscriptionRepository"
+          class="com.softwareag.apigateway.core.datastore.repo.SubscriptionRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.packages.Subscriptions"/>
+    </bean>
+
+    <bean id="quotaAccumulatorRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.QuotaAccumulatorRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.packages.QuotaAccumulator"/>
+    </bean>
+
+    <bean id="reverseMapFactory"
+          class="com.softwareag.apigateway.core.persistence.handlers.base.multi.ReverseMapFactory"
+          factory-method="getInstance"/>
+
+    <bean id="persistenceHandlerFactory"
+          class="com.softwareag.apigateway.core.persistence.handlers.base.PersistenceHandlerFactory"
+          factory-method="getInstance">
+        <property name="repoMap">
+            <map>
+                <entry key="ASSERTIONS" value-ref="assertionRepository"/>
+                <entry key="ACCESS_PROFILES" value-ref="accessProfileRepository"/>
+                <entry key="ALIAS" value-ref="aliasRepository"/>
+                <entry key="STRATEGY" value-ref="strategyRepository"/>
+                <entry key="GATEWAY_SCOPE" value-ref="gatewayScopeRepository"/>
+                <entry key="OAUTH2SCOPE" value-ref="oauth2ScopeRepository"/>
+                <entry key="STAGES" value-ref="stageRepository"/>
+                <entry key="SEARCH_QUERY" value-ref="searchQueryRepository"/>
+				<entry key="PROMOTIONSET" value-ref="promotionSetRepository"/>
+                <entry key="RULE" value-ref="ruleRepository"/>
+                <entry key="PROMOTION" value-ref="promotionRepository"/>
+                <entry key="ROLLBACK" value-ref="rollbackRepository"/>
+                <entry key="CONFIGURATIONS" value-ref="configRepository"/>
+                <entry key="GROUPS" value-ref="groupRepository"/>
+                <entry key="IS_PACKAGES" value-ref="isPackagesRepository"/>
+                <entry key="KERBEROS_SETTINGS" value-ref="kerberossettingsRepository"/>
+                <entry key="KEY_STORE" value-ref="keyStoreRepository"/>
+                <entry key="OUTBOUNDPROXY_SETTINGS" value-ref="outboundProxySettingsRepository"/>
+                <entry key="PROXY_BYPASS" value-ref="proxyBypassRepository"/>
+                <entry key="PASSMAN_STORE" value-ref="passmanRepository"/>
+                <entry key="TRUST_STORE" value-ref="trustStoreRepository"/>
+                <entry key="URL_ALIASES" value-ref="urlAliasesRepository"/>
+				 <entry key="JNDI_SETTINGS" value-ref="jndiSettingsRepository"/>
+				 <entry key="JMS_SETTINGS" value-ref="jmsSettingsRepository"/>
+				 <entry key="JMS_TRIGGER" value-ref="jmsTriggerRepository"/> 
+				 <entry key="JMS_WEBSERVICE_ENDPOINT" value-ref="jmsWebserviceEndpointRepository"/>
+                <entry key="MICRO_GW_REGISTRATION_INFO" value-ref="microGatewayRegistrationInfoRepository"/>
+                <entry key="USERS" value-ref="userRepository"/>
+
+                <entry key="APPLICATIONS" value-ref="applicationRepository"/>
+                <entry key="REGISTERED_APPLICATIONS" value-ref="registeredApplicationRepository"/>
+
+                <entry key="APIS" value-ref="apiRepository"/>
+                <entry key="POLICIES" value-ref="policyRepository"/>
+                <entry key="POLICY_ACTIONS" value-ref="policyActionRepository"/>
+
+                <entry key="API_DOCUMENT" value-ref="apiDocumentRepository"/>
+                <entry key="QUOTA_ACCUMULATOR" value-ref="quotaAccumulatorRepository"/>
+                <entry key="PUBLISH_INFO" value-ref="publishInfoRepository"/>
+                <entry key="ACCESS_CONTROL_LIST" value-ref="accessControlListRepository"/>
+                <entry key="MEDIATOR_TRACE_SPAN" value-ref="mediatorTraceSpanRepository"/>
+                <entry key="SERVER_LOG_TRACE_SPAN" value-ref="serverLogTraceSpanRepository"/>
+                <entry key="REQUEST_RESPONSE_TRACE_SPAN" value-ref="requestResponseTraceSpanRepository"/>
+                <entry key="CLIENT_REGISTRATION" value-ref="clientRegistrationRepository"/>
+                <entry key="SCOPE_DATA" value-ref="scopeRepository"/>
+                <entry key="MATERIALIZED_TOKEN" value-ref="materializedTokenRepository"/>
+                <entry key="AUTH_CODE" value-ref="authCodeRepository"/>
+
+                <entry key="REVERSE_MAPS" value-ref="reverseMapRepository"/>
+                <entry key="APPMESH" value-ref="appMeshRepository"/>
+                <entry key="APPMESH_DEPLOYMENT_MAP" value-ref="appMeshRDeploymentMapRepository"/>
+                <entry key="DASHBOARD" value-ref="dashboardRepository"/>
+            </map>
+        </property>
+    </bean>
+	
+	<bean id="gatewayAuditlogRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.GatewayAuditlogRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.GatewayAuditlogEvent"/>
+    </bean>
+
+    <bean id="ApplicationLogRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ApplicationLogRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.ApplicationLog"/>
+    </bean>
+	
+	<bean id="gatewayAuditlogPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.GatewayAuditlogPersistenceHandler">
+        <property name="gatewayAuditlogRepository" ref="gatewayAuditlogRepository"/>
+	    
+    </bean>
+
+    <bean id="appMeshRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.AppMeshRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.appmesh.AppMeshConfiguration"/>
+    </bean>
+
+    <bean id="appMeshRDeploymentMapRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.AppMeshDeploymentMapRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.appmesh.DeploymentAPIMap"/>
+    </bean>
+
+    <bean id="dashboardPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.DashboardPersistenceHandler">
+        <property name="dashboardRepository" ref="dashboardRepository"/>
+    </bean>
+
+</beans>

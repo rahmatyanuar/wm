@@ -1,0 +1,23 @@
+{
+		"templateKey" : "customHttpHeaders",
+		"names" : [
+		   {
+			 "value" : "Custom HTTP Header",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Use this policy to add custom HTTP headers in your request to the native service",
+			 "locale" : "en"
+		   }
+		 ],		
+		"parameterTemplatesReference" :  ["header"],
+		"occurence" : "once",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"],
+		"order" :  {
+			"sequence" : ["insequence"],
+			"orderPosition" : "beforeFirstOccurence",
+			"policyTemplateIDs":["straightThroughRouting"]
+		}
+}

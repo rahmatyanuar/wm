@@ -1,0 +1,18 @@
+{
+		"templateKey" : "toIp",
+		"names" : [
+		   {
+			 "value" : "To IP",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "To Ip",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

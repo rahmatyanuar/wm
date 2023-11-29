@@ -1,0 +1,19 @@
+{
+				"templateKey" : "samlIssuerConfig",
+				"names" : [
+				   {
+					 "value" : "SAML issuer config",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "SAML issuer config",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}
+

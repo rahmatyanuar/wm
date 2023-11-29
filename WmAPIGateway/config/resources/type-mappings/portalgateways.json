@@ -1,0 +1,61 @@
+{
+  "portalgateways": {
+    "properties": {
+      "externalPortal": {
+        "properties": {
+          "endpointPassword": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "endpointTenant": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "endpointURL": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "endpointUsername": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "type": {
+            "type": "string",
+            "index": "not_analyzed"
+          }
+        }
+      },
+      "gatewayName": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "gatewayPassword": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "gatewayURL": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "gatewayUsername": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "id": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "published": {
+        "type": "boolean"
+      },
+      "refId": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "version": {
+        "type": "string",
+        "index": "not_analyzed"
+      }
+    }
+  }
+}

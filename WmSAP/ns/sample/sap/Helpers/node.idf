@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="shared">cHVibGljIHN0YXRpYyBmaW5hbCBTdHJpbmcgUkZDX1hSRkMJCQk9ICJYUkZDIjsNCnB1YmxpYyBz
+dGF0aWMgZmluYWwgU3RyaW5nIFJGQ19CWE1MCQkJPSAiYlhNTCI7DQoNCnB1YmxpYyBzdGF0aWMg
+ZmluYWwgU3RyaW5nIEJBUElfU1lOQwkJPSAic3luYyI7DQpwdWJsaWMgc3RhdGljIGZpbmFsIFN0
+cmluZyBCQVBJX0FTWU5DCQk9ICJhc3luYyI7DQpwdWJsaWMgc3RhdGljIGZpbmFsIFN0cmluZyBC
+QVBJX1JPVVRFCQk9ICJyb3V0aW5nIjsNCg0KcHJpdmF0ZSBzdGF0aWMgZmluYWwgYnl0ZSBTWU5D
+X01PREUJCQk9IDA7DQpwcml2YXRlIHN0YXRpYyBmaW5hbCBieXRlIEFTWU5DX01PREUJCT0gMTsN
+CnByaXZhdGUgc3RhdGljIGZpbmFsIGJ5dGUgUk9VVElOR19NT0RFCQk9IDI7DQoNCnByaXZhdGUg
+c3RhdGljIGZpbmFsIFN0cmluZyBfbWVtYmVyUGF0dGVybgk9DQoJIlxuICAgICAgICAgIDxtZW1i
+ZXI+Ig0KCSsiXG4gICAgICAgICAgICA8bmFtZT57MH08L25hbWU+Ig0KCSsiXG4gICAgICAgICAg
+ICA8dmFsdWU+Ig0KCSsiXG4gICAgICAgICAgICAgIDxzdHJpbmc+ezF9PC9zdHJpbmc+Ig0KCSsi
+XG4gICAgICAgICAgICA8L3ZhbHVlPiINCgkrIlxuICAgICAgICAgIDwvbWVtYmVyPiI7DQoNCnBy
+aXZhdGUgc3RhdGljIGZpbmFsIGJvb2xlYW4gd3JpdGUyRmlsZSggSURhdGEgcGlwZWxpbmUsIFN0
+cmluZyBmaWxlTmFtZSwgU3RyaW5nIGV4dGVuc2lvbikNCgl0aHJvd3MgamF2YS5pby5JT0V4Y2Vw
+dGlvbg0Kew0KCUlEYXRhQ3Vyc29yIGlkYyA9IHBpcGVsaW5lLmdldEN1cnNvcigpOw0KCVN0cmlu
+ZyB4bWxEYXRhID0gSURhdGFVdGlsLmdldFN0cmluZyggaWRjLCAieG1sRGF0YSIpOw0KCWlkYy5k
+ZXN0cm95KCk7DQoNCglTdHJpbmcgZmlsZVBhdGggPSAicGFja2FnZXMiICsgRmlsZS5zZXBhcmF0
+b3IgKyBTZXJ2aWNlLmdldFBhY2thZ2VOYW1lKCkgKw0KCUZpbGUuc2VwYXJhdG9yICsgInB1YiIg
+KyBGaWxlLnNlcGFyYXRvciArIGZpbGVOYW1lICsgZXh0ZW5zaW9uOw0KCUZpbGVXcml0ZXIgZm91
+dCA9IG5ldyBGaWxlV3JpdGVyKCBuZXcgRmlsZSggZmlsZVBhdGgpKTsNCglmb3V0LndyaXRlKCB4
+bWxEYXRhKTsNCglmb3V0LmNsb3NlKCk7DQoJcmV0dXJuIHRydWU7DQp9DQo=</value>
+  <value name="encodeutf8">true</value>
+  <array name="imports" type="value" depth="1">
+    <value>java.io.File</value>
+    <value>java.io.FileWriter</value>
+    <value>java.text.MessageFormat</value>
+    <value>com.sap.conn.jco.AbapException</value>
+    <value>com.wm.adapter.sap.SAPAdapter</value>
+    <value>com.wm.adapter.sap.resources.WmSAPResourceBundle</value>
+    <value>com.wm.adapter.sap.bapi.BAPICoder</value>
+    <value>com.wm.adapter.sap.rfc.RFCCoder</value>
+    <value>com.wm.adapter.sap.service.transport.BAPI</value>
+    <value>com.wm.app.b2b.server.Service</value>
+    <value>com.wm.app.b2b.server.ServiceException</value>
+    <value>com.wm.data.IData</value>
+    <value>com.wm.data.IDataCursor</value>
+    <value>com.wm.data.IDataFactory</value>
+    <value>com.wm.data.IDataUtil</value>
+    <value>com.wm.util.Values</value>
+  </array>
+</Values>

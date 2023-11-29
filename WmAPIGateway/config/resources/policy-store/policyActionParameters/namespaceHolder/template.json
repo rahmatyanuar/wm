@@ -1,0 +1,19 @@
+{
+		"templateKey" : "namespaceHolder",
+		"names" : [
+		   {
+			 "value" : "Transformation Metadata",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  ["namespace"]
+}

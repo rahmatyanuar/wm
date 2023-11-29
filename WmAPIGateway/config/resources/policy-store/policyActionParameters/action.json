@@ -1,0 +1,18 @@
+{
+		"templateKey" : "action",
+		"names" : [
+		   {
+			 "value" : "Query Expression",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Query expression",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false"
+}

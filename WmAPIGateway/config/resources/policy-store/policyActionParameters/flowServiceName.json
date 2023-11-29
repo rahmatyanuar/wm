@@ -1,0 +1,18 @@
+{
+		"templateKey" : "flowServiceName",
+		"names" : [
+		   {
+			 "value" : "Flow Service Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Flow Service Name.  Specify it in the following format folder.subfolder:service",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

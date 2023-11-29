@@ -1,0 +1,18 @@
+{
+		"templateKey" : "featureName",
+		"names" : [
+		   {
+			 "value" : "Feature Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This is the logical condition based on which all the Identification policies are combined.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

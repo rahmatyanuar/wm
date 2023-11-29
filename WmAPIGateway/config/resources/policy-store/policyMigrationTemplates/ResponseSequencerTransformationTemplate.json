@@ -1,0 +1,36 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign outSequence=doc.service.definition.outSequence/>
+<#assign base64Encode='com.softwareag.apigateway.core.migration.Base64Encoder'?new()/>
+<#assign actionSequencer='com.softwareag.apigateway.core.migration.PolicyActionSequencer'?new()/>
+<#assign resources=doc.service.resources/>
+<#assign count=0/>
+[
+<#assign actions=actionSequencer(outSequence)/>
+<#if actions?has_content>
+	<#list actions as action>
+		<#assign isActionRendered=0/>
+		<#if action?node_name == "xslt"> 
+			<#assign isActionRendered=1/>
+			<#assign count++/>
+			<#assign xsltElement=action/>
+			<#assign policyActionName="Response Transformation"/>
+			<#assign policyTemplateKey="responseTransformation"/>
+			<#assign configParamTemplateKey="responseTransformationConfiguration"/>
+			<#assign xsltDefaultDocumentName="ResponseProcessingXSLT"/>
+			<#assign xsltDefaultDocumentExtension=".xsl"/>
+			<#assign xsltDocumentName=xsltDefaultDocumentName+"_"+count+xsltDefaultDocumentExtension/>
+			<#include "XSLTRequestResponseTransformationTemplate.json"/>
+		<#elseif action?node_name == "invokeESB">
+			<#assign isActionRendered=1/>
+			<#assign invokeESB=action/>
+			<#assign policyActionName="Response Invoke ESB"/>
+			<#assign policyTemplateKey="responseInvokeESB"/>
+			<#include "InokeESBTrasnformationTemplate.json"/>
+		</#if>
+		<#if isActionRendered==1>
+			<#sep>,</#sep>
+		</#if>
+	</#list>
+</#if>
+]

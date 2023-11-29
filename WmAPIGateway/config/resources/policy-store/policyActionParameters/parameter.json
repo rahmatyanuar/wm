@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "parameter",
+		"names" : [
+		   {
+			 "value" : "Parameter",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Parameter configured in the discovery endpoint of Service Registry",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

@@ -1,0 +1,19 @@
+{
+ "templateKey" : "customHeaders",
+ "names" : [
+   {
+     "value" : "Custom Headers",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : ["headerName.json","headerValue.json"]
+}

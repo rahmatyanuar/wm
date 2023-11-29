@@ -1,0 +1,24 @@
+{
+  "templateKey" : "requestTransformation",
+  "names" : [
+    {
+      "value" : "Request Transformation",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Request Transformation",
+      "locale" : "en"
+    }
+  ],
+  "parameterTemplatesReference" : [
+    "transformationConditions", "requestTransformationConfiguration", "transformationMetadata"
+  ],
+  "occurence" : "multiple",
+  "order" :  {
+    "sequence" : ["insequence"],
+    "orderPosition" : "last"
+  }, 
+  "applicableServiceTypes" : ["REST","SOAP"]
+}

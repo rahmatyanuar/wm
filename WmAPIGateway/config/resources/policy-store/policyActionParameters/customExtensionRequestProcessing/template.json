@@ -1,0 +1,19 @@
+{
+ "templateKey" : "customExtensionRequestProcessing",
+ "names" : [
+   {
+     "value" : "Request Processing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["requestPayload.json"]
+}

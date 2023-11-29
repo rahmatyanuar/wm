@@ -1,0 +1,19 @@
+{
+		"templateKey" : "requireSignature",
+		"names" : [
+		   {
+			 "value" : "Require Signature",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This policy action requires signed XML element in the request to API gateway",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["signedElements","signedParts"]		
+}

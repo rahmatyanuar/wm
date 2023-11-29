@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/elasticsearch
+		http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch-1.0.xsd"
+		xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
+		xmlns:context="http://www.springframework.org/schema/context"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+	   
+	
+	<context:annotation-config/>	
+    <context:property-placeholder ignore-unresolvable="true" location="${apigateway.home.uri}/config/resources/elasticsearch/config.properties"/>
+	<context:component-scan base-package="com.softwareag.apigateway.api.model"/>
+    <context:component-scan base-package="com.softwareag.apigateway.core.datastore"/>
+
+    <bean id="chunkSize" class="java.lang.Integer">
+        <constructor-arg value="10" />
+    </bean>
+
+	<bean id="clusterManager" class="com.softwareag.pg.cluster.is.ISClusterManager"></bean>
+
+	<bean id="purgeManager" class="com.softwareag.apigateway.core.manager.PurgeManager">
+		<property name="purgePersistenceHandler" ref="purgePersistenceHandler"/>
+		<property name="eventPersistenceHandler" ref="eventPersistenceHandler"/>
+		<property name="archivePersistenceHandler" ref="archivePersistenceHandler"/>
+	</bean>
+    
+	<bean id="isOutboundProxySettingsManager"
+          class="com.softwareag.apigateway.is.managers.ISOutboundProxySettingsManagerImpl"/>
+
+	<bean id="outboundProxySettingsManager" class="com.softwareag.apigateway.core.manager.OutboundProxySettingsManager">
+        <property name="isOutboundProxySettingsManager" ref="isOutboundProxySettingsManager"/>
+    </bean>	
+
+	<bean id="archivePersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.ArchivePersistentHandler">
+		   <property name="batchSize" value="10000"/>
+    </bean>
+	
+	<bean id="txnEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.TransactionEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.TransactionEvent"/>
+    </bean>
+
+    <bean id="lcmEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.LifecycleEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.LifecycleEvent"/>
+    </bean>
+
+    <bean id="egViolationRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.EGViolationEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.EGAlertInfo"/>
+    </bean>
+
+    <bean id="metricsEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PerformanceMetricsRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.PerformanceMetrics"/>
+    </bean>
+
+    <bean id="monitorEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.MonitorEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.MonitorEvent"/>
+    </bean>
+
+    <bean id="policyViolationEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PolicyViolationEventRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.PolicyViolationEvent"/>
+    </bean>
+
+    <bean id="errorEventRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ErrorEventRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.ErrorEvent"/>
+    </bean>
+	
+	<bean id="purgeRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.PurgeRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.purge.PurgeData"/>
+    </bean>
+
+	<bean id="gatewayAuditlogRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.GatewayAuditlogRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.event.GatewayAuditlogEvent"/>
+    </bean>
+
+	<bean id="ApplicationLogRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ApplicationLogRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.ApplicationLog"/>
+    </bean>
+
+	<bean id="eventPersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.EventPersistenceHandler">
+        <property name="txnEventRepository" ref="txnEventRepository"/>
+        <property name="lcmEventRepository" ref="lcmEventRepository"/>
+        <property name="metricsEventRepository" ref="metricsEventRepository"/>
+        <property name="monitorEventRepository" ref="monitorEventRepository"/>
+        <property name="policyViolationEventRepository" ref="policyViolationEventRepository"/>
+        <property name="errorEventRepository" ref="errorEventRepository"/>
+        <property name="egViolationRepository" ref="egViolationRepository"/>
+		<property name="gatewayAuditlogRepository" ref="gatewayAuditlogRepository"/>
+    </bean>
+
+    <bean id="purgePersistenceHandler"
+          class="com.softwareag.apigateway.core.persistence.handlers.PurgePersistenceHandler"
+          depends-on="purgeRepository">
+        <constructor-arg ref="purgeRepository"/>
+    </bean>
+	
+	<bean id="tenantInfoProvider" class="com.softwareag.apigateway.core.init.TenantInfoProvider">
+        <property name="tenantId" value="@TENANTID@"></property><!--  dynamically compute this value later. -->
+    </bean>
+
+	<bean id="gatewayESRepository" class="com.softwareag.apigateway.core.datastore.GatewayElasticsearchRepository"
+          depends-on="elasticSearchClient" abstract="true">
+        <property name="esClient" ref="elasticSearchClient"/>
+    </bean>
+
+	<bean id="configManager" class="com.softwareag.apigateway.core.manager.ConfigurationManager">
+        <constructor-arg index="0">
+            <map key-type="java.lang.String" value-type="java.util.Map">
+                <entry key="extended">
+                    <map key-type="java.lang.String">
+                        <entry key="apiKeyHeader" value="x-Gateway-APIKey"/>
+                        <entry key="apiKeyExpirationPeriod" value=""/>
+                        <entry key="pg_xslt_enableDOM" value="false"/>
+                        <entry key="transformerPoolSize" value="5"/>
+                        <entry key="pg_oauth2_isHTTPS" value="false"/>
+                        <entry key="apig_MENConfiguration_tickInterval" value="60"/>
+                        <entry key="maxWindowSize" value="10000"/>
+                        <entry key="allowExceedMaxWindowSize" value="true"/>
+                        <entry key="esScrollTimeOut" value="60000"/>
+                        <entry key="portClusteringEnabled" value="false"/>
+                        <entry key="apig_schemaValidationPoolSize" value="10"/>
+                        <entry key="apiMaturityStatePossibleValues"
+                               value="Beta,Deprecated,Experimental,Production,Test"/>
+                        <entry key="apiGroupingPossibleValues" 
+                        	   value="Finance Banking and Insurance,Sales and Ordering,Search,Transportation and Warehousing"/>
+                        <entry key="backupSharedFileLocation" value="/var/apigw/archive"/>
+                        <entry key="maxBackupsLimit" value="-1"/>
+                        <entry key="defaultEncoding" value="UTF-8"/>
+                        <entry key="apig_rest_service_redirect" value="false"/>
+						<entry key="pg_OpenID_isHTTPS" value="false"/>
+						<entry key="pg.cs.snmpTarget.connTimeout" value="0"/>
+						<entry key="pg.cs.snmpTarget.retries" value="1"/>
+						<entry key="pg.cs.snmpTarget.maxRequestSize" value="10485760"/>
+						<entry key="pg.cs.snmpTarget.sendTimeOut" value="500"/>
+						<entry key="pg.cs.snmpTarget.base64Encoded" value="false"/>
+						<entry key="pg.uddiClient.uddiClientTimeout" value="15000"/>
+						<entry key="pg.uddiClient.publish.maxThreads" value="2"/>
+						<entry key="pg.snmp.customTarget.connTimeout" value="0"/>
+						<entry key="pg.3pSnmpSender.sendDelay" value="0"/>
+						<entry key="pg.snmp.userTarget.retries" value="1"/>
+						<entry key="pg.snmp.userTarget.sendTimeOut" value="500"/>
+						<entry key="pg.snmp.userTarget.maxRequestSize" value="65535"/>
+						<entry key="pg.snmp.communityTarget.base64Encoded" value="false"/>
+						<entry key="pg.snmp.communityTarget.retries" value="1"/>
+						<entry key="pg.snmp.communityTarget.sendTimeOut" value="500"/>
+						<entry key="pg.snmp.communityTarget.maxRequestSize" value="65535"/>
+                        <entry key="pg_Active_OpenID_Provider" value=""/>
+                        <entry key="pg.lb.failoverOnDowntimeErrorOnly" value="false"/>
+                        <entry key="pg_JWT_isHTTPS" value="false"/>
+						<entry key="invokeESB_asUser" value="Administrator"/>
+                    </map>
+                </entry>
+                <entry key="misc">
+                    <map key-type="java.lang.String">
+                        <entry key="gateway_timeout" value="60"/>
+                        <entry key="log_level" value="off"/>
+                        <entry key="store_log" value="false"/>
+                        <entry key="log_storage_type" value=""/>
+                        <entry key="log_storage_interval" value=""/>
+                    </map>
+                </entry>
+				<entry key="auditlogDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="name" value="API Gateway Transaction Logger"/>
+                        <entry key="enabled" value="false"/>
+                        <entry key="mode" value="synchronous"/>
+                        <entry key="guaranteed" value="false"/>
+						<entry key="destination" value="file"/>
+                        <entry key="maximumQueueSize" value="100000"/>
+						<entry key="maximumRetries" value="3"/>
+						<entry key="waitBetweenRetries" value="5"/>
+                    </map>
+                </entry>
+				<entry key="elasticsearchDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="protocol" value=""/>
+						<entry key="hostName" value=""/>
+						<entry key="port" value=""/>
+						<entry key="indexName" value=""/>
+						<entry key="userName" value=""/>
+						<entry key="password" value=""/>
+						<entry key="sendErrorEvent" value="false"/>
+                        <entry key="sendLifecycleEvent" value="false"/>
+                        <entry key="sendPolicyViolationEvent" value="false"/>
+                        <entry key="sendPerformanceMetrics" value="false"/>
+                        <entry key="metricsPublishInterval" value="60"/>
+                    </map>
+                </entry>
+                <entry key="emailDestinationConfig">
+                    <map key-type="java.lang.String">
+                        <entry key="smtpServer" value=""/>
+                        <entry key="port" value=""/>
+						<entry key="userName" value=""/>
+						<entry key="password" value=""/>
+                        <entry key="tls" value=""/>
+                        <entry key="truststoreAlias" value=""/>
+                        <entry key="internalEmail" value=""/>
+                        <entry key="serviceEmail" value=""/>
+                        <entry key="fromEmail" value=""/>
+                        <entry key="defaultEmailCharset" value=""/>
+                        <entry key="testRecipient" value=""/>
+                        <entry key="logInvocationSubject" value=""/>
+                        <entry key="logInvocationContent" value=""/>
+                        <entry key="monitorSPSubject" value=""/>
+                        <entry key="monitorSPContent" value=""/>
+                        <entry key="monitorSLASubject" value=""/>
+                        <entry key="monitorSLAContent" value=""/>
+                        <entry key="throttlingSubject" value=""/>
+                        <entry key="throttlingContent" value=""/>
+                    </map>
+                </entry>
+                <entry key="cloudConfig">
+                    <map key-type="java.lang.String">
+	                    <entry key="auth_cloud_redirect" value=""/>
+	                    <entry key="auth_cloud_enabled" value="false"/>
+						<entry key="cloud_assertion_endpoint" value=""/>
+						<entry key="integration_cloud_tenant_id" value=""/>
+						<entry key="apigw_packages_location" value=""/>
+						<entry key="apigw_home_page" value=""/>
+						<entry key="apigw_domain" value=""/>
+						<entry key="apigw_packages_upload_contract_approved" value="false"/>
+                        <entry key="provisioning_apiportal" value="false" />
+                    </map>
+                </entry>
+				<entry key="cloudPackages">
+                    <map key-type="java.lang.String">
+						 <entry key="apigw_installed_packages">
+                            <list/>
+                        </entry>
+                    </map>
+                </entry>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <list>
+                <value>extended</value>
+                <value>customContentTypes</value>
+                <value>cloudConfig</value>
+            </list>
+        </constructor-arg>
+        <property name="observers">
+            <list>
+                <bean class="com.softwareag.apigateway.core.observer.PerformanceDataListener"></bean>
+                <bean class="com.softwareag.apigateway.is.security.ActiveAuthorizationServerListener"></bean>
+            </list>
+        </property>
+    </bean>
+
+	<bean id="gatewayEhCacheConfigBuilder" class="com.softwareag.apigateway.is.cache.GatewayEhCacheConfigBuilder"/>
+
+    <bean id="gatewayCacheManager" class="com.softwareag.apigateway.is.cache.GatewayEhCacheManager">
+        <property name="gatewayCacheConfigBuilder" ref="gatewayEhCacheConfigBuilder"/>
+    </bean>
+
+    <bean id="distributedCacheManager" class="com.softwareag.apigateway.is.cache.GatewayDistributedCacheManager"
+          depends-on="cacheFactoryProvider,gatewayCacheManager">
+        <property name="distributedEhCacheConfigFilePath" value="resources/caching/SoftwareAG-IS-API-Gateway.xml"/>
+    </bean>
+
+	<bean id="persistenceHandlerFactory"
+          class="com.softwareag.apigateway.core.persistence.handlers.base.PersistenceHandlerFactory"
+          factory-method="getInstance">
+        <property name="repoMap">
+            <map>
+                <entry key="SEARCH_QUERY" value-ref="searchQueryRepository"/>
+                <entry key="CONFIGURATIONS" value-ref="configRepository"/>
+            </map>
+        </property>
+    </bean>
+
+	<bean id="searchQueryRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.SearchQueryRepository" parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.searchQuery.SearchQuery"/>
+    </bean>
+
+	<bean id="configRepository" depends-on="elasticSearchClient"
+          class="com.softwareag.apigateway.core.datastore.repo.ConfigurationRepository"
+          parent="gatewayESRepository">
+        <property name="entityClass" value="com.softwareag.apigateway.api.model.configuration.Configuration"/>
+    </bean>
+
+	<bean id="elasticSearchClient" class="com.softwareag.apigateway.core.datastore.ElasticsearchClientImpl">
+        <constructor-arg index="0">
+            <list>
+                <value>changeit</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <props>
+                <prop key="cluster.name">changeit</prop>
+                <prop key="client.transport.sniff">false</prop>
+            </props>
+        </constructor-arg>
+    </bean>
+
+	<!-- Configuration manager dependencies - added to suppress exceptions -->
+	<bean id="gatewayCacheConfigListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="thirdPartyJWTConfiguration"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="defaultKeystoreTruststoreListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="commonLogConfigListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="PasswordRestrictionListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="PasswordExpiryListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="AccountLockSettingListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="LDAPConfigListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+    <bean id="WattPropertyListener"
+          class="com.softwareag.apigateway.utility.mock.MockGatewayEventListener">
+    </bean>
+	<bean id="passman"
+          class="com.softwareag.apigateway.utility.mock.MockISPassman">
+    </bean>
+    <!-- End of dependencies -->
+</beans>

@@ -1,0 +1,21 @@
+
+{
+		"templateKey" : "jpathMasking",
+		"names" : [
+		   {
+			 "value" : "JSON Path",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "jpath masking",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"],
+		"parameterTemplatesReference" :  ["maskingCriteria"]		
+}

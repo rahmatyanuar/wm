@@ -1,0 +1,38 @@
+{
+  "templateKey": "throttleRetries",
+  "names": [
+    {
+      "value": "Throttle Retries",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Throttle Retries",
+      "locale": "en_US"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "possibleValues" :[
+	{
+		"names" : [
+			{
+				"value" : "True",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "true"
+	},
+	{
+		"names" : [
+			{
+				"value" : "False",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "false"
+	}
+  ]
+}

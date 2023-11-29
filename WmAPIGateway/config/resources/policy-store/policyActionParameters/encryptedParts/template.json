@@ -1,0 +1,19 @@
+{
+		"templateKey" : "encryptedParts",
+		"names" : [
+		   {
+			 "value" : "Encrypted Parts",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Encrypt entire Request/Response SOAP body or SOAP headers",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["entireBody.json","entireAttachments.json","headerToSecure"]		
+}

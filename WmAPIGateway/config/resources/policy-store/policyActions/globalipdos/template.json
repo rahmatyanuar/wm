@@ -1,0 +1,17 @@
+{
+ "templateKey" : "globalipdos",
+ "names" : [
+   {
+     "value" : "Global Denial of Service",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Configure Global Denial of Service",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "limitBy.json", "isDOSEnabled.json", "maximumRequests.json", "requestsPerSeconds.json", "inProgressRequests.json", "whenLimitExceeds.json", "blockInterval.json", "trustedIPRange.json", "customErrorMessage.json" ]
+}

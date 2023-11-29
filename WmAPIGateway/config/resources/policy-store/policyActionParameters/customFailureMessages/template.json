@@ -1,0 +1,19 @@
+{
+ "templateKey" : "customFailureMessages",
+ "names" : [
+   {
+     "value" : "Failure Message",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Allows user to configure the failure message based on Accept Header on the request",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : [ "failureMessage","sendNativeProviderFault.json"]
+}

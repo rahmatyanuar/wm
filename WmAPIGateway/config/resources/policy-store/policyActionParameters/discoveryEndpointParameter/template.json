@@ -1,0 +1,19 @@
+{
+		"templateKey" : "discoveryEndpointPathParameter",
+		"names" : [
+		   {
+			 "value" : "Service Discovery Endpoint Parameter",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The parameters that needs to be replaced in the Service Registry discovery endpoint",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["parameter.json","parameterValue.json"]
+}

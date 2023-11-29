@@ -1,0 +1,20 @@
+{
+ "templateKey" : "destination",
+ "names" : [
+   {
+     "value" : "Destination",
+	   "locale" : "en_US"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Select destinations to emit events",
+	   "locale" : "en_US"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"true",
+ "isArray" : "true",
+ "parameterTemplatesReference" :  [  "destinationType.json", "emailTo.json", "logLevel.json"]
+}

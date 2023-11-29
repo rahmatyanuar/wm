@@ -1,0 +1,19 @@
+{
+		"templateKey" : "IdentificationRule",
+		"names" : [
+		   {
+			 "value" : "Application Identification condition",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This denotes how the Application needs to be identified.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  [  "applicationLookup.json","identificationType.json","payloadIdentifier", "kerberosTokenAssertion"]
+}

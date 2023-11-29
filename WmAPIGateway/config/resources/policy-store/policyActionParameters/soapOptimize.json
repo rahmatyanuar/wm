@@ -1,0 +1,51 @@
+   {
+		"templateKey" : "soapOptimize",
+		"names" : [
+		   {
+			 "value" : "SOAP Optimization Method",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "SOAP Message Transmission Optimization Mechanism/XML-binary Optimized Packaging (MTOM/SWA) defines a method for optimizing the transmission of XML data of type xs:base64Binary or xs:hexBinary in SOAP messages.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "MTOM",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "MTOM"
+					},
+					{
+						"names" : [
+						{
+							"value" : "SwA",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SwA"
+					},
+					{
+						"names" : [
+						{
+							"value" : "None",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "None"
+					}
+		],
+		"defaultValues" : [
+		  "None"
+		],
+		"applicableServiceTypes" : ["SOAP"]
+  }

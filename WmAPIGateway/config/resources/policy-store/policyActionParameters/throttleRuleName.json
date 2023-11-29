@@ -1,0 +1,31 @@
+{
+	"templateKey" : "throttleRuleName",
+	"names" : [
+		{
+			"value" : "Rule Name",
+			"locale" : "en"
+  	    }
+	],
+	"descriptions" : [
+		{
+			"value" : "Name",
+			"locale" : "en"
+		}
+	],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"defaultValues" : ["requestCount"],
+	"possibleValues" :[
+		{
+			"names" : [
+		        {
+					"value" : "Total Request Count",
+					"locale" : "en"
+			    } 
+			],
+			"value" :  "requestCount"
+		}
+		
+	]
+}

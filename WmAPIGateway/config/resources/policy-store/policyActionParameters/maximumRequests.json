@@ -1,0 +1,18 @@
+{
+		"templateKey" : "maximumRequests",
+		"names" : [
+		   {
+			 "value" : "Maximum Requests",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Maximum Requests per configured second",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

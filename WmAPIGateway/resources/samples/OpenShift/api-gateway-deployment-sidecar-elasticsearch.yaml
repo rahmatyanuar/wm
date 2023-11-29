@@ -1,0 +1,217 @@
+# Configuration for deploying an API Gateway with an elasticsearch as a sidecar container to an OpenShift cluster.
+# The cluster should provide at least 4 GB of main memory.
+#
+# The full documentation is available from the Software AG Documentation website: 
+# http://techcommunity.softwareag.com/ecosystem/documentation/webmethods/api_gateway/yai10-7/index.htm
+#
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: api-gateway-deployment-sidecar-es
+  labels:
+    app: api-gateway-deployment-sidecar-es
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deploymentconfig: api-gateway-deployment-sidecar-es
+  template:
+    metadata:
+      labels:
+        deploymentconfig: api-gateway-deployment-sidecar-es
+        tuned.openshift.io/elasticsearch: ""
+    spec:
+      containers:
+      - name: api-gateway-deployment-sidecar-es
+        # The default pull policy is IfNotPresent which causes the Kubelet to skip pulling an image if it already exists.
+        # If you would like to always force a pull use "Always"
+        imagePullPolicy: IfNotPresent
+        # Environment variables to access the sidecar elasticsearch. They should not be changed!
+        env:
+        - name: "apigw_elasticsearch_hosts"
+          value: "127.0.0.1:9200"
+        - name: "apigw_elasticsearch_https_enabled"
+          value: "false"
+        - name: "apigw_elasticsearch_http_username"
+          value: null
+        - name: "apigw_elasticsearch_http_password"
+          value: null
+        # Ports used in the docker image, the default ports are 5555 and 9072
+        ports:
+        - containerPort: 5555
+          name: 5555tcp01
+          protocol: TCP
+        - containerPort: 9072
+          name: 9072tcp01
+          protocol: TCP
+        resources:
+          requests:
+            memory: 1500M
+            cpu: 100m
+        livenessProbe:
+          failureThreshold: 4
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 5555
+          timeoutSeconds: 2
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /rest/apigateway/health
+            port: 5555
+            scheme: HTTP
+          initialDelaySeconds: 90
+          periodSeconds: 10
+          successThreshold: 2
+          timeoutSeconds: 2
+      # The elasticsearch container
+      - name: elastic-search
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: "xpack.security.enabled"
+          value: "false"
+        - name: "node.name"
+          value: "elasticsearch"
+        - name: "discovery.seed_hosts" 
+          value: "elasticsearch:9300"
+        - name: "cluster.initial_master_nodes"
+          value: "elasticsearch"
+        ports:
+        - containerPort: 9200
+          name: 9200tcp00
+          protocol: TCP
+        resources:
+          requests:
+            memory: 2500M
+            cpu: 100m
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 1
+          tcpSocket:
+            port: 9200
+          timeoutSeconds: 2
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          successThreshold: 2
+          tcpSocket:
+            port: 9200
+          timeoutSeconds: 2
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      serviceAccountName: default
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - api-gateway-deployment-sidecar-es
+      from:
+        kind: ImageStreamTag
+        name: api-gateway-deployment-sidecar-es:10.7
+  - type: ImageChange
+    imageChangeParams:
+      automatic: true
+      containerNames:
+      - elastic-search
+      from:
+        kind: ImageStreamTag
+        name: elastic-search:7.2.0
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: api-gateway-deployment-sidecar-es
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - from:
+      kind: DockerImage
+      # Please fill in the path to your api gateway image stored in a docker registry.
+      name: <yourDockerRegistry>:<RegistryPort>/<PathToApiGateway>:10.7
+    importPolicy: {}
+    name: "10.7"
+    referencePolicy:
+      type: Source
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: elastic-search
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - from:
+      kind: DockerImage
+      # Please fill in the path to your elastic-search image stored in a docker registry.
+      name: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    importPolicy: {}
+    name: "7.2.0"
+    referencePolicy:
+      type: Source
+---
+# An example service for the deployment above.
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway-service
+  labels:
+    app.kubernetes.io/name: api-gateway-deployment
+spec:
+  type: NodePort
+  ports:
+    - name: 5555-tcp
+      port: 5555
+      targetPort: 5555
+      protocol: TCP
+    - name: 9072-tcp
+      port: 9072
+      targetPort: 9072
+      protocol: TCP
+    - name: 9200-tcp
+      port: 9200
+      targetPort: 9200
+  selector:
+    deploymentconfig: api-gateway-deployment-sidecar-es
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: api-gateway-ui
+spec:
+  # Provide a URL that will be visible outside of the OpenShift cluster
+  host: api-gateway-ui.apps.<yourClusterBaseUrl>
+  port:
+    targetPort: 9072-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: api-gateway-service
+    weight: 100
+  wildcardPolicy: None
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: api-gateway-rest
+spec:
+  host: api-gateway-rest.apps.<yourClusterBaseUrl>
+  port:
+    targetPort: 5555-tcp
+  subdomain: ""
+  to:
+    kind: Service
+    name: api-gateway-service
+    weight: 100
+  wildcardPolicy: None

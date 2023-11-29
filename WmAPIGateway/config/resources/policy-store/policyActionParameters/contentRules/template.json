@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "contentRules",
+		"names" : [
+		   {
+			 "value" : "Rules",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Rule to match request content",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" : [ 
+			"name.json", "payloadIdentifier","routeTo"
+		]	
+
+   }

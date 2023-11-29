@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxObjectEntryCount",
+  "names" : [
+    {
+      "value" : "Maximum Object Entry Count",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Object Entry Count",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

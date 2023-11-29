@@ -1,0 +1,14 @@
+{"debugAssets":
+[ 
+	"pub.flow:debugLog",
+	"pub.flow:restorePipeline",
+	"pub.flow:restorePipelineFromFile",
+	"pub.flow:savePipeline",
+	"pub.flow:savePipelineToFile",
+	"pub.flow:tracePipeline"
+]
+}
+
+
+
+

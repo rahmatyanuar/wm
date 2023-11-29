@@ -1,0 +1,53 @@
+{
+  "plans": {
+    "properties": {
+      "cost": {
+        "properties": {
+          "value": {
+            "type": "keyword"
+          }
+        }
+      },
+      "deprecated": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "icon": {
+        "type": "text",
+        "index": "false"
+      },
+      "id": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "isProtected": {
+        "type": "boolean"
+      },
+      "license": {
+        "type": "keyword"
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "policies": {
+        "type": "keyword"
+      },
+      "protected": {
+        "type": "boolean"
+      },
+      "terms": {
+        "type": "keyword"
+      },
+      "version": {
+        "type": "keyword"
+      }
+    }
+  }
+}

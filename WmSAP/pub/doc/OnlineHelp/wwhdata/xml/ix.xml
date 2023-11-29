@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebWorksHelpIX version="5.0" xmlns="urn:WebWorks-Help-Index-Schema">
+  <g t="A" o="002">
+    <i t="About screen">
+      <j l="4#1140327" />
+    </i>
+    <i t="adapter connections">
+      <i t="copying">
+        <j l="7#1123063" />
+      </i>
+      <i t="editing">
+        <j l="7#1123016" />
+      </i>
+    </i>
+    <i t="Additional Settings tab">
+      <j l="52#1127069" />
+    </i>
+    <i t="Administrator screens">
+      <i t="About">
+        <j l="4" />
+      </i>
+      <i t="Configure Connection Type">
+        <j l="7" />
+      </i>
+      <i t="Configure Listener Type">
+        <j l="11" />
+      </i>
+      <i t="Connections">
+        <j l="5" />
+      </i>
+      <i t="Connections Types">
+        <j l="6" />
+      </i>
+      <i t="Copy Connections">
+        <j l="7" />
+      </i>
+      <i t="Copy Listener">
+        <j l="11" />
+        <j l="12" />
+      </i>
+      <i t="DDIC-Cache">
+        <j l="8" />
+      </i>
+      <i t="Edit Connection">
+        <j l="7" />
+      </i>
+      <i t="Edit Listener">
+        <j l="11" />
+        <j l="12" />
+      </i>
+      <i t="Listener Notifications">
+        <j l="13" />
+      </i>
+      <i t="Listeners">
+        <j l="9" />
+      </i>
+      <i t="Logging">
+        <j l="14" />
+      </i>
+      <i t="Lookup">
+        <j l="18" />
+      </i>
+      <i t="Monitoring">
+        <j l="34" />
+      </i>
+      <i t="Routing/Mapping">
+        <j l="39" />
+      </i>
+      <i t="Settings">
+        <j l="43" />
+      </i>
+      <i t="Transactions">
+        <j l="44" />
+      </i>
+      <i t="View Connections">
+        <j l="7" />
+      </i>
+      <i t="View Listener">
+        <j l="11" />
+        <j l="12" />
+      </i>
+    </i>
+    <i t="ALE Mappings screen">
+      <j l="8#1125202" />
+    </i>
+    <i t="application server">
+      <j l="7#1123249" />
+    </i>
+    <i t="authorization service">
+      <j l="11#1123961" />
+    </i>
+  </g>
+  <g t="B" o="002">
+    <i t="BAPI screen">
+      <j l="26#1124574" />
+    </i>
+    <i t="BAPI-XML Template screen">
+      <j l="29#1126979" />
+    </i>
+    <i t="bookmark a help topic">
+      <j l="0#38622" />
+    </i>
+    <i t="business object">
+      <i t="removing from cache">
+        <j l="8#1128382" />
+      </i>
+    </i>
+    <i t="Business Object screen">
+      <j l="25#1142618" />
+    </i>
+    <i t="Business Objects screen">
+      <j l="8#1125127" />
+      <j l="24#1124533" />
+    </i>
+  </g>
+  <g t="C" o="002">
+    <i t="Centralized Transaction Store (CTS)">
+      <i t="viewing transactrions">
+        <j l="44#1141675" />
+      </i>
+    </i>
+    <i t="client">
+      <j l="7#1123178" />
+    </i>
+    <i t="Component Overview screen">
+      <j l="38#1144768" />
+    </i>
+    <i t="Configure Connection Type screen">
+      <j l="7#1122963" />
+    </i>
+    <i t="Configure Listener Type screen">
+      <j l="11#1123680" />
+    </i>
+    <i t="connection">
+      <i t="advanced settings">
+        <j l="7#1123373" />
+      </i>
+      <i t="deleting">
+        <j l="5#1129230" />
+      </i>
+      <i t="enable and disable">
+        <j l="5#1129203" />
+      </i>
+      <i t="enable security">
+        <j l="7#1123319" />
+      </i>
+      <i t="external RFC Server">
+        <j l="7#1123264" />
+      </i>
+      <i t="load balancing">
+        <j l="7#1123194" />
+      </i>
+      <i t="properties">
+        <j l="7#1123146" />
+      </i>
+      <i t="SAP Router string">
+        <j l="7#1123351" />
+      </i>
+      <i t="single server logon">
+        <j l="7#1123235" />
+      </i>
+    </i>
+    <i t="connection alias">
+      <j l="7#1123157" />
+    </i>
+    <i t="Connection Pools screen">
+      <j l="35#1144208" />
+    </i>
+    <i t="Connections screen">
+      <j l="5#1122798" />
+    </i>
+    <i t="Connections Types screen">
+      <j l="6#1122730" />
+    </i>
+    <i t="content based routing">
+      <j l="39#1130132" />
+    </i>
+    <i t="Content based Routing Settings for XML">
+      <j l="39#1122517" />
+    </i>
+    <i t="Content based Routing/Mapping Settings for IDocs">
+      <j l="39#1130563" />
+    </i>
+    <i t="contents frame, help system">
+      <j l="0#38729" />
+    </i>
+    <i t="Copy Connection screen">
+      <j l="7#1123063" />
+    </i>
+    <i t="Copy Listener screen">
+      <j l="11#1123786" />
+    </i>
+    <i t="copying adapter connections">
+      <j l="7#1123063" />
+    </i>
+    <i t="Created On field">
+      <j l="14#1129597" />
+    </i>
+  </g>
+  <g t="D" o="002">
+    <i t="DDIC-cache">
+      <i t="clearing contents">
+        <j l="8#1126264" />
+      </i>
+      <i t="removing BAPIs">
+        <j l="8#1128455" />
+      </i>
+      <i t="removing business objects">
+        <j l="8#1128382" />
+      </i>
+      <i t="removing function modules">
+        <j l="8#1126321" />
+      </i>
+      <i t="removing IDocs">
+        <j l="8#1128573" />
+      </i>
+      <i t="removing structures">
+        <j l="8#1127829" />
+      </i>
+    </i>
+    <i t="DDIC-Cache screen">
+      <j l="8#1126685" />
+    </i>
+    <i t="Delete field">
+      <j l="14#1129601" />
+    </i>
+    <i t="Developer tabs">
+      <i t="Function Search">
+        <j l="47" />
+      </i>
+      <i t="IDoc">
+        <j l="48" />
+      </i>
+      <i t="Reply Field Selection">
+        <j l="50" />
+      </i>
+      <i t="Request Field Selection">
+        <j l="49" />
+      </i>
+      <i t="Transport Service">
+        <j l="51" />
+      </i>
+    </i>
+  </g>
+  <g t="E" o="002">
+    <i t="Edit Connection screen">
+      <j l="7#1123016" />
+    </i>
+    <i t="Edit Listener screen">
+      <j l="11#1123761" />
+      <j l="12#1127277" />
+    </i>
+    <i t="Edit Notification Order screen">
+      <j l="11#1145331" />
+      <j l="12#1127324" />
+    </i>
+    <i t="Edit Table screen">
+      <j l="21#1133328" />
+    </i>
+    <i t="editing">
+      <i t="adapter connections">
+        <j l="7#1123016" />
+      </i>
+    </i>
+    <i t="enable all suspended listeners">
+      <j l="9#1129267" />
+    </i>
+    <i t="Enabled field">
+      <j l="13#1129536" />
+    </i>
+    <i t="Entry screen">
+      <j l="16#1126918" />
+    </i>
+    <i t="external RFC server">
+      <j l="7#1123278" />
+    </i>
+  </g>
+  <g t="F" o="002">
+    <i t="function">
+      <i t="displaying interface information">
+        <j l="8#1124962" />
+      </i>
+    </i>
+    <i t="Function Interface screen">
+      <j l="8#1124962" />
+    </i>
+    <i t="function module">
+      <i t="removing from cache">
+        <j l="8#1126321" />
+      </i>
+    </i>
+    <i t="Function Module Signature screen">
+      <j l="20#1124252" />
+    </i>
+    <i t="Function Module Test screen">
+      <j l="21#1126100" />
+    </i>
+    <i t="Function Search tab">
+      <j l="47#1130990" />
+    </i>
+    <i t="Functions screen">
+      <j l="8#1124942" />
+    </i>
+  </g>
+  <g t="G" o="002">
+    <i t="gateway host">
+      <j l="7#1123288" />
+      <j l="11#1123905" />
+    </i>
+    <i t="gateway service">
+      <j l="7#1123293" />
+      <j l="11#1123916" />
+    </i>
+  </g>
+  <g t="H" o="002">
+    <i t="help system">
+      <i t="contents frame">
+        <j l="0#38729" />
+      </i>
+      <i t="create bookmark">
+        <j l="0#38622" />
+      </i>
+      <i t="index frame">
+        <j l="0#38554" />
+      </i>
+      <i t="navigation frame">
+        <j l="0#38751" />
+      </i>
+      <i t="search frame">
+        <j l="0#38555" />
+      </i>
+      <i t="show in contents">
+        <j l="0#38614" />
+      </i>
+      <i t="show navigation">
+        <j l="0#38610" />
+        <j l="0#38618" />
+      </i>
+      <i t="toolbar frame">
+        <j l="0#38578" />
+      </i>
+    </i>
+  </g>
+  <g t="I" o="002">
+    <i t="IDoc document type, creating">
+      <j l="53#1131318" />
+    </i>
+    <i t="IDoc screen">
+      <j l="31#1126990" />
+    </i>
+    <i t="IDoc Segment Field screen">
+      <j l="33#1127000" />
+    </i>
+    <i t="IDoc Segment screen">
+      <j l="32#1126995" />
+    </i>
+    <i t="IDoc Settings tab">
+      <j l="48#1127049" />
+    </i>
+    <i t="IDocs">
+      <i t="removing from cache">
+        <j l="8#1128573" />
+      </i>
+    </i>
+    <i t="IDocs screen">
+      <j l="8#1125235" />
+    </i>
+    <i t="inbound service, registering and unregistering">
+      <j l="39#1125494" />
+    </i>
+    <i t="index frame, help system">
+      <j l="0#38554" />
+    </i>
+    <i t="items per page, controlling">
+      <j l="5#1145369" />
+      <j l="9#1145508" />
+      <j l="13#1145526" />
+    </i>
+  </g>
+  <g t="K" o="002">
+    <i t="Key field screen">
+      <j l="28#1132700" />
+    </i>
+  </g>
+  <g t="L" o="002">
+    <i t="language">
+      <j l="7#1123183" />
+    </i>
+    <i t="listener">
+      <i t="deleting (RFC)">
+        <j l="9#1128753" />
+      </i>
+      <i t="enabling all suspended">
+        <j l="9#1129267" />
+      </i>
+      <i t="state">
+        <j l="9#1128671" />
+      </i>
+      <i t="status">
+        <j l="9#1131776" />
+      </i>
+      <i t="suspending all enabled">
+        <j l="9#1129266" />
+      </i>
+    </i>
+    <i t="listener name">
+      <j l="11#1123892" />
+    </i>
+    <i t="listener notifications">
+      <i t="managing">
+        <j l="13#1124211" />
+      </i>
+    </i>
+    <i t="Listener Notifications screen">
+      <j l="13#1124211" />
+    </i>
+    <i t="Listener Type field">
+      <j l="12#1131977" />
+    </i>
+    <i t="Listener Types screen">
+      <j l="10#1123606" />
+    </i>
+    <i t="listeners">
+      <i t="configuring">
+        <j l="11#1123679" />
+      </i>
+      <i t="copying">
+        <j l="11#1123785" />
+      </i>
+      <i t="editing">
+        <j l="11#1123760" />
+        <j l="12#1127275" />
+      </i>
+      <i t="viewing">
+        <j l="11#1123773" />
+        <j l="12#1127293" />
+      </i>
+    </i>
+    <i t="Listeners screen">
+      <j l="9#1123492" />
+    </i>
+    <i t="load balancing">
+      <j l="7#1123208" />
+    </i>
+    <i t="local Transaction Store">
+      <i t="viewing transactions">
+        <j l="44#1141675" />
+      </i>
+    </i>
+    <i t="Locked Connections screen">
+      <j l="36#1143375" />
+    </i>
+    <i t="log transaction status">
+      <j l="7#1123400" />
+      <j l="11#1123996" />
+    </i>
+    <i t="Log transaction status field">
+      <j l="12#1131930" />
+    </i>
+    <i t="Logging screen">
+      <j l="14#1144368" />
+    </i>
+    <i t="logon group">
+      <j l="7#1123217" />
+    </i>
+  </g>
+  <g t="M" o="002">
+    <i t="mapping">
+      <j l="39#1130132" />
+    </i>
+    <i t="message server">
+      <j l="7#1123222" />
+    </i>
+    <i t="monitoring">
+      <i t="data captured">
+        <j l="34#1144198" />
+      </i>
+    </i>
+    <i t="Monitoring screen">
+      <j l="34#1142397" />
+    </i>
+  </g>
+  <g t="N" o="002">
+    <i t="navigation frame, help system">
+      <j l="0#38751" />
+      <j l="0#38618" />
+    </i>
+    <i t="New SAP Document Type tab">
+      <j l="53#1126157" />
+    </i>
+    <i t="Notification Name field">
+      <j l="13#1129493" />
+    </i>
+    <i t="notification order">
+      <i t="editing">
+        <j l="11#1123794" />
+        <j l="12#1127319" />
+      </i>
+      <i t="viewing">
+        <j l="11#1123809" />
+        <j l="12#1127329" />
+      </i>
+    </i>
+    <i t="number of threads">
+      <j l="11#1123931" />
+    </i>
+  </g>
+  <g t="O" o="002">
+    <i t="outbound service, registering and unregistering">
+      <j l="39#1125494" />
+    </i>
+  </g>
+  <g t="P" o="002">
+    <i t="Package Name field">
+      <j l="12#1131981" />
+      <j l="13#1129524" />
+    </i>
+    <i t="Parameter screen">
+      <j l="27#1124651" />
+    </i>
+    <i t="password">
+      <j l="7#1123173" />
+    </i>
+    <i t="program ID">
+      <j l="7#1123283" />
+      <j l="11#1123897" />
+    </i>
+  </g>
+  <g t="R" o="002">
+    <i t="Register Exit Service screen">
+      <j l="41#1125595" />
+    </i>
+    <i t="Reply Field Selection tab">
+      <j l="50#1131130" />
+    </i>
+    <i t="repository server">
+      <j l="11#1123936" />
+    </i>
+    <i t="repository service">
+      <j l="7#1123300" />
+    </i>
+    <i t="Request Field Selection tab">
+      <j l="49#1125965" />
+    </i>
+    <i t="Request Overview screen">
+      <j l="37" />
+    </i>
+    <i t="Results screen">
+      <j l="22#1124346" />
+    </i>
+    <i t="Retry Backoff Timeout field">
+      <j l="12#1131989" />
+    </i>
+    <i t="Retry Limit field">
+      <j l="12#1131985" />
+    </i>
+    <i t="Retype Password field">
+      <j l="7#1123460" />
+    </i>
+    <i t="RFC document type, creating">
+      <j l="53#1131476" />
+    </i>
+    <i t="RFC listener">
+      <i t="configuring">
+        <j l="11#1123866" />
+      </i>
+      <i t="copying">
+        <j l="11#1123786" />
+      </i>
+      <i t="editing">
+        <j l="11#1123761" />
+      </i>
+      <i t="editing notification order">
+        <j l="11#1145331" />
+      </i>
+      <i t="viewing">
+        <j l="11#1123774" />
+      </i>
+      <i t="viewing notification order">
+        <j l="11#1123813" />
+      </i>
+    </i>
+    <i t="RFC Search Results screen">
+      <j l="19#1124400" />
+    </i>
+    <i t="RFC Template screen">
+      <j l="23#1132644" />
+    </i>
+    <i t="RFC trace">
+      <j l="7#1123386" />
+      <j l="11#1123978" />
+    </i>
+    <i t="RFC Trace Files screen">
+      <j l="15#1126914" />
+    </i>
+    <i t="Routing listener">
+      <i t="editing">
+        <j l="12#1127277" />
+      </i>
+      <i t="editing notification order">
+        <j l="12#1127324" />
+      </i>
+      <i t="viewing">
+        <j l="12#1127295" />
+      </i>
+      <i t="viewing notification order">
+        <j l="12#1127334" />
+      </i>
+    </i>
+    <i t="routing services">
+      <i t="associate with message types">
+        <j l="40#1130465" />
+      </i>
+      <i t="register">
+        <j l="41#1125595" />
+      </i>
+      <i t="unregister">
+        <j l="42#1125635" />
+      </i>
+    </i>
+    <i t="Routing/Mapping screen">
+      <j l="39#1125413" />
+    </i>
+  </g>
+  <g t="S" o="002">
+    <i t="SAP Adapter">
+      <i t="general settings">
+        <j l="42#1125635" />
+      </i>
+    </i>
+    <i t="SAP Log File field">
+      <j l="14#1129589" />
+    </i>
+    <i t="SAP router string">
+      <j l="7#1123359" />
+    </i>
+    <i t="search frame, help system">
+      <j l="0#38555" />
+    </i>
+    <i t="Settings Edit screen">
+      <j l="43#1125873" />
+    </i>
+    <i t="Settings screen">
+      <j l="43#1122515" />
+    </i>
+    <i t="show help navigation frame">
+      <j l="0#38610" />
+      <j l="0#38618" />
+    </i>
+    <i t="Size field">
+      <j l="14#1129593" />
+    </i>
+    <i t="SNC enabled">
+      <j l="7#1123327" />
+      <j l="11#1123941" />
+    </i>
+    <i t="SNC name">
+      <j l="7#1123342" />
+      <j l="11#1123956" />
+    </i>
+    <i t="SNC partnername">
+      <j l="7#1123347" />
+    </i>
+    <i t="SNC quality of service">
+      <j l="7#1123332" />
+      <j l="11#1123946" />
+    </i>
+    <i t="store message body">
+      <j l="7#1123407" />
+      <j l="11#1124003" />
+    </i>
+    <i t="Store message body field">
+      <j l="12#1131936" />
+    </i>
+    <i t="structure">
+      <i t="displaying structure definition">
+        <j l="8#1125099" />
+      </i>
+      <i t="removing from cache">
+        <j l="8#1127829" />
+      </i>
+    </i>
+    <i t="Structure Definition screen">
+      <j l="8#1125099" />
+    </i>
+    <i t="Structures screen">
+      <j l="8#1125074" />
+    </i>
+    <i t="Suspend all enabled listeners">
+      <j l="9#1129266" />
+    </i>
+    <i t="system ID">
+      <j l="7#1123227" />
+    </i>
+    <i t="system number">
+      <j l="7#1123257" />
+    </i>
+  </g>
+  <g t="T" o="002">
+    <i t="TID screen">
+      <j l="44#1125739" />
+    </i>
+    <i t="toolbar frame, help system">
+      <j l="0#38578" />
+    </i>
+    <i t="Trace File field">
+      <j l="14#1129585" />
+    </i>
+    <i t="transaction">
+      <i t="deleting">
+        <j l="44#1125723" />
+        <j l="44#1122528" />
+      </i>
+      <i t="viewing details">
+        <j l="44#1125739" />
+      </i>
+    </i>
+    <i t="transaction store">
+      <i t="Centralized Transaction Store">
+        <j l="45#1134138" />
+      </i>
+      <i t="viewing transactions in CTS or local Transaction Store">
+        <j l="44#1141675" />
+      </i>
+    </i>
+    <i t="Transactions screen">
+      <j l="44#1141675" />
+    </i>
+    <i t="Transport Service tab">
+      <j l="51#1125975" />
+    </i>
+    <i t="Types screen">
+      <j l="40#1125577" />
+    </i>
+  </g>
+  <g t="U" o="002">
+    <i t="Unregister User Exit Service screen">
+      <j l="42#1125635" />
+    </i>
+    <i t="user name">
+      <j l="7#1123168" />
+    </i>
+  </g>
+  <g t="V" o="002">
+    <i t="View Connection screen">
+      <j l="7#1123050" />
+    </i>
+    <i t="View Listener screen">
+      <j l="11#1123774" />
+      <j l="12#1127295" />
+    </i>
+    <i t="View Notification Order screen">
+      <j l="11#1123813" />
+      <j l="12#1127334" />
+    </i>
+  </g>
+</WebWorksHelpIX>

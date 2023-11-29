@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "customDestinationPerformanceMetricsData",
+		"names" : [
+		   {
+			 "value" : "Performance metrics data",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Configure the performance metric settings",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"reportPerformanceData.json","publishInterval.json"
+		]	
+
+   }

@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "accessProfiles",
+		"names" : [
+		   {
+			 "value" : "List of Teams",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "A list of teams against which the request user will have to be authorized against",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+  }

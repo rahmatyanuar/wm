@@ -1,0 +1,41 @@
+{
+		"templateKey" : "protocol",
+		"names" : [
+		   {
+			 "value" : "Protocol",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Access protocol for bridging between the client and API-Gateway.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"defaultValues" : [
+		  "http"
+		],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "HTTP",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "http"
+					},
+					{
+						"names" : [
+						{
+							"value" : "HTTPS",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "https"
+					}
+		]
+}

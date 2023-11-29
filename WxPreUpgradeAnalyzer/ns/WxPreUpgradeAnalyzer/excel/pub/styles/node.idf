@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <value name="node_type">interface</value>
+  <value name="node_subtype">unknown</value>
+  <value name="node_nsName">WxPreUpgradeAnalyzer.excel.pub.styles</value>
+  <value name="is_public">false</value>
+  <value name="shared">cHVibGljIHN0YXRpYyBpbnQgZ2V0SW50ZWdlckZyb21TdHJpbmcoU3RyaW5nIHZhbHVlLCBpbnQg
+ZGVmYXVsdFZhbHVlKXsNCglpbnQgaSA9IGRlZmF1bHRWYWx1ZTsNCgkNCgl0cnkgew0KCQlpID0g
+SW50ZWdlci5wYXJzZUludCh2YWx1ZSk7DQoJfSBjYXRjaCAoTnVtYmVyRm9ybWF0RXhjZXB0aW9u
+IGUpIHsNCgkJLy8gVE9ETyBBdXRvLWdlbmVyYXRlZCBjYXRjaCBibG9jaw0KCQkNCgl9DQoJDQoJ
+cmV0dXJuIGk7DQp9DQoNCnB1YmxpYyBzdGF0aWMgb3JnLmFwYWNoZS5wb2kuc3MudXNlcm1vZGVs
+LlJvdyBnZXRWYWxpZFJvdyhTaGVldCBtU2hlZXQsIGludCBtUm93KXsNCglSb3cgbVplaWxlOwkJ
+DQoJDQoJLy9TeXN0ZW0ub3V0LnByaW50bG4oInJlcToiK21Sb3crIiBsYXN0OiIrbVNoZWV0Lmdl
+dExhc3RSb3dOdW0oKSk7DQoJDQoJaWYoIG1Sb3cgPD0gbVNoZWV0LmdldExhc3RSb3dOdW0oKSAp
+DQoJew0KCQltWmVpbGUgPSBtU2hlZXQuZ2V0Um93KG1Sb3cpOw0KCX0NCgllbHNlCQ0KCXsNCgkJ
+bVplaWxlID0gbVNoZWV0LmNyZWF0ZVJvdyhtUm93KTsJDQoJfQ0KDQoJcmV0dXJuIG1aZWlsZTsN
+Cn0NCg==</value>
+  <value name="encodeutf8">true</value>
+  <value name="extends"></value>
+  <array name="implements" type="value" depth="1">
+  </array>
+  <array name="imports" type="value" depth="1">
+    <value>org.apache.poi.hssf.usermodel.HSSFCellStyle</value>
+    <value>org.apache.poi.hssf.usermodel.HSSFFont</value>
+    <value>org.apache.poi.hssf.util.HSSFColor</value>
+    <value>org.apache.poi.ss.usermodel.Cell</value>
+    <value>org.apache.poi.ss.usermodel.CellStyle</value>
+    <value>org.apache.poi.ss.usermodel.IndexedColors</value>
+    <value>org.apache.poi.ss.usermodel.Row</value>
+    <value>org.apache.poi.ss.usermodel.Sheet</value>
+    <value>org.apache.poi.ss.usermodel.Workbook</value>
+  </array>
+</Values>

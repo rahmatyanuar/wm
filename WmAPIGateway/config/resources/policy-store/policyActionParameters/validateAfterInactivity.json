@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "validateAfterInactivity",
+		"names" : [
+		   {
+			 "value" : "Validate After Inactivity (milliseconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The time a connection can be idle in the connection pool before it must be validated that it's still open.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

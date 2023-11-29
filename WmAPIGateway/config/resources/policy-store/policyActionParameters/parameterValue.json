@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "parameterValue",
+		"names" : [
+		   {
+			 "value" : "Value",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Parameter value that has to be replaced in the disvocery endpoint of service registry",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

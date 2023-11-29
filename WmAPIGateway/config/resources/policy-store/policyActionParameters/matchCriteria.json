@@ -1,0 +1,42 @@
+{
+		"templateKey" : "matchCriteria",
+		"names" : [
+		   {
+			 "value" : "Match Criteria",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Match Criteria",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+			"EXACT"
+		],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Exact Match",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "EXACT"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Allow Sublevels",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "SUBLEVEL"
+					}
+		],
+		"applicableServiceTypes" : ["SOAP"]
+}

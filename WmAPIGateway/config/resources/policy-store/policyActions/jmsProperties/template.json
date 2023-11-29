@@ -1,0 +1,25 @@
+{
+    "templateKey": "jmsProperties",
+    "names": [
+        {
+            "value": "JMS/AMQP SOAP Properties",
+            "locale": "en"
+        }
+    ],
+    "descriptions": [
+        {
+            "value": "JMS Properties",
+            "locale": "en"
+        }
+    ],
+    "parameterTemplatesReference": ["jmsProperty"],
+	"occurence" : "once",
+	"applicableServiceTypes" : ["SOAP"],
+	"order" :  {
+		"sequence" : ["insequence"],
+		"orderPosition" : "beforeFirstOccurence",
+		"policyTemplateIDs":["jmsRouting"]
+	},
+	"dependentActions":["jmsRouting"],
+	"mutuallyExclusiveActions" : ["straightThroughRouting","contextBasedRouting","dynamicRouting","contentBasedRouting","loadBalancerRouting"]
+}

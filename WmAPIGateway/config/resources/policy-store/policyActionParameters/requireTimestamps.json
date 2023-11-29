@@ -1,0 +1,21 @@
+   {
+		"templateKey" : "requireTimestamps",
+		"names" : [
+		   {
+			 "value" : "Require Timestamp",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This is to mandate timestamps in the request.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+		  "false"
+		]
+  }

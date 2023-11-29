@@ -1,0 +1,16 @@
+{
+  "source_versions":[{
+    "version": "10.12",
+    "restore_indices": []
+  }, {
+    "version": "10.15",
+    "restore_indices": []
+  }],
+  "max_doc_size": "100",
+  "max_threads": "1",
+  "cpu_threshold": "80",
+  "memory_threshold": "80",
+  "max_es_data_size": "500",
+  "max_es_index_data_size": "100",
+  "sanity_fs_path": "C:\\Work\\"
+}

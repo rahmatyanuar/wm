@@ -1,0 +1,120 @@
+{
+		"templateKey" : "transformationConditionOperator",
+		"names" : [
+		   {
+			 "value" : "Operator",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Operator",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+    "defaultValues"  : ["equals"],
+    "possibleValues" : [
+					{
+						"names" : [
+						{
+							"value" : "Equals",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "equals"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Equals ignore case",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "equalsIgnoreCase"
+					},
+						{
+						"names" : [
+						{
+							"value" : "Not equals",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "notEquals"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Not equals ignore case",
+								"locale" : "en"
+							}
+						],
+						"value" :  "notEqualsIgnoreCase"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Contains",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "contains"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Not Contains",
+								"locale" : "en"
+							}
+						],
+						"value" :  "notContains"
+					},
+						{
+						"names" : [
+						{
+							"value" : "Exists",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "exists"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Not Exists",
+								"locale" : "en"
+							}
+						],
+						"value" :  "notExists"
+					},
+					{
+						"names" : [
+							{
+								"value" : "IP Range",
+								"locale" : "en"
+							}
+						],
+						"value" :  "range"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Greater Than",
+								"locale" : "en"
+							}
+						],
+						"value" :  "greaterThan"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Lesser Than",
+								"locale" : "en"
+							}
+						],
+						"value" :  "lesserThan"
+					}
+	]
+}

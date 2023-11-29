@@ -1,0 +1,11 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign insequenceElements=doc.service.definition.inSequence/>
+<#list insequenceElements?children as child>
+	<#if child?node_name == "request-message-type">
+		<#assign reqMessageTypeElement=child/>
+	</#if>
+</#list>
+<#if !reqMessageTypeElement??>
+	<#include "SetMediaTypeTransformationTemplate.json">
+</#if>

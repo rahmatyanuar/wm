@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "policyActionList",
+		"names" : [
+		   {
+			 "value" : "Policy Action list",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "true"
+  }

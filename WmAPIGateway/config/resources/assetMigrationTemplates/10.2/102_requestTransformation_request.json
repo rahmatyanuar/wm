@@ -1,0 +1,38 @@
+{
+    <#if doc.id??>
+    "id": "${doc.id}",
+    </#if>
+  "names": [
+    {
+      "value": "${transformationName}",
+      "locale": "en"
+    }
+  ],
+  "templateKey": "${transformationTemplateKey}",
+  "parameters": [
+    {
+      "templateKey": "transformationConditions",
+      "parameters": [
+        {
+          "templateKey": "logicalConnector",
+          "values": [
+            "OR"
+          ]
+        }
+      ]
+    },
+    {
+      "templateKey": "${transformationConfiguration}",
+      "parameters": [
+        {
+            "templateKey" : "payloadTransformation",
+            "parameters"  : ${printJsonPayload(doc.parameters)}
+        }
+      ]
+    }
+  ]
+  <#if doc.active??>
+,
+  "active":  ${doc.active?c}
+  </#if>
+}

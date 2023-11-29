@@ -1,0 +1,19 @@
+{
+		"templateKey" : "alertMessage",
+		"names" : [
+		   {
+			 "value" : "Alert Message",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Alert Message`",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : [" "]
+}

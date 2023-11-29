@@ -1,0 +1,50 @@
+{
+				"templateKey" : "samlSubjectConfirmation",
+				"names" : [
+				   {
+					 "value" : "SAML Subject Confirmation",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "SAML Subject Confirmation",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+					"bearerOfToken"
+				],				
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Bearer of Token",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "bearerOfToken"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Holder of Key - Symmetric",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "holderOfKeySymmetric"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Holder of Key - Public",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "holderOfKeyPublic"
+					}
+				]
+}

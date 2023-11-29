@@ -1,0 +1,19 @@
+{
+  "templateKey": "storeAsZip",
+  "names": [
+    {
+      "value": "Compress Payload Data",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Compress payload data",
+      "locale": "en_US"
+    }
+  ],
+  "type": "BOOLEAN",
+  "isArray": false,
+  "isRequired": true,
+  "defaultValues": ["false"]
+}

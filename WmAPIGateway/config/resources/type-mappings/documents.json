@@ -1,0 +1,21 @@
+{
+  "documents" : {
+	"properties" : {
+	  "displayName" : {
+		"type" : "string",
+		"analyzer": "not_analyzed_ignorecase"
+	  },
+	  "fileContent" : {
+		"type" : "string"
+	  },
+	  "fileName" : {
+		"type" : "string",
+		"analyzer": "not_analyzed_ignorecase"
+	  },
+	  "id" : {
+		"type" : "string",
+		"analyzer": "not_analyzed_ignorecase"
+	  }
+	}
+  }
+}

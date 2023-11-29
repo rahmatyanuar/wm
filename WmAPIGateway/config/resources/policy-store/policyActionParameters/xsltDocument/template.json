@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "xsltDocument",
+		"names" : [
+		   {
+			 "value" : "XSLT Document",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "XSLT Document",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  [  "xsltDocument.json","feature"]
+  }

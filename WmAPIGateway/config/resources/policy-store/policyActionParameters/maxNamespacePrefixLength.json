@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxNamespacePrefixLength",
+  "names" : [
+    {
+      "value" : "Maximum Namespace Prefix Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum length of the namespace prefix",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

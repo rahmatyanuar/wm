@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <!-- MOTW-DISABLED saved from url=(0014)about:internet -->
+    <meta name="Creator" content="stat17_update_1516_0241" />
+    <title>wm.tn.queuing:updateQueuedTask</title>
+    <link rel="StyleSheet" href="css/_trading_networks_bis_reference_diba2.css" type="text/css" media="all" />
+    <link rel="StyleSheet" href="css/webworks.css" type="text/css" media="all" />
+    <script type="text/javascript" language="JavaScript1.2" src="scripts/expand.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript" language="JavaScript1.2">
+      <!--
+        var  WebWorksRootPath = "";
+      // -->
+    </script>
+    <div class="Heading_2"><a name="ID0EFYDR">wm.tn.queuing:updateQueuedTask</a></div>
+    <div class="Body"><a name="ID0EPZDR">Updates the delivery status of a delivery task in a scheduled delivery queue.</a></div>
+    <div class="Section_Title"><a name="ID0E5ZDR">Input Parameters</a></div>
+    <table class="norules1" cellspacing="4" summary="">
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 23%">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EJ2DR">taskid</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top; width: 76.9%">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EV2DR">String</a></span> Internal identifier of the delivery task to update.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EG3DR">queue</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0ES3DR">String</a></span> The name of the scheduled delivery queue in which the delivery task you want to update resides.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ED4DR">status</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EP4DR">String</a></span> The status to assign to the delivery task. Valid values are:</div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0EA5DR">success</a></span> The attempt to deliver the document associated with the delivery task was successful. <span class="ph">Trading Networks</span> updates the task status to DONE and the document status to DONE.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_outer" style="margin-left: -18pt">
+            <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+              <tr style="vertical-align: baseline">
+                <td>
+                  <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+                    <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+                  </div>
+                </td>
+                <td width="100%">
+                  <div class="List_1_inner"><span class="codeph"><a name="ID0E25DR">fail</a></span> The attempt to deliver the document associated with the delivery task failed.</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div class="List_1_Continued"><a name="ID0ES6DR">If the delivery task has not reached the retry limit, </a><span class="ph">Trading Networks</span> increments the retry count and sets the task status to QUEUED.</div>
+          <div class="List_1_Continued"><a name="ID0E36DR">If the delivery task reaches the retry limit, </a><span class="ph">Trading Networks</span> updates the task status to FAILED and the document status to FAILED.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EOAER">statusMsg</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0E1AER">String</a></span> (optional) The message that the transport service returns after attempting to deliver the document.</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0ELBER">timeDequeued</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EXBER">Object</a></span> (optional) A timestamp indicating when the task was dequeued using the <span class="apiname-only"><a href="wm_tn_queuing_getQueuedTask.html#ID0EH4AR" title="wm.tn.queuing:getQueuedTask">wm.tn.queuing:getQueuedTask</a></span> service. The <span class="apiname-only"><a href="wm_tn_queuing_getQueuedTask.html#ID0EH4AR" title="wm.tn.queuing:getQueuedTask">wm.tn.queuing:getQueuedTask</a></span> service placed this value into the pipeline. <span class="ph">Trading Networks</span> uses this value to determine how long it took to deliver the document associated with the delivery task.</div>
+          <div class="Table_Cell"><a name="ID0EYCER">For Java developers, this is an instance of java.lang.Long.</a></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="varname"><a name="ID0EDDER">serviceOutput</a></span></div>
+        </td>
+        <td class="Table_Cell" style="padding-left: 2pt; padding-right: 2pt; vertical-align: top">
+          <div class="Table_Cell"><span class="bisdatatype"><a name="ID0EPDER">Document</a></span> (optional) Data to save to the database. Specify the data as key/value pairs. The data type of <span class="varname">serviceOutput</span> is <span class="apiname">com.wm.data.IData</span>.</div>
+          <div class="Table_Cell"><a name="ID0EEEER">This is useful when a scheduled delivery service has a very large output pipeline. When you use </a><span class="apiname-only"><a href="wm_tn_queuing_getQueuedTask.html#ID0EH4AR" title="wm.tn.queuing:getQueuedTask">wm.tn.queuing:getQueuedTask</a></span> to dequeue a delivery task from a scheduled delivery queue, <span class="apiname-only"><a href="wm_tn_queuing_getQueuedTask.html#ID0EH4AR" title="wm.tn.queuing:getQueuedTask">wm.tn.queuing:getQueuedTask</a></span> might throw an OutOfMemoryError if the scheduled delivery service has a very large output pipeline. To avoid this error, place the pipeline data from the scheduled delivery service into the <span class="varname">serviceOutput</span> parameter of <span class="apiname-only"><a href="#ID0EFYDR" title="wm.tn.queuing:updateQueuedTask">wm.tn.queuing:updateQueuedTask</a></span>. Data in the <span class="varname">serviceOutput</span> parameter is saved to the database.</div>
+        </td>
+      </tr>
+    </table>
+    <div class="Section_Title"><a name="ID0E3FER">Output Parameters</a></div>
+    <div class="Body"><a name="ID0EBGER">None.</a></div>
+    <div class="Section_Title"><a name="ID0EOGER">Usage Notes</a></div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EZGER">Use this service when you create a scheduled delivery service. Typically, the scheduled delivery service invokes this service </a><span class="emphasis">after</span> it has invokes <span class="apiname-only"><a href="#ID0EFYDR" title="wm.tn.queuing:updateQueuedTask">wm.tn.queuing:updateQueuedTask</a></span> to dequeue a delivery task and has attempted to deliver the document associated with the delivery task. For an example of a scheduled delivery service, see the <span class="apiname-only"><a href="wm_tn_tpa_transport_batchFtp.html#ID0EL3BS" title="wm.tn.transport:batchFtp">wm.tn.transport:batchFtp</a></span> service. For a description about how to create a scheduled delivery service, including how to use the <span class="apiname-only"><a href="#ID0EFYDR" title="wm.tn.queuing:updateQueuedTask">wm.tn.queuing:updateQueuedTask</a></span> service, see <span class="ph"> </span><span class="ph_002c_Citation">webMethods Trading Networks Administrator’s Guide</span>.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="List_1_outer" style="margin-left: -18pt">
+      <table border="0" cellspacing="0" cellpadding="0" summary="" role="presentation">
+        <tr style="vertical-align: baseline">
+          <td>
+            <div class="List_1_inner" style="width: 18pt; white-space: nowrap">
+              <img src="chapterTOC_bullet.png" alt="*" border="0" width="10" height="10" />
+            </div>
+          </td>
+          <td width="100%">
+            <div class="List_1_inner"><a name="ID0EWIER">Your service should not update the status of the delivery task or its associated document. </a><span class="ph">Trading Networks</span> updates these statuses based on whether you indicate <span class="codeph">success</span> or <span class="codeph">fail</span> for <span class="varname">status</span>. Additionally, <span class="ph">Trading Networks</span> also maintains the retry count of the delivery task.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- SQ/SAG: insert custom footer -->
+    <br />
+    <hr style="border:1px solid; border-color: #1776BF; " />
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 10px; margin-top: 6px; margin-bottom: 6px; text-align: center;">
+      Copyright © 2007-2022 Software AG, Darmstadt, Germany and/or Software AG USA, Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors</div>
+    <!-- SQ old code:
+    <div style="font-family: Arial, Verdana, Helvetica, Sans-Serif; font-size: 12px; color: #0899cc; margin-top: 12px; padding-bottom: 6px; text-align: left; text-decoration: underline;">
+	Copyright &#169; <span wwpage:content="wwvars:versionfirst">First cpyr from map</span><span wwpage:content="wwvars:versionlast">Last cpyr from map</span><span wwpage:content="copyright-first-b">First cpyr from book</span><span wwpage:content="copyright-last-b">Last cpyr from book</span>
+		</div>
+    -->
+    <!-- SQ Variablen ausgeblendet
+    <!-\- Copyright Test -\->
+    <div style="text-decoration: underline">Copyright Import Test:</div>
+    <wwpage:Import wwpage:content-from-file="Copyright/copyright_en.asp" />
+    <br></br>
+    
+    <!-\- SQ Variables - Information from xresources-\->
+    <div style="text-decoration: underline">From xresources:</div>
+    <div>sag:organization-id == <span wwpage:content="sag:organization-id"></span></div>
+    <div>sag:organization-name == <span wwpage:content="sag:organization-name"></span></div>
+    <div>sag:organization-copyrholder == <span wwpage:content="sag:organization-copyrholder"></span></div>
+    <div>sag:organization-url == <span wwpage:content="sag:organization-url"></span></div>
+    
+    <div>sag:family-id == <span wwpage:content="sag:family-id"></span></div>
+    <div>sag:family-name == <span wwpage:content="sag:family-name"></span></div>
+    <div>sag:family-organization == <span wwpage:content="sag:family-organization"></span></div>
+    
+    <div>sag:product-id == <span wwpage:content="sag:product-id"></span></div>
+    <div>sag:product-name == <span wwpage:content="sag:product-name"></span></div>
+    <div>sag:product-copyrfirst == <span wwpage:content="sag:product-copyrfirst"></span></div>
+    <div>sag:product-family == <span wwpage:content="sag:product-family"></span></div>
+    
+    <!-\- SQ Variables - Values from DITA-Map-\->
+    <br></br>
+    <div style="text-decoration: underline">From DITA/Book-Map:</div>
+    <div>ProdInfo Prodname == <span wwpage:replace="wwvars:ProdInfoProdName"></span></div>
+    <div>ProdInfo Mod First == <span wwpage:replace="wwvars:ProdInfoModFirst"></span></div>
+    <div>ProdInfo Mod Last == <span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>ProdInfo Rel First == <span wwpage:replace="wwvars:ProdInfoRelFirst"></span></div>
+    <div>ProdInfo Rel Last == <span wwpage:replace="wwvars:ProdInfoRelLast"></span></div>
+    <div>ProdInfo Vers First == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span></div>
+    <div>ProdInfo Vers Last == <span wwpage:replace="wwvars:ProdInfoVersLast"></span></div>
+    <div>ProdInfo vrm vers.rel.mod == <span wwpage:replace="wwvars:ProdInfoVersFirst"></span>.<span wwpage:replace="wwvars:ProdInfoRelLast"></span>.<span wwpage:replace="wwvars:ProdInfoModLast"></span></div>
+    <div>BookID PartNo == <span wwpage:replace="wwvars:BookPartNo"></span></div>
+    <div>othermeta release-version == <span wwpage:replace="wwvars:ReleaseVersion"></span></div>
+    <div>othermeta release-date == <span wwpage:replace="wwvars:ReleaseDate"></span></div>
+    <div>othermeta release-edition == <span wwpage:replace="wwvars:ReleaseEdition"></span></div>
+    <div>othermeta product == <span wwpage:replace="wwvars:Product"></span></div>
+    <br></br>
+    <div style="text-decoration: underline">Reserve:</div>
+    <div>organization == <span wwpage:content="organization"></span></div>
+    <div>product-name == <span wwpage:content="product-name"></span></div>
+    <div>copyright-first == <span wwpage:content="copyright-first"></span></div>
+    <div>copyright-last == <span wwpage:content="copyright-last"></span></div>
+    <div>copyright-first-b == <span wwpage:content="wwvars:copyright-first-b"></span></div>
+    <div>copyright-last-b == <span wwpage:content="copyright-last-b"></span></div>
+    <div>doc-id-one == <span wwpage:content="doc-id-one"></span></div>
+    <div>doc-id-two == <span wwpage:content="doc-id-two"></span></div>-->
+  </body>
+</html>

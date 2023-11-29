@@ -1,0 +1,146 @@
+<#assign LogException='com.softwareag.apigateway.core.migration.LogException'?new()/>
+<#if condition.@variable == "ip">, {
+"templateKey": "contextCondition",
+"parameters": [
+{
+<#assign fromIP=condition["D:property[@name='from']"]/>
+<#assign toIP=condition["D:property[@name='to']"]/>
+"templateKey": "conditionVariable",
+"values": [
+<#if fromIP?contains(":")>
+"IPV6"
+<#else>
+"IPV4"
+</#if>
+]
+},
+{
+"templateKey": "fromIp",
+"values": [
+"${fromIP}"
+]
+},
+{
+"templateKey": "toIp",
+"values": [
+"${toIP}"
+]
+}
+]
+}<#elseif condition.@variable == "Date">, {
+"templateKey": "contextCondition",
+"parameters": [
+{
+"templateKey": "conditionVariable",
+"values": ["Date"]
+},
+{
+"templateKey": "conditionOperator",
+"values": ["${condition.property.@name}"]
+},
+{
+"templateKey": "conditionValue",
+"values": ["${condition.property}"]
+}
+]
+}<#elseif condition.@variable == "time">, {
+"templateKey": "contextCondition",
+"parameters":[
+{
+"templateKey": "conditionVariable",
+"values": ["Time"]
+},
+{
+"templateKey": "conditionOperator",
+"values":["${condition.property.@name}"]
+},
+{
+"templateKey": "hour",
+"values":["${condition.property?split(":")[0]}"]
+},
+{
+"templateKey": "minute",
+"values":["${condition.property?split(":")[1]}"]
+}
+]
+}<#elseif condition.@variable == "Consumer">, {
+"templateKey": "contextCondition",
+"parameters":[
+{
+"templateKey": "conditionVariable",
+"values": ["Consumer"]
+},
+{
+"templateKey": "conditionValue",
+"values":["${consumerNameIDMapper(condition.property)}"]
+}
+]
+}<#elseif condition.@variable == "custom" && (condition["D:property[@name='variable']"]?contains("mx:")|| condition["D:property[@name='variable']"]?contains("PROTOCOL_HEADERS[") ||condition["D:property[@name='variable']"]?contains("SOAP_HEADERS[") )>, {
+"templateKey": "contextCondition",
+"parameters":[
+{
+"templateKey": "conditionVariable",
+"values": ["custom"]
+},
+{
+"templateKey": "conditionOperator",
+"values":["${condition.property[1].@name}"]
+},
+{
+"templateKey": "conditionKey",
+"values":["${condition["D: property[@name='variable']"]}"]
+},
+{
+"templateKey": "conditionValue",
+"values":["${condition.property[1]}"]
+},
+{
+"templateKey": "conditionDataType",
+"values": [
+      <#assign currentKey = condition["D:property[@name='variable']"] >
+	  <#assign dataType = "string">
+      <#list variableRoot.variable as variable>
+          <#if currentKey == variable.@name>
+              <#assign dataType = variable.@type>
+          </#if>
+      </#list>
+
+      <#if dataType == "string">
+            "String"
+      <#elseif dataType == "int">
+            "Integer"
+      </#if>
+  ]
+}
+]
+}<#elseif condition.@variable == "custom" && !condition["D:property[@name='variable']"]?contains("mx:") >
+<#assign variableName=condition["D:property[@name='variable']"]/>
+<#if variableName != "AVG_SUCCESS_TIME" && variableName != "INTERVAL_FAULT_COUNT" && variableName != "SLOWEST_SUCCESS_INVOKE" &&
+variableName != "FASTEST_SUCCESS_INVOKE" &&
+variableName != "INTERVAL_SUCCESS_COUNT" && variableName != "INTERVAL_TOTAL_COUNT" && variableName != "TARGET_NAME"
+&& variableName != "NATIVE_PROVIDER_ERROR" && variableName != "BUILDER_TYPE">, {
+"templateKey": "contextCondition",
+"parameters":[
+{
+"templateKey": "conditionVariable",
+"values": ["predefined"]
+},
+{
+"templateKey": "conditionOperator",
+"values":["${condition.property[1].@name}"]
+},
+{
+"templateKey": "conditionDataType",
+"values":["${condition["D: property[@name='variable']"]}"]
+},
+{
+"templateKey": "conditionValue",
+"values":["${condition.property[1]}"]
+}
+]
+}
+<#else>
+${LogException(variableName)
+}
+</#if>
+</#if>

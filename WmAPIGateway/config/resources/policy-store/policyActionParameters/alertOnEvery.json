@@ -1,0 +1,19 @@
+{
+		"templateKey" : "alertOnEvery",
+		"names" : [
+		   {
+			 "value" : "Alert for every Violation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Alert for every Violation",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["true"]
+}

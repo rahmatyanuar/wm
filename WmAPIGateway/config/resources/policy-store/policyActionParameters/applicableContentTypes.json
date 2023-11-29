@@ -1,0 +1,18 @@
+{
+  "templateKey" : "applicableContentTypes",
+  "names" : [
+    {
+      "value" : "Applicable Content Types",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Content type for which this filter is applicable",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "true"
+}

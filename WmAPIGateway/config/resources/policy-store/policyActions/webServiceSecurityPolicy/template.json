@@ -1,0 +1,24 @@
+{
+ "templateKey" : "webServiceSecurityPolicy",
+ "names" : [
+   {
+     "value" : "Inbound Auth - Message",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Inbound Authentication policy to be applied to the API at SOAP Message level.",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : [ 
+	"bindingAssertion.json","requireEncryption","requireSignature","validateSAMLAudienceURI","tokenAssertion","requireTimestamps.json"
+ ],
+ "occurence" : "once",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "last"
+ },
+ "applicableServiceTypes" : ["SOAP"]
+}

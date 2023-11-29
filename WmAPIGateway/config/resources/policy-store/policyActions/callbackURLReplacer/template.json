@@ -1,0 +1,23 @@
+{
+    "templateKey": "callbackURLReplacer",
+    "names": [
+        {
+            "value": "Callback URL Replacer",
+            "locale": "en"
+        }
+    ],
+    "descriptions": [
+        {
+            "value": "Callback URL Replacer",
+            "locale": "en"
+        }
+    ],
+    "parameterTemplatesReference": [],
+	"occurence" : "once",
+	"applicableServiceTypes" : ["REST"],
+	"order" :  {
+		"sequence" : ["insequence"],
+		"orderPosition" : "beforeFirstOccurence",
+		"policyTemplateIDs":["straightThroughRouting","contextBasedRouting","dynamicRouting","contentBasedRouting","loadBalancerRouting"]
+	}
+}

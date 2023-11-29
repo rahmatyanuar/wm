@@ -1,0 +1,7 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#assign throttleResTransformation='com.softwareag.apigateway.core.migration.transformation.ThrottlePolicyAction1012To1011ResponseConvertor'?new()/>
+<#if doc.templateKey=="throttle">
+${throttleResTransformation([doc])}
+<#else>
+${printJsonPayload(doc)}
+</#if>

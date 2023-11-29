@@ -1,0 +1,39 @@
+{
+		"templateKey" : "isCustomFilterEnabled",
+		"names" : [
+		   {
+			 "value" : "Enable",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Enable Custom Filter",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["false"],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "false",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "false"
+					},
+					{
+						"names" : [
+						{
+							"value" : "true",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "true"
+					}
+		]
+}

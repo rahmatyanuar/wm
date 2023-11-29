@@ -1,0 +1,39 @@
+{
+		"templateKey" : "maskingType",
+		"names" : [
+		   {
+			 "value" : "Masking Type",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Masking Type",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["mask"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "Mask",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "mask"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Filter",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "filter"
+			}
+	]
+}

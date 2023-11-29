@@ -1,0 +1,18 @@
+{
+	"templateKey" : "httpHeaderName",
+	"names" : [
+	   {
+		 "value" : "Header Name",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Header Name to match content.",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"true",
+	"isArray" : "false"
+}

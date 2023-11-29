@@ -1,0 +1,41 @@
+{
+    "properties": {
+      "active": {
+        "type": "boolean"
+      },
+      "apiIds": {
+        "type": "keyword"
+      },
+      "deprecated": {
+        "type": "boolean"
+      },
+      "description": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "icon": {
+        "type": "text",
+        "index": false
+      },
+      "id": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "name": {
+        "type": "text",
+        "analyzer": "not_analyzed_ignorecase",
+        "fielddata" : true
+      },
+      "planIds": {
+        "type": "keyword"
+      },
+      "policyIds": {
+        "type": "keyword"
+      },
+      "version": {
+        "type": "keyword"
+      }
+    }
+}

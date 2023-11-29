@@ -1,0 +1,47 @@
+{
+	"templateKey": "eventTypes",
+	"names": [
+		{
+			"value": "Configure the event types to publish to the destination",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "Configure the event types to publish to the destination",
+			"locale": "en_US"
+		}
+	],
+	"type": "STRING",
+	"isArray": true,
+	"isRequired": false,
+	"possibleValues": [
+		{
+			"names": [
+				{
+					"value": "Error",
+					"locale": "en"
+				}
+			],
+			"value": "ERROR"
+		},
+		{
+			"names": [
+				{
+					"value": "Lifecycle",
+					"locale": "en"
+				}
+			],
+			"value": "LIFECYCLE"
+		},
+		{
+			"names": [
+				{
+					"value": "Policy violation",
+					"locale": "en"
+				}
+			],
+			"value": "POLICYVIOLATION"
+		}
+	]
+}

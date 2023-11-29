@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxNamespaceURILength",
+  "names" : [
+    {
+      "value" : "Maximum Namespace URI Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum length of the namespace uri",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

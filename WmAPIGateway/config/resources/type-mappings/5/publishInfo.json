@@ -1,0 +1,9 @@
+{
+  "publishInfo": {
+    "properties": {
+      "apiId": {
+        "type": "keyword"
+      }
+    }
+  }
+}

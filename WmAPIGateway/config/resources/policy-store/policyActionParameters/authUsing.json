@@ -1,0 +1,83 @@
+{
+				"templateKey" : "authMode",
+				"names" : [
+				   {
+					 "value" : "Authentication mode",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes how the transport headers should be sent to native service.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Custom credentials",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "NEW"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Incoming HTTP basic auth credentials",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "INCOMING_HTTP_BASIC_AUTH"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Delegate incoming credentials",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "DELEGATE_INCOMING"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Transparent",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "TRANSPARENT"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Incoming OAuth2 token",
+								"locale" : "en"
+							}
+						],
+						"value" :  "INCOMING_OAUTH_TOKEN"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Incoming Json web token",
+								"locale" : "en"
+							}
+						],
+						"value" :  "INCOMING_JWT"
+					},
+					{
+						"names" : [
+							{
+								"value" : "Incoming Kerberos credentials",
+								"locale" : "en"
+							}
+						],
+						"value" :  "INCOMING_KERBEROS"
+					}
+				]
+}

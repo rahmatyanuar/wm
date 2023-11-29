@@ -1,0 +1,75 @@
+{
+		"templateKey" : "operator",
+		"names" : [
+		   {
+			 "value" : "Operator",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Operator",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+    "defaultValues"  : [],
+    "possibleValues" : [
+					{
+						"names" : [
+						{
+							"value" : "<",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "<"
+					},
+					{
+						"names" : [
+						{
+							"value" : ">",
+							"locale" : "en"
+						} 
+						],
+						"value" :  ">"
+					},
+						{
+						"names" : [
+						{
+							"value" : "=",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "="
+					},
+					{
+						"names" : [
+						{
+							"value" : ">=",
+							"locale" : "en"
+						} 
+						],
+						"value" :  ">="
+					},
+						{
+						"names" : [
+						{
+							"value" : "<=",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "<="
+					},
+					{
+						"names" : [
+						{
+							"value" : "<>",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "<>"
+					}
+	]
+}

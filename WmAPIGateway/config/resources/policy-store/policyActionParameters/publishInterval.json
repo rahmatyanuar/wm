@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "publishInterval",
+		"names" : [
+		   {
+			 "value" : "Publish interval (minutes)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Publish interval (minutes)",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

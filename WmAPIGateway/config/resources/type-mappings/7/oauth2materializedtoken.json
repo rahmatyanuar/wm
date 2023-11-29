@@ -1,0 +1,113 @@
+{
+	"properties": {
+		"accessToken": {
+			"properties": {
+				"accessTokenId": {
+					"type": "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				},
+				"createdTime": {
+					"type": "long"
+				},
+				"expireTime": {
+					"type": "long"
+				},
+				"tokenId": {
+					"type": "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				}
+			}
+		},
+		"authCode": {
+			"type": "text"
+		},
+		"clientId": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"description": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"grantType": {
+			"type": "text"
+		},
+		"host": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"id": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"key": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"name": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"names": {
+			"properties": {
+				"locale": {
+					"type": "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				},
+				"value": {
+					"type": "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				}
+			}
+		},
+		"ownerId": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"refreshToken": {
+			"properties": {
+				"createdTime": {
+					"type": "long"
+				},
+				"lastRefreshedTime": {
+					"type": "long"
+				},
+				"refreshTokenId": {
+					"type": "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				},
+				"remainingRefreshes": {
+					"type": "long"
+				},
+				"tokenId": {
+					"type": "text",
+					"analyzer": "not_analyzed_ignorecase",
+					"fielddata": true
+				}
+			}
+		},
+		"tScopes": {
+			"type": "text"
+		},
+		"tokenId": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"tokenType": {
+			"type": "text"
+		}
+	}
+}

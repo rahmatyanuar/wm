@@ -1,0 +1,17 @@
+{
+ "templateKey" : "sqlInjectionFilter",
+ "names" : [
+   {
+     "value" : "SQL Injection Filter",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Filter for blocking request for SQL Injections",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "isStdSQLInjectionEnabled.json", "isDBSQLInjectionEnabled.json", "isSQLInjectionFilterEnabled.json", "SQLInjectionDBList.json", "SQLInjectionParameters.json","isPassedFromUI.json"]
+}                                                       

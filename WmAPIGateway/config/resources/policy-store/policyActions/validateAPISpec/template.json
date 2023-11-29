@@ -1,0 +1,23 @@
+{
+ "templateKey" : "validateAPISpec",
+ "names" : [
+   {
+     "value" : "Validate API Specification",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Validate API Specification is a policy action which validates the incoming requests & responses against schema, query parameters, path parameters and http headers based on the API specification",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" : ["schemaValidationFlag.json", "validateSchema", "validateQueryParams.json", "validatePathParams.json", "validateCookieParams.json", 
+	"validateContentTypes.json", "headersValidationFlag.json", "validateHTTPHeaders"],
+ "occurence" : "multiple",
+ "stageSpecific" : "true",
+ "applicableServiceTypes" : ["REST","SOAP","ODATA","GRAPHQL"],
+ "order" :  {
+   "sequence" : ["insequence","outsequence"]
+ }
+}

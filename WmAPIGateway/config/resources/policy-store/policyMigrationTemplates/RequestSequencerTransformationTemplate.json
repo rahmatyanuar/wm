@@ -1,0 +1,45 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse",
+"soap":"http://schemas.xmlsoap.org/wsdl/soap/",
+"soap12":"http://schemas.xmlsoap.org/wsdl/soap12/",
+"wsdl":"http://schemas.xmlsoap.org/wsdl/"}/>
+<#assign inSequence=doc.service.definition.inSequence/>
+<#assign base64Encode='com.softwareag.apigateway.core.migration.Base64Encoder'?new()/>
+<#assign actionSequencer='com.softwareag.apigateway.core.migration.PolicyActionSequencer'?new()/>
+<#assign resources=doc.service.resources/>
+<#assign count=0/>
+[
+<#assign transports=doc.service.@transports>
+<#if transports != "jms">
+<#include "EntryProtocolTemplate.json"/>,
+<#else>
+<#include "RequireJMS.json"/>
+</#if>
+<#assign actions=actionSequencer(inSequence)/>
+<#if actions?has_content>
+	<#list actions as action>
+		<#assign isActionRendered=0/>
+		<#if action?node_name == "xslt"> 
+			<#assign isActionRendered=1/>
+			<#assign count++/>
+			<#assign xsltElement=action/>
+			<#assign policyActionName="Request Transformation"/>
+			<#assign policyTemplateKey="requestTransformation"/>
+			<#assign configParamTemplateKey="requestTransformationConfiguration"/>
+			<#assign xsltDefaultDocumentName="RequestProcessingXSLT"/>
+			<#assign xsltDefaultDocumentExtension=".xsl"/>
+			<#assign xsltDocumentName=xsltDefaultDocumentName+"_"+count+xsltDefaultDocumentExtension/>
+			<#include "XSLTRequestResponseTransformationTemplate.json"/>
+		<#elseif action?node_name == "invokeESB">
+			<#assign isActionRendered=1/>
+			<#assign invokeESB=action/>
+			<#assign policyActionName="Request Invoke ESB"/>
+			<#assign policyTemplateKey="requestInvokeESB"/>
+			<#include "InokeESBTrasnformationTemplate.json"/>
+		</#if>
+		<#if isActionRendered==1>
+			<#sep>,</#sep>
+		</#if>
+	</#list>
+</#if>
+]

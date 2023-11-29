@@ -1,0 +1,18 @@
+{
+		"templateKey" : "applicationVersion",
+		"names" : [
+		   {
+			 "value" : "Application Version",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Application Version",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

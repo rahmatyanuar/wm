@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxAttributeNameLength",
+  "names" : [
+    {
+      "value" : "Maximum Attribute Name Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum length of the attribute name",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

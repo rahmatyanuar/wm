@@ -1,0 +1,225 @@
+<#assign consumerNameIDMapper='com.softwareag.apigateway.core.migration.ConsumerNameIDMapper'?new()/>
+<#assign IntervalUnitCalculator='com.softwareag.apigateway.core.migration.IntervalUnitCalculator'?new()/>
+<#assign IntervalCalculator='com.softwareag.apigateway.core.migration.IntervalCalculator'?new()/>
+<#assign destinations=MSLARoot.destinations/>
+{
+"names": [
+{
+"value": "Monitor Service Level Agreement",
+"locale": "en"
+}
+],
+"templateKey": "monitorSLA",
+"parameters": [
+{
+"templateKey": "alertInterval",
+"values": [
+"${IntervalCalculator(MSLARoot.alert.@interval)}"
+]
+},
+{
+"templateKey": "alertIntervalUnit",
+"values": [
+"${IntervalUnitCalculator(MSLARoot.alert.@interval)}"
+]
+},
+{
+"templateKey": "alertFrequency",
+"values": [
+"${MSLARoot.alert.@frequency}"
+]
+},
+{
+"templateKey": "alertMessage",
+"values": [
+<#assign message=MSLARoot.alert/>
+<#if (message[0]?length>0) >
+"${message[0]?json_string}"
+<#else>
+"Monitor alert notification message"
+</#if>
+]
+},
+{
+"templateKey": "consumerIds",
+"values": [
+<#list MSLARoot.consumers.name as name>
+"${consumerNameIDMapper(name)}"
+<#sep>, </#sep>
+</#list>
+]
+},
+{
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"GATEWAY"
+]
+}
+]
+}
+<#if destinations.localLog[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"localLog"
+]
+},
+{
+"templateKey": "logLevel",
+"values": [
+"${destinations.localLog.@level?cap_first}"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.apiPortal[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"APIPORTAL"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.smtp[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"SMTP"
+]
+},
+{
+"templateKey": "emailTo",
+"values": [
+<#list destinations.smtp.emailAddresses.emailAddress as emailAddress>
+"${emailAddress}"
+<#sep>, </#sep>
+</#list>
+]
+}
+]
+}
+</#if>
+
+<#if destinations.snmp[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"SNMP"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.eda[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"JDBC"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.eda[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"DES"
+]
+}
+]
+}
+</#if>
+
+
+<#if destinations.centrasite[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"CENTRASITE"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.localAudit[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"AUDILOG"
+]
+}
+]
+}
+</#if>
+
+<#if destinations.elasticsearch[0]??>, {
+"templateKey": "destination",
+"parameters": [
+{
+"templateKey": "destinationType",
+"values": [
+"ELASTICSEARCH"
+]
+}
+]
+}
+</#if>
+
+<#list MSLARoot.rules.rule as rule>, {
+"templateKey": "monitorRules",
+"parameters": [
+{
+"templateKey": "monitorRuleName",
+"values": [
+"${rule.@reading}"
+]
+},
+{
+"templateKey": "monitorRuleOperator",
+"values": [
+"${rule.@operator}"
+]
+},
+{
+"templateKey": "value",
+"values": [
+<#if rule.@reading=="availability" || rule.@reading=="avgResponseTime">
+"${rule}"
+<#else>
+"${rule?number?floor?c}"
+</#if>
+]
+}
+]
+}
+</#list>
+]
+}

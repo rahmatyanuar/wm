@@ -1,0 +1,21 @@
+{
+ "templateKey" : "dynRouteTo",
+ "names" : [
+   {
+     "value" : "Route To",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Encapsulates the parameters which will be used by API-Gateway for routing incoming requests to the native API.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"true",
+ "isArray" : "false",
+ "parameterTemplatesReference" : [ 
+	"dynEndpointUri.json","method.json","connectTimeout.json","readTimeout.json","sslConfig","soapOptimize.json","passSecurityHeaders.json"
+ ]	
+}

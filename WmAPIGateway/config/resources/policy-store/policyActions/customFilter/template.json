@@ -1,0 +1,17 @@
+{
+ "templateKey" : "customFilter",
+ "names" : [
+   {
+     "value" : "Custom Filter",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Custom Filter",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [ "isCustomFilterEnabled.json", "customServiceName.json", "runAsUser.json", "isPassedFromUI.json"]
+}                                                       

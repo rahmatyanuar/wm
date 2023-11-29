@@ -1,0 +1,42 @@
+{
+		"templateKey" : "soapVersion",
+		"names" : [
+		   {
+			 "value" : "SOAP version",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Supported SOAP Version.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : [
+			"soap"
+		],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "SOAP 1.1",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "soap"
+					},
+					{
+						"names" : [
+						{
+							"value" : "SOAP 1.2",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "soap12"
+					}
+		],
+		"applicableServiceTypes" : ["SOAP"]
+}

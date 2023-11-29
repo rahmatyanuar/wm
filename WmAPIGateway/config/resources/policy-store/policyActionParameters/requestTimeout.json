@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "requestTimeout",
+		"names" : [
+		   {
+			 "value" : "Request Timeout (milliseconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "The amount of time to wait (in milliseconds) for a request to complete before giving up and timing out. A value of 0 means infinity. Consider setting this if a harder guarantee is required on the maximum amount of time a request will take for non-streaming operations, and are willing to spin up a background thread to enforce it.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

@@ -1,0 +1,217 @@
+{
+	"configId": "cache",
+	"userName": null,
+	"internalPorts": {},
+	"properties": {
+		"gatewayCacheConfigList": [{
+				"cacheableType": ["gatewayentitytype",
+					"ACCESS_PROFILES"
+				],
+				"cacheSizeInPercent": 100,
+				"collectStatistics": false,
+				"autoScale": false,
+				"recordCount": 0,
+				"cacheName": "ACCESS_PROFILESCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"ALIAS"
+				],
+				"cacheSizeInPercent": 100,
+				"collectStatistics": false,
+				"autoScale": false,
+				"recordCount": 0,
+				"cacheName": "ALIASCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"APIS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "APISCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"APPLICATIONS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "APPLICATIONSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"ASSERTIONS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "ASSERTIONSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"CONFIGURATIONS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "CONFIGURATIONSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"GROUPS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "GROUPSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"IS_PACKAGES"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "IS_PACKAGESCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"KERBEROS_SETTINGS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "KERBEROS_SETTINGSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"KEY_STORE"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "KEY_STORECache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"OUTBOUNDPROXY_SETTINGS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "OUTBOUNDPROXY_SETTINGSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"PASSMAN_STORE"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "PASSMAN_STORECache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"POLICIES"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "POLICIESCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"POLICY_ACTIONS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "POLICY_ACTIONSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"PROMOTION"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "PROMOTIONCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"REGISTERED_APPLICATIONS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "REGISTERED_APPLICATIONSCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"ROLLBACK"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "ROLLBACKCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"SEARCH_QUERY"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "SEARCH_QUERYCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"STAGES"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "STAGESCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"TRUST_STORE"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "TRUST_STORECache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"URL_ALIASES"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "URL_ALIASESCache"
+			}, {
+				"cacheableType": ["gatewayentitytype",
+					"USERS"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "USERSCache"
+			},
+			{
+				"cacheableType": ["gatewayentitytype",
+					"PUBLISH_INFO"
+				],
+				"cacheSizeInPercent": 60,
+				"collectStatistics": false,
+				"autoScale": true,
+				"recordCount": 0,
+				"cacheName": "PUBLISH_INFOCache"
+			}
+		]
+	}
+}

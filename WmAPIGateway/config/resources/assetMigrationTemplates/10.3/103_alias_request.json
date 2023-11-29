@@ -1,0 +1,8 @@
+<#assign aliasHandler='com.softwareag.apigateway.core.migration.transformation.alias.Alias102to103Transformation'?new()/>
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#assign type=doc.type/>
+<#if type=="thirdPartyOAuth2Alias" || type=="openIDProviderAlias">
+${aliasHandler([doc,utilityProvider])}
+<#else>
+${printJsonPayload(doc)}
+</#if>

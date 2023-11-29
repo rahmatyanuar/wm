@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.app.jdbc.JDBCBasicData">
+    <value name="alias">APIGateway</value>
+    <null name="connPoolAlias"/>
+    <value name="autoCommit">false</value>
+    <value name="cache">false</value>
+    <number name="isolationLevel" type="java.lang.Integer">-1</number>
+    <value name="description">APIGateway events</value>
+    <value name="failFastMode">false</value>
+  </record>
+</IDataXMLCoder>

@@ -1,0 +1,18 @@
+{
+  "templateKey": "shouldExecuteOutboundAuthPolicy",
+  "names": [
+    {
+      "value": "Execute outbound authentication policy",
+      "locale": "en"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "",
+      "locale": "en"
+    }
+  ],
+  "type": "BOOLEAN",
+  "isRequired": "false",
+  "isArray": "false"
+}

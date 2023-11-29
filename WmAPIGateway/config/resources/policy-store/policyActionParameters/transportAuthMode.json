@@ -1,0 +1,50 @@
+{
+				"templateKey" : "transportAuthMode",
+				"names" : [
+				   {
+					 "value" : "Authentication Mode",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "This denotes how the transport headers should be sent to native service.",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false",
+				"defaultValues" : [
+				  "passIncoming"
+				],
+				"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "Pass Incoming HTTP Headers",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "passIncoming"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Remove Incoming HTTP Headers",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "removeIncoming"
+					},
+					{
+						"names" : [
+						{
+							"value" : "Choose Alias",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "alias"
+					}
+				]
+}

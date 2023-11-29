@@ -1,0 +1,24 @@
+{
+ "templateKey" : "mashupComposition",
+ "names" : [
+   {
+     "value" : "Mashup Composition action",
+	   "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+     "value" : "Holder for Mashup composition",
+	   "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [ "policyActionList.json"],
+ "occurence" : "multiple",
+ "order" :  {
+   "sequence" : ["insequence"],
+   "isCustomOrderSupported": true
+ },
+ "applicableServiceTypes" : ["REST","ODATA"],
+ "mutuallyExclusiveActions" : ["contextBasedRouting","dynamicRouting","contentBasedRouting","straightThroughRouting","jmsRouting","loadBalancerRouting"]
+}                                                       

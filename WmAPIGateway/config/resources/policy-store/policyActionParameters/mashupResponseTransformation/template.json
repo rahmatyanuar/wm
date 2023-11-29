@@ -1,0 +1,19 @@
+{
+ "templateKey" : "mashupResponseTransformation",
+ "names" : [
+   {
+     "value" : "Mashup Response Transformation",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"true",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["aggregateResponse.json","mashupResponseCustomPayload.json"]
+}

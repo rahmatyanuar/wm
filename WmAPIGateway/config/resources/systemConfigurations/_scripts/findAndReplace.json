@@ -1,0 +1,6 @@
+{
+  "script": {
+    "lang": "painless",
+    "source": "String replaceText(String field,String find, String replace){return field.replace(find,replace); } void replaceAllFields(def src, String find, String replace){ if(src.message != null) {src.message= replaceText(src.message,find,replace);} if(src.user != null){src.user= replaceText(src.user,find,replace);}if(src.sourceMachine != null){src.sourceMachine= replaceText(src.sourceMachine,find,replace);}if(src.clientIPAddress != null){src.clientIPAddress= replaceText(src.clientIPAddress,find,replace);}if(src.payload != null){src.payload= replaceText(src.payload,find,replace);}} replaceAllFields(ctx._source, params.find, params.replace);"
+  }
+}

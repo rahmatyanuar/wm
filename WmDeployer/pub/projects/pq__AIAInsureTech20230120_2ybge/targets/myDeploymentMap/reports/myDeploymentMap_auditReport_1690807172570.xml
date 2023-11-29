@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="deploySimulateRollback.xsl"?><Report projectType="Runtime" status="2" type="Deploy">
+<depCandidate>myDeployment</depCandidate>
+<depMapName>myDeploymentMap</depMapName>
+<buildName>myBuild.zip</buildName>
+<projectDescription/>
+<startTime>2023-07-31 19:39:32 ICT</startTime>
+<projectName>AIA_Insure_Tech_20230120</projectName>
+<user>Administrator</user>
+<messages>
+<message timeStamp="2023-07-31 19:39:32 ICT" type="ERROR">
+<messagebody>[DEP.0005.0243] Deployer did not deploy deployment set "myDeploymentSet" because it contains the following unsatisfied dependencies: "maxis.eai.system.restService.docType.fault:fault,&#13;
+maxis.eai.system.restService.wrapper:createHttpResponse,&#13;
+maxis.eai.system.restService.wrapper:validateRESTInput,&#13;
+maxis.eai.system.restService.docType.httpHeader:requestHeader,&#13;
+maxis.eai.system.restService.atomic:formaterHttpHeader,&#13;
+maxis.eai.system.microservice.wrapper:getMSToken,&#13;
+maxis.eai.process.tokenMgmt.atomic:retrieveMSToken,&#13;
+maxis.eai.system.util.wrapper:stateMgmtLogger,&#13;
+maxis.eai.system.config.atomic:getConfigInfo,&#13;
+ExternalUsers,&#13;
+maxis.eai.system.auth.wrapper:checkAuth,&#13;
+maxis.eai.system.config.atomic:processWSProperties,&#13;
+maxis.eai.system.util.atomic.log4j:writeEventLog"</messagebody>
+<attributes>
+<set mode="Deploy" name="myDeploymentSet" type="IS"/>
+<targetserver name="localhost1015"/>
+</attributes>
+</message>
+</messages>
+<endTime>2023-07-31 19:39:32 ICT</endTime>
+</Report>

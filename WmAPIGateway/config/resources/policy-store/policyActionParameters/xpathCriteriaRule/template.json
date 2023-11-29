@@ -1,0 +1,19 @@
+{
+	"templateKey" : "xpathCriteriaRule",
+	"names" : [
+		   {
+			 "value" : "XPath Expression",
+			 "locale" : "en"
+			}
+	],
+	"descriptions" : [
+		{
+		"value" : "XPath Expression",
+		"locale" : "en"
+		}
+	],
+	"type" : "OBJECT",
+	"isRequired" :"false",
+	"isArray" : "false",
+	"parameterTemplatesReference" : [ "expression.json","namespace"]
+}

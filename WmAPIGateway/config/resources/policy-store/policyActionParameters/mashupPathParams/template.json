@@ -1,0 +1,19 @@
+{
+ "templateKey" : "mashupPathParams",
+ "names" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Holder for path params",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : ["mashupPathParamName.json","mashupPathParamValue.json"]
+}

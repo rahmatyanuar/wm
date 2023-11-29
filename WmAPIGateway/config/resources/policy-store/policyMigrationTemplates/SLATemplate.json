@@ -1,0 +1,15 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign slaRoot=doc.service.definition.monitorPolicies.sla/>
+[
+		<#list slaRoot as sla>
+				<#if sla.enforcement[0]??>
+					<#assign throtllingRoot=sla/>
+					<#include "Throttling_Template.json"/>
+				<#else>
+					<#assign MSLARoot=sla/>
+					<#include "MSLA_Template.json"/>
+				</#if>
+				<#sep>,</#sep>
+		</#list>
+]

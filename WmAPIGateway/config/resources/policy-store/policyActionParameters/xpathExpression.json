@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "xpathExpression",
+		"names" : [
+		   {
+			 "value" : "XPath Expression",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "XPath Expression to be used to get the value for the variable from request or response.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "XPATH",
+		"isRequired" :"true",
+		"isArray" : "false"
+ }

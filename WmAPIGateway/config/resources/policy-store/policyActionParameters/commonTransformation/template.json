@@ -1,0 +1,23 @@
+  {
+		"templateKey" : "commonTransformation",
+		"names" : [
+		   {
+			 "value" : "Header/Query/Path transformation",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Do you want to transform a trasnport header, query or path parameter?",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+	  	"applicableServiceTypes" : ["REST"],
+		"parameterTemplatesReference" : [ 
+			"addOrModify", "remove.json"
+		]	
+
+   }

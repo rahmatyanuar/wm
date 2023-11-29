@@ -1,0 +1,39 @@
+{
+		"templateKey" : "contextConditionOperator",
+		"names" : [
+		   {
+			 "value" : "Condition Operator",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Condition Operator",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["or"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "Or",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "or"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "And",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "and"
+			}			
+	]
+}

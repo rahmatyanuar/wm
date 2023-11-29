@@ -1,0 +1,89 @@
+<#ftl ns_prefixes={"xsl":"http://www.w3.org/1999/XSL/Transform",
+"D":"http://ws.apache.org/ns/synapse"}/>
+<#assign messageAuth=doc.service.definition.inSequence.message\-config/>
+{
+    "names": [
+      {
+        "value": "Outbound Authentication - Message",
+        "locale": "en"
+      }
+    ],
+    "templateKey": "outboundMessageAuthentication",
+    "parameters": [
+      {
+        "templateKey": "messageSecurity",
+        "parameters": [
+          {
+            "templateKey": "authType",
+            "values": [
+			<#if messageAuth.kerberos[0]??>
+				<#if messageAuth.kerberos.authentication.@mode[0]??>
+					<#if messageAuth.kerberos.authentication.@mode[0] == "alias">
+						"ALIAS"
+					<#else>
+						"KERBEROS"
+					</#if>
+				</#if>
+			</#if>
+            ]
+          },
+          {
+            "templateKey": "authMode",
+            "values": [
+			  <#if messageAuth.kerberos.authentication.@mode[0] == "incoming">
+				"INCOMING_HTTP_BASIC_AUTH"
+			  <#elseif messageAuth.kerberos.authentication.@mode[0] == "delegation">
+				"DELEGATE_INCOMING"
+			  <#else>
+				"NEW"
+			  </#if>
+            ]
+          }
+		   <#if messageAuth.kerberos.authentication.alias\-name[0]??>
+			,
+          {
+            "templateKey": "alias",
+            "values": [
+              "${r"${"}${messageAuth.kerberos.authentication.alias\-name}${r"}"}"
+            ]
+          }
+		  <#elseif messageAuth.kerberos[0]??>
+				,
+				{
+				"templateKey": "kerberosCredentials",
+				"parameters": [
+				 <#if messageAuth.kerberos.authentication.@mode != "incoming">
+					  {
+						"templateKey": "clientPrincipal",
+						"values": [
+						  "${messageAuth.kerberos.authentication.client\-principal?json_string}"
+						]
+					  },
+					  {
+						"templateKey": "clientPassword",
+						"values": [
+						  "${messageAuth.kerberos.authentication.client\-password}"
+						]
+					  },
+				  </#if>
+				  {
+					"templateKey": "servicePrincipal",
+					"values": [
+					  "${messageAuth.kerberos.authentication.service\-principal\-name?json_string}"
+					]
+				  },
+				  {
+					"templateKey": "servicePrincipalNameForm",
+					"values": [
+					  "${messageAuth.kerberos.authentication.service\-principal\-name\-form}"
+					]
+				  }
+				]
+				}
+		  </#if>
+		 
+        ]
+      }
+    ],
+    "active": false
+}

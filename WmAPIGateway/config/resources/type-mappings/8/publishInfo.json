@@ -1,0 +1,7 @@
+{
+    "properties": {
+      "apiId": {
+        "type": "keyword"
+      }
+    }
+}

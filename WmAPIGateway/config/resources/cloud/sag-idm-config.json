@@ -1,0 +1,14 @@
+{
+  "resource" : "apigateway",
+  "auth-server-url": "@AUTHSERVERURL@",
+  "ssl-required" : "external",
+  "cors-allowed-methods": "GET, HEAD, OPTIONS, PUT, DELETE",
+  "cors-allowed-headers": "Origin, Accept, X-Requested-With, Content-Type,Access-Control-Request-Method, Access-Control-Request-Headers , Sag-Idm-Tenant-Context",
+  "public-client" : false,
+  "enable-cors": true,
+  "use-resource-role-mappings": true,
+  "confidential-port": 443,
+  "credentials": {
+      "secret": "@SECRET@"
+  }
+}

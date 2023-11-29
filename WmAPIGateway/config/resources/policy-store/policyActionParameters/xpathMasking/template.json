@@ -1,0 +1,20 @@
+{
+		"templateKey" : "xpathMasking",
+		"names" : [
+		   {
+			 "value" : "XPath",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "xpath masking",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"applicableServiceTypes" : ["REST","SOAP","ODATA"],
+		"parameterTemplatesReference" :  ["maskingCriteria", "namespace"]		
+}

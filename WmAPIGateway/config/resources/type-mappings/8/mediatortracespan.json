@@ -1,0 +1,24 @@
+{
+  "properties": {
+    "correlationID": {
+      "type": "text",
+      "analyzer": "not_analyzed_ignorecase",
+      "fielddata": true
+    },
+    "inputs": {
+      "dynamic": false,
+      "type": "object"
+    },
+    "outputs": {
+      "dynamic": false,
+      "type": "object"
+    },
+    "configs": {
+      "dynamic": false,
+      "type": "object"
+    },
+    "startDate" : {
+      "type" : "long"
+    }
+  }
+}

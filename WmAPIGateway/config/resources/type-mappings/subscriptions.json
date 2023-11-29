@@ -1,0 +1,22 @@
+{
+  "subscriptions": {
+    "properties": {
+      "appIds": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "id": {
+        "type": "string",
+        "analyzer": "not_analyzed_ignorecase"
+      },
+      "packageId": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "planId": {
+        "type": "string",
+        "index": "not_analyzed"
+      }
+    }
+  }
+}

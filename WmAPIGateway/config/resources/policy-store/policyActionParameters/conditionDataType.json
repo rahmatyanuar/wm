@@ -1,0 +1,18 @@
+{
+	"templateKey" : "conditionDataType",
+	"names" : [
+	   {
+		 "value" : "Data Type",
+		 "locale" : "en"
+	   }
+	 ],
+	 "descriptions" : [
+	   {
+		 "value" : "Data Type",
+		 "locale" : "en"
+	   }
+	 ],
+	"type" : "STRING",
+	"isRequired" :"false",
+	"isArray" : "false"
+}

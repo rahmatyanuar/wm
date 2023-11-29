@@ -1,0 +1,19 @@
+{
+		"templateKey" : "routingConditionValue",
+		"names" : [
+		   {
+			 "value" : "Name",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Header Name",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}
+

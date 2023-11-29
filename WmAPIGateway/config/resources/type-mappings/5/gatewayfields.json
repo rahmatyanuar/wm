@@ -1,0 +1,118 @@
+{
+  "gatewayfields": {
+	"properties": {
+	  "isActive" :{
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "apiDescription": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "description": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "apiName": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "apiVersion": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "applicationID": {
+		"type" : "keyword"
+	  },
+	  "applicationId": {
+		"type" : "keyword"
+	  },
+	  "approversGroupId": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "id": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "name": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "names": {
+		"properties": {
+		  "locale": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		  },
+		  "value": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		  }
+		}
+	  },
+	  "policyScope": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+		"policyEnforcements": {
+			"properties": {
+				"enforcements": {
+					"properties": {
+						"enforcementObjectId": {
+							"type": "keyword"
+						}
+					}
+				},
+				"stageKey": {
+					"type": "keyword"
+				}
+			}
+		},
+		"key": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata": true
+		},
+		"configurationId": {
+			"type": "keyword"
+		},
+		"configId": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		},
+		"proxyAlias": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		},
+		"keyStoreName": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		},
+		"host": {
+			"type": "text",
+			"analyzer": "not_analyzed_ignorecase",
+			"fielddata" : true
+		},
+	  "microGatewayPoolName": {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  }
+	}
+  }
+}

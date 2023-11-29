@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "responseMetadataCacheSize",
+		"names" : [
+		   {
+			 "value" : "Response Metadata Cache Size",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Size of the response metadata cache, if it is enabled.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

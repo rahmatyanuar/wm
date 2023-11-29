@@ -1,0 +1,18 @@
+{
+		"templateKey" : "customServiceName",
+		"names" : [
+		   {
+			 "value" : "Invoke Service",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "IS Flow Service which adheres to the spec pub.security.enterpriseGateway:customFilterSpec",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

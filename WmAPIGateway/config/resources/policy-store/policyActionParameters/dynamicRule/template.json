@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "dynamicRule",
+		"names" : [
+		   {
+			 "value" : "Rule",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Rule to match request content",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+			"routingConditionKey.json", "routingConditionValue.json", "dynRouteTo"
+		]	
+
+   }

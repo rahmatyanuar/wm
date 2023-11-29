@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxNamespaceCountPerElement",
+  "names" : [
+    {
+      "value" : "Maximum Namespace Count Per Element",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum number of namespaces in an element",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

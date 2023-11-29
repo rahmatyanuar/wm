@@ -1,0 +1,22 @@
+{
+	"properties" : {
+	  "displayName" : {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "fileContent" : {
+		"type" : "text"
+	  },
+	  "fileName" : {
+		"type": "text",
+		"analyzer": "not_analyzed_ignorecase",
+		"fielddata" : true
+	  },
+	  "id" : {
+		  "type": "text",
+		  "analyzer": "not_analyzed_ignorecase",
+		  "fielddata" : true
+	  }
+	}
+}

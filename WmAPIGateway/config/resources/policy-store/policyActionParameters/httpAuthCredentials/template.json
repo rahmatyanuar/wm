@@ -1,0 +1,19 @@
+{
+		"templateKey" : "httpAuthCredentials",
+		"names" : [
+		   {
+			 "value" : "Http Authentication Details",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Specify the authentication credentials or the values for the selected authentication scheme and mode.",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"parameterTemplatesReference" :  [  "userName.json","password.json","domain.json"]
+}

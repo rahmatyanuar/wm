@@ -1,0 +1,13 @@
+<#assign printJsonPayload='com.softwareag.apigateway.core.migration.transformation.PrintJsonPayload'?new()/>
+<#assign policyActionHandler='com.softwareag.apigateway.core.migration.transformation.PolicyActionTemplateHelper'?new()/>
+<#assign policyActionHelperClassName='com.softwareag.apigateway.core.migration.transformation.PolicyAction103to102ResponseTransformation'/>
+<#if doc.templateKey == "evaluatePolicy">
+<#if !(parentPolicy??)>
+<#assign parentPolicy=""/>
+</#if>
+${policyActionHandler([doc,parentPolicy,policyActionHelperClassName,utilityProvider])}
+
+<#else>
+${printJsonPayload(doc)}
+</#if>
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+
+    <bean id="clusterManager" class="com.softwareag.pg.cluster.is.ISClusterManager">
+    </bean>
+
+    <bean id="gatewayCacheManager" class="com.softwareag.apigateway.is.cache.GatewayEhCacheManager">
+        <property name="gatewayCacheConfigBuilder" ref="gatewayEhCacheConfigBuilder"/>
+    </bean>
+
+    <bean id="distributedCacheManager" class="com.softwareag.apigateway.is.cache.GatewayDistributedCacheManager"
+          depends-on="cacheFactoryProvider,gatewayCacheManager">
+        <property name="distributedEhCacheConfigFilePath" value="resources/caching/SoftwareAG-IS-API-Gateway.xml"/>
+    </bean>
+
+    <!--  **************************** PG MEN CONIFIGURATION ********************************* -->
+
+    <!-- Bean definition for the Cluster Notifier -->
+    <bean id="apiGatewayCluster" class="com.softwareag.apigateway.core.cluster.notifier.ClusterCacheNotifier"
+          depends-on="PgMenSharedCacheManager" />
+
+    <!-- Bean definition for the Cluster Notifier Synchronization -->
+    <bean id="apiGatewayClusterSync" class="com.softwareag.apigateway.core.cluster.notifier.ClusterNotifierSynchronizer"/>
+
+
+    <!-- Bean definition for the CacheFactoryProvider -->
+    <bean class="com.softwareag.pg.pgmen.cache.CacheFactoryProvider" name="cacheFactoryProvider" lazy-init="true" destroy-method="destroy">
+        
+        <!-- Ignite failure detection timeout, in millis -->
+        <property name="igniteFailureDetectionTimeout" value="30000"/>
+        
+        <!-- Ignite socket write timeout, in millis, recommended by Ignite to be large for potentially slow systems -->
+        <property name="igniteSocketTimeout" value="30000"/>
+        
+        <!-- Ignite ack timeout, in millis -->
+        <property name="igniteAckTimeout" value="30000"/>
+        
+        <!-- Ignite metrics log frequency in millis, 0 disables metrics log -->
+        <property name="igniteMetricsLogFrequency" value="300000"/>
+        
+        <!-- Ignite metrics update frequency in millis -->
+        <property name="igniteMetricsUpdateFrequency" value="30000"/>
+        
+        <!-- Ignite Discovery SPI statistics print frequency in millis, 0 disables print -->
+        <property name="igniteStatisticsPrintFrequency" value="0"/>
+    </bean>
+
+    <bean id="PgMenSharedCacheManager" class="com.softwareag.pg.pgmen.cache.CacheManager"
+          depends-on="clusterManager,distributedCacheManager" factory-method="instance"
+          init-method="init" destroy-method="destroy">
+
+        <!-- how long do we wait on lock timeouts. Value is in seconds -->
+        <property name="lockTimeOut" value="5"/>
+        <!-- how many times do we retry to obtain locks for macCache entries -->
+        <property name="retryCount" value="1"/>
+    </bean>
+
+</beans>

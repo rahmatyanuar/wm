@@ -1,0 +1,58 @@
+{
+		"templateKey" : "alertType",
+		"names" : [
+		   {
+			 "value" : "Alert Type",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Alert Type",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["None"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "None",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "None"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Email",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "Email"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Flow Service",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "flowService"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Email & Flow Service",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "Email,flowService"
+			}				
+			
+	]
+}

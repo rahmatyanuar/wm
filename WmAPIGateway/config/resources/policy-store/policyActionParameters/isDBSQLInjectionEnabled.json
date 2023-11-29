@@ -1,0 +1,39 @@
+{
+		"templateKey" : "isDBSQLInjectionEnabled",
+		"names" : [
+		   {
+			 "value" : "Database-Specific SQL Injection Protection",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Select check box to specify database and parameters",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "BOOLEAN",
+		"isRequired" :"false",
+		"isArray" : "false",
+		"defaultValues" : ["false"],
+		"possibleValues" :[
+					{
+						"names" : [
+						{
+							"value" : "false",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "false"
+					},
+					{
+						"names" : [
+						{
+							"value" : "true",
+							"locale" : "en"
+						} 
+						],
+						"value" :  "true"
+					}
+		]
+}

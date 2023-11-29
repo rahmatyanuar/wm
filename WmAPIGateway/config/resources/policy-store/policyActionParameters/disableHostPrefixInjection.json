@@ -1,0 +1,38 @@
+{
+  "templateKey": "disableHostPrefixInjection",
+  "names": [
+    {
+      "value": "Disable Host Prefix Injection",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Configuration option to disable the host prefix injection.",
+      "locale": "en_US"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "possibleValues" :[
+	{
+		"names" : [
+			{
+				"value" : "True",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "true"
+	},
+	{
+		"names" : [
+			{
+				"value" : "False",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "false"
+	}
+  ]
+}

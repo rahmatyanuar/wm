@@ -1,0 +1,38 @@
+{
+  "templateKey": "cacheResponseMetadata",
+  "names": [
+    {
+      "value": "Cache Response Metadata",
+      "locale": "en_US"
+    }
+  ],
+  "descriptions": [
+    {
+      "value": "Specifies whether to cache response metadata.",
+      "locale": "en_US"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false",
+  "possibleValues" :[
+	{
+		"names" : [
+			{
+				"value" : "True",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "true"
+	},
+	{
+		"names" : [
+			{
+				"value" : "False",
+				"locale" : "en"
+			} 
+		],
+		"value" :  "false"
+	}
+  ]
+}

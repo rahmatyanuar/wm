@@ -1,0 +1,155 @@
+{
+	"templateKey": "auditLogData",
+	"names": [
+		{
+			"value": "Configure the audit log settings",
+			"locale": "en_US"
+		}
+	],
+	"descriptions": [
+		{
+			"value": "Configure the audit log settings",
+			"locale": "en_US"
+		}
+	],
+	"type": "STRING",
+	"isArray": true,
+	"isRequired": false,
+	"possibleValues": [
+		{
+			"names": [
+				{
+					"value": "API Management",
+					"locale": "en"
+				}
+			],
+			"value": "APIMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Application Management",
+					"locale": "en"
+				}
+			],
+			"value": "APPLICATIONMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Team Management",
+					"locale": "en"
+				}
+			],
+			"value": "TEAMMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Group Management",
+					"locale": "en"
+				}
+			],
+			"value": "GROUPMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Package Management",
+					"locale": "en"
+				}
+			],
+			"value": "PACKAGEMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Promotion Management",
+					"locale": "en"
+				}
+			],
+			"value": "PROMOTIONMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Approval Management",
+					"locale": "en"
+				}
+			],
+			"value": "APPROVALMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Alias Management",
+					"locale": "en"
+				}
+			],
+			"value": "ALIASMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Analytics Management",
+					"locale": "en"
+				}
+			],
+			"value": "ANALYTICSMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Policy Management",
+					"locale": "en"
+				}
+			],
+			"value": "POLICYMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Plan Management",
+					"locale": "en"
+				}
+			],
+			"value": "PLANMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "User Management",
+					"locale": "en"
+				}
+			],
+			"value": "USERMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Administration Management",
+					"locale": "en"
+				}
+			],
+			"value": "ADMINISTRATIONMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Access Control List Management",
+					"locale": "en"
+				}
+			],
+			"value": "ACCESSCONTROLLISTMANAGEMENT"
+		},
+		{
+			"names": [
+				{
+					"value": "Rule Management",
+					"locale": "en"
+				}
+			],
+			"value": "RULEMANAGEMENT"
+		}
+	]
+}

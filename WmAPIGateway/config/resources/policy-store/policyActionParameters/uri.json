@@ -1,0 +1,18 @@
+{
+				"templateKey" : "uri",
+				"names" : [
+				   {
+					 "value" : "Namespace URI",
+					 "locale" : "en"
+				   }
+				 ],
+				"descriptions" : [
+				   {
+					 "value" : "Namespace URI",
+					 "locale" : "en"
+				   }
+				 ],
+				"type" : "STRING",
+				"isRequired" :"false",
+				"isArray" : "false"
+}

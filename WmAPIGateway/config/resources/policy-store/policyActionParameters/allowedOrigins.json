@@ -1,0 +1,18 @@
+{
+  "templateKey" : "allowedOrigins",
+  "names" : [
+    {
+      "value" : "Allowed Origins",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "List of allowed origins",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "true"
+}

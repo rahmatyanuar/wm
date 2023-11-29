@@ -1,0 +1,19 @@
+{
+ "templateKey" : "customErrorVariable",
+ "names" : [
+   {
+     "value" : "Custom Error Variables",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Custom Error Variables to be tokenized.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "true",
+ "parameterTemplatesReference" : [ "payloadType.json","customErrorVariableName.json","payloadIdentifier"]
+}

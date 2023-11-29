@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-init-method="init"
+       default-destroy-method="shutdown">
+
+  <bean id="contentFactory" class="com.softwareag.apigateway.runtime.provider.content.type.factory.ContentFactory"/>
+  <bean id="runtimePolicyEnforcer" class="com.softwareag.apigateway.runtime.provider.policy.RuntimePolicyEnforcer"/>
+  <bean id="runtimePolicyManager" class="com.softwareag.apigateway.runtime.provider.policy.RuntimePolicyManager">
+	<property name="policyDelegatorProvider" ref="policyDelegatorProvider"/>
+	 <property name="policiesAndType">
+		 <map>
+			<entry key="basicAuthentication" value="synapse"/>
+			<entry key="straightThroughRouting" value="synapse"/>
+			<entry key="jmsRouting" value="synapse"/>
+			<entry key="jmsProperties" value="synapse"/>
+			<entry key="contentBasedRouting" value="synapse"/>
+			<entry key="contextBasedRouting" value="synapse"/>
+			<entry key="loadBalancerRouting" value="synapse"/>
+			<entry key="dynamicRouting" value="synapse"/>
+			<entry key="evaluatePolicy" value="synapse"/>
+			<entry key="entryProtocolPolicy" value="synapse"/>
+			<entry key="requireJMS" value="synapse"/>
+			<entry key="logInvocation" value="NoDelegator"/>
+			<entry key="requestInvokeESB" value="synapse"/>
+			<entry key="responseInvokeESB" value="synapse"/>
+			<entry key="requestTransformation" value="synapse"/>
+			<entry key="responseTransformation" value="synapse"/>
+			<entry key="conditionalErrorProcessing" value="synapse"/>
+			<entry key="authorizeUser" value="synapse"/>			
+			<entry key="customHttpHeaders" value="synapse"/>
+			<entry key="setMediaType" value="synapse"/>
+			<entry key="monitorServicePerformance" value="synapse"/>
+			<entry key="monitorSLA" value="synapse"/>
+			<entry key="throttle" value="synapse"/>
+			<entry key="validateAPISpec" value="synapse"/>
+			<entry key="webServiceSecurityPolicy" value="rampart"/>
+			<entry key="serviceResultCache" value="synapse"/>
+            <entry key="callbackURLReplacer" value="synapse"/>
+			 <entry key="inboundAuthTransport" value="synapse"/>
+
+		 </map>
+     </property>
+	</bean>
+
+	
+	<bean name="effectivePolicyEvaluatorFactory" class="com.softwareag.apigateway.runtime.provider.effectivepolicy.EffectivePolicyEvaluatorFactory"/>
+	<bean name="invokeESBMediatorFactory" class="com.softwareag.pg.mediators.InvokeESBMediatorFactory"/>
+    <bean name="xsltListMediatorFactory" class="com.softwareag.pg.mediators.factory.XSLTListMediatorFactory"/>
+    <bean name="xsltPolicyActionConvertor" class="com.softwareag.apigateway.runtime.provider.factory.convertors.XSLTTransformationPolicyActionConvertor"/>
+	<bean name="AndMediatorFactory" class="com.softwareag.pg.mediators.factory.routing.AndMediatorFactory" />
+	<bean name="OrMediatorFactory" class="com.softwareag.pg.mediators.factory.routing.OrMediatorFactory"/>
+	<bean name="amqpMediatorFactory" class="com.softwareag.pg.mediators.factory.AMQPRoutingMediatorFactory"/>
+	<bean name="messageContextReaderWriter" class="com.softwareag.pg.mediators.variables.GatewayMessageContextReaderWriterFactory"/>
+	<bean name="customDestinationMediatorFactory" class="com.softwareag.pg.mediators.factory.CustomDestinationMediatorFactory"/>
+	<bean name="IBulkheadProcessor" class="com.softwareag.apigateway.runtime.provider.policy.BulkheadProcessor"/>
+
+	<bean name="rampartDelegatorCreator" class="com.softwareag.apigateway.runtime.provider.policy.factory.RampartDelegatorCreator">
+		<property name="convertors">
+		 <map>
+			<entry key="wssUserNameToken">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.WSSUserNameTokenPolicyConvertor"/>
+			</entry>
+			<entry key="x509TokenAssertion">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.X509TokenPolicyConvertor"/>
+			</entry>
+			<entry key="requireEncryption">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.EncryptingPolicyConvertor"/>
+			</entry>
+			<entry key="requireSignature">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.SigningPolicyConvertor"/>
+			</entry>
+			<entry key="samlToken">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.SAMLTokenPolicyConverter"/>
+			</entry>
+			<entry key="customToken">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.CustomAssertionConvertor">
+				  <property name="store" ref="securityAssertionsStore"/>
+				</bean>
+			</entry>
+			<entry key="kerberosTokenAssertion">
+				<bean class="com.softwareag.apigateway.runtime.provider.policy.rampart.KerberosTokenConvertor"/>
+			</entry>
+		</map>	
+     </property>
+	 <property name="policyActionFactories">
+		<map>
+			<entry key="validateSAMLAudienceURI">
+				<bean class="com.softwareag.pg.mediators.factory.SAMLAudienceCheckerMediatorFactory"/>
+			</entry>					
+	    </map>
+     </property>	 
+     <property name="securityAssertionStore" ref="securityAssertionsStore"/>
+	</bean>
+	
+	<bean name="policyDelegatorProvider" id="policyDelegatorProvider" class="com.softwareag.apigateway.runtime.provider.policy.factory.PolicyDelegatorProvider">
+	<property name="delegators">
+		 <map>
+			<entry key="synapse">
+				<ref bean="synapseDelegatorCreator"/>
+			</entry>
+			<entry key="rampart">
+				<ref bean="rampartDelegatorCreator"/>
+			</entry>
+		</map>	
+     </property>
+    </bean>
+	
+  <bean id="synapseDelegatorCreator" class="com.softwareag.apigateway.runtime.provider.policy.factory.SynapseDelegatorCreator">
+    <property name="mediatorProvider" ref="mediatorFactoryManager"/>
+	
+	<property name="policyActionFactories">
+		<map>
+			<entry key="entryProtocolPolicy">
+				<bean class="com.softwareag.pg.mediators.factory.EntryProtocolPolicyFactory"/>
+			</entry>
+			<entry key="enableBulkhead">
+				<bean class="com.softwareag.pg.mediators.factory.EnableBulkheadPolicyFactory"/>
+			</entry>
+			<entry key="enableJmsORAmqp">
+				<bean class="com.softwareag.pg.mediators.factory.EnableJmsOrAmqpMediatorFactory"/>
+			</entry>
+			<entry key="amqpRouting">
+				<bean class="com.softwareag.pg.mediators.factory.AMQPRoutingMediatorFactory"/>
+			</entry>
+			<entry key="amqpProperties">
+				<bean class="com.softwareag.pg.mediators.factory.routing.AMQPPropertiesMediatorFactory"/>
+			</entry>
+			<entry key="requireJMS">
+				<bean class="com.softwareag.pg.mediators.factory.RequireJMSMediatorFactory"/>
+			</entry>
+			<entry key="setMediaType">
+				<bean class="com.softwareag.pg.mediators.factory.SetMediaTypeMediatorFactory"/>
+			</entry>
+            <entry key="requestInvokeESB">
+                <bean class="com.softwareag.pg.mediators.InvokeESBMediatorFactory"/>
+            </entry>
+            <entry key="responseInvokeESB">
+                <bean class="com.softwareag.pg.mediators.InvokeESBMediatorFactory"/>
+            </entry>
+            <entry key="requestTransformation">
+                <bean class="com.softwareag.pg.mediators.factory.TransformationMediatorFactory"/>
+            </entry>
+			<entry key="callbackURLReplacer">
+				<bean class="com.softwareag.pg.mediators.factory.APICallbackURLReplacerMediatorFactory"/>
+			</entry>
+            <entry key="responseTransformation">
+                <bean class="com.softwareag.pg.mediators.factory.TransformationMediatorFactory"/>
+            </entry>
+			<entry key="inboundAuthTransport">
+				<bean class="com.softwareag.pg.mediators.factory.TransportInboundMediatorFactory"/>
+			</entry>
+			<entry key="outboundTransportAuthentication">
+				<bean class="com.softwareag.pg.mediators.factory.OutboundTransportSecurityFactory"/>
+			</entry>
+			<entry key="outboundMessageAuthentication">
+				<bean class="com.softwareag.pg.mediators.factory.OutboundMessageSecurityFactory"/>
+			</entry>				
+			<entry key="validateHTTPHeaders">
+				<bean class="com.softwareag.pg.mediators.factory.ValidateHTTPHeaderMediatorFactory"/>
+			</entry>
+			<entry key="urlRewriterPolicy">
+				<bean class="com.softwareag.pg.mediators.factory.URLRewriteMediatorFactory"/>
+			</entry>
+			<entry key="requestDataMasking">
+				<bean class="com.softwareag.pg.mediators.DataMaskingMediatorFactory"/>
+			</entry>
+			<entry key="responseDataMasking">
+				<bean class="com.softwareag.pg.mediators.DataMaskingMediatorFactory"/>
+			</entry>
+			<entry key="faultDataMasking">
+				<bean class="com.softwareag.pg.mediators.DataMaskingMediatorFactory"/>
+			</entry>
+			<entry key="cors">
+				<bean class="com.softwareag.pg.mediators.factory.CORSMediatorFactory"/>
+			</entry>
+			<entry key="mashupRouting">
+				<bean class="com.softwareag.pg.mediators.factory.MashupSendMediatorFactory"/>
+			</entry>
+			<entry key="mashupAggregator">
+				<bean class="com.softwareag.pg.mediators.factory.MashupAggregatorMediatorFactory"/>
+			</entry>
+			<entry key="mashupComposition">
+				<bean class="com.softwareag.pg.mediators.factory.MashupCompositeMediatorFactory"/>
+			</entry>
+			<entry key="customPolicy">
+				<bean class="com.softwareag.pg.mediators.factory.CustomExtensionMediatorFactory"/>
+			</entry>
+			<entry key="customDestination">
+				<bean class="com.softwareag.pg.mediators.factory.CustomDestinationMediatorFactory"/>
+			</entry>
+		</map>
+    </property>
+	
+	<property name="omelementConvertorManager" ref="omElementConvertorManager"/>
+	
+  </bean>
+  
+  <bean name="mediatorFactoryManager,mediatorProvider" class="com.softwareag.pg.mediators.factory.MediatorFactoryManager">
+    <property name="factories">
+        <set>
+		    <bean class="com.softwareag.pg.mediators.factory.EnforcePolicyMediatorFactory"/>
+			<bean class="com.softwareag.pg.config.PGSendMediatorFactory">
+				<property name="pgEndpointFactory" ref="pgEndpointFactory"/>
+			</bean>
+			<bean class="com.softwareag.pg.mediators.factory.JMSRoutingMediatorFactory">
+				<property name="pgEndpointFactory" ref="pgEndpointFactory"/>
+			</bean>
+			<bean class="com.softwareag.pg.mediators.factory.XSLTListMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.XSLTMediatorRuntimeFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.PgFaultMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.FaultCriteriaAllMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.AuthorizationMediatorFactory"/>			
+			<bean class="com.softwareag.pg.mediators.factory.HTTPHeadersMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.JMSPropertiesMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.AndMediatorFactory" />
+			<bean class="com.softwareag.pg.mediators.factory.routing.OrMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.RuleMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.ContextMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.ContentMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.DynamicRoutingMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.ConditionMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.routing.DynamicRoutingConditionMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.PgMenSlaPolicyMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.PgMenMonitorPolicyMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.ValidateAPISpecMediatorFactory"/>
+			<bean class="com.softwareag.pg.mediators.factory.CacheServiceResultMediatorFactory"/>
+
+        </set>
+    </property>
+  </bean>
+  
+  <bean id="omElementConvertorManager" class="com.softwareag.apigateway.runtime.provider.factory.convertors.OMElementConvertorManager">
+  	<property name="convertors">
+		<map>
+			<entry key="evaluatePolicy">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.IAMPolicyActionConvertor"/>
+			</entry>
+			<entry key="straightThroughRouting">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.RoutingActionConvertor"/>
+			</entry>
+			<entry key="jmsRouting">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.routing.JMSRoutingActionConvertor"/>
+			</entry>
+			<entry key="jmsProperties">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.JMSPropertiesPolicyActionConveter"/>
+			</entry>
+			<entry key="contentBasedRouting">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.routing.ContentBasedRoutingActionConvertor"/>
+			</entry>
+			<entry key="loadBalancerRouting">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.routing.LoadBalancerRoutingActionConvertor"/>
+			</entry>
+			<entry key="dynamicRouting">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.routing.DynamicRoutingActionConvertor"/>
+			</entry>
+			<entry key="contextBasedRouting">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.routing.ContextBasedRoutingActionConvertor"/>
+			</entry>		
+			<entry key="invokeESBParam">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.InvokeESBPolicyParamConvertor"/>
+			</entry>
+			<entry key="xsltTransformation">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.XSLTTransformationPolicyActionConvertor"/>
+			</entry>
+            <entry key="payloadTransformation">
+                <bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.XSLTTransformationPolicyActionConvertor"/>
+            </entry>
+			<entry key="conditionalErrorProcessing">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.errorProcessing.ConditionalErrorProcessingOMElementConvertor"/>
+			</entry>
+			<entry key="faultCriteria">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.errorProcessing.FaultCriteriaOMElementConvertor"/>
+			</entry>
+			<entry key="customErrorVariable">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.errorProcessing.CustomVariableOMElementConvertor"/>
+			</entry>
+			<entry key="customFailureMessages">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.errorProcessing.FaultElementOMElementConvertor"/>
+			</entry>
+			<entry key="authorizeUser">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.AuthorizeUserPolicyActionConvertor"/>
+			</entry>
+			<entry key="customHttpHeaders">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.HTTPHeadersPolicyActionConveter"/>
+			</entry>
+			<entry key="monitorServicePerformance">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.MonitorServicePerformanceConvertor"/>
+			</entry>
+			<entry key="monitorSLA">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.MonitorSLAConvertor"/>
+			</entry>
+			<entry key="throttle">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.ThrottlePolicyActionConvertor"/>
+			</entry>
+			<entry key="validateAPISpec">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.ValidateAPISpecPolicyActionConvertor"/>
+			</entry>
+			<entry key="serviceResultCache">
+				<bean class="com.softwareag.apigateway.runtime.provider.factory.convertors.ServiceResultCacheConvertor"/>
+			</entry>
+	    </map>
+    </property>
+  </bean>
+  
+  
+  <bean id="policySequenceFactory" class="com.softwareag.apigateway.runtime.provider.policy.PolicySequenceFactory">
+  <property name="sequenceAndStages">
+   	<map>
+		<entry key="insequence">
+				<list>
+					<value>transport</value>
+					<value>IAM</value>
+					<value>LMT</value>
+					<value>requestPayloadProcessing</value>
+					<value>routing</value>
+					
+				</list>
+		</entry>
+		
+		<entry key="outsequence">
+				<list>
+					<value>responseProcessing</value>
+					<value>urlRewriterProcessing</value>
+				</list>
+		</entry>
+		<entry key="faultsequence">
+				<list>
+					<value>responseFaultProcessing</value>
+				</list>
+		</entry>
+	 </map>
+  </property>
+  </bean>
+  
+  <bean id="runtimeServiceProvider" class="com.softwareag.apigateway.runtime.provider.manager.APIDeploymentManager" depends-on="policyDelegatorProvider">
+  	<property name="serviceManagers">
+  	 <map>
+  	   <entry key="REST"><ref bean="restServiceManager"/></entry> 
+	   <entry key="SOAP"><ref bean="pgServiceManager"/></entry>
+	   <entry key="OData"><ref bean="oDataServiceManager"/></entry>  
+	   <entry key="WebSocket"><ref bean="webSocketServiceManager"/></entry>
+		 <entry key="GraphQL"><ref bean="graphqlServiceManager"/></entry>
+	 </map>
+  	</property>
+  </bean>
+
+	<bean id="packageDeploymentManager" class="com.softwareag.apigateway.runtime.provider.manager.PackageDeploymentManager" depends-on="policyDelegatorProvider">
+		<property name="serviceManagers">
+			<map>
+				<entry key="REST"><ref bean="restServiceManager"/></entry>
+				<entry key="SOAP"><ref bean="pgServiceManager"/></entry>
+				<entry key="OData"><ref bean="oDataServiceManager"/></entry>  
+				<entry key="WebSocket"><ref bean="webSocketServiceManager"/></entry>
+			</map>
+		</property>
+	</bean>
+
+  <bean id="restServiceManager" class="com.softwareag.apigateway.runtime.provider.service.rest.RestServiceManager">
+	     <!--TODO Read the directive from the properties-->
+	    <property name="serviceFinder" ref="restServiceFinder"/>
+		<property name="isAssetManager" ref="isAssetManager"/>
+ </bean>
+ 
+   <bean id="pgServiceManager" class="com.softwareag.apigateway.runtime.provider.service.soap.PGServiceManager">
+	     <!--TODO Read the directive from the properties-->
+	    <property name="serviceFinder" ref="restServiceFinder"/>
+  </bean>
+    
+  <bean id="oDataServiceManager" class="com.softwareag.apigateway.runtime.provider.service.odata.ODataServiceManager">
+	    <property name="serviceFinder" ref="restServiceFinder"/>
+ </bean>  
+  
+  <bean id="webSocketServiceManager" class="com.softwareag.apigateway.runtime.provider.service.websocket.WebSocketServiceManager">
+  </bean>
+
+	<bean id="graphqlServiceManager" class="com.softwareag.apigateway.runtime.provider.service.graphql.GraphQLServiceManager">
+		<property name="serviceFinder" ref="graphqlServiceFinder"/>
+	</bean>
+
+  <bean id="restServiceFactory" class="com.softwareag.apigateway.runtime.provider.service.rest.RestServiceFactory"/>
+	<bean id="graphqlServiceFactory" class="com.softwareag.apigateway.runtime.provider.service.graphql.GraphQLServiceFactory"/>
+	<bean id="webSocketServiceFactory" class="com.softwareag.apigateway.runtime.provider.service.websocket.WebSocketServiceFactory"/>
+  
+  <bean id="rampartDeploymentHandler" class="com.softwareag.apigateway.runtime.provider.handlers.RampartDeploymentHandler">
+          <property name="rampartConfiguration">
+            <value>
+                <![CDATA[
+            <ramp:RampartConfig xmlns:ramp="http://ws.apache.org/rampart/policy">
+                <ramp:kerberosConfig>
+					<ramp:jaasContext>${pg.jaasContextName}</ramp:jaasContext>
+				</ramp:kerberosConfig>
+				
+                <!-- username of UsernameToken to be used  -->
+                <ramp:user>$(pg.RampartDeploymentConfigurator.usernameTokenUser)</ramp:user>
+                <!-- alias of the key to be used to sign -->
+                <ramp:userCertAlias>$(pg.RampartDeploymentConfigurator.signingCertAlias)</ramp:userCertAlias>
+				<ramp:timestampTTL>$(pg.RampartDeploymentConfigurator.responseTimeToLive)</ramp:timestampTTL>
+                <ramp:passwordCallbackClass>com.softwareag.pg.security.ISPGPWCallback</ramp:passwordCallbackClass>
+                <ramp:policyValidatorCbClass>com.wm.app.b2b.server.wss.ISPolicyValidatorCallback</ramp:policyValidatorCbClass>
+                <ramp:encryptionUser>useReqSigCert</ramp:encryptionUser>
+                <ramp:signatureCrypto>
+                    <ramp:crypto provider="org.apache.ws.security.components.crypto.Merlin">
+                        <ramp:property name="org.apache.ws.security.crypto.merlin.keystore.type">$(pg.RampartDeploymentConfigurator.keystoreType)</ramp:property>
+                        <ramp:property name="org.apache.ws.security.crypto.merlin.file">$(pg.RampartDeploymentConfigurator.keystoreFile)</ramp:property>
+                        <ramp:property name="org.apache.ws.security.crypto.merlin.keystore.password">$(pg.RampartDeploymentConfigurator.keystorePassword)</ramp:property>
+						<ramp:property name="org.apache.ws.security.crypto.merlin.truststore.type">$(pg.RampartDeploymentConfigurator.truststoreType)</ramp:property>
+						<ramp:property name="org.apache.ws.security.crypto.merlin.truststore.file">$(pg.RampartDeploymentConfigurator.truststoreFile)</ramp:property>
+						<ramp:property name="org.apache.ws.security.crypto.merlin.truststore.password">$(pg.RampartDeploymentConfigurator.truststorePassword)</ramp:property>
+                    </ramp:crypto>
+                </ramp:signatureCrypto>
+                <ramp:encryptionCrypto>
+                    <ramp:crypto provider="org.apache.ws.security.components.crypto.Merlin">
+                        <ramp:property name="org.apache.ws.security.crypto.merlin.keystore.type">$(pg.RampartDeploymentConfigurator.keystoreType)</ramp:property>
+                        <ramp:property name="org.apache.ws.security.crypto.merlin.file">$(pg.RampartDeploymentConfigurator.keystoreFile)</ramp:property>
+                        <ramp:property name="org.apache.ws.security.crypto.merlin.keystore.password">$(pg.RampartDeploymentConfigurator.keystorePassword)</ramp:property>
+						<ramp:property name="org.apache.ws.security.crypto.merlin.truststore.type">$(pg.RampartDeploymentConfigurator.truststoreType)</ramp:property>
+						<ramp:property name="org.apache.ws.security.crypto.merlin.truststore.file">$(pg.RampartDeploymentConfigurator.truststoreFile)</ramp:property>
+						<ramp:property name="org.apache.ws.security.crypto.merlin.truststore.password">$(pg.RampartDeploymentConfigurator.truststorePassword)</ramp:property>
+                    </ramp:crypto>
+                </ramp:encryptionCrypto>
+            </ramp:RampartConfig>
+                ]]>
+                </value>
+        </property>
+  
+  </bean>
+  
+  <bean id="securityAssertionsStore" class="com.softwareag.apigateway.runtime.provider.policy.rampart.SecurityAssertionsStore"/>
+  
+  <bean id="lmtPolicyActionListener" class="com.softwareag.apigateway.runtime.provider.handlers.LMTPolicyActionListener"/>
+  
+  <bean id="errorProcessingPolicyActionListener" class="com.softwareag.apigateway.runtime.provider.handlers.ConditionalErrorProcessingListener"/>
+  
+  <bean id="ContentHandlingManager" class="com.softwareag.pg.content.ContentHandlingManager">
+	<property name="contentTypeMap">
+        <map>
+			<entry key="application/json" value="JSON"/>
+			<entry key="application/json/badgerfish" value="JSON"/>
+			<entry key="text/xml" value="XML"/>
+			<entry key="text/html" value="XML"/>
+			<entry key="application/xml" value="XML"/>
+			<entry key="application/soap+xml" value="XML"/>
+            <entry key="text/plain" value="REGEX"/>
+		</map>
+	</property>
+	<property name="factoryMap">
+        <map>
+			<entry key="JSON">
+				<bean class="com.softwareag.pg.content.factory.BaseJSONContentHandlerFactory"/>
+			</entry>
+			<entry key="XML">
+				<bean class="com.softwareag.pg.content.factory.XMLContentHandlerFactory"/>
+			</entry>
+            <entry key="REGEX">
+                <bean class="com.softwareag.pg.content.factory.TextContentHandlerFactory"/>
+            </entry>
+		</map>
+    </property>
+  </bean>
+
+  <bean id="defaultPayloadIdentificationHandler" class="com.softwareag.pg.content.identification.DefaultPayloadIdentificationHandler"/>
+
+  <bean id="jsonPathHandler" class="com.softwareag.pg.content.identification.JSONPathHandler"/>
+
+  <bean id="textHandler" class="com.softwareag.pg.content.identification.TextHandler"/>
+
+  <bean id="serviceFactoryProvider" class="com.softwareag.apigateway.runtime.provider.service.manager.ServiceFactoryProvider"/>
+
+  <bean id="policyObjectProvider" class="com.softwareag.apigateway.runtime.provider.policy.GatewayPolicyObjectProvider"/>
+
+	<bean id="jsonSchemaValidator" class="com.softwareag.pg.content.validation.handlers.JSONSchemaValidator"/>
+
+	<bean id="defaultSchemaValidator" class="com.softwareag.pg.content.validation.handlers.DefaultSchemaValidator"/>
+
+	<bean id="transportValidator" class="com.softwareag.apigateway.runtime.provider.policy.TransportValidator"/>
+
+	<bean id="ValidateAPISpecPolicyActionListener" class="com.softwareag.apigateway.runtime.provider.handlers.ValidateAPISpecPolicyActionListener"/>
+
+</beans>

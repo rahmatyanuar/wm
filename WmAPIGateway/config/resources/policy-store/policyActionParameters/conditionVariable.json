@@ -1,0 +1,85 @@
+{
+		"templateKey" : "conditionVariable",
+		"names" : [
+		   {
+			 "value" : "Variable",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Variable",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"defaultValues" : ["Consumer"],
+		"possibleValues" :[
+			{
+				"names" : [
+				   {
+					"value" : "Consumer",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "Consumer"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Date",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "Date"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "IPV4",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "IPV4"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "IPV6",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "IPV6"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Predefined Context Variable",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "predefined"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Custom Context Variable",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "custom"
+			},
+			{
+				"names" : [
+				   {
+					"value" : "Time",
+					"locale" : "en"
+				   } 
+				],
+				"value" :  "Time"
+			}
+			
+	]
+}

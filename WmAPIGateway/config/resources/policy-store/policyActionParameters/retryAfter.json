@@ -1,0 +1,18 @@
+{
+  "templateKey" : "retryAfterHeader",
+  "names" : [
+    {
+      "value" : "Retry-After Value (in seconds)",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Retry after response header for approximate time the service will be unavailable",
+      "locale" : "en"
+    }
+  ],
+  "type" : "LONG",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

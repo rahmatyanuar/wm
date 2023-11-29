@@ -1,0 +1,19 @@
+{
+		"templateKey" : "validateSAMLAudienceURI",
+		"names" : [
+		   {
+			 "value" : "Validate SAML Audience URI",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Validate SAML Audience URI",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["allowedURI"]		
+}

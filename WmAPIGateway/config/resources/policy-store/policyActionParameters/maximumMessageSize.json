@@ -1,0 +1,18 @@
+{
+		"templateKey" : "maximumMessageSize",
+		"names" : [
+		   {
+			 "value" : "Maximum Message Size",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Maximum Message Size in MBs",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+}

@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "monitorRules",
+		"names" : [
+		   {
+			 "value" : "Action Configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Action configuration to send an alert to the user if conditions are violated",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "true",
+		"parameterTemplatesReference" : [ 
+			"monitorRuleName.json","monitorRuleOperator.json","value.json"
+		]	
+
+   }

@@ -1,0 +1,22 @@
+  {
+		"templateKey" : "requestTransformationConfiguration",
+		"names" : [
+		   {
+			 "value" : "Transformation Configuration",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Configuration to transform Header, query, path parameters, http method, payload",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"true",
+		"isArray" : "false",
+		"parameterTemplatesReference" : [ 
+				"commonTransformation", "soapHeaderTransformation", "methodTransformation", "payloadTransformation", "advancedTransformation"
+		]	
+
+   }

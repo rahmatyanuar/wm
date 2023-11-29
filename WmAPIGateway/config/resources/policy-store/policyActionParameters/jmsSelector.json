@@ -1,0 +1,18 @@
+   {
+		"templateKey" : "jmsSelector",
+		"names" : [
+		   {
+			 "value" : "Selector",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Selector expression",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "STRING",
+		"isRequired" :"false",
+		"isArray" : "true"
+  }

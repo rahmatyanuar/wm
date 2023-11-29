@@ -1,0 +1,19 @@
+{
+ "templateKey" : "awsLambda",
+ "names" : [
+   {
+     "value" : "AWS Lambda",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : ["functionName.json","invocationType.json","awsAlias.json","awsClientConfig"]
+}

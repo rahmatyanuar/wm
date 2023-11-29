@@ -1,0 +1,41 @@
+{
+	"templateKey" : "invocationType",
+	"names" : [
+	   {
+		 "value" : "Invocation Type",
+		 "locale" : "en"
+	   }
+	],
+	"descriptions" : [
+	   {
+		"value" : "Indicates the AWS Lambda Invocation Type",
+	   "locale" : "en"
+	   }
+	],
+	"type" : "STRING",
+	"isRequired" :"true",
+	"isArray" : "false",
+	"defaultValues" : [
+		  "RequestResponse"
+	],
+	"possibleValues" :[
+		{
+			"names" : [
+				{
+					"value" : "RequestResponse",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "RequestResponse"
+		},
+		{
+			"names" : [
+				{
+					"value" : "Event",
+					"locale" : "en"
+				} 
+			],
+			"value" :  "Event"
+		}
+	]
+}

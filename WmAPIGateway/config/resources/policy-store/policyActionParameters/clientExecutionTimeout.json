@@ -1,0 +1,18 @@
+  {
+		"templateKey" : "clientExecutionTimeout",
+		"names" : [
+		   {
+			 "value" : "Client Execution Timeout (milliseconds)",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "Client Execution Timeout (in milliseconds).",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "INT",
+		"isRequired" :"false",
+		"isArray" : "false"
+  }

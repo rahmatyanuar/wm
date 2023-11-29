@@ -1,0 +1,25 @@
+{
+ "templateKey" : "evaluatePolicy",
+ "names" : [
+   {
+     "value" : "Identify & Authorize",
+	 "locale" : "en"
+   }
+   
+ ],
+ "descriptions" : [
+   {
+    "value" : "",
+	 "locale" : "en"
+   }
+ ],
+ "parameterTemplatesReference" :  [  "logicalConnector.json","IdentificationRule","allowAnonymous.json"],
+  "occurence" : "once",
+  "order" :  {
+   "sequence" : ["insequence"],
+   "orderPosition" : "afterLastOccurence",
+   "policyTemplateIDs" : ["inboundAuthTransport"]
+ },
+ "canAppliedAtResourceMethodLevel" : true
+ 
+}

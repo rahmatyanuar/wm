@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxAge",
+  "names" : [
+    {
+      "value" : "Max Age",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Max Age to be set in the response header",
+      "locale" : "en"
+    }
+  ],
+  "type" : "STRING",
+  "isRequired" :"false",
+  "isArray" : "false"
+}

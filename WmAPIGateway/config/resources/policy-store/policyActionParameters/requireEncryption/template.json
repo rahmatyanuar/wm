@@ -1,0 +1,19 @@
+{
+		"templateKey" : "requireEncryption",
+		"names" : [
+		   {
+			 "value" : "Require Encryption",
+			 "locale" : "en"
+		   }
+		 ],
+		 "descriptions" : [
+		   {
+			 "value" : "This policy action requires encrypted XML element in the request to API gateway",
+			 "locale" : "en"
+		   }
+		 ],
+		"type" : "OBJECT",
+		"isRequired" :"false",
+		"isArray" : "true",
+		"parameterTemplatesReference" :  ["encryptedParts","encryptedElements"]		
+}

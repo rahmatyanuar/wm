@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2016-2018 Software AG, Darmstadt, Germany and/or Software AG USA Inc., Reston, VA, USA, and/or its subsidiaries and/or its affiliates and/or their licensors.
+  ~ Use, reproduction, transfer, publication or disclosure is prohibited except as specifically provided for in your License Agreement with Software AG.
+  -->
+
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="esDataMigrationHandler"
+          class="com.softwareag.apigateway.migration.handlers.ESDataStoreHandler">
+        <property name="handlerEnabled" value="true" />
+        <property name="version" value="all" />
+        <property name="gatewayIndicesList">
+            <list>
+                <value>gateway_{0}_analytics</value>
+                <value>gateway_{0}_cache</value>
+                <value>gateway_{0}_audit</value>
+                <value>gateway_{0}_log</value>
+            </list>
+        </property>
+		<property name="coreIndicesList">
+            <list>
+                <value>gateway_{0}</value>
+                <value>gateway_{0}_cache</value>
+            </list>
+        </property>
+		<property name="runtimeIndicesList">
+            <list>
+				<value>gateway_{0}</value>
+                <value>gateway_{0}_analytics</value>
+                <value>gateway_{0}_log</value>
+				<value>gateway_{0}_audit</value>
+            </list>
+        </property>
+        <property name="gatewayDefaultIndex" value="gateway_{0}" />
+        <property name="typesMap">
+            <map>
+                <entry key="gateway_{0}">
+                    <value>accesscontrollist,proxybypass,rule,webhooks,mediatortracespan,serverlogtracespans,requestresponsetracespans,approvalrequest,subscriptions,approvalconfiguration,accessProfiles,policyactions,users,applications,packages,apis,reversemaps,aliases,groups,policy,configurations,gatewayscopes,keystore,oauth2scopes,stages,publishInfo,promotions,registeredapplications,strategies,truststores,rollback,deploymentmap,portalgateways,documents,oauth2scopedata,passmanData,plans,assertion,outboundproxysettings,oauth2clientregistration,urlAliases,egpolicyindexlists,uipolicy,oauth2materializedtoken,oauth2accesstoken,oauth2token,oauth2refreshtoken,jmsConnectionAlias,WebserviceEndpointAlias,approver,jndiSettings,jmsTrigger,ISPackages,microGatewayRegistrationInfo,microGatewayAssets,searchQuery,migrationinfos,quotaAccumulator,kerberossettings,internalSettings</value>
+                </entry>
+                <entry key="gateway_{0}_analytics">
+                    <value>performanceMetrics,threatProtectionEvents,lifecycleEvents,errorEvents,transactionalEvents,policyViolationEvents,monitorEvents</value>
+                </entry>
+                <entry key="gateway_{0}_cache">
+                    <value>cachestatistics</value>
+                </entry>
+                <entry key="gateway_{0}_audit">
+                    <value>auditlogs</value>
+                </entry>
+            </map>
+        </property>
+        <property name = "typesFields">
+            <map>
+                <entry key = "apis">
+                    <value>id,apiDefinition,nativeEndpoint,apiGroupName,apiName,apiVersion,apiEndpointPrefix,apiDescription,apiIcon,maturityState,apiGroups,isActive,type,owner,policies,referencedFiles,rootFileName,oAuth2ScopeName,scopes,publishedPortals,publishedToRegistry,creationDate,lastModified,prevVersion,nextVersion,systemVersion,mockService,apiDocuments,gatewayEndpoints,provider</value>
+                </entry>
+                <entry key = "aliases">
+                    <value>id,name,description,type,stage,owner,value,endpointURI,endPointURI,connectionTimeout,readTimeout,suspendDurationOnFailure,optimizationTechnique,passSecurityHeaders,keystoreAlias,keyAlias,authType,authMode,wssCredentials,kerberosCredentials,samlIssuerConfig,signAndEncryptConfig,issuerCommunicationMode,issuerPolicy,issuerAuthScheme,issuerAuthMode,endpoint,samlVersion,wsTrustVersion,appliesTo,extendedParameters,signAndEncryptConfig,assertionId,httpAuthCredentials,oauth2Token,providerName,endpointDetails,authInfo,metadata,authServer,implNames,extendedValues,extendedValuesV2,scopeManagementESBService,issuer,authorizationEndpoint,tokenEndpoint,revocationEndpoint,userinfoEndpoint,jwksUri,openIDScopes,openIDResponseType,clientId,clientSecret,prompt,openIDGrantType,openIDDisplayValue,openIDTokenEndpointAutMode,minumumAcr,maxAge,redirectionEndpointHost,redirectionEndpointPort,uiLocales,acrValues,includeUserinfoClaims,trustStoreAlias,truststoreAlias,serviceName,runAsUser,complyToISSpec,fileName,content,heartBeatInterval,username,password,customHeaders,discoveryInfo,registrationInfo,deRegistrationInfo,serviceRegistryType,connectionTimeout,readTimeout,localIntrospectionConfig,remoteIntrospectionConfig,dcrEndpoint,tokenGeneratorConfig,sslConfig,metadata,authServerScopes,scopes,supportedGrantTypes,oauthTokens,authServerType,remoteISConfig,region,accessKeyId,secretAccessKey,generateCredentials,supportedApplicationTypes,url,packageName,folderName,importSwaggerBasedOnTags,enableMTOM,enforceWSICompliance,validateSchemaWithXerces,contentModelComplianceForWSDL,enforcePKCE</value>
+                </entry>
+                <entry key = "portalgateways">
+                    <value>id,gatewayName,gatewayDescription,gatewayUsername,gatewayPassword,gatewayURL,isPublished,refId,version,stageName,externalPortal.type,externalPortal.endpointTenant,externalPortal.endpointURL,externalPortal.endpointUsername,externalPortal.endpointPassword</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+	
+	<bean id="migrationExecutor" class="com.softwareag.apigateway.migration.core.MigrationExecutor" depends-on="esDataMigrationHandler"/>
+	
+</beans>

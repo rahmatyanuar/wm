@@ -1,0 +1,34 @@
+<#if doc.service.definition.inSequence.saml.audience\-check[0]??>
+<#assign audienceCheck=doc.service.definition.inSequence.saml.audience\-check/>
+,
+{
+"templateKey": "validateSAMLAudienceURI",
+"parameters": [
+  <#list audienceCheck.uri as uri>
+  {
+	"templateKey": "allowedURI",
+	"parameters": [
+	  {
+		"templateKey": "uri-src",
+		"values": [
+		  "${uri}"
+		]
+	  },
+	  {
+		"templateKey": "matchCriteria",
+		"values": [
+			<#if uri.@matchCriteria == "Exact">
+				"EXACT"
+			<#else>
+				"SUBLEVEL"
+			</#if>
+		]
+	  }
+	]
+  }
+  <#sep>,</#sep>
+  
+  </#list>
+]
+}
+</#if>

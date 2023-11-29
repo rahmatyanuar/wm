@@ -1,0 +1,19 @@
+{
+ "templateKey" : "preProcessingSteps",
+ "names" : [
+   {
+     "value" : "Pre-Processing",
+	 "locale" : "en"
+   }
+ ],
+ "descriptions" : [
+   {
+     "value" : "Configure this step if you want to invoke webMethods IS service to manipulate the response message or transform the response message using XSLT before the Error Messaging step is invoked.",
+	 "locale" : "en"
+   }
+ ],
+ "type" : "OBJECT",
+ "isRequired" :"false",
+ "isArray" : "false",
+ "parameterTemplatesReference" : [ "invokeESBParam","xsltTransformation"]
+}

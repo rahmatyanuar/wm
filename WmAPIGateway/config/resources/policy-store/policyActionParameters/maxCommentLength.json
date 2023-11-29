@@ -1,0 +1,18 @@
+{
+  "templateKey" : "maxCommentLength",
+  "names" : [
+    {
+      "value" : "Maximum Comment Length",
+      "locale" : "en"
+    }
+  ],
+  "descriptions" : [
+    {
+      "value" : "Maximum Comment Length",
+      "locale" : "en"
+    }
+  ],
+  "type" : "INT",
+  "isRequired" :"false",
+  "isArray" : "false"
+}
