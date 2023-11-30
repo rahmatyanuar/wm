@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Content Plug-in
-Bundle-SymbolicName: com.softwareag.doc.ide.eclipse.tn.tn.bis; singleton:=true
-Bundle-Version: 10.15.0.0000-0051
-Bundle-Vendor: Software AG

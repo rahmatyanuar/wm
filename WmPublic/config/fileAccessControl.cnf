@@ -1,3 +1,0 @@
-allowedWritePaths=
-allowedReadPaths=packages/WxPreUpgradeAnalyzer/pub/reports;
-allowedDeletePaths=packages/WxPreUpgradeAnalyzer/pub/reports;
